@@ -1,1 +1,69 @@
-Hello, world!
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Home</title>
+        <link rel="icon shortcut" href="./favicon.ico" type="image/x-icon" />
+        <meta name="description" content="Personal blog and homepage.">
+
+        <link rel="stylesheet" type="text/css" href="http://necolas.github.io/normalize.css/2.1.3/normalize.css" />
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <link rel="stylesheet" type="text/css" href="./css/default.css" />
+        <link rel="stylesheet" type="text/css" href="./css/syntax.css" />
+    </head>
+    <body>
+        <div id="header">
+            <!--
+            <div id="logo">
+                 <a href="/">Title</a>
+            </div>
+            -->
+            <div id="navigation">
+                <a href="./">HOME</a>
+                <a href="./work.html">MY WORK</a>
+                <!-- <a href="/archive.html">ARCHIVE</a> -->
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>Home</h1>
+
+            <p><img src="static/me.png" alt="photo" style="width: 100px; height: 100px; float: right; border-radius: 50%;" /></p>
+<p>My name is Anton Pirogov and this is my homepage.</p>
+<p>I have studied computer science and bioinformatics and completed my M.Sc. at the University of Lübeck and am currently pursuing a PhD at the RWTH Aachen University.</p>
+<p>I enjoy functional programming and other programming languages which broaden my horizon and extend my toolbox with new useful concepts and ideas. I am interested in methods to write clean, correct and robust software.</p>
+<p>I am also curious about discrete math, logic, automata, formal systems, type theory, category theory and other abstract but beautiful topics.</p>
+<p>In my free time I sometimes like to tinker on <a href="http://github.com/apirogov">hobby projects</a>, learn new things, read books (mostly non-fiction or hard sci-fi), <a href="https://www.last.fm/user/apirogov">listen to music</a> and make music myself (drums, also piano).</p>
+<!--
+<h2>Recent Posts</h2>
+$partial("templates/post-list.html")$
+
+…or you can find more in the <a href="/archive.html">archive</a>.
+-->
+<h2 id="contact">Contact</h2>
+<span id="uiae">
+<script>
+//putStrLn $ concat $ map (concatMap (\c -> "document.write(\""++[c]++"\");") . (\s -> "&#"++s++";") . show . (+11) . ord) "content"
+document.write("&");document.write("#");document.write("8");document.write("0");document.write(";");document.write("&");document.write("#");document.write("5");document.write("6");document.write(";");document.write("&");document.write("#");document.write("8");document.write("8");document.write(";");document.write("&");document.write("#");document.write("1");document.write("0");document.write("8");document.write(";");document.write("&");document.write("#");document.write("1");document.write("1");document.write("6");document.write(";");document.write("&");document.write("#");document.write("1");document.write("1");document.write("9");document.write(";");document.write("&");document.write("#");document.write("6");document.write("9");document.write(";");document.write("&");document.write("#");document.write("4");document.write("3");document.write(";");document.write("&");document.write("#");document.write("1");document.write("0");document.write("8");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("1");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("7");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("2");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("1");document.write(";");document.write("&");document.write("#");document.write("7");document.write("5");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("3");document.write(";");document.write("&");document.write("#");document.write("1");document.write("1");document.write("6");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("5");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("2");document.write(";");document.write("&");document.write("#");document.write("1");document.write("1");document.write("4");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("2");document.write(";");document.write("&");document.write("#");document.write("1");document.write("2");document.write("9");document.write(";");document.write("&");document.write("#");document.write("5");document.write("7");document.write(";");document.write("&");document.write("#");document.write("1");document.write("1");document.write("1");document.write(";");document.write("&");document.write("#");document.write("1");document.write("1");document.write("2");document.write(";");
+</script>
+</span>
+<script>
+function rot(s,n) {
+  return s.replace( /./g , function(c) {
+    return String.fromCharCode(c.charCodeAt(0)+n);
+  } );
+}
+document.getElementById("uiae").innerText = rot(document.getElementById("uiae").innerText, -11)
+</script>
+<noscript>
+<em>Email address protected by JavaScript. Activate JavaScript to see the email.</em>
+</noscript>
+        </div>
+
+        <div id="footer">
+            Copyright (C) 2020 Anton Pirogov |
+            Generated with <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
