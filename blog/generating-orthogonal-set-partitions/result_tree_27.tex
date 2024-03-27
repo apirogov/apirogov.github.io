@@ -1,0 +1,62 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\begin{document}
+\begin{tikzpicture}
+  \node {$\bullet$}[sibling distance=60mm]
+    child {
+        node {$\bullet$}[sibling distance=20mm]
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {0}}
+          child {node {10}}
+          child {node {20}}
+        }
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {1}}
+          child {node {11}}
+          child {node {18}}
+        }
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {2}}
+          child {node {9}}
+          child {node {19}}
+        }
+    }
+    child {
+        node {$\bullet$}[sibling distance=20mm]
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {3}}
+          child {node {13}}
+          child {node {23}}
+        }
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {4}}
+          child {node {14}}
+          child {node {21}}
+        }
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {5}}
+          child {node {12}}
+          child {node {22}}
+        }
+    }
+    child {
+        node {$\bullet$}[sibling distance=20mm]
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {6}}
+          child {node {16}}
+          child {node {26}}
+        }
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {7}}
+          child {node {17}}
+          child {node {24}}
+        }
+        child {node {$\bullet$}[sibling distance=5mm]
+          child {node {8}}
+          child {node {15}}
+          child {node {25}}
+        }
+    }
+    ;
+\end{tikzpicture}
+\end{document}
