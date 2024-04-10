@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - music</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link href="https://pirogov.de/tags/music/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-27T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/music/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Exploring Analog Synth Patching with the Minibrute 2</title>
+        <published>2024-03-27T00:00:00+00:00</published>
+        <updated>2024-03-27T00:00:00+00:00</updated>
+        <author>
+          <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/" type="text/html"/>
+        <id>https://pirogov.de/blog/analog-synth-patch-minibrute-2/</id>
+        <content type="html">&lt;h2 id=&quot;intro-learning-to-synth&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#intro-learning-to-synth&quot; aria-label=&quot;Anchor link for: intro-learning-to-synth&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Intro: Learning to Synth&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;em&gt;NOTE: If you just want to see the MB2 patch, feel free to skip this section.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;In recent years I have been musically focusing on playing drums (mainly motivated by
+having a guitar-playing friend to jam and cover some songs with), but a few months ago I
+got the urge to play some keys again. Only now I wanted something &lt;em&gt;else&lt;&#x2F;em&gt; than classical
+piano (which I used to play for many years in my youth), something that allows me to play
+or write music that I also would &lt;em&gt;enjoy listening to&lt;&#x2F;em&gt;. So I came to the embarrassingly
+late realization that maybe I should check out synthesizers (and maybe learn some basics
+of jazz improv for fun).&lt;&#x2F;p&gt;
+&lt;p&gt;After first buying a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.thomann.de&#x2F;de&#x2F;arturia_keystep_37.htm&quot;&gt;Keystep 37&lt;&#x2F;a&gt; and
+playing around for a while with &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;tytel.org&#x2F;helm&#x2F;&quot;&gt;Helm&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;surge-synthesizer.github.io&#x2F;&quot;&gt;Surge
+XT&lt;&#x2F;a&gt; in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.reaper.fm&#x2F;&quot;&gt;Reaper&lt;&#x2F;a&gt; to learn the
+basics and get a feeling for synthesis, I felt that I need a hardware synth – some
+instrument as physical and immediate as my
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.roland.com&#x2F;de&#x2F;products&#x2F;td-11kv&#x2F;&quot;&gt;TD-11KV&lt;&#x2F;a&gt; drum set&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; and my
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.thomann.de&#x2F;de&#x2F;roland_fp_30x_bk.htm&quot;&gt;FP-30X&lt;&#x2F;a&gt; piano. Tweaking knobs only using
+the mouse in the DAW is too limiting and unergonomic, while mapping them out to a MIDI
+controller sounds annoying and cumbersome. Also, after work I strongly prefer to get away
+from the computer screen, mouse and keyboard. Long story short – after lots of
+research&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;, I have acquired a little synth collection:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.thomann.de&#x2F;de&#x2F;roland_s_1.htm&quot;&gt;Roland AIRA S-1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;an &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.thomann.de&#x2F;de&#x2F;asm_hydrasynth_explorer.htm&quot;&gt;ASM Hydrasynth Explorer&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;an &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.thomann.de&#x2F;de&#x2F;arturia_minibrute_2_noir.htm&quot;&gt;Arturia Minibrute 2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I might not strictly need the S-1, but it was far too tempting – even if I end up only
+using it as an ultra-portable toy. The Hydrasynth, however, is certainly a &lt;em&gt;dream&lt;&#x2F;em&gt; of a
+synthesizer. I guess technically, there is no need for anything else&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;, but just out of
+curiosity, I bought a used Minibrute 2 for a decent price, so I could also dip my feet
+into analog semi-modular synths.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;let-s-patch-the-minibrute-2&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#let-s-patch-the-minibrute-2&quot; aria-label=&quot;Anchor link for: let-s-patch-the-minibrute-2&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Let’s Patch the Minibrute 2&lt;&#x2F;h2&gt;
+&lt;p&gt;Without further ado, here’s a fun little patch I created with the Minibrute 2, probably
+the most complex one so far. Mainly, because I ran out of patch cables after wiring up all
+of the 8 cables that came with the Minibrute.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;analog-synth-patch-minibrute-2&#x2F;mb2_patch01.jpg&quot; alt=&quot;The Minibrute 2 patch&quot; &#x2F;&gt;
+&lt;audio style=&quot;width: 100%;&quot; controls=&quot;1&quot; controlslist=&quot;nodownload nofullscreen noremoteplayback&quot; type=&quot;audio&#x2F;mp3&quot; src=&quot;mb2_patch01.mp3&quot;&gt;Your browser does not support the audio tag.&lt;&#x2F;audio&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I hope the actual patching should be clear enough based on the image, and in the following
+I will try to explain what is actually going on here.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;envelopes&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#envelopes&quot; aria-label=&quot;Anchor link for: envelopes&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Envelopes&lt;&#x2F;h3&gt;
+&lt;p&gt;By default, the &lt;em&gt;AD Envelope&lt;&#x2F;em&gt; modulates the volume, while the &lt;em&gt;ADSR envelope&lt;&#x2F;em&gt; modulates
+the filter cutoff of the synth. Here, the ADSR envelope is patched to modulate the volume
+instead, and is set to produce a rather pad-like sound. The now free &lt;strong&gt;AD envelope&lt;&#x2F;strong&gt; is
+repurposed to be a &lt;strong&gt;third LFO&lt;&#x2F;strong&gt; (by setting it into &lt;em&gt;Loop&lt;&#x2F;em&gt; mode). Its attack and decay
+are set to produce another sawtooth-like wave, and with the attack set to zero, the &lt;strong&gt;AD
+Decay&lt;&#x2F;strong&gt; effectively controls the LFO rate.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;green-areas&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#green-areas&quot; aria-label=&quot;Anchor link for: green-areas&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Green Areas&lt;&#x2F;h3&gt;
+&lt;p&gt;The third LFO (i.e. the AD envelope) is used to modulate the &lt;strong&gt;filter resonance&lt;&#x2F;strong&gt;. The
+&lt;strong&gt;Resonance&lt;&#x2F;strong&gt; and &lt;strong&gt;RM&lt;&#x2F;strong&gt; knobs are essentially defining the minimum and maximum
+resonance, i.e. the range in which the AD-based LFO can modulate it.
+This creates a &lt;em&gt;layer of clicky sounds&lt;&#x2F;em&gt; at a speed controlled by the &lt;strong&gt;AD Decay&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;blue-areas&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#blue-areas&quot; aria-label=&quot;Anchor link for: blue-areas&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Blue Areas&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;LFO2&lt;&#x2F;strong&gt; is attenuated by &lt;strong&gt;Att 1&lt;&#x2F;strong&gt; and is responsible for a &lt;em&gt;slow filter sweep&lt;&#x2F;em&gt; (i.e.
+it controls the filter cutoff frequency). The &lt;strong&gt;LFO2 rate&lt;&#x2F;strong&gt; controls the modulation
+speed, the &lt;strong&gt;Att 1 knob&lt;&#x2F;strong&gt; controls the modulation strength (i.e. frequency interval around
+the center), while the &lt;strong&gt;cutoff knob&lt;&#x2F;strong&gt; defines the center of the modulation range.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;yellow-areas&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#yellow-areas&quot; aria-label=&quot;Anchor link for: yellow-areas&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Yellow Areas&lt;&#x2F;h3&gt;
+&lt;p&gt;The mod wheel is patched to control a &lt;em&gt;tremolo effect&lt;&#x2F;em&gt;, instead of the standard vibrato
+(i.e., to modulate volume instead of pitch). The output volume is modulated by &lt;strong&gt;LFO1&lt;&#x2F;strong&gt;,
+which is attenuated by &lt;strong&gt;Att 2&lt;&#x2F;strong&gt;. The &lt;strong&gt;LFO1 rate&lt;&#x2F;strong&gt; sets the tremolo frequency, the &lt;strong&gt;mod
+wheel&lt;&#x2F;strong&gt; can be used to control tremolo between none at all and the maximum strength, which
+is defined by the &lt;strong&gt;Att 2 knob&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion-personal-impressions&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#conclusion-personal-impressions&quot; aria-label=&quot;Anchor link for: conclusion-personal-impressions&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Conclusion: Personal Impressions&lt;&#x2F;h2&gt;
+&lt;p&gt;I do like the straight-forward ergonomics of the Minibrute 2 – the immediacy of a
+&lt;em&gt;knob-per-function&lt;&#x2F;em&gt; design does have some magical appeal. Also, it is the only compact
+synth I own with &lt;em&gt;full-sized keys&lt;&#x2F;em&gt; and it has really nice mod and pitch bend wheels. All
+my other devices at most have touch strips for modulation, and I can say that I really do
+enjoy and prefer the feeling of a &lt;em&gt;sturdy metal wheel&lt;&#x2F;em&gt;. The full-size keys are nice to
+have, but I already have a digital piano with MIDI output – no compact synth keybed can
+beat that anyway. The sequencer and arpeggiator look to me exactly like the ones provided
+by the Keystep, so no surprises here.&lt;&#x2F;p&gt;
+&lt;p&gt;The Arturia-specific &lt;em&gt;Brute factor&lt;&#x2F;em&gt; knob is neat, but I found no practical use for turning
+it up more than halfway, when it goes into heavy feedback mode that is hard to tame or
+control. Up until the midpoint though, I do like turning it up to add more warmth and
+fatness to the sound. I think that the Minibrute &lt;em&gt;sounds pretty good even without any
+external effects&lt;&#x2F;em&gt;, and that is (from what I’ve heard) not always a given for for synths in
+the entry-to-mid price range.&lt;&#x2F;p&gt;
+&lt;p&gt;I can appreciate the Minibrute 2 for what it is, but after playing around with it a bunch
+of evenings, I got the feeling (actually, a confirmation) that I am neither an
+analog nor modular synth kind of person. It is well known that analog synths are
+much more expensive than similarly sounding and equally feature-rich digital synths, while
+being more clunky and heavy at the same time. Having no irrational prejudice against
+digital synths, &lt;em&gt;the only advantage of an analog synth that I see is its suitability for a
+(semi-)modular setup&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Only that I noticed that I &lt;em&gt;really&lt;&#x2F;em&gt; dislike having to deal with cables (it is such a mess
+and PITA), and &lt;em&gt;really&lt;&#x2F;em&gt; miss the ability to save my work. I have let the Minibrute sit
+untouched and collect dust for &lt;em&gt;weeks&lt;&#x2F;em&gt; before writing this up, because I wanted to
+properly document this patch (mostly for the “tricks” I used and&#x2F;or came up with) before
+moving on to the next experiment. And this patch is still not much at all, compared to what
+other people happily deal with in their modular setups, and even compared to what I can
+easily do with my Hydrasynth – &lt;em&gt;without&lt;&#x2F;em&gt; any limitations and inconveniences caused by
+cables, and &lt;em&gt;with&lt;&#x2F;em&gt; the ability to quickly save the result and restore it later. As I
+apparently tend to gravitate towards more complex patches and prefer powerful modulation
+capabilities, and at the same time despise the cable mess, analog and modular gear does
+not make much sense for me. &lt;&#x2F;p&gt;
+&lt;p&gt;I don’t regret buying the Minibrute at all, and it taught me a thing or two about
+old-school analog patching and my own synth preferences, but I am not sure whether I am
+going to keep it. Neither do I have the desk space, nor can I see a real need for it. My
+Hydrasynth is hands-down better as the ultimate sound design workstation, whereas the S-1,
+paired with the Keystep, already fill the simple, light-weight and super portable niche in
+my setup.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#4&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; In any case – it was quite some fun playing with you, Minibrute 2!&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;I’ve been owning and using the TD-11KV for over 8 years now, and I have almost no
+complaints. The investment to have all drums as mesh-heads was absolutely worth it,
+giving me a close-to-natural drumming experience without neighbors you share a wall
+with starting to hate you (except, possibly, because of the bass pedal).&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;If all you knew before were are classical instruments, the market and available
+options for synthesizers and related gear is absolutely overwhelming (even more so for
+software instruments &#x2F; VST plugins). It’s quite some effort to cut through the
+noise and hype, to see what actually matters in general and also for me personally.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
+&lt;p&gt;Except maybe a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.audiothingies.com&#x2F;product&#x2F;micromonsta2&#x2F;&quot;&gt;Micromonsta 2&lt;&#x2F;a&gt;,
+for the bi-timbrality. Sadly, it’s super difficult to get the hands on one (making
+me want it even more). I guess I’ve caught a mild case of
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wiktionary.org&#x2F;wiki&#x2F;gear_acquisition_syndrome&quot;&gt;GAS&lt;&#x2F;a&gt;. To keep it in check,
+my rule of thumb is to only buy new gear that is not redundant in my setup and fills
+some real gap or has a special strength or feature.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;4&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;4&lt;&#x2F;sup&gt;
+&lt;p&gt;I still consider (half jokingly) keeping it for no other reason than these nice mod
+and pitch wheels. In hindsight, maybe I just should have bought a Hydrasynth Deluxe.
+Then I could sell both my FP-30X and Minibrute 2 without second thoughts.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+    </entry>
+</feed>

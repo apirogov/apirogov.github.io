@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - philosophy</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link href="https://pirogov.de/tags/philosophy/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-19T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/philosophy/atom.xml</id>
+    <entry xml:lang="en">
+        <title>The Existential Maze: Values, Meaning and The Absurd</title>
+        <published>2018-01-07T00:00:00+00:00</published>
+        <updated>2023-07-19T00:00:00+00:00</updated>
+        <author>
+          <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/on-meaning/" type="text/html"/>
+        <id>https://pirogov.de/blog/on-meaning/</id>
+        <content type="html">&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;&#x2F;strong&gt; This is based on a draft I wrote back in 2018, while “coming to terms with the
+world” in my mid-20s, but I never actually published it. My views are still the same, but I
+disliked the style of the writing. So this is a heavily revised, and I believe,
+significantly improved version of the draft I have been sitting on for a long time.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;In this post, I summarize my thoughts and views on multiple connected topics living in the
+realm of philosophy. Nothing said here is new or original in any way, but it is a personal
+conclusion of my own journey through the maze many others have walked through at some
+point of their lives, on a personal years-long quest of finding satisfying answers.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;narratives-everywhere-yet-not-a-drop-of-meaning&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#narratives-everywhere-yet-not-a-drop-of-meaning&quot; aria-label=&quot;Anchor link for: narratives-everywhere-yet-not-a-drop-of-meaning&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Narratives Everywhere, Yet Not a Drop of Meaning&lt;&#x2F;h2&gt;
+&lt;p&gt;Existing is usually a messy and busy process. Most living beings, including humans, must
+spend most of their time making sure that their basic needs are met, because if nothing
+else, we are hard-wired for survival. For most, there simply is not enough room to stand
+still, reflect, and ponder the “big questions”. &lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;We often ask “why” assuming that there must be a clear and correct answer&lt;&#x2F;em&gt;, because
+we are conditioned to expect that – when we were children, the whole world was packaged
+up for us into some neat, straight-forward narrative that we were spoon-fed since we can
+remember. We all start out with a very simplified black-and-white world view, but ideally,
+over the course of our life, the picture is refined and enhanced by more and more shades
+of grey, and possibly colors and shapes we could not comprehend or see before.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;For the most part, the following things are all different variations of the same:
+education, nudging, praise and condemnation, propaganda and indoctrination.&lt;&#x2F;strong&gt;
+All &lt;em&gt;socialization&lt;&#x2F;em&gt; and &lt;em&gt;cultivation&lt;&#x2F;em&gt; can be considered as various types of &lt;em&gt;mental
+programming&lt;&#x2F;em&gt; we are subjected to throughout all of our lives - the main difference between
+the methods is mostly in who is doing it, to whose benefit, whether it is voluntary or
+not, and the intensity and type of force that is applied to achieve the desired result. A
+human society is held together using a combination of these methods. Ideally, with the
+goal to create cohesion, harmony, and a common ground for the benefit and flourishing of
+everyone. Grand narratives and ideas provide meaning and purpose, as well as values to
+orient our actions in some (hopefully) fruitful and beneficial direction.&lt;&#x2F;p&gt;
+&lt;p&gt;In a rare moment of stillness and introspection, we occasionally dare to ask a “big”
+philosophical question with personal relevance, such as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;why do I exist? (metaphysics)&lt;&#x2F;li&gt;
+&lt;li&gt;what defines me? (ontology)&lt;&#x2F;li&gt;
+&lt;li&gt;how should I live? (ethics)&lt;&#x2F;li&gt;
+&lt;li&gt;what is the purpose of it all? (teleology)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There are answers abound to all the “whys” and “hows” that come with the human condition.
+&lt;strong&gt;Every society has a densely weaved net of narratives to catch a lost soul who got sucked
+into these “scary” issues&lt;&#x2F;strong&gt;, and often this poor soul is happily pacified with the answers
+provided by (depending on the society and person):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;their culture&lt;&#x2F;li&gt;
+&lt;li&gt;their religion&lt;&#x2F;li&gt;
+&lt;li&gt;their government&lt;&#x2F;li&gt;
+&lt;li&gt;their favorite YouTube guru&lt;&#x2F;li&gt;
+&lt;li&gt;their favorite best-selling “life philosophy” book&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Someone will quickly tell us what to do and what not to do. Someone will eagerly tell us
+that these guys are good, and those are bad. The bad ones are those who do X. Well, the
+good guys also do X, but this is something completely different. In general, doing X is
+pretty bad. It is bad, because it leads to Y. Why Y is considered bad? Because &lt;em&gt;(pick one
+ultimate discussion-killing argument)&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;since ancient times&lt;&#x2F;em&gt; Y is considered to be bad, in any culture, so it must be true!&lt;&#x2F;li&gt;
+&lt;li&gt;brave &lt;em&gt;people gave their life&lt;&#x2F;em&gt; to make sure you never have to experience Y!&lt;&#x2F;li&gt;
+&lt;li&gt;every sane person can &lt;em&gt;feel&lt;&#x2F;em&gt; that doing Y is wrong!&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;the almighty says so&lt;&#x2F;em&gt; in the holy writing, it is not for us to understand!&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;how dare you&lt;&#x2F;em&gt; even ask this question?&lt;&#x2F;li&gt;
+&lt;li&gt;it is &lt;em&gt;obvious&lt;&#x2F;em&gt;! Are you stupid?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;A whole marketplace of narratives to lure all those thirsty for clear answers&lt;&#x2F;strong&gt;,
+claiming to provide a solid ground under your feet, orientation and comfort in the chaotic
+maze that is existence, and bring them back on track.&lt;&#x2F;p&gt;
+&lt;p&gt;At least on &lt;em&gt;some&lt;&#x2F;em&gt; track. But where is that track going? If you do not think for yourself,
+others will do the thinking for you, and it often will not be with your interests in mind.
+So sadly, many narratives are dishonest and are based on emotional manipulation, instead
+of solid and convincing arguments. As many people are unable or unwilling to distinguish
+reasonable (i.e. coherent, reasoning-based) from unreasonable (i.e. irrational or
+unfounded) narratives or views, this is a massive problem. But I digress – this is not a
+post about lack of (education on) &lt;em&gt;critical thinking skills&lt;&#x2F;em&gt;, or the dangers of populism,
+fundamentalism, conspiracies and cults.&lt;&#x2F;p&gt;
+&lt;p&gt;For some time I have been diving into and exploring branches of philosophy concerned with
+issues like the ones metioned above. I was reading (and trying to understand)
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;plato.stanford.edu&#x2F;&quot;&gt;SEP&lt;&#x2F;a&gt; articles and trying to find a satisfying answer to the
+quarter-life crisis questions that were haunting me at that time, such as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A human life is short – what is a life well lived?&lt;&#x2F;li&gt;
+&lt;li&gt;Who and what deserves how much of my empathy and compassion?&lt;&#x2F;li&gt;
+&lt;li&gt;Am I a good-enough person?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;all of which points into the very wide territory of ethics, and often intersecting with
+metaphysics. Once I already dug deep into ethics, I also wanted to finally better
+understand emotionally and morally loaded political issues such as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;who and why decided about what is considered “basic human rights”?&lt;&#x2F;li&gt;
+&lt;li&gt;who and why decided what kind of war is “just” and what kind of war is not?&lt;&#x2F;li&gt;
+&lt;li&gt;who and why defines a conflict faction as “good rebels” or “bad terrorists”?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For both kinds of questions, both the personal existential kind as well as the
+higher-level and political kind, after lots of reading and running in circles, the
+result was a creeping and silent acceptance of the truth that is rarely said out loud,
+because it is inconvenient, scary, or often both.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-truth-about-values&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-truth-about-values&quot; aria-label=&quot;Anchor link for: the-truth-about-values&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The Truth about Values&lt;&#x2F;h2&gt;
+&lt;p&gt;The uncomfortable truth is simple, but hard to digest. To truly &lt;em&gt;accept&lt;&#x2F;em&gt; it, is to
+finally let go, and give up any further “existential search”. The very human nature
+revolts against accepting the fact that&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;all conceptions of value, meaning and purpose, without any exceptions,&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;are either evolved (and therefore not absolute or objective),&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;or artificially crafted (and therefore have an agenda).&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It is so hard to accept this because &lt;strong&gt;everyone wants to be validated in their actions&lt;&#x2F;strong&gt;, to
+rest assured that there is a nice reference measure stick to check against, even if it is
+mostly invisible. Everyone wants to feel good about achievements and choices, their life
+and lifestyle.&lt;&#x2F;p&gt;
+&lt;p&gt;Most people might find this stance intuitively appalling, maybe even accuse me of
+nihilism, but in fact, nothing could be further from the truth. I did not change or
+abandon any of my &lt;em&gt;actual views&lt;&#x2F;em&gt; on anything. I &lt;em&gt;do&lt;&#x2F;em&gt; have a strong moral intuition of what
+is good and what is bad. &lt;strong&gt;What I was looking for was some &lt;em&gt;justification&lt;&#x2F;em&gt; and &lt;em&gt;approval&lt;&#x2F;em&gt;
+for my already existing views, from some more &lt;em&gt;“objective”&lt;&#x2F;em&gt; point of view, which is not
+&lt;em&gt;yet another&lt;&#x2F;em&gt; personal or popular opinion. What I realized over time was that I was
+looking for a mirage.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It started to dawn on me that foundations of ethics are almost as shaky and arbitrary as
+theological attempts at proving the existence of god. While it seemed dubious to me
+from the start, I found it increasingly difficult to take &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;plato.stanford.edu&#x2F;entries&#x2F;moral-realism&#x2F;&quot;&gt;moral
+realism&lt;&#x2F;a&gt; seriously as a view&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#meta_arg&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. Any
+school of ethics - deontological or teleological or anything else, once taken to the
+extreme, suffers from certain edge cases that are either very counter-intuitive or
+undesirable. But if a system of rules can consistently produce absurd consequences, this
+cannot be a solid foundation to rely on.&lt;&#x2F;p&gt;
+&lt;p&gt;If there was at least a system of ethics comparably solid to Newtonian mechanics – in its
+scope, explanatory power and practicality – I might have a different opinion. But as it
+stands, all I have seen are various concepts and ideas, all with some good arguments and
+some very weak spots. As I learned, philosophy is really bad at providing an answer to
+anything, but it is often good at suggesting &lt;em&gt;many&lt;&#x2F;em&gt; possible answers, and ask &lt;em&gt;many more&lt;&#x2F;em&gt;
+even more complicated questions.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#phil_sci&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-value-of-truths&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-value-of-truths&quot; aria-label=&quot;Anchor link for: the-value-of-truths&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The Value of Truths&lt;&#x2F;h2&gt;
+&lt;p&gt;I am not an ethical nihilist (i.e. the view “ethics is not real in the same way physics is,
+so it does not matter”). &lt;strong&gt;Nihilism is an infantile, black-and-white point of view&lt;&#x2F;strong&gt;, akin
+to the emotional and rebellious teenager who took the first step – &lt;em&gt;deconstructing&lt;&#x2F;em&gt; a
+concept – but not the second – which is &lt;em&gt;rebuilding&lt;&#x2F;em&gt; something new from the ashes. Some
+discover and accept the emptiness of the world, but never learn to move past the
+discovered void – these are in danger of either becoming depressed or turn into horrible
+and cynical people. Some are too scared or too lost, and hurry back into the safety of
+their familiar narratives, if they can – these are in danger of becoming narrow-minded
+conservative people, because they need to hold on tightly to their stories. Otherwise,
+they fear, they (and the world) would fall back into the abyss. But there are other ways
+forward and out of this hole, though.&lt;&#x2F;p&gt;
+&lt;p&gt;I hold the pragmatic view of &lt;strong&gt;moral fictionalism&lt;&#x2F;strong&gt; (i.e. “ethics are a useful fiction,
+so let’s continue to pretend it is real”). &lt;strong&gt;While all ethics is constructed, it exists
+because it helped human societies to survive longer and better, so it is useful to invent
+categories such as good and bad, and strongly associate them with emotions.&lt;&#x2F;strong&gt;
+All unwritten rules, views and judgements, beliefs and tradition, are a huge cultural
+achievement and cultural heritage of humanity. These mechanisms help to organize large
+groups of people and help us create what we call “civilization”. Some rules and judgements
+are eventually codified into actual written and enforced law, when we consider them
+important and uncontroversial enough. In fact, I consider written law to be
+“solidification of values”, like water turning to ice.&lt;&#x2F;p&gt;
+&lt;p&gt;For certain situations and actions there exists an almost universal consensus on what is
+“right and wrong” or “good and bad”. Most will agree that stealing and damaging property,
+hurting and killing people is bad. Yet, &lt;strong&gt;the real world is mostly a place of grey moral
+ambiguity&lt;&#x2F;strong&gt;. Situations are often too complex to have a clear, unquestionable judgement.
+The ambiguity is very handy for the people playing the game of big politics. While
+national politics in “civilized countries” is governed by law, international politics is,
+by necessity, a mostly hypocritical and amoral game of chess and utility maximization
+(ideally - for the benefit of a society, or worse - for its ruling class or elite), where
+“values” are weaponized, shaped, turned and twisted into the shape needed to (de-)mobilize
+people.&lt;&#x2F;p&gt;
+&lt;p&gt;But even though I ultimately think that values are ultimately relative, it does not change
+anything about the fact that &lt;strong&gt;I can and do feel strongly about &lt;em&gt;my&lt;&#x2F;em&gt; values&lt;&#x2F;strong&gt;, and still
+believe that &lt;strong&gt;there are principles to live by, and if needed, worth to risk dying for&lt;&#x2F;strong&gt;.
+But what does my emotional attachment to value judgements ultimately express? Of course
+nothing but a personal preference. And I grant everyone the right to judge others and
+their actions based on &lt;em&gt;their&lt;&#x2F;em&gt; values, because that is what values are for – expressing
+our desires on how we want to live as a society and trying to instill those values into
+others.&lt;&#x2F;p&gt;
+&lt;p&gt;The red line is crossed if the values or narratives of others unreasonably endanger or
+restrict my own freedom. &lt;strong&gt;But this exactly is what a pluralistic and democratic society
+is – a system to enable the free expression of others, while at the same time protecting
+opposing groups from each other&lt;&#x2F;strong&gt;. A free society with liberal values is in no way
+&lt;em&gt;natural&lt;&#x2F;em&gt; or &lt;em&gt;obviously&lt;&#x2F;em&gt; superior – people holding these views must &lt;strong&gt;promote, fight and
+defend&lt;&#x2F;strong&gt; this world view, or be crushed by more aggressive value systems. But this is
+essentially what Karl Popper argued for in his famous &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Open_Society_and_Its_Enemies&quot;&gt;“The Open Society and
+Its Enemies”&lt;&#x2F;a&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#popper&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;relativism-requires-rational-reasoning&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#relativism-requires-rational-reasoning&quot; aria-label=&quot;Anchor link for: relativism-requires-rational-reasoning&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Relativism Requires Rational Reasoning&lt;&#x2F;h2&gt;
+&lt;p&gt;Even though I reject any notion of fully objective or unquestionably correct ethical
+views, and thus qualify as a certain kind of “moral relativist”, certainly there are
+ideologies and societies that I believe to be abhorrent. There are also societies that I
+can respect, but I would not want to live by their rules and prefer not to live in such a
+society. Within the wide spectrum spanning from liberal to conservative views on a
+multitude of social dimensions there are many ways to organize a society which (I can
+imagine) can be stable, functional and make the members overall content with their lives,
+even if their principles and ideas of life and happiness might not align with mine.&lt;&#x2F;p&gt;
+&lt;p&gt;By not being able to express that something is “objectively” bad, nothing of actual
+significance is lost. It is rather just consequent application of Ockham’s razor to
+ethical reasoning. &lt;strong&gt;In practice, what is moral is defined by those with either the better
+marketing or the bigger weapons anyway.&lt;&#x2F;strong&gt; Appealing to a higher, metaphysical and
+unquestionable authority, or some truth of ineffable nature does not change &lt;em&gt;any&lt;&#x2F;em&gt; human
+social dynamics, because humans do not even agree on what in fact such a truth or
+authority would look like – making the whole “ultimate argument” circular. Pushing the
+foundational justifications into the metaphysical, spiritual or emotional territory is
+simply bad and lazy argumentation (or actually, lack thereof).&lt;&#x2F;p&gt;
+&lt;p&gt;Yes, maybe I cannot say that “fascism is &lt;em&gt;objectively&lt;&#x2F;em&gt; wrong” because I don’t believe in
+objective morality, but &lt;em&gt;do I need to&lt;&#x2F;em&gt;? Just like atheists can live ethical lives, I
+can also &lt;em&gt;rationally&lt;&#x2F;em&gt; come to the conclusion and argue that, for various reasons and
+according to many reasonable metrics, fascism is a pretty bad ideology. Or that murdering
+people is not a smart thing to generally allow. At least, assuming that we can
+agree that the goal is to build a flourishing and sustainable society. &lt;strong&gt;Giving up any
+pretense about having some “moral high-ground” (secular, spiritual or otherwise)
+just means being honest, open and transparent. It simply means not resorting to
+cheap tricks whenever we have no convincing justification for our strong opinion.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If everyone would be transparent about their deepest unfounded beliefs, the “ethical
+axioms” and “value preferences” they derive all their judgements from, then we could have
+an actual discussion about values, and &lt;em&gt;maybe&lt;&#x2F;em&gt;, sometimes, even convince each other.
+Ethics is just politics with different means, and politics is about arguments,
+compromises, and finding a mutually acceptable common ground. &lt;strong&gt;We have an innate ability
+for &lt;em&gt;empathy&lt;&#x2F;em&gt; and &lt;em&gt;reason&lt;&#x2F;em&gt; - this is all we have, and it is all we need. Our moral
+intuitions neither have to come from some ephemeral “out there”, nor do there needs to be
+just one “correct” answer.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I think that very much of what I strongly believe to be “good” can be justified and argued
+for mostly based on empirical processes and rational considerations, instead of hiding
+behind a lazy semi-spiritual and emotionally loaded veil. &lt;strong&gt;If there is any objectivity at
+all in social values and morality, then it is the objectivity of having the facts –
+scientific and historical – on your side, and this is the solid foundation on which
+different views should compete.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-evolution-of-meaning&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-evolution-of-meaning&quot; aria-label=&quot;Anchor link for: the-evolution-of-meaning&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The Evolution of Meaning&lt;&#x2F;h2&gt;
+&lt;p&gt;Values and meaning are closely related. We usually experience events and actions as
+meaningful if they are positive according to the value system we and our social
+environment is using. If what we do is &lt;em&gt;valued&lt;&#x2F;em&gt; by others and considered to be &lt;em&gt;good&lt;&#x2F;em&gt; (a
+good deed, or good work), we get &lt;em&gt;praise&lt;&#x2F;em&gt; and &lt;em&gt;validation&lt;&#x2F;em&gt;, which makes our actions feel
+&lt;em&gt;meaningful&lt;&#x2F;em&gt; to us. Thus, meaning makes us &lt;em&gt;feel&lt;&#x2F;em&gt; good.&lt;&#x2F;p&gt;
+&lt;p&gt;Just as I believe that morality is a useful by-product of the evolution of human
+societies, the same can be said about any concept of meaning. Meaning exists only inside
+of some semantic framework. This framework can be given either implicitly by the consensus
+of the surrounding society, or explicitly by religious and non-religious belief and value
+systems. But all these are dynamically created and maintained. &lt;strong&gt;The continuous battle
+between the so-called political left and right, between liberalism and conservativism, is
+in the end nothing else but a continuous feedback loop for the adjustment of the mutation
+rate of the value system a society runs on.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;While tradition (&lt;em&gt;“we always did it like this!”&lt;&#x2F;em&gt;) is a useful vehicle to retain successful
+patterns, it can lead into dead ends. If the conditions change, the old patterns don’t fit
+anymore and lead the society into a dysfunctional state. So we need the forces of progress
+(&lt;em&gt;“enough is enough, we need change!”&lt;&#x2F;em&gt;) that try to update and adjust the inertial course of
+a society, but not too violently, as a new untested path might also lead into a bad
+direction. A good balance of these two forces is what makes a successful society,
+i.e. ideally one where happiness and welfare are increasing.&lt;&#x2F;p&gt;
+&lt;p&gt;We modify, abandon or introduce values in societies all the time. There are many examples
+that even on the time scale of just one generation the values can shift quite
+dramatically. Religious beliefs also adjust and adapt in the same way. Clearly, no
+religion is now the same as a thousand years ago (only fundamentalist sects like to
+&lt;em&gt;pretend&lt;&#x2F;em&gt; that they are). &lt;strong&gt;All societies, just like living things, struggle for survival
+and need to adapt their shared beliefs and practices to an ever-changing environment.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;With this evolutionary picture in mind, I think it becomes clear that having more than one
+kind of society is probably a good idea. &lt;strong&gt;Just like it is good for a population to have
+a diverse gene pool, some societies and values work better than others for a given set of
+social and environmental circumstances.&lt;&#x2F;strong&gt; Both politics and ethics can be very
+context-dependent affairs, so it is quite helpful to have more than one possible answer
+(and thus, (re)action) available at a time, at least if looking from the point of view of
+all humanity.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;dealing-with-the-absurdity-of-the-human-condition&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#dealing-with-the-absurdity-of-the-human-condition&quot; aria-label=&quot;Anchor link for: dealing-with-the-absurdity-of-the-human-condition&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Dealing with the Absurdity of the Human Condition&lt;&#x2F;h2&gt;
+&lt;p&gt;We live inside the matrix of the values we hold on to, which infuses our actions with
+meaning and guides our actions like a force field. The quest for &lt;em&gt;“purpose”&lt;&#x2F;em&gt; is
+then essentially just asking the same questions as before, but on a longer time scale –
+such as a whole human life. Most of us crave for purpose and meaning in our lives.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;In retrospect, it provides justification: &lt;em&gt;“What I did was good and right”&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;In the outlook, it provides motivation: &lt;em&gt;“I want to do what is good and right”&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Yet, on closer inspection, the whole notion of &lt;em&gt;“purpose”&lt;&#x2F;em&gt;, as typically understood, is
+presupposing a lot of metaphysical baggage. Looking for &lt;em&gt;your true purpose&lt;&#x2F;em&gt; sounds very
+much like looking for &lt;em&gt;your one true love&lt;&#x2F;em&gt; – naive romantic and idealistic ideas from
+grand social narratives we are used to hear over and over.&lt;&#x2F;p&gt;
+&lt;p&gt;Yet, at least to the best of our scientific knowledge, we are not existing for any
+specific reason or purpose. We just randomly happened to be here, and the world likewise
+just happened to be in the condition we find it in, however unsatisfying this may be. Not
+only are we here without a reason, it also does not matter what we do with our life, and
+it can end just as suddenly and unexpectedly as it started. It happens all the time –
+people have accidents or get sick and, sadly, die. Even if there ever was a point to our
+experiences, we have no way to know, and only time will tell whether we, our actions and
+our very being, actually left any lasting mark on the world.&lt;&#x2F;p&gt;
+&lt;p&gt;Some bitter irony is hidden in the fact that many mediocre and unremarkable people will be
+remembered for a long time, while many truly exceptional people will be quickly forgotten.
+We never get to see the whole effect our life had on the world – the sum of the myriad
+little ways how we affected our environment and others, in good and in bad ways. &lt;strong&gt;Life is
+this: popping into existence, doing and feeling some things, then vanishing back into
+oblivion. Was it &lt;em&gt;good&lt;&#x2F;em&gt;, did we &lt;em&gt;succeed&lt;&#x2F;em&gt;? This is only up to us to decide.&lt;&#x2F;strong&gt; This is
+existentialism in a nutshell. In &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Jean-Paul_Sartre&quot;&gt;Sartre&lt;&#x2F;a&gt;s
+words: &lt;strong&gt;“existence comes before essence”&lt;&#x2F;strong&gt; – as all meaning is constructed, the only
+meaning and purpose that should matter to us, the essence of our being, is the one we
+define for ourselves.&lt;&#x2F;p&gt;
+&lt;p&gt;There is the central notion of &lt;em&gt;the absurd&lt;&#x2F;em&gt; in the work of
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Absurdism&quot;&gt;Albert Camus&lt;&#x2F;a&gt;. The absurd is manifested in the
+futile and almost comical human drive to search for meaning in an uncaring and indifferent
+universe. &lt;strong&gt;&lt;em&gt;The absurd&lt;&#x2F;em&gt; is experienced whenever our inner universe of narratives and
+meaning violently clashes with the chaotic and often cruel world.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Camus thought that there are three main ways to deal with the absurdity of existence, the
+aching and unfillable hole of meaning: (actual) suicide, philosophical suicide or
+rebellion. What he calls philosophical suicide is choosing to accept some belief system as
+real, quickly shove all uncomfortable truths and &lt;em&gt;the absurd&lt;&#x2F;em&gt; under a rug, and never
+look there again, i.e. delude yourself, consciously or unconsciously. Clearly, this is
+unacceptable for a thinking human being. Camus instead argues for a life where one accepts
+and embraces the absurdity of the human condition.&lt;&#x2F;p&gt;
+&lt;p&gt;The absurdist attitude can be summarized as: &lt;strong&gt;never forget that whatever we do has only
+subjective meaning to ourselves and people around us – but as we are here anyway, you
+can as well choose to enjoy the process.&lt;&#x2F;strong&gt; The act of &lt;em&gt;rebellion&lt;&#x2F;em&gt; in this context is to
+reject (actual or philosophical) suicide and continue to live, and even create our own,
+authentic and personal meaning, while laughing in the face of the cold universe. To me,
+this seems to be the most brutally honest and at the same time life-affirming stance.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Once we accept the world on its terms, we can realize ourselves on our own terms.&lt;&#x2F;strong&gt;
+Only free of all delusions we are &lt;em&gt;truly&lt;&#x2F;em&gt; free – and can live our most authentic life.
+There is no unquestionable authority to dictate our path, no story we have to follow.
+Within the physical and circumstantial constraints we find ourselves in, we always have
+the freedom to do as &lt;em&gt;we&lt;&#x2F;em&gt; think is right, as long as we are true to ourselves and are
+ready to deal with the consequences. It means following rules that we believe to be
+reasonable, and rebelling against rules we believe to be unreasonable. It means following
+a path of our own choosing, and consciously adopt or reject narratives and values we live
+by. So the existentialist answer to purpose and meaning would probably be: &lt;strong&gt;A life well
+lived is an authentic and lucid life, lived fully on its own terms.&lt;&#x2F;strong&gt; I think that Sartre,
+Camus and also Nietzsche probably could agree on that.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;5&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;There is an interesting
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;philosophy.as.uky.edu&#x2F;sites&#x2F;default&#x2F;files&#x2F;The%20Absurd%20-%20Thomas%20Nagel.pdf&quot;&gt;essay&lt;&#x2F;a&gt;
+about the absurd by Thomas Nagel. He says that it emerges from the fact that we can
+always mentally “take a step back” from our current frame of reference and by “zooming
+out” sufficiently far you eventually must arrive at such vast dimensions that whatever you
+do bears no significance, hence our ability of “zooming out” from any level produces this
+feeling. So effectively, the feeling of the absurd comes from our cognitive ability to
+abstract from the immediacy and concreteness of our experience. To diminish this peculiar
+psychological effect, he suggests to face the absurd with self-irony, instead of the “heroic
+spite” that Camus proposed. &lt;strong&gt;We should not take ourselves and our life too seriously&lt;&#x2F;strong&gt;,
+because the absurd experience comes up whenever the universe (and sometimes even
+ourselves) undermines our subjective and pumped-up feeling of our significance. In other
+words – while Camus prefers to embrace and try to enjoy the experienced “drama”, Nagel
+advises us to minimize it in the first place. I think that in the end, it does not matter
+– &lt;strong&gt;everyone must find their own unique way to resolve tensions between the objective
+outer world and the subjective inner world.&lt;&#x2F;strong&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#4&quot;&gt;6&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Concluding this post with a nice image – the world is an intricate dance, orchestrated
+by all the known and unknown rules governing the universe. We barely understand any of it,
+many questions could be forever unanswerable, and the right answers unknowable. So all we
+can ever do is watch attentively, admire the beauty of its unfolding, and try to take a
+few steps ourselves. For no specific reason, we received a very special ticket to this
+huge spectacle. If the seat and view we have are enjoyable, then maybe we should be
+grateful that we have the opportunity to watch and participate in this grand eternal dance
+for &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mono_no_aware&quot;&gt;a brief and fleeting moment that we call life&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;meta_arg&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;I do see how one could try to argue from a utilitarian perspective that,
+given the way people are, it could be beneficial to &lt;em&gt;claim and pretend&lt;&#x2F;em&gt; that moral
+truths are objectively “real”  (and thus be dishonest, “for the greater good”), but this
+is a different thing altogether.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;phil_sci&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;In fact, that is not too different from how science works.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;popper&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
+&lt;p&gt;This is actually a book I have on my reading list, among many others.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;4&lt;&#x2F;sup&gt;
+&lt;p&gt;Notice how this essentially an argument for &lt;em&gt;diversity&lt;&#x2F;em&gt; (i.e. a “liberal value”)
+based on evolutionary dynamics, even though any forms of Darwinism are usually
+associated with right-wing movements.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;5&lt;&#x2F;sup&gt;
+&lt;p&gt;Even though they would disagree on the details, such as the precise meaning of
+“authentic”, “lucid” and “own terms”. But a person truly living by this spirit will
+find their own meaning(s), and would never just accept and do what some philosopher
+once said anyway.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;4&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;6&lt;&#x2F;sup&gt;
+&lt;p&gt;As for me, over the years I definitely moved on from the Camus-esque pathos of
+experiencing life and the world, toward a more calm attitude intermixed with mild
+self-deprecating irony. Maybe that, at last, is really “growing up”.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+    </entry>
+</feed>

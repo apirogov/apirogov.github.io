@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - software</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link href="https://pirogov.de/tags/software/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-02-24T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/software/atom.xml</id>
+    <entry xml:lang="en">
+        <title>The Tragedy Of Academia: Very Smart People Forced To Do Stupid Things</title>
+        <published>2024-02-24T00:00:00+00:00</published>
+        <updated>2024-02-24T00:00:00+00:00</updated>
+        <author>
+          <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/tragedy-academia/" type="text/html"/>
+        <id>https://pirogov.de/blog/tragedy-academia/</id>
+        <content type="html">&lt;h1 id=&quot;abstract&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#abstract&quot; aria-label=&quot;Anchor link for: abstract&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Abstract&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;em&gt;After completing my PhD, I have worked now for almost three years as a software developer
+in a research center. I took that job naively hoping that I can support science with what
+I believe I can do best – solving challenging technical problems and writing code. I did
+quite some of that, but also witnessed and have been exposed to more of the broken inner
+workings of the academic system than I ever signed up for. In this rant-y essay I reflect
+on my personal disappointment with what I have seen and explaining why I am now in the
+process of leaving this environment for good, finally closing this chapter of my life.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;I am aware that some issues are currently in the process of being addressed and will
+hopefully be resolved, or at least improve over time. I wish everyone involved in the
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;researchsoftware.org&#x2F;&quot;&gt;RSE&lt;&#x2F;a&gt; community all the best and a lot of endurance, hoping
+that they are able to achieve improvements with respect to the perceived value of and
+perspectives for professional software developers who choose to work in science. But
+cultural and institutional change is very slow. Maybe 10 or 20 years from now everything
+will look much better, but I have neither the patience nor desire or hope to bet my career
+on it.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;&#x2F;strong&gt; All of the following is a biased personal and emotionally colored view –
+a single sample point – and not representative of all scientific fields, communities or
+organizations. Furthermore, most people I have had the pleasure of working with were
+highly motivated, hard-working and idealistic people – who actually suffer from all of
+these problems. The systemic issues are well-known, and of course it’s not all black and
+white, even though the following might read more black-ish. For more nuanced and less
+emotional perspectives on research software engineering, check out e.g.
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;467775a&quot;&gt;this&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2311.11457&quot;&gt;this&lt;&#x2F;a&gt; article.
+For general critique of certain peculiarities of the current academic system, check out
+e.g. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.experimental-history.com&#x2F;p&#x2F;the-rise-and-fall-of-peer-review&quot;&gt;this nice blog
+post&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;div id=&quot;toc&quot; &#x2F;&gt;
+&lt;h1 id=&quot;academic-politics-optimizing-for-visibility-and-prestige&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#academic-politics-optimizing-for-visibility-and-prestige&quot; aria-label=&quot;Anchor link for: academic-politics-optimizing-for-visibility-and-prestige&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Academic Politics: Optimizing For Visibility and Prestige&lt;&#x2F;h1&gt;
+&lt;p&gt;The people in positions of authority and seniority in science got where they are because
+they are very good in at least one of the following things:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;their scientific domain &lt;em&gt;(ideally, but even that is sadly not always the case)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;writing smart-sounding papers &lt;em&gt;(i.e. convince others they found knowledge)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;getting funding for awesome-looking projects &lt;em&gt;(i.e. selling big visions)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;What is &lt;strong&gt;not&lt;&#x2F;strong&gt; measured by the sticks used in the performance evaluation of a
+scientist, principal investigator, professor, etc., are for example:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;the sustainability and reusability of the work that has been done&lt;&#x2F;li&gt;
+&lt;li&gt;the quality and actual practical usefulness of the produced output&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;What counts most in science is that there is a nice publication or project report at the
+end – another citation with the names of the authors to fulfil the required quota.&lt;&#x2F;strong&gt;
+Published text, and some nice presentations – this is the interface between the
+people doing the work and the people giving out the money.&lt;&#x2F;p&gt;
+&lt;p&gt;As the vast majority of scientific output consists of novel ideas and prototypes, and
+often the topics are so deep that proper evaluation is barely feasible, the game is biased
+in such a way that &lt;strong&gt;presentation and appearance is often much more important for success
+than the actual merit of the work&lt;&#x2F;strong&gt;. This, of course, is not how science is supposed to
+function, but the current global academic environment adapted to the metrics it has been
+subjected to. It developed elaborate methods for &lt;strong&gt;producing quantity over quality, and a
+lot of hot air sold in huge, shiny balloons&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This is an art that some bad actors seem to have perfected in order stay afloat, and this
+puts everyone who tries to do &lt;strong&gt;actual good work&lt;&#x2F;strong&gt; at an evolutionary disadvantage in this
+brutal competition for so-called excellence and reputation. &lt;strong&gt;If appearance is enough to
+survive, all extra work is wasted energy, and is better used to produce more appearance.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;To get funding, you usually need to frame your work as something &lt;em&gt;novel&lt;&#x2F;em&gt;, something
+&lt;em&gt;grand&lt;&#x2F;em&gt; and &lt;em&gt;inspiring&lt;&#x2F;em&gt;. It is much easier to get money for “innovative” projects that&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;try to apply experimental approaches &lt;em&gt;(not battle-tested, often questionable)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;use exotic convoluted technology &lt;em&gt;(created + mindlessly promoted in academia)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;than it is to get money for important but more “boring” things such as&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;creating small useful tools that help people in a scientific field &lt;br &#x2F;&gt; &lt;em&gt;(e.g. solving a small but common problem they face in the daily work)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;maintaining and incrementally improving existing systems &lt;br &#x2F;&gt; &lt;em&gt;(unless the improvement is super-visible, making it worthy of a paper)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There is often not much of an incentive to find the most useful, practical and technically
+feasible solution, instead &lt;strong&gt;a lot of incentive to sell snake-oil and deliver half-assed
+prototypes&lt;&#x2F;strong&gt;. And if getting money for a project is not already difficult enough, you need
+to work around political requirements and landmines, such as&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;everyone wanting to put their names and logo on the project&lt;br &#x2F;&gt; &lt;em&gt;(if we can’t, please reinvent the wheel for us – i.e. classic NIH syndrome)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;some big guys doing very similar things but disliking each other&lt;br &#x2F;&gt; &lt;em&gt;(so you need to avoid them, instead of joining forces)&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;software-development-in-adverse-conditions&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#software-development-in-adverse-conditions&quot; aria-label=&quot;Anchor link for: software-development-in-adverse-conditions&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Software Development In Adverse Conditions&lt;&#x2F;h1&gt;
+&lt;p&gt;If you are a software developer and take a position in some academic institution,
+unless you took a job in some central administration &#x2F; infrastructure department – let us
+ignore this special and quite different case – then…&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;you might be the only skilled developer in an otherwise non-developer team&lt;&#x2F;li&gt;
+&lt;li&gt;the people you report to probably have no idea how to manage software projects&lt;&#x2F;li&gt;
+&lt;li&gt;your contract is almost certainly funded by a 3rd party project and is temporary&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;In the following sections I unpack these points and explain the problems they imply.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lone-wolves-of-academia-unite&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#lone-wolves-of-academia-unite&quot; aria-label=&quot;Anchor link for: lone-wolves-of-academia-unite&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Lone Wolves of Academia, Unite!&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Software development is the creative team sport of effectively building complex systems
+that work correctly and reliably over longer periods of time.&lt;&#x2F;strong&gt; Being the only developer
+working on a project in your unit, or being a too small team for the scale of the
+project – this is a &lt;em&gt;massive&lt;&#x2F;em&gt; problem, as it limits the kind of the projects you can
+successfully complete.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a limit to the size of a project a lone warrior developer
+can handle. It works well enough for small tools, but it does not scale to large, complex
+software – at least not if you want to get things done in reasonable time. So for bigger
+projects you will be often working in loose collaboration with other people, who are
+employed at unrelated institutions, each of them with different agendas, priorities and
+paths of decision making. &lt;strong&gt;Welcome to the nightmare of diffused responsibility and lack
+of accountability.&lt;&#x2F;strong&gt; &lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Working in a distributed team of developers might have its intrinsic challenges, but those
+can be and are overcome – under the assumption of a coherent organization, e.g. managed
+within the same company or institution. But the kind of loose and promiscuous project
+collaboration as practiced between academic institutions, while maybe working well for
+doing some research together and ensuring fruitful exchange of ideas, makes it very
+difficult to effectively work on a complex piece of software together, unless the majority
+of work is managed and done at one place and only minor tasks are offloaded to motivated
+external contributors.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Academic software development works like (and often actually is) open source development
+– it is based on voluntary, unstable and barely uncoordinated investment of work and
+time, driven by the self-interest of contributors.&lt;&#x2F;strong&gt; But a successful open source project
+might have tens of thousands of stars on GitHub and dozens of enthusiastic contributors,
+whereas the popularity of your average work project in academia will be closer to that of
+your average personal toy projects, and will have similar difficulties in getting any
+attention. If you don’t have at least &lt;em&gt;a few&lt;&#x2F;em&gt; developers in your team you can really count
+on, good luck.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;software-project-management-scientific-management&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#software-project-management-scientific-management&quot; aria-label=&quot;Anchor link for: software-project-management-scientific-management&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Software Project Management != Scientific Management&lt;&#x2F;h2&gt;
+&lt;p&gt;Science is pretty good in finding and walking the paths less travelled and discovering new
+and unexpected places. However, &lt;strong&gt;what science is exceptionally bad at is building a nice,
+straight, cemented road that others can use in order to arrive somewhere they actually
+wanted to go.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The people getting money and taking decisions very well understand the game of academia,
+but they usually have no clue about product development and team management as it is
+needed for larger software development efforts. Scientists, on any level, are not used to
+breaking down big projects into realistic milestones, distributing work and setting
+priorities wisely. The scale and required investment for a complex software is simply much
+larger than the average research project that just is expected to produce a paper or two
+in the end.&lt;&#x2F;p&gt;
+&lt;p&gt;Because non-technical staff manages technical staff, work is often distributed
+ineffectively. They simply do not know what a single developer is capable of, and what the
+individual strengths of the available people are. And beyond vague project goals, there
+are rarely clear requirements – another &lt;em&gt;massive&lt;&#x2F;em&gt; problem.&lt;&#x2F;p&gt;
+&lt;p&gt;If you are told to build a bridge, but not really from where to where, for which purpose,
+how much material you can use, how much load it needs to carry and what other constraints
+need to be satisfied – what kind of solution should you design? If your assignment is to
+“build a big bridge that can carry a lot of traffic”, what is even a proper measurement of
+success?
+A very imprecise way of stating requirements or planning projects is often even done &lt;em&gt;by
+design&lt;&#x2F;em&gt;, because if you do not say what “big” and “a lot” means when you apply for
+funding, you can define it in your progress report later in such a way that it perfectly fits
+what has been done so far.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;So this is the cheap trick often used to ensure that almost every project in academia
+ends up being a success (at least on paper): You first shoot the arrow, and then you say
+that whatever you hit was the target all along.&lt;&#x2F;strong&gt; It really does work roughly like in that
+old joke. Your funding proposal basically just needs to say: “We are going to shoot an
+arrow into a well-chosen direction” and your final report will say that “after a lot of
+deliberation we settled on a promising direction, identified a suitable target and
+successfully hit it with our arrow, proving the efficacy of our arrow-shooting device”.
+Piece of cake.&lt;&#x2F;p&gt;
+&lt;p&gt;So they just want you to figure something out, come up with something that sounds
+reasonable and can be tried out – the same way you just give a promising idea to a PhD
+student to let them work it out until they can write a paper or thesis about it that
+somehow fits the initially planned topic. Only that you often have absolutely no clue
+about the domain of people you try to build your solutions for, so you cannot do the
+requirement engineering properly, and end up building &lt;em&gt;something&lt;&#x2F;em&gt; that &lt;em&gt;might&lt;&#x2F;em&gt;,
+possibly, hopefully, make some sense and help the people it is intended for.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;If the requirements are not made clear enough, it is impossible to fail on paper, but it
+is also impossible to succeed in real life and come up with a useful solution.&lt;&#x2F;strong&gt; And the
+truth is, your actual solution often does not really matter all that much, because nobody
+really cares anyway.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;There is rarely a person combining the authority, expertise enough time and the
+willingness to take on the “product owner” role of a larger software project in order to
+push and guide it towards a genuine success. Usually, your manager will already be busy…&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;getting more external collaborators on board and motivating them to contribute&lt;&#x2F;li&gt;
+&lt;li&gt;writing reports that say how awesome the project is and how well it is going&lt;&#x2F;li&gt;
+&lt;li&gt;trying to secure more funding to keep you around, or get some more developers&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;In the meantime, feel free to build small and big bridges all over the place the way you
+see fit. They will just observe which bridges end up being used and try to get more
+funding for them. Wait – does that remind you of something? Yes, that’s right – this is
+how research is typically done. &lt;strong&gt;Invent interesting solutions, then look for problems they
+might solve, and find people who might care about it.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-persistence-of-volatility&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-persistence-of-volatility&quot; aria-label=&quot;Anchor link for: the-persistence-of-volatility&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The Persistence of Volatility&lt;&#x2F;h2&gt;
+&lt;p&gt;Now consider all of the problems above, and multiply them by the fact that your position
+is not permanent, as is the position of most employees in your institution, as is the
+position of the majority of people doing the actual down-to-earth work in science.&lt;&#x2F;p&gt;
+&lt;p&gt;A scientist can hope to eventually get a permanent position and live happily ever after.
+But a software developer in science – what is this? &lt;strong&gt;There are effectively no
+predictable career paths for highly qualified technical (but non-scientific) staff in
+science&lt;&#x2F;strong&gt;, and only few institutions afford to even have some larger technical department
+of people doing de-novo software development (in contrast to, e.g., maintenance of
+existing infrastructural software, such as digital libraries).&lt;&#x2F;p&gt;
+&lt;p&gt;So most software in science is developed by small, often highly distributed groups of
+people, who are often not even trained to be developers or maintainers of a software
+project and most likely will not be around in a few years. &lt;strong&gt;The instability of the
+employment of people who write and maintain code directly affects the long-time
+health and viability of that code.&lt;&#x2F;strong&gt; It is a well known, still mostly unsolved problem
+that software projects in research tend to die soon after the one or the few critical
+people who were taking care of it move to a different project or leave academia
+altogether. &lt;strong&gt;Most software projects in research have a bus factor of 1.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;And it is on top of this fragile house of cards consisting of barely maintained eternal
+prototypes where a lot of cutting-edge research is being done.&lt;&#x2F;strong&gt; If you hear this the first
+time and this does not give you a sense shock and existential dread, then I do not know
+what will. Academia simply has no tools or mechanisms in place to ensure successful and
+reliable development and operation of complex software on time scales going beyond 3-5
+years&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#3&quot;&gt;3&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;summary&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#summary&quot; aria-label=&quot;Anchor link for: summary&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Summary&lt;&#x2F;h1&gt;
+&lt;p&gt;Over the last three years I went through one stage of disillusionment after the other. I
+guess I went through something like a quarter-life crisis, and I think that I
+came out as a more adult and less naive person – both in good ways and in bad ways. The
+first-hand glimpses I got of the plumbing and machinery of academia taught me a lot about
+people, large organizations and politics overall. And lately, I have been standing at the
+bifurcation of two paths. The key question determining my future path being – am I
+willing to sacrifice myself to make a tiny dent in this ugly gigantic mess called
+academia, could I be content by just imagining that I gave it a very little nudge
+into the right direction?&lt;&#x2F;p&gt;
+&lt;p&gt;Do I have enough idealism, resilience and hope for science that I could learn to accept and
+live with the rules of the game which cannot be easily changed, to stay in this environment,
+trying to make the best out of it? Or do I rather accept the reality that the idealized,
+romantic idea of science is not at all how the real world works, probably never was, and
+most likely never will be?&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;One day I woke up and my gut feeling told me that the penny has dropped. I simply did
+not care anymore.&lt;&#x2F;strong&gt; And this moment I knew that it is time to move on. This environment
+does not really value my qualification and skills, and it does not offer me any
+perspectives for development or growth. The intrinsic passion for science (as a “social
+institution”) that I once had is now gone for good, and I know that the longer I would
+stay in this swamp, the more bitter, cynical and emotionally divested I would become. My
+technical abilities would slowly wither, lacking the right kind of challenge and
+motivation, and eventually I would end up being a hollow shell, either stuck forever in
+this cursed quicksand, or eventually spat out onto the street, emotionally drained and now
+also old and useless for the so-called &lt;em&gt;industry&lt;&#x2F;em&gt;, after wasting too many years too close
+to the ivory towers.&lt;&#x2F;p&gt;
+&lt;p&gt;Once the system completely lost all the remaining magical flair of almost holy
+transcendence, walking the path of the idealistic martyr completely lost its appeal for
+me. All these causes looking like something to live and die for end up being mirages and
+lies. So probably it should be not very surprising to find that &lt;strong&gt;when all illusions are
+stripped away, science is not much different from the rest of the world and just as ugly –
+narcissistic people playing games of power and glory, while riding on the back of selfless
+people with the right mix of helper and Stockholm syndrome.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;No, all the insanity of academia cannot be solved by any kind of software, while at
+the same time creating actually &lt;em&gt;useful&lt;&#x2F;em&gt; software for any purpose is nearly impossible in
+this dysfunctional environment&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#4&quot;&gt;4&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. I, for one, have seen enough. So academia, consider
+that a divorce!&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;If you have a coherent team of collaborating developers, consider yourself lucky!&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;2&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;Sure, you can try to ask and clarify requirements. But your managers cannot give you
+more information or insight, because they do not have any more to share. The PhD
+students and PostDocs are too busy writing papers and doing research – they have no
+time to explain their work or problems to you (if they are even aware of any problems).
+To make it even more fun, they also do not really understand what you are trying to do,
+and how it is supposed to help them. You thought you’ll be a celebrated hero and
+savior by coming as a developer into a research institute? &lt;em&gt;Hahaha!&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;3&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;3&lt;&#x2F;sup&gt;
+&lt;p&gt;3-5 years is what you could get with an initial funding and an eventual follow-up
+funding, if you even get this far, to hire and allocate developers to some project.
+After that, most projects lose momentum and simply fade back into obscurity,
+until they are abandoned and forgotten, just like your average toy project on GitHub.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;4&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;4&lt;&#x2F;sup&gt;
+&lt;p&gt;All of this applies to the “applied sciences”. Compared to the rest, theoreticians
+are the good-hearted tree-hugging hippies of science – I choose to hold on to that
+belief. I did my PhD as such a hippie, and now almost wish I could unsee all the ugly
+things outside the little bubble where I have been academically socialized in. Maybe
+the amount of decay in science correlates with the size of the field and amount of
+money and glamour in it. Hardcore theory is for the few passionate ones who do not
+care too much about such things.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+    </entry>
+</feed>
