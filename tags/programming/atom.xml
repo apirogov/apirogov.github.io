@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - programming</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://pirogov.de/tags/programming/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-06-29T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/programming/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Abstraction Driven Design - The Essence Of Software Development</title>
+        <published>2024-06-29T00:00:00+00:00</published>
+        <updated>2024-06-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Anton Pirogov
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pirogov.de/blog/abstraction-driven-design/"/>
+        <id>https://pirogov.de/blog/abstraction-driven-design/</id>
+        
+        <content type="html" xml:base="https://pirogov.de/blog/abstraction-driven-design/">&lt;p&gt;Over time I have talked to multiple people who genuinely seem like following some
+ritualized approach to software development, such as TDD or Scrum, living by laws such as
+“Red, Green, Refactor”, doing “daily stand-ups” or following recipes from some design
+pattern bible, either being still in honey moon phase with that idea, or really
+believing they found some kind of silver bullet. Maybe it’s just me, but something inside
+me automatically revolts whenever some new religion comes up and it’s evangelists start
+proselytizing.&lt;&#x2F;p&gt;
+&lt;p&gt;Alongside reflections on my own stance concerning software development paradigms and
+practices, in the following I try to argue that mechanical usage of any development
+approach does not necessarily leads to good results, and that conversely, one can write
+perfectly fine software without the constraints of rigid ceremony – at least if you are
+the kind of person with enough passion for the craft and who is committed to to
+internalizing and following good practice in spirit, if not by letter.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;paradigms-are-shadows-of-someone-s-experience&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#paradigms-are-shadows-of-someone-s-experience&quot; aria-label=&quot;Anchor link for: paradigms-are-shadows-of-someone-s-experience&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Paradigms are Shadows of Someone’s Experience&lt;&#x2F;h2&gt;
+&lt;p&gt;It is well known that software development is both an art and a craft. The craft is, like
+any other, only learned by doing, and the art is learned through the experience gained by
+doing it for a long time. Nothing replaces having done innumerable stupid things,
+exploring many different approaches, and feeling all joy and frustration caused in the
+process. &lt;strong&gt;Experience cannot be taught or substituted.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;All formalized methodology is an attempt of the creators, usually very senior developers,
+to capture the core intuitions and insights they gained and convey the lessons they
+learned to others - a mere shadow of someone else’s painfully earned experience, carefully
+crafted into a dogma for others to live by.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;While you cannot truly teach experience, you can train behavior.&lt;&#x2F;strong&gt; So unlike in biology,
+where “form follows function”, here we have that  “function follows form”. The promise of
+any methodology or paradigm is: if you follow the steps as you are told, you will end up
+with a result that has certain desirable properties, by design.&lt;&#x2F;p&gt;
+&lt;p&gt;All these methodologies, paradigms and recipes are social, mental and technical tools,
+created to capture and disseminate some good practice or successful pattern - something
+that empirically and reproducibly results in high quality output in a suitable
+environment. &lt;strong&gt;Each paradigm is an abstraction of someone’s ineffable
+practical experience&lt;&#x2F;strong&gt;, their personal glimpse into the Tao of software development,
+earned by the daily fight with concrete problems they were solving.
+Sadly, these ideas, even if good, often turn into some kind of cult, but probably this is
+unavoidable.&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#unavoidable_cult&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-art-of-picking-the-right-tool-for-the-job&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-art-of-picking-the-right-tool-for-the-job&quot; aria-label=&quot;Anchor link for: the-art-of-picking-the-right-tool-for-the-job&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The Art of Picking the Right Tool for the Job&lt;&#x2F;h2&gt;
+&lt;p&gt;One popular religion, Scrum, is about managing work, time and communication. TDD is about
+consistently creating well-designed, modular and loosely coupled interfaces while ensuring
+that they actually work. BDD is about focusing on actual requirements and usability to
+guide the design of the system. DDD is about extracting, isolating and shielding the core
+of your system from ever-changing requirements and environment parameters, and so on.&lt;&#x2F;p&gt;
+&lt;p&gt;People following a dogmatic system too zealously tend to be overjoyed by good experiences
+they have, if that system works for them, but miss out on the insights and valuable
+lessons of knowing other ways, of feeling the difference and understanding the reason
+behind each rule on an intuitive level. &lt;strong&gt;Each methodology has intrinsic costs and
+trade-offs&lt;&#x2F;strong&gt;, just like every software it helps us building. Given some problem we want to
+solve, the approach or design dictated by someone else’s dogmatic system is&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;not necessarily the best&lt;&#x2F;li&gt;
+&lt;li&gt;not the only reasonable option&lt;&#x2F;li&gt;
+&lt;li&gt;sometimes not even feasible or useful&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;I strongly believe in eclecticism.&lt;&#x2F;strong&gt; Learning from everybody and everything, soaking it
+all up. Learning the trade-offs - the good, the bad and the ugly, of every architecture
+used for managing code or people, each programming paradigm. Trying not to fall for hypes,
+researching all the reasons why it might actually suck, identifying situations where it is
+not applicable or actively harmful. As it is often said - don’t use a saw when you need to
+put a nail in the wall. When learning some new approach, ask - what is it’s spirit, it’s
+essence? What does it try to teach me, what does it offer, is there any evidence? In which
+cases can this be useful, and when is it better to stay away? What is the history and
+context of it? Try to read the mind of those who came up with it and guess what they
+&lt;em&gt;actually&lt;&#x2F;em&gt; wanted to share with us.&lt;&#x2F;p&gt;
+&lt;p&gt;Some ideas have been historically and empirically proven to be horrible or naive, and
+software development is not only too fast-paced and young, but also much too diverse and
+fluid discipline to pin it all down to a few easy to follow rules that almost ensure a
+solid result. That is why it is still more of a performance art rather than true
+“engineering” discipline, compared to the standardization level and maturity of other
+fields.&lt;&#x2F;p&gt;
+&lt;p&gt;Yes, we might have “coding standards” and the like, but many conventions and rules we
+train ourselves to follow are just workarounds for limitations of often old programming
+languages we currently use, so these kind of rules do not count. Often we even
+disagree on the set of conventions to use – they vary widely across projects and
+programming languages. So what we do &lt;em&gt;not&lt;&#x2F;em&gt; have, are reasonably fail-proof higher order
+rules or recipes for building large complex systems that work well and remain maintainable
+over long periods of time. Software projects are always a moving target. The closest thing
+we have are rough architectural patterns, but even those need very careful consideration.&lt;&#x2F;p&gt;
+&lt;p&gt;Honestly, I don’t want it any other way. It makes programming an intrinsically
+explorative and creative occupation. If everything was already figured out and the work
+could be done by following some human-level algorithm, I would probably rather do other
+things with my life. However, I do think that amidst the noise and buzz of the current
+trends &lt;strong&gt;there is something timeless and universal to understand, learn and apply&lt;&#x2F;strong&gt;, you
+just need to see or intuit it.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;universality-of-structural-beauty&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#universality-of-structural-beauty&quot; aria-label=&quot;Anchor link for: universality-of-structural-beauty&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Universality of Structural Beauty&lt;&#x2F;h2&gt;
+&lt;p&gt;Learning to program is not difficult, like learning to speak and write, so
+&lt;strong&gt;people mostly tend to see the linguistic and communicative of code.&lt;&#x2F;strong&gt; That is why we now
+have a flood of bootcamp coders who think they became developers by learning some
+syntax, while at the same time skilled engineers are a scarce resource.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Software development is less about reading or writing, it is much more about thinking&lt;&#x2F;strong&gt;.
+Good prose does not depend on the language it is written in, or format used for printing.
+We value it for well-constructed deep thoughts (and feelings), expressed with a masterful,
+lucid and creative use of language, whichever the author chose to use. In fact, all other
+carrier mediums of art can be seen as just other languages for self-expression - be it
+music, paintings, or computer code. &lt;strong&gt;Beauty is in symmetry, beauty is in good structure,
+beauty is in balance, beauty is in depth.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I went to university not with the goal of getting a degree, but to learn about computer
+science beyond the fun and shiny linguistic interface that programming languages provide.
+If my academic education gave me anything of value at all, then it is the ability to
+think deeply and clearly, and acquiring a sense and taste for mathematical beauty.&lt;&#x2F;p&gt;
+&lt;p&gt;Code is sitting somewhere between natural language and mathematical equations, and I think
+we would be all better off approaching programming more akin to mathematicians who
+construct beautiful, elegant formalisms and theorems, and less like bad books with
+incoherent plots and too many convoluted, but empty words.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a nice quote from Banach I stumbled on:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;“A mathematician is a person who can find analogies between theorems; a better
+mathematician is one who can see analogies between proofs and the best mathematician can
+notice analogies between theories. One can imagine that the ultimate mathematician is one
+who can see analogies between analogies.”&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I hope you can see the analogy to make this quote equally applicable to developers.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;digression-an-ode-to-haskell&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#digression-an-ode-to-haskell&quot; aria-label=&quot;Anchor link for: digression-an-ode-to-haskell&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Digression: An Ode to Haskell&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;If there is something that had a strong influence on me as a developer except for getting
+an academic education and diving into theory, then it was picking up Haskell&lt;&#x2F;strong&gt;. Once you
+know a few programming languages, each next language feels easy, mostly like learning new
+words for the same things. That is what I thought before I tried to learn Haskell. Haskell
+was the first one that really taught me something genuinely, going way deeper than syntax.
+It’s like instead of going to a neighboring country, you suddenly find yourself 100 years
+into the future exploring a different planet.&lt;&#x2F;p&gt;
+&lt;p&gt;I spent a lot of time working and fighting with Haskell, and it really is the most
+enlightening and still practically usable programming language one can try to learn. I
+might be a mediocre Haskell programmer, but I believe it made me a vastly better
+programmer in any other language – by breaking my brain and reconfiguring it in new ways.&lt;&#x2F;p&gt;
+&lt;p&gt;There are many other languages doing some flavor of FP, but Haskell is so much more than
+that – due to its exceptionally powerful type system and the abstractions it enables. It
+is the only language I know that is actually suitable and used for real-world problems and
+at the same time can still feel like doing abstract math. &lt;strong&gt;It is beautiful, and still full
+of ideas that very slowly, over decades, leak into mainstream languages.&lt;&#x2F;strong&gt; Usually under
+some less scary names, in simplified more easily digestible form they are re-discovered or
+absorbed by the mainstream:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;addition of lambdas as primitives (for frictionless function composition)&lt;&#x2F;li&gt;
+&lt;li&gt;the rise of general higher order combinators, such as maps, folds, zips&lt;&#x2F;li&gt;
+&lt;li&gt;optional type, instead of using null values (the Maybe type)&lt;&#x2F;li&gt;
+&lt;li&gt;variant types, instead of cumbersome ad-hoc visitor patterns (the Either type)&lt;&#x2F;li&gt;
+&lt;li&gt;futures and promises as special common cases of abstract monadic computation&lt;&#x2F;li&gt;
+&lt;li&gt;powerful mechanisms for parametric polymorphism (“generics”, “templates”)&lt;&#x2F;li&gt;
+&lt;li&gt;preference of generic function and type composition over inheritance&lt;&#x2F;li&gt;
+&lt;li&gt;preference of immutable structures and isolation of mutable state&lt;&#x2F;li&gt;
+&lt;li&gt;preference of controlling side effects and separating them from pure functions&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Just to mention a few examples. Most concepts that get adopted have a good power-to-weight
+ratio, apparently sitting at some sweetspot between simplicity and near-universal
+applicability.&lt;&#x2F;p&gt;
+&lt;p&gt;Sure, Haskell has its downsides, difficulties, design flaws as well – try to insert a
+harmless print statement in a random place, or understanding memory consumption. It
+probably will never leave the niche it comfortably sits in, and it does not want
+to&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#success&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. &lt;strong&gt;Just like Jodorowsky’s Dune movie that was never made, Haskell is the most
+influential programming language that almost nobody ever used&lt;&#x2F;strong&gt;, but that already affected
+dozens of modern popular languages and enlightened generations of receptive developers.
+What could be a bigger success?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-oop-vs-fp-war-is-over-and-everybody-won&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-oop-vs-fp-war-is-over-and-everybody-won&quot; aria-label=&quot;Anchor link for: the-oop-vs-fp-war-is-over-and-everybody-won&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The OOP vs. FP war is over, and everybody won&lt;&#x2F;h2&gt;
+&lt;p&gt;I’ve seen some of the fruit and read enough stories of classical, deeply inheritance-based
+&lt;strong&gt;OOP&lt;&#x2F;strong&gt;, manifested in the most pure form in Java. &lt;strong&gt;It is a naive idea: taking the
+common-sense way of conceptualizing the world, and trying to mimic it in code.&lt;&#x2F;strong&gt; But the
+real world is a mess and hard to reason about, so that is exactly what we get: a messy
+entangled global state of interacting entities, the nightmare of our own making. It looks
+like the world agrees by now that this idea has failed miserably.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;FP&lt;&#x2F;strong&gt;, on the other hand, is more mathematical in its very nature - you break the world
+down to atoms, simple building bricks of computation. Like physicists, who capture the
+essence and dynamics of the universe in a bunch of equations concerning some dozen of
+fields, by uncovering and exploiting the underlying symmetries and surprising homogenity
+and predictability underlying all the mess we see at the macro level, they have long
+figured out that &lt;strong&gt;the global dynamics emerges from a myriad of simple local interactions,
+each individually perfectly understood and transparent&lt;&#x2F;strong&gt; (or very close to that).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Modern OOP&lt;&#x2F;strong&gt;, as it is preached and practiced these days, has been mostly stripped of
+it’s naive assumptions and blunders, teaching to use composition over inheritance, keep
+entanglement between objects low, and thinking more about clear ownership of data. &lt;strong&gt;Either
+on purpose or by some accidental conceptual convergence, this tamed and revised form of
+OOP is actually pretty close to being FP, presented in object-shaped clothing.&lt;&#x2F;strong&gt; The main
+difference is the emphasis remaining on the data entities over the operations, whereas the
+FP perspective naturally does the opposite - usually emphasizing functions consuming
+abstract generic interfaces, instead of concrete data types.&lt;&#x2F;p&gt;
+&lt;p&gt;Both views have value, in fact - they are complementary. There is data, and there is code.
+Sometimes they are even one and the same and barely distinguishable (that lesson and it’s
+power best taught by Lisp), whereas sometimes we prefer to create more rigid boundaries
+(embodied by languages with strong and expressive type eystems). &lt;strong&gt;Both perspectives are
+equally important and must be balanced in order to achieve our &lt;em&gt;actual&lt;&#x2F;em&gt; goals.&lt;&#x2F;strong&gt;
+What we all want is to write less code that does more, code that has elusive qualities
+such as &lt;em&gt;“loose coupling, but high cohesion”&lt;&#x2F;em&gt;, which is just fancy OOP slang to express
+our desire for:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;simplicity (small and obvious pieces that are almost trivially correct)&lt;&#x2F;li&gt;
+&lt;li&gt;generality (you can use pieces in many contexts)&lt;&#x2F;li&gt;
+&lt;li&gt;modularity (you can use pieces in isolation)&lt;&#x2F;li&gt;
+&lt;li&gt;composability (you can build many different things with the pieces you have)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;In a system with these properties, functions and data structures are like razor-sharp
+tools of haiku-like beauty. I believe that code written like this is naturally closer to
+mathematics, closer to theoretical computer science.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;The code best exemplifying all these ideals can often be found in standard libraries.&lt;&#x2F;strong&gt;
+What code is more atomic, generic and composable and modular than the vocabulary the
+language creators provide to the masses of developers building all the required systems
+for practical tasks? And which developers are more qualified and experienced than those
+creating programming languages and writing powerful libraries? If you want to know how to
+write well-designed software, good standard libraries are a place to start learning.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;the-one-true-method-tm-aggressive-abstraction&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-one-true-method-tm-aggressive-abstraction&quot; aria-label=&quot;Anchor link for: the-one-true-method-tm-aggressive-abstraction&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The one true method(tm) - aggressive abstraction&lt;&#x2F;h1&gt;
+&lt;p&gt;I find the cage of routine, dogma and ceremony to be repulsive, but I believe I do have a
+thing that is some kind of an intuitive methodology. When I approach a problem, I do the
+theoretician’s trick - &lt;strong&gt;try to generalize, solve the simpler general problem, then
+specialize to your concrete context and fill in missing details&lt;&#x2F;strong&gt;. It is just the
+recursive use of tasteful abstraction, which can be described interchangeably as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;aggressively identifying recurring patterns and unifying them&lt;&#x2F;li&gt;
+&lt;li&gt;compressing information, while reducing or externalizing noise&lt;&#x2F;li&gt;
+&lt;li&gt;decreasing the “entropy” of the system, while increasing its “potential energy”&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I try to do this across all the levels and scopes of a project, manifesting this as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;pretending to build a meta software for that kind of problem I have, instead of coming up with a one-off solution for a singular problem&lt;&#x2F;li&gt;
+&lt;li&gt;pretending to write code for a generic library or framework, even if the code will most likely never leave that project&lt;&#x2F;li&gt;
+&lt;li&gt;actually refactoring out a (possibly internal) library, if there is something of more general value that could be reused&lt;&#x2F;li&gt;
+&lt;li&gt;thinking in terms of generic, small, simple functions and data types with good properties (as discussed further above)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;strong&gt;If you get used to thinking like this, you naturally gravitate toward code that is easy
+to test, understand, reuse, (de-)compose and extend.&lt;&#x2F;strong&gt; All of this boils down to
+performing the creative art of finding the maximal level of abstraction that is useful at
+any given level, but not more than that.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;The process involves throwing away as many details as possible that obstruct the view of
+the big picture&lt;&#x2F;strong&gt;, clearly identifying invariants and symmetries and dependencies, and
+adding as many degrees of freedom as possible, reducing the number of needed assumptions
+and constants coming from practical requirements and externalizing them to parameters.
+Maybe this can be seen as a vast generalization of the SOLID principles, which are
+both consistent with and I believe quite naturally follow from this way of thinking.&lt;&#x2F;p&gt;
+&lt;p&gt;The art of abstraction is where pure mathematicians tend to excel at, but of course, &lt;strong&gt;there
+is also some risk of falling into the trap of over-abstraction&lt;&#x2F;strong&gt; - when your general
+solution has so many parameters and moving parts that it looks not simpler and more
+managable, but more convoluted and complicated. This means that you missed the right point
+to stop. Even abstraction, the most powerful cognitive tool humanity ever created and
+perfected, is still just a tool. It should not be fetishized, and requires some taste and
+experience. As usual, everything is only good in moderation, and only if approached with
+healthy pragmaticism.&lt;&#x2F;p&gt;
+&lt;p&gt;We are not abstracting just for the sake of it or for showing off, but with the goal of
+finding a clean, elegant, well designed and reasonable solution to a concrete problem we
+face. &lt;strong&gt;A true virtuoso must know when to indulge in some fancy wizardry, and when it is
+best to stick with something simple and straight-forward.&lt;&#x2F;strong&gt; Just like a good musician could
+solo all day, but will humbly play and stick to a basic melody or rhythm, if that is what
+the song or band needs.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;how-i-usually-write-software-in-practice&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#how-i-usually-write-software-in-practice&quot; aria-label=&quot;Anchor link for: how-i-usually-write-software-in-practice&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+How I usually write software in practice&lt;&#x2F;h1&gt;
+&lt;p&gt;When I sit down to solve some fresh problem from scratch, after understanding the most
+important side constraints and true requirements, I try to break it down, come up with
+nice loosely coupled building blocks, starting from sketches of bigger components and
+subsystems, then decomposing those subsystems down to focused, small functions and data
+types. I might draw some conceptual sketches and type signatures on a whiteboard or paper.&lt;&#x2F;p&gt;
+&lt;p&gt;Then, piece by piece, I start writing out the functions and structures, more or less
+simultaneously encoding my intentions and assumptions about their behavior in unit tests.
+All of this is then semi-consciously mapped to idioms and constraints of a programming
+language that I have to or choose to use, balancing the style and patterns the language
+was designed for (as far as I am aware of them), and my own tastes and preferences.&lt;&#x2F;p&gt;
+&lt;p&gt;If I can, I extensively use a REPL to interact with pieces of code. It keeps the gap
+between mental model and concrete implementation as small as possible, the code becomes
+more tangible - almost like a physical object. If I do an experiment often enough to
+notice and be annoyed by a pattern, it’s time to pin it down as an automated test. If I
+have no REPL, I use a test framework as a poor person’s REPL, writing out and evaluating
+my exploratory interactions with the function I am writing in pseudo test cases, later
+shaping and refining them into proper tests that check all relevant edge cases and
+invariants.&lt;&#x2F;p&gt;
+&lt;p&gt;At no point of all this I use any trendy methodology, or follow any rigid disciplined
+approach or ritualized practice that has an established label. In fact, I feel that any
+rigid routine is very quickly not an aid, but a cage. Maybe a well-intentioned cage, but
+still a cage nonetheless. Fixed paradigms that someone else created are, to loosely quote
+Wittgenstein, the ladder that you need to use just once, in order to get to some elevated,
+difficult to reach place. The ladder becomes obsolete and can be thrown away once you
+attain the insights you can get from the new vantage point.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Once you internalize the essence of a concept, it becomes a part of your thinking, a
+part of your being.&lt;&#x2F;strong&gt; You learn to voluntarily stay within the constraints outlined by a
+useful conceptual framework, but stay open minded to recognize situations when breaking
+some rules or following other rules is the better option.&lt;&#x2F;p&gt;
+&lt;p&gt;Am I any good at all this? I don’t know, I think I’m doing fine and hope that I am getting
+better over time. What I think I &lt;em&gt;do&lt;&#x2F;em&gt; know for sure is where the light is, and I always
+try to reach towards it. Once you start believing you are already &lt;em&gt;there&lt;&#x2F;em&gt;, you stop
+learning and growing. All I can hope is that code I write next year is better than last
+year, and that I can gracefully look back at code from last year, forgive myself, and be
+thankful that I apparently have evolved. I guess, another implicit rule I follow is: &lt;strong&gt;try
+to write code that future-you will not be ashamed of or hate you for.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;programming-is-the-closest-substitute-for-magic&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#programming-is-the-closest-substitute-for-magic&quot; aria-label=&quot;Anchor link for: programming-is-the-closest-substitute-for-magic&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Programming is the closest substitute for Magic&lt;&#x2F;h1&gt;
+&lt;p&gt;When I am absorbed in the process of creation, the only rule I follow is my gut feeling,
+intuition, and desire for crystalline mathematical beauty of well-crafted structure,
+reflected in the virtues of good code discussed above. It all just naturally flows - from
+the ephemeral platonic realm of perfect concepts and ideas, channelled and filtered by my
+imperfect thoughts, tainted by the mess and incidental complexity of real world problems
+and constraints, and finally projected out, pouring the spirit that came ex nihilo, right
+into the silicon flesh in our physical realm - executable code on a hard drive, created to
+do something useful.&lt;&#x2F;p&gt;
+&lt;p&gt;Probably it is the closest we can ever get to the fantasy of wielding supernatural powers
+and using powerful magic spells that can bring a golem to life. For me, tapping into the
+mathematical void, source of all abstraction and creation, channeling and shaping it to
+manifest something new in the world that unifies both beauty and value - this is all the
+joy and bliss of software development.&lt;&#x2F;p&gt;
+&lt;p&gt;Now the somewhat amusing punchline, and starting point for thinking about all this, was
+that the typical outcome of my intuitive “abstraction driven design” process is
+probably not too different, maybe even observationally indistinguishable, from results
+that others would achieve with TDD and other more formalized approaches. Which, I guess,
+confirms that these approaches, when used correctly, &lt;em&gt;are actually working pretty well!&lt;&#x2F;em&gt;
+I just prefer staying a liberal agnostic and really dislike any kind of orthodoxy, that is
+all.&lt;&#x2F;p&gt;
+&lt;p&gt;So closing on a less serious note - to not appear to others as a wild and uncivilized
+barbarian, I figured that when talking to other people, maybe I should say: &lt;em&gt;yes,
+in fact I also do some form of “TDD”!&lt;&#x2F;em&gt; Only without mentioning that the “T” in my personal
+“TDD” is not for “Testing”, but for “Tao” – because I intuitively follow the Tao of
+structural beauty and tasteful abstraction. If the results are decent enough, who will be
+able to tell the difference?&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;unavoidable_cult&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;If it would not turn into a cult, it would mean most people already
+know better. As they don’t know better and thus become cult warriors, the original
+idea their cult is based on is apparently is not obvious or intuitive enough for them.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;success&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;2&lt;&#x2F;sup&gt;
+&lt;p&gt;“Avoid success at all costs” is the motto of the language, correctly
+parsing the statement to get the intended meaning is left as an exercise for the reader.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Goodbye Hakyll &#x2F; Haskell, hello Zola &#x2F; Rust!</title>
+        <published>2023-07-14T00:00:00+00:00</published>
+        <updated>2023-07-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Anton Pirogov
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/"/>
+        <id>https://pirogov.de/blog/goodbye-hakyll-hello-zola/</id>
+        
+        <content type="html" xml:base="https://pirogov.de/blog/goodbye-hakyll-hello-zola/">&lt;p&gt;&lt;em&gt;It is this time of the year where I once again felt the urge to write something and revive
+this homepage of mine by infusing some new content, possibly write all those things down
+I’ve been planning to for a while. But the page initially was built using
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;jaspervdj.be&#x2F;hakyll&#x2F;&quot;&gt;Hakyll&lt;&#x2F;a&gt;, which is a very cool and very hackable static site
+generator (actually, a &lt;em&gt;library&lt;&#x2F;em&gt;) implemented in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.haskell.org&#x2F;&quot;&gt;Haskell&lt;&#x2F;a&gt;. Here
+I reflect on my choice to migrate the page from Hakyll to
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;, which is happening in parallel to my slow shift away
+from Haskell towards Rust.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;from-haskell-to-rust&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#from-haskell-to-rust&quot; aria-label=&quot;Anchor link for: from-haskell-to-rust&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+From Haskell to Rust&lt;&#x2F;h2&gt;
+&lt;p&gt;While I have been a huge fan and enthusiast of Haskell and also used it for multiple hobby
+projects, and would have loved to use it at work (and actually still would, if it really
+is the right tool for a task), I have not used it in quite a while.
+And, truth be told, I’ve grown older, wiser, more lazy, and have less time.&lt;&#x2F;p&gt;
+&lt;p&gt;I learned so much about code, mathematics, structure and thinking from Haskell and its
+community. But over the years, and since having an actual job where I need to responsibly
+develop software, I learned to value many other things in programming languages going
+beyond the syntax and features of a language. And just like I had to accept that &lt;a href=&quot;&#x2F;blog&#x2F;my-phd-story&quot;&gt;it is
+not my destiny to be a researcher in TCS&lt;&#x2F;a&gt;, I more and more see and
+accept that I am simply not the person who is able to wield &lt;em&gt;“co-free affine comonad
+transformer lenses”&lt;&#x2F;em&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; to solve my coding problems, at least not in the way the very
+smart people who use Haskell seriously and blog about it seem to do so effortlessly.&lt;&#x2F;p&gt;
+&lt;p&gt;While I have been very much enjoying to learn bits and pieces of type theory, programming
+language theory and also category theory just for its own sake (where Haskell, Coq, Agda
+and Idris are &lt;em&gt;the&lt;&#x2F;em&gt; places to be), more recently I feel the need for a more pragmatic and
+immediately practical language to just quickly &lt;strong&gt;get stuff done&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;At work I use Python – because of the setting and the ecosystem. I can’t say that I really
+&lt;em&gt;like&lt;&#x2F;em&gt; Python, but with type hints, lots of tooling, and high-quality well-documented
+libraries, it is quite bearable (even though, sadly, the avearage code quality of what is
+out there is abysmal). And in fact I must admit - it is nice to spin up a Jupyter notebook
+with Python to quickly load some table and easily plot it. But it will never be a language
+I genuinely like and am excited about, for many many reasons.&lt;&#x2F;p&gt;
+&lt;p&gt;A language that I &lt;strong&gt;do&lt;&#x2F;strong&gt; like is &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;, and after some
+good initial flirting experience over 5 years ago, I had it on my to-learn list for a
+while. Finally, it is happening – I am working on a non-trivial hobby project using Rust
+(this will hopefully yield a bunch of posts here), and I am very much enjoying it. The
+people who created Rust took the 70-80% of what makes Haskell a &lt;strong&gt;good&lt;&#x2F;strong&gt; language
+(sacrificing some arcane type sorcery by necessity and&#x2F;or for good reasons), combined it
+with the crucial parts that make C and C++ &lt;strong&gt;successful&lt;&#x2F;strong&gt; languages, and even had the
+wisdom to prioritize building &lt;strong&gt;very good tooling&lt;&#x2F;strong&gt; (possibly learning from Java).&lt;&#x2F;p&gt;
+&lt;p&gt;Rust is both ambitious &lt;em&gt;and&lt;&#x2F;em&gt; pragmatic, in the sense of balancing doing the &lt;em&gt;right&lt;&#x2F;em&gt; thing
+and doing the &lt;em&gt;practical&lt;&#x2F;em&gt; thing, respectively in the right places. It feels like Rust
+could (or even &lt;em&gt;should&lt;&#x2F;em&gt;) become my new favorite language. I have been watching it grow for
+a few years, and now it feels like a good time to jump in. As more and more major
+companies adopt Rust and it even got blessed by Linus Torvalds himself, It also feels like
+learning Rust is also a good time investment from a professional point of view. Not to
+mention that having an actually &lt;em&gt;nice&lt;&#x2F;em&gt; language under your belt which is also &lt;em&gt;damn fast&lt;&#x2F;em&gt;
+is simply amazing.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;from-hakyll-to-zola&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#from-hakyll-to-zola&quot; aria-label=&quot;Anchor link for: from-hakyll-to-zola&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+From Hakyll to Zola&lt;&#x2F;h2&gt;
+&lt;p&gt;My site used an old version of Hakyll, I did not even understand my configuration code
+anymore, and to build it I needed to install the whole toolchain &lt;em&gt;and&lt;&#x2F;em&gt; libraries, which
+takes lots of both space and time. But all I wanted to do was to simply write a post.&lt;&#x2F;p&gt;
+&lt;p&gt;Annoyed by my old and rusty (&lt;em&gt;pun intended&lt;&#x2F;em&gt;) Hakyll-based website, I decided to switch the
+backend to something simpler to work with and maintain. Looking for a Rust-based generator
+I found &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;. In the end it does not actually matter that Zola
+is built with Rust, but in fact it &lt;em&gt;is&lt;&#x2F;em&gt; a nice static site generator. It can provide
+everything I want without much effort – either out of the box, or by using some good
+themes and useful code snippets. My requirements are very modest:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;pages and blog posts&lt;&#x2F;li&gt;
+&lt;li&gt;syntax highlighting&lt;&#x2F;li&gt;
+&lt;li&gt;math formatting&lt;&#x2F;li&gt;
+&lt;li&gt;Atom&#x2F;RSS feed&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Probably any static site generator would be fine, I happened to choose Zola and I am quite
+satisfied with the result. The templating language feels very similar to
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;palletsprojects.com&#x2F;p&#x2F;jinja&#x2F;&quot;&gt;Jinja2&lt;&#x2F;a&gt;, which I have some experience with from
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.cookiecutter.io&#x2F;&quot;&gt;cookiecutter&lt;&#x2F;a&gt; and Python backend development.&lt;&#x2F;p&gt;
+&lt;p&gt;Once I settled on a theme and tweaked it a bit, it was mostly smooth sailing and
+repetitive syntactic changes in the post metadata headers. Luckily there are not so many
+pages to migrate. The most annoying part was switching from
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.mathjax.org&#x2F;&quot;&gt;MathJax&lt;&#x2F;a&gt; to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;katex.org&#x2F;&quot;&gt;KaTeX&lt;&#x2F;a&gt; (which is faster, but
+less powerful), as I needed to fix many formulas in some of the posts, but this is not
+strictly a Zola-specific issue. Probably I’ll tweak and customize the theme some more in
+the future, as the need arises, but for now I think that the result is &lt;em&gt;at least&lt;&#x2F;em&gt; not
+worse than the old site.&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;Haskell word salad for dramatic effect.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Lessons I Learned About C</title>
+        <published>2016-03-21T00:00:00+00:00</published>
+        <updated>2016-03-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Anton Pirogov
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pirogov.de/blog/lessons-i-learned-about-c/"/>
+        <id>https://pirogov.de/blog/lessons-i-learned-about-c/</id>
+        
+        <content type="html" xml:base="https://pirogov.de/blog/lessons-i-learned-about-c/">&lt;p&gt;I recently worked on my
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;EvolBioInf&#x2F;macle&quot;&gt;first non-trivial C project&lt;&#x2F;a&gt; during my
+student job in bioinformatics research. I already knew enough C to hack things
+together, like my &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;apirogov&#x2F;lold&quot;&gt;LoL Shield daemon&lt;&#x2F;a&gt;, which
+still suffers from some bugs but works fine, but this time I tried to do
+everything right™.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, in other languages you can get along just fine using just a REPL and some
+printf-debugging, but as I learned, when programming C, life is just a lot
+easier if you know how to use your tools. As it turns out, there is not much you
+need to know to get great benefits. So what follows are some of the lessons I’ve
+learned and my overall impressions of working with C.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;use-valgrind&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#use-valgrind&quot; aria-label=&quot;Anchor link for: use-valgrind&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Use valgrind&lt;&#x2F;h2&gt;
+&lt;p&gt;Valgrind is wonderful – just put &lt;code&gt;valgrind&lt;&#x2F;code&gt; in front of your program and
+arguments and wait for it to finish. Valgrind slows down execution considerably,
+so it might be a good idea to use not the biggest input available for such a
+test run. In the end valgrind spits out statistics about memory allocation and
+in case of (possible) memory leaks gives a backtrace to the line where the
+corresponding memory block was allocated. It helped me to find not only leaks,
+but also a lot of stupid double frees or index over-&#x2F;underruns that I would
+probably not find ever otherwise, because valgrind tells you how many bytes away
+from an allowed memory block your invalid read or write went. And it is a great
+feeling to see the &lt;em&gt;“no leaks are possible”&lt;&#x2F;em&gt; message! A fact that you often take
+for granted in all those fancy garbage-collected languages we have at our
+disposal today.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;use-gdb&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#use-gdb&quot; aria-label=&quot;Anchor link for: use-gdb&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Use gdb&lt;&#x2F;h2&gt;
+&lt;p&gt;Well, this point is probably obvious to most. The thing is, I do not like
+debuggers. At least I thought so. This may be because of rather negative
+usability experiences I had with them when using IDEs. Well, now I see that
+probably the problem are bloated IDEs and not debuggers. I learned my basic
+gdb-ABC from &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.unknownroad.com&#x2F;rtfm&#x2F;gdbtut&#x2F;&quot;&gt;this&lt;&#x2F;a&gt; tutorial and some
+googling, which is enough to start being productive. Just don’t forget to
+disable optimization and add debugging information (&lt;code&gt;-O0 -g&lt;&#x2F;code&gt;). Overall, the
+experience was quite pleasent and the gdb CLI is very polished. At the very
+least, you can locate the place where your program crashes and often inspecting
+variables prior to the crash is enough to see the mistake. But in some cases I
+still find printf-debugging to be the less tedious solution. Especially if I
+want a trace of multiple variables in e.g. each run of some loop.
+I don’t know of a fast way to do the same with a debugger, but maybe I just have
+to use them more.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;profiling&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#profiling&quot; aria-label=&quot;Anchor link for: profiling&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Profiling&lt;&#x2F;h2&gt;
+&lt;p&gt;Add &lt;code&gt;-pg&lt;&#x2F;code&gt; to both compiler and linker options, and your program will be compiled
+in a way that it creates a &lt;code&gt;gmon.out&lt;&#x2F;code&gt; file which contains profiling information.
+Just run &lt;code&gt;gprof your_program gmon.out &amp;gt;  result.txt&lt;&#x2F;code&gt; to extract a human-readable
+summary about the run. I used
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.thegeekstuff.com&#x2F;2012&#x2F;08&#x2F;gprof-tutorial&#x2F;&quot;&gt;this&lt;&#x2F;a&gt; tutorial about basic
+gprof usage, but I must admit, I didn’t use it much. Still, it is useful to know
+how to find bottlenecks easily.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;unit-testing-in-c&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#unit-testing-in-c&quot; aria-label=&quot;Anchor link for: unit-testing-in-c&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Unit-testing in C&lt;&#x2F;h2&gt;
+&lt;p&gt;Setting up unit-testing in C is surprisingly simple. I settled on a variant of
+&lt;em&gt;minunit&lt;&#x2F;em&gt; – all it takes is one additional header file with some macros and
+adapting your Makefile. There are several variants of this micro-test-framework
+(if you can even call it this) floating around the web, e.g.
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;c.learncodethehardway.org&#x2F;book&#x2F;ex30.html&quot;&gt;this one&lt;&#x2F;a&gt;. If you set it up in
+a similar way, each test suite will be compiled into a separate executable and a
+shell script will run them all and log the results. All the tests can be run
+through valgrind, so that correct memory usage is tested for free as well. I
+modified the macros so that success and failure of tests is shown in green and
+red, respectively, it is much more fun and cheerful with colors! ;)&lt;&#x2F;p&gt;
+&lt;p&gt;I have not enough discipline (yet?) to do &lt;em&gt;test-driven development&lt;&#x2F;em&gt;, but what I
+found to be very useful was what I’d call &lt;strong&gt;test-driven debugging&lt;&#x2F;strong&gt;. I had a
+few situations where I simply could not find the bug, I could hit my head
+against the wall. Then I had an enlightenment – when reasoning does not lead me
+anywhere, probably &lt;em&gt;my assumptions are wrong&lt;&#x2F;em&gt;! So I’ve added tests for all
+functions involved. And of course (as usual) the problem was in a completely
+different place. For me, finding a nasty bug is the biggest motivation to write
+tests, and sometimes it is the only solution. Hence, test-driven debugging.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;my-testing-recipe&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#my-testing-recipe&quot; aria-label=&quot;Anchor link for: my-testing-recipe&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+My testing recipe&lt;&#x2F;h2&gt;
+&lt;p&gt;The problem with testing is that it only protects from mistakes you have thought
+of or already made (and added a test against it, afterwards). Coming from
+Haskell, I am a fan of randomized tests in the style of
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hackage.haskell.org&#x2F;package&#x2F;QuickCheck&quot;&gt;QuickCheck&lt;&#x2F;a&gt;. So for the more
+complex algorithms I added generators for big random inputs and sampled them for
+test cases, where the complex and efficient implementation is compared against a
+simple naive solution. The randomized tests are complementing some regular tests
+(especially edge cases) with known expected values and some exhaustive tests for
+rather small inputs. The combination of these kinds of tests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;regular tests (hard-coded results)&lt;&#x2F;li&gt;
+&lt;li&gt;small exhaustive tests (against naive implementation)&lt;&#x2F;li&gt;
+&lt;li&gt;bigger randomized tests (against naive implementation)&lt;&#x2F;li&gt;
+&lt;li&gt;all above through valgrind&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;gives me a warm fuzzy feeling about the correctness of my code, when all the
+test suites pass and everything is green.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;clang&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#clang&quot; aria-label=&quot;Anchor link for: clang&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Clang&lt;&#x2F;h2&gt;
+&lt;p&gt;Clang is awesome and probably all the good things you heard about it are true.
+The error and warning messages are among the best I’ve ever seen from a compiler
+(and even colorful!). So there is no excuse for not using clang at least for
+development. I would even use it if it was just for the helpful warning
+including a hint for the correct format string when using &lt;code&gt;printf&lt;&#x2F;code&gt;! As a
+bonus, clang includes a linting tool, &lt;code&gt;clang-format&lt;&#x2F;code&gt;, which is also easy to
+use. Unfortunately it lacks some customization options I would like, but that
+are just minor things.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;minimize-global-state&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#minimize-global-state&quot; aria-label=&quot;Anchor link for: minimize-global-state&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Minimize global state&lt;&#x2F;h2&gt;
+&lt;p&gt;Well, to be honest, this is a lesson I already knew before, but I applied it in
+C as well – I rather have some more parameters in a function, than introduce a
+global variable. In the end, the only globally accessible data I introduced were the
+program args, because they are coupled with a lot of stuff and I really don’t want to
+pass them to every function explicitly. This makes testing easier and the code
+is less spaghettified.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;use-c99-to-the-full-potential&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#use-c99-to-the-full-potential&quot; aria-label=&quot;Anchor link for: use-c99-to-the-full-potential&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Use C99 to the full potential&lt;&#x2F;h2&gt;
+&lt;p&gt;Previously, I basically just used C99 as standard to be able to declare
+variables everywhere (again, a feature taken for granted normally!). Now I
+know that the C standard library (this small and laughable collection of
+functions) does include some useful things – you get a bool type, a set of sane
+fixed-size integer types and some useful constants and macros associated with
+them. In fact, I made a master-header that includes about two-thirds of the C
+standard library, as you need it all the time anyway.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;impressions&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#impressions&quot; aria-label=&quot;Anchor link for: impressions&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Impressions&lt;&#x2F;h1&gt;
+&lt;p&gt;Well, in the end I may not have some unique perspective to offer, but I can
+confirm many of the good and bad aspects people often mention.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-i-like-about-c&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#what-i-like-about-c&quot; aria-label=&quot;Anchor link for: what-i-like-about-c&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+What I like about C&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;speed&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#speed&quot; aria-label=&quot;Anchor link for: speed&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Speed&lt;&#x2F;h3&gt;
+&lt;p&gt;Damn, it is fast. It’s a nice feeling to run a blazing-fast binary
+that does in seconds what would take minutes in your fancy modern language of
+choice.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;control&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#control&quot; aria-label=&quot;Anchor link for: control&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Control&lt;&#x2F;h3&gt;
+&lt;p&gt;No garbage collector kicking in, no magic performed by the runtime. Even though
+it may be not really true, it really does feel like you have full control over
+the machine.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;portability&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#portability&quot; aria-label=&quot;Anchor link for: portability&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Portability&lt;&#x2F;h3&gt;
+&lt;p&gt;Well, not exactly a feature of C, but just a matter of fact. But probably this
+point is moot, if your target are just regular recent x86-family processors. But it is
+good to know that you can compile for, say, your MIPS wireless router.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-i-hate-about-c&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#what-i-hate-about-c&quot; aria-label=&quot;Anchor link for: what-i-hate-about-c&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+What I hate about C&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;makefiles&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#makefiles&quot; aria-label=&quot;Anchor link for: makefiles&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Makefiles&lt;&#x2F;h3&gt;
+&lt;p&gt;Writing the Makefile for the project was like always a major PITA and more or
+less consisting of copy-pasting snippets from various tutorials and
+Stackoverflow questions, then poking around until it does what I want. I
+probably really need to RTFM some day, because writing Makefiles seems not to be
+a skill you just pick up on the fly. For me, it is just a necessary evil. Maybe
+I am just spoiled by other languages. Of course, this point does not apply to C
+itself, but Makefiles are the usually used with C or C++ projects and are the
+de-facto standard build system, so I think this is fair.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;historical-madness&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#historical-madness&quot; aria-label=&quot;Anchor link for: historical-madness&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Historical madness&lt;&#x2F;h3&gt;
+&lt;p&gt;Separation of .c and .h files, always needing to change function
+signatures in two different places, needing macro guards to prevent
+multiple includes of the same file, needing a prototype signature, if you use a
+function before the definition. The resulting amount of boilerplate code.
+Working with strings. These are just examples from a huge list of small
+annoyances. Not even asking for the accomplishments of PL theory and
+engineering of the last decades. I know that all of this is historical baggage we
+now can’t change. I just hope that someday &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt; or
+something similar will succeed and replace C. Probably won’t ever happen, but
+one can always dream!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;my-conclusion&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#my-conclusion&quot; aria-label=&quot;Anchor link for: my-conclusion&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+My Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;While you can get along without fancy tools in e.g. Haskell or Ruby most of the
+time, in C &lt;em&gt;appropriate tooling is indispensable&lt;&#x2F;em&gt;. It also makes programming in C
+is a lot more bearable and fun. You still probably need almost twice as much
+time to accomplish the same thing and have a lot more ways to make mistakes, but
+in the end it pays off. I am not afraid of SEGFAULTs and memory corruptions
+anymore, but I still rather wouldn’t use C without a very compelling reason to
+do so.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

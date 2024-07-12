@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>
+    Simply Typed • theory</title>
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;favicon.ico />
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="Simply Typed" href="https://pirogov.de/atom.xml">
+    
+    
+    
+    
+        <link rel="stylesheet" href=https://pirogov.de/custom_subset.css>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://pirogov.de/main.css />
+
+    
+
+    <meta name="description" content="Anton Pirogov&#x27;s personal homepage.">
+    
+        <meta name="robots" content="index, nofollow">
+    
+
+    <meta property="og:title" content="Simply Typed">
+    <meta property="og:type" content="article" />
+
+    
+
+    
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;tags&#x2F;theory&#x2F;">
+    
+    <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage.">
+    <meta property="og:site_name" content="Simply Typed">
+
+    <!-- <meta http-equiv="Content-Security-Policy" -->
+    <!-- content="default-src 'self' -->
+    <!---->
+    <!-- ; --> 
+    <!---->
+    <!--         font-src &#x27;self&#x27; data: -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data: -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         script-src &#x27;self&#x27; -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         style-src &#x27;self&#x27; -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com -->
+    <!---->
+    <!---->
+    <!--"> --><script type="text/javascript" src="https://pirogov.de/js/initialize_theme.js"></script>
+        <script defer src="https://pirogov.de/js/main.js"/></script><!-- 
+        Add backlinks to footnotes, see:
+        https://github.com/getzola/zola/issues/1285#issuecomment-870959320
+    -->
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            for (const ref of document.getElementsByClassName('footnote-reference')) {
+                const hash = ref.children[0].hash.substring(1);
+                const refhash = 'ref:' + hash;
+                ref.id = refhash;
+            }
+            for (const footnote of document.getElementsByClassName('footnote-definition')) {
+                const hash = footnote.id;
+                const refhash = 'ref:' + hash;
+                const backlink = document.createElement('a');
+                backlink.href = '#' + refhash;
+                backlink.className = 'footnote-backlink';
+                backlink.innerText = '↩';
+                const paras = footnote.children;
+                const lastPara = paras[paras.length - 1];
+                lastPara.appendChild(backlink);
+            }
+
+        });
+    </script>
+</head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://pirogov.de>Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;cv/>cv</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;about/>personal</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;projects/>projects</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog/>blog</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;tags/>tags</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;archive/>archive</a>
+                            </li>
+                        <li class="theme-switcher-wrapper">
+                            <div class="theme-switcher"></div>
+                        </li></ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+<div class="title-container section-title bottom-divider">
+    theory
+</div>
+
+
+
+
+
+
+<div class="bloglist-container">
+    
+        
+            
+                <section class="bloglist-row bottom-divider">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    06 April 2024
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;count-edge-labelled-trees&#x2F;">A Prime Way to Count Edge-Labeled Ordered Trees</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/math/">math</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/trees/">trees</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;count-edge-labelled-trees&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+            
+        
+    
+        
+            
+                <section class="bloglist-row bottom-divider">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    16 March 2024
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;an-uncomputable-function&#x2F;">A Simple and Natural Uncomputable Function</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/math/">math</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/tcs/">tcs</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;an-uncomputable-function&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+            
+        
+    
+        
+            
+                <section class="bloglist-row bottom-divider">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    09 September 2023
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;aperiodic-sequences-convolution-grammars&#x2F;">Generating Fractal-Like Sequences using Convolution Grammars</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/math/">math</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/fractals/">fractals</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/tcs/">tcs</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;aperiodic-sequences-convolution-grammars&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+            
+        
+    
+        
+            
+                <section class="bloglist-row bottom-divider">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    28 July 2023
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;generating-orthogonal-set-partitions&#x2F;">Generating Orthogonal Set Partitions</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/math/">math</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/sets/">sets</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/partitions/">partitions</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/combinatorics/">combinatorics</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;generating-orthogonal-set-partitions&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+            
+        
+    
+        
+            
+                <section class="bloglist-row bottom-divider">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    07 December 2021
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;self-dual-connected-hypergraphs&#x2F;">From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/math/">math</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/graphs/">graphs</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;self-dual-connected-hypergraphs&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+            
+        
+    
+        
+            
+                <section class="bloglist-row bottom-divider">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    20 September 2020
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;biconnected-holefree-polyhexes&#x2F;">Topology and Geometry of Biconnected Polyhexes</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/math/">math</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/geometry/">geometry</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/tilings/">tilings</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;biconnected-holefree-polyhexes&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+            
+        
+    
+        
+            
+                <section class="bloglist-row">
+            
+
+            
+                <div class="date">
+                    
+
+
+    
+
+
+
+    07 October 2014
+
+
+
+                </div>
+            
+
+            <div class="bloglist-content">
+                <div class="bloglist-title">
+                    <a href="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;introduction-to-lambda-calculus&#x2F;">Introduction to the Lambda Calculus</a>
+                </div>
+
+                
+                    <div class="bloglist-tags">
+                        
+                            <a class="tag" href="https://pirogov.de/tags/theory/">theory</a>
+                        
+                            <a class="tag" href="https://pirogov.de/tags/computer-science/">computer science</a>
+                        
+                    </div>
+                
+
+                <div class="description">
+                    
+                </div>
+
+                <a class="readmore" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;introduction-to-lambda-calculus&#x2F;> Read more →</a>
+            </div>
+        </section>
+    
+        
+    
+</div>
+
+
+
+<ul class="pagination">
+    <li class="page-item">
+        <a class="all-tags" href="https://pirogov.de/tags/">← All tags</a>
+    </li>
+</ul>
+
+
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a rel="noopener noreferrer" target="_blank" class="nav-links
+                        no-hover-padding social" href=https://pirogov.de/atom.xml>
+                        <img alt="feed" title="feed" src="https:&#x2F;&#x2F;pirogov.de/icon/rss.svg">
+                        </a>
+                    </li>
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;orcid.org&#x2F;0000-0002-5077-7497>
+                                <img alt=ORCID title=ORCID src="https:&#x2F;&#x2F;pirogov.de/icon/orcid.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;github.com&#x2F;apirogov>
+                                <img alt=github title=github src="https:&#x2F;&#x2F;pirogov.de/icon/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;www.last.fm&#x2F;user&#x2F;apirogov>
+                                <img alt=last.fm title=last.fm src="https:&#x2F;&#x2F;pirogov.de/icon/lastfm.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;paypal.me&#x2F;antonpirogov>
+                                <img alt=PayPal title=PayPal src="https:&#x2F;&#x2F;pirogov.de/icon/paypal.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+        <div class="credits">
+            <small>
+                Powered by <a href="https://www.getzola.org" target="_blank">Zola</a>,
+                Theme based on
+                <a href="https://github.com/welpo/tabi" target="_blank">tabi</a> &amp;
+                <a href="https://github.com/isunjn/serene" target="_blank">serene</a>,
+                Copyright © 2023 Anton Pirogov
+            </small>
+        </div>
+    </section>
+</footer>
+
+
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard_min.js"/></script></body>
+
+</html>

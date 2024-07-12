@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Simply Typed • Atreya</title>
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;favicon.ico />
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="Simply Typed" href="https://pirogov.de/atom.xml">
+    
+    
+    
+    
+        <link rel="stylesheet" href=https://pirogov.de/custom_subset.css>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://pirogov.de/main.css />
+
+    
+
+    <meta name="description" content="Anton Pirogov&#x27;s personal homepage.">
+    
+        <meta name="robots" content="index, nofollow">
+    
+
+    <meta property="og:title" content="Simply Typed">
+    <meta property="og:type" content="article" />
+
+    
+
+    
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;projects&#x2F;atreya&#x2F;">
+    
+    <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage.">
+    <meta property="og:site_name" content="Simply Typed">
+
+    <!-- <meta http-equiv="Content-Security-Policy" -->
+    <!-- content="default-src 'self' -->
+    <!---->
+    <!-- ; --> 
+    <!---->
+    <!--         font-src &#x27;self&#x27; data: -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data: -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         script-src &#x27;self&#x27; -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         style-src &#x27;self&#x27; -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com -->
+    <!---->
+    <!---->
+    <!--"> --><script type="text/javascript" src="https://pirogov.de/js/initialize_theme.js"></script>
+        <script defer src="https://pirogov.de/js/main.js"/></script><!-- 
+        Add backlinks to footnotes, see:
+        https://github.com/getzola/zola/issues/1285#issuecomment-870959320
+    -->
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            for (const ref of document.getElementsByClassName('footnote-reference')) {
+                const hash = ref.children[0].hash.substring(1);
+                const refhash = 'ref:' + hash;
+                ref.id = refhash;
+            }
+            for (const footnote of document.getElementsByClassName('footnote-definition')) {
+                const hash = footnote.id;
+                const refhash = 'ref:' + hash;
+                const backlink = document.createElement('a');
+                backlink.href = '#' + refhash;
+                backlink.className = 'footnote-backlink';
+                backlink.innerText = '↩';
+                const paras = footnote.children;
+                const lastPara = paras[paras.length - 1];
+                lastPara.appendChild(backlink);
+            }
+
+        });
+    </script>
+</head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://pirogov.de>Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;cv/>cv</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;about/>personal</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;projects/>projects</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog/>blog</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;tags/>tags</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;archive/>archive</a>
+                            </li>
+                        <li class="theme-switcher-wrapper">
+                            <div class="theme-switcher"></div>
+                        </li></ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+    
+
+
+
+<main>
+    <article>
+        <div class="article-title">
+            Atreya
+        </div>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+    
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    9th 
+    
+        Sep 2020
+    
+
+
+ •</li>
+            
+
+            <li title="1219 words ">&nbsp;7 min read </li>
+
+            
+
+            
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            <script>
+function changeFavicon(src) {
+ var link = document.createElement('link'),
+     oldLink = document.getElementById('dynamic-favicon');
+ link.id = 'dynamic-favicon';
+ link.rel = 'shortcut icon';
+ link.type = 'image/png';
+ link.href = src;
+ if (oldLink) {
+  document.head.removeChild(oldLink);
+ }
+ document.head.appendChild(link);
+}
+
+if(/\/projects\/atreya/.test(window.location.href)){
+  changeFavicon('/projects/atreya/atreyaLogo.png')
+}
+</script>
+<img src="atreyaLogo.png" class="float-right" width="200px" height="200px" />
+<p>Atreya is an abstract region-forming tile placement game with complete information
+for 2-3 players that is played with a set of
+<a href="https://pirogov.de/projects/atreya/AtreyaTiles.jpg">168 hexagonal tiles</a> <a href="https://pirogov.de/projects/atreya/AtreyaTilesA4.pdf">[PDF]</a>
+and is loosely inspired by
+<a rel="noopener" target="_blank" href="https://boardgamegeek.com/boardgame/822/carcassonne">Carcassone</a> and
+<a rel="noopener" target="_blank" href="https://boardgamegeek.com/boardgame/2655/hive">Hive</a>.
+Like in Carcassone, you get points for closing regions. Like in Hive, the pieces
+are hexagonal and can be moved after placing them.</p>
+<p>The reasoning behind the tiles is explained in a
+<a href="/blog/designing-advaya-and-atreya">separate article</a>.
+The name Atreya is a pun on Advaya, because the <em>dva</em> in Advaya
+means <em>two</em> in slavic languages, whereas <em>tre</em> sounds more like <em>three</em>,
+referring to the fact that Atreya is an Advaya modification
+for up to three players.</p>
+<p><em>(Also check out the sister game <a href="/projects/advaya">Advaya</a>, at least to see
+its more fancy tile set.)</em></p>
+<hr />
+<h2 id="rules">Atreya Rules</h2>
+<blockquote class="callout warning">
+    
+    <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M12.865 3.00017L22.3912 19.5002C22.6674 19.9785 22.5035 20.5901 22.0252 20.8662C21.8732 20.954 21.7008 21.0002 21.5252 21.0002H2.47266C1.92037 21.0002 1.47266 20.5525 1.47266 20.0002C1.47266 19.8246 1.51886 19.6522 1.60663 19.5002L11.1329 3.00017C11.4091 2.52187 12.0206 2.358 12.4989 2.63414C12.651 2.72191 12.7772 2.84815 12.865 3.00017ZM4.20471 19.0002H19.7932L11.9989 5.50017L4.20471 19.0002ZM10.9989 16.0002H12.9989V18.0002H10.9989V16.0002ZM10.9989 9.00017H12.9989V14.0002H10.9989V9.00017Z" fill="currentColor"></path></svg>
+    </div>
+    <div class="callout-content">
+        
+        <p>The rules are preliminary, feel free to experiment with them!</p>
+
+    </div>
+</blockquote>
+<p>First we need some simple terminology.
+A <strong>tile</strong> is one of the hexagonal cards,
+the smaller hexagon in the center is a <strong>piece</strong>, surrounded by <strong>half-pieces</strong>
+that become pieces when paired with other matching half-pieces.
+Pieces of different color are separated by the <strong>boundary</strong>
+(the black lines).
+From the <strong>pool</strong> of unplayed tiles a tile is played by validly placing it next to
+other tiles in the <strong>arena</strong>. A <strong>hole</strong> is an area of missing tiles inside the arena.
+A <strong>shape</strong> is a connected area that spans over multiple tiles and consists of
+multiple pieces.
+Notice that a shape can contain more than one piece from the same tile.
+The <strong>size</strong> of a shape is the number of different pieces it consists of.
+A shape is <strong>closed</strong> if it is completely surrounded by the boundary.
+A piece on a tile is <strong>free</strong> if it is not part of a closed shape.
+The <strong>freedom</strong> of a tile is the number of pieces that are <strong>free</strong>.
+A tile is <strong>weakly pinned</strong> if at least one piece is not free and <strong>strongly
+pinned</strong> if no piece is free.
+Adjacent pieces are <strong>neighbors</strong> and two shapes are
+neighbors if two of their pieces are neighbors.
+A shape <strong>dominates</strong> a neighboring shape if it has
+strictly larger size.</p>
+<p>With three players, the colors have the following relationships:
+red is <strong>inferior</strong> to blue, blue inferior to green, and green inferior to red
+<em>(“water extinguishes fire, nature absorbs water, fire burns nature”)</em>.
+With only two players, the unused third color is inferior to both player
+colors, whereas those are not inferior to any other color.
+A closed shape is <strong>healthy</strong>, if along its boundaries the number of neighboring
+pieces and half-pieces of an inferior color is at least as large as of a
+non-inferior color <em>(“keep your boundaries safe”)</em>, otherwise it is
+<strong>poisoned</strong>. Domination and health have consequences for scoring.</p>
+<!-- 
+  or allow domination of a bigger shape by sum of smaller closed neighbors? 
+  This would allow to close many small shapes to kill off a larger shape. and
+  how to score that? Weird. At least in Dom mode this does not look like a good
+  idea, maybe in Dyn. Also, not easy to compute the score, as non-local
+  property of a set of shapes.
+
+  Also, boundary mechanics makes playing tiles not only for closing shapes
+  interesting, for attacking the opponents.
+
+<p style="text-align:center;">
+<img src="/atreya/AtreyaTerminology.jpg" style="width:720px;" />
+</p>
+-->
+<h3 id="objective-of-the-game">Objective of the game</h3>
+<p>The game can be played in multiple modes of increasing intricacy and length.</p>
+<p><strong>Max:</strong>
+The player closing the first shape of their color that consists of 3
+or more tiles wins (notice that it’s tiles and not pieces, 3 pieces is too easy).</p>
+<p><em>This yields a game similar to
+<a rel="noopener" target="_blank" href="https://www.boardgamegeek.com/image/451366/palago">Palago</a>,
+but with a different tile set and feeling to it.</em></p>
+<p><strong>Sum:</strong>
+Each player tries to maximize the total size of all closed shapes of their color.
+A tile is declared as <strong>pinned</strong> if it is weakly pinned (this matters for the
+allowed moves and means that a tile can be moved at most once).
+The score is updated every time a shape is closed.</p>
+<p><em>This is the most Carcassonnesque variant with somewhat relaxed shape building.
+It allows for some more long-term planning and makes the game more forgiving.</em></p>
+<p><strong>Dom:</strong>
+Like <strong>Sum</strong>, but when a shape is closed by a player, then the player only gets
+points for the shape, if it is <strong>both healthy and not dominated</strong>. Additionally,
+the player gets <strong>bonus points</strong> for neighboring shapes that were already closed
+and become dominated by the player’s shape at the time it is closed.</p>
+<p><em>The new rules add an additional layer of strategy, as now closed shapes and
+their location still matter after the initial scoring. Also the creation of
+larger shapes is incentivized, but can be poisoned by opposing players.</em></p>
+<h3 id="preparation">Preparation</h3>
+<img src="AtreyaStart.png" class="float-right" width="100px" height="100px" />
+<p>Decide on the player colors and who will start. In the case of two players, one
+color is not owned by a player.</p>
+<p>Place the three start tiles as depicted to form the initial arena.
+Place all the other tiles to the side, forming the pool of tiles for both players.</p>
+<h3 id="allowed-moves">Allowed moves</h3>
+<p>When it is your turn, you can either:</p>
+<ol>
+<li>
+<p>place a tile from the pool in a matching way next to other tiles in the arena, or</p>
+</li>
+<li>
+<p>move an already played, but <strong>unpinned</strong> tile so that its freedom decreases.</p>
+</li>
+</ol>
+<p>In both cases, <strong>the tile may be flipped</strong> before placing it.</p>
+<p>Notice that whether a tile is pinned depends on the chosen game mode, which
+determines whether weak or strong pinning is used.</p>
+<p>In any case you have to ensure that at every point in time:</p>
+<ol>
+<li>
+<p>all tiles in the arena touch at least <strong>two</strong> other tiles, and</p>
+</li>
+<li>
+<p>no hole is inside in the arena.</p>
+</li>
+</ol>
+<h3 id="game-end">Game end</h3>
+<p>In the <strong>Max</strong> variant, the game ends when the first sufficiently large
+shape is completed.</p>
+<p>In all other variants the game ends when no move is possible, i.e:</p>
+<ol>
+<li>
+<p>all tiles in the pool that can be played have been played, and</p>
+</li>
+<li>
+<p>no unpinned tile in the arena can be moved in a freedom-decreasing way.</p>
+</li>
+</ol>
+<p>Notice that it suffices to check tiles along the arena boundary, because holes
+are forbidden and hence inner tiles cannot be moved anyway.
+As every tile can be used in a move only 1-6 times (depending on
+the chosen variant and situation), the game will eventually reach an end.</p>
+<p>It still can be tedious to verify the second condition, so the game may also be
+ended earlier, if both players agree to do so.</p>
+<hr />
+<p>That’s it! <a href="https://pirogov.de/projects/atreya/AtreyaTilesA4.pdf">Print out</a> the tiles and have fun exploring this game!</p>
+<p>If you have constructive feedback, strategic insights or improvement ideas,
+don’t hesitate to <a href="/contact">contact me</a>. As the game is new and not battle-tested, I
+am sure that some experienced players of this kind of games have something
+valuable to say.</p>
+
+        </section>
+
+    </article>
+</main>
+
+
+
+
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a rel="noopener noreferrer" target="_blank" class="nav-links
+                        no-hover-padding social" href=https://pirogov.de/atom.xml>
+                        <img alt="feed" title="feed" src="https:&#x2F;&#x2F;pirogov.de/icon/rss.svg">
+                        </a>
+                    </li>
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;orcid.org&#x2F;0000-0002-5077-7497>
+                                <img alt=ORCID title=ORCID src="https:&#x2F;&#x2F;pirogov.de/icon/orcid.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;github.com&#x2F;apirogov>
+                                <img alt=github title=github src="https:&#x2F;&#x2F;pirogov.de/icon/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;www.last.fm&#x2F;user&#x2F;apirogov>
+                                <img alt=last.fm title=last.fm src="https:&#x2F;&#x2F;pirogov.de/icon/lastfm.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;paypal.me&#x2F;antonpirogov>
+                                <img alt=PayPal title=PayPal src="https:&#x2F;&#x2F;pirogov.de/icon/paypal.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+        <div class="credits">
+            <small>
+                Powered by <a href="https://www.getzola.org" target="_blank">Zola</a>,
+                Theme based on
+                <a href="https://github.com/welpo/tabi" target="_blank">tabi</a> &amp;
+                <a href="https://github.com/isunjn/serene" target="_blank">serene</a>,
+                Copyright © 2023 Anton Pirogov
+            </small>
+        </div>
+    </section>
+</footer>
+
+
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard_min.js"/></script></body>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Simply Typed • A Simple and Natural Uncomputable Function</title>
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;favicon.ico />
+    
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="Simply Typed" href="https://pirogov.de/atom.xml">
+    
+    
+    
+    
+        <link rel="stylesheet" href=https://pirogov.de/custom_subset.css>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://pirogov.de/main.css />
+
+    
+
+    <meta name="description" content="Anton Pirogov&#x27;s personal homepage.">
+    
+        <meta name="robots" content="index, nofollow">
+    
+
+    <meta property="og:title" content="Simply Typed">
+    <meta property="og:type" content="article" />
+
+    
+
+    
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;an-uncomputable-function&#x2F;">
+    
+    <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage.">
+    <meta property="og:site_name" content="Simply Typed">
+
+    <!-- <meta http-equiv="Content-Security-Policy" -->
+    <!-- content="default-src 'self' -->
+    <!---->
+    <!-- ; --> 
+    <!---->
+    <!--         font-src &#x27;self&#x27; data: -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data: -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         script-src &#x27;self&#x27; -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         style-src &#x27;self&#x27; -->
+    <!---->
+    <!--         ; -->
+    <!---->
+    <!---->
+    <!--         frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com -->
+    <!---->
+    <!---->
+    <!--"> --><script type="text/javascript" src="https://pirogov.de/js/initialize_theme.js"></script>
+        <script defer src="https://pirogov.de/js/main.js"/></script><!-- 
+        Add backlinks to footnotes, see:
+        https://github.com/getzola/zola/issues/1285#issuecomment-870959320
+    -->
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            for (const ref of document.getElementsByClassName('footnote-reference')) {
+                const hash = ref.children[0].hash.substring(1);
+                const refhash = 'ref:' + hash;
+                ref.id = refhash;
+            }
+            for (const footnote of document.getElementsByClassName('footnote-definition')) {
+                const hash = footnote.id;
+                const refhash = 'ref:' + hash;
+                const backlink = document.createElement('a');
+                backlink.href = '#' + refhash;
+                backlink.className = 'footnote-backlink';
+                backlink.innerText = '↩';
+                const paras = footnote.children;
+                const lastPara = paras[paras.length - 1];
+                lastPara.appendChild(backlink);
+            }
+
+        });
+    </script>
+</head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href=https://pirogov.de>Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;cv/>cv</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;about/>personal</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;projects/>projects</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;blog/>blog</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;tags/>tags</a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href=https:&#x2F;&#x2F;pirogov.de&#x2F;archive/>archive</a>
+                            </li>
+                        <li class="theme-switcher-wrapper">
+                            <div class="theme-switcher"></div>
+                        </li></ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+    
+
+
+
+<main>
+    <article>
+        <div class="article-title">
+            A Simple and Natural Uncomputable Function
+        </div>
+
+        <ul class="meta">
+            
+
+            
+                <li>
+
+
+    
+
+
+
+    
+
+    
+        
+        
+            
+        
+    
+
+    
+    16th 
+    
+        Mar 2024
+    
+
+
+ •</li>
+            
+
+            <li title="593 words ">&nbsp;3 min read </li>
+
+            
+                <li>&nbsp;•&nbsp;Tags:&nbsp;</li>
+                
+                    <li><a href=https://pirogov.de/tags/theory/>theory</a>,&nbsp;</li>
+                
+                    <li><a href=https://pirogov.de/tags/math/>math</a>,&nbsp;</li>
+                
+                    <li><a href=https://pirogov.de/tags/tcs/>tcs</a></li>
+                
+            
+
+            
+        </ul>
+
+        
+
+        
+        
+
+        <section class="body">
+            <p>Motivated by an interesting <a rel="noopener" target="_blank" href="https://www.scottaaronson.com/papers/bb.pdf">survey paper</a>,
+I have pondered a little bit on <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Busy_beaver">Busy Beavers</a>.
+While I don’t have anything to share on that front, I noticed that there is another
+related interesting function – the function $H(n): \mathbb{N} \to \mathbb{N}$ that gives
+the <strong>number of TMs with n states that halt on an empty input tape</strong>.<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>Clearly this function is <strong>uncomputable</strong> – if it were computable, we could solve the
+halting problem for some $n$-state TM $\mathcal{M}$ by running an interlaced stepwise
+simulation of all $n$-state TMs and waiting until $H(n)$ of them halt. As by definition of
+$H$, this will happen after an unknown but finite amount of time, eventually we can abort
+the simulation and check whether $\mathcal{M}$ has halted.</p>
+<p>Because the number of distinct TMs with $n$ states is <strong>bounded by an exponential
+function</strong>, it means that $H(n)$ is, too – it simply defines the cardinality of the
+subset of TMs that do halt. It is also easy to see that $H(n)$ <strong>grows strictly
+monotonically</strong>.</p>
+<p>While $H(n)$ does not allow us to describe the limits of growth of computable functions
+like the Busy Beaver function $BB(n)$ does, it is just as easy and natural to define, and
+they have a simple relationship: $H(n)$ can be computed by running all TMs with $n$
+states for $BB(n)$ steps and checking how many have halted, and $BB(n)$ can be computed by
+running all TMs with $n$ states until $H(n)$ of them have halted, the time it took the
+last one to halt being the desired value for $BB(n)$. So the information provided by
+both functions is interchangeable for all “practical” purposes.</p>
+<p>One thing makes the $BB(n)$ function look a bit more useful – having an upper bound
+for $BB(n)$ already helps for deciding other problems, while a (non-tight) upper bound for
+$H(n)$ does not appear to be of any help – if we overestimate the number of TMs that halt
+and do not know $BB(n)$, we will have to wait forever in our decision procedure trying
+to make use of that upper bound, because no additional machines will ever halt.</p>
+<p>It feels like $H(n)$ fits somewhere between the Busy Beaver function and the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Chaitin%27s_constant">Chaitin
+constant</a>. The Chaitin constant can be
+used in similar ways to $H(n)$, but encodes all the information in a single real value,
+whereas $H(n)$ stays in the realm of discrete integers. I guess it is easy
+to express the Chaitin constant as a weighted measure based on the ratios of
+$H(n)/NumTM(n)$, where $NumTM(n)$ is the total number of TMs with $n$ states.</p>
+<p>I wonder if there has been some research into $H(n)$, but maybe studying it directly does
+not have any advantages over studying the Chaitin constant(s) and Busy Beavers. Still, I
+thought this is an interesting curiosity and was a bit surprised I have not found it
+mentioned anywhere.</p>
+<p>And if someone would ask me for an example of an uncomputable monotonic function with
+a simple and natural definition and elementary growth, I might point them to this one.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Assuming the canonical TM model for these kinds of things – using a tape alphabet
+$\Gamma := \{0, 1\}$, where $0$ also serves as the blank symbol (i.e. the empty tape
+consists fully of zeros), assuming that the lowest state is the initial and acceptance
+is done by halting.</p>
+</div>
+
+        </section>
+
+    </article>
+</main>
+
+
+
+
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs">
+                <ul><li>
+                        <a rel="noopener noreferrer" target="_blank" class="nav-links
+                        no-hover-padding social" href=https://pirogov.de/atom.xml>
+                        <img alt="feed" title="feed" src="https:&#x2F;&#x2F;pirogov.de/icon/rss.svg">
+                        </a>
+                    </li>
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;orcid.org&#x2F;0000-0002-5077-7497>
+                                <img alt=ORCID title=ORCID src="https:&#x2F;&#x2F;pirogov.de/icon/orcid.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;github.com&#x2F;apirogov>
+                                <img alt=github title=github src="https:&#x2F;&#x2F;pirogov.de/icon/github.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;www.last.fm&#x2F;user&#x2F;apirogov>
+                                <img alt=last.fm title=last.fm src="https:&#x2F;&#x2F;pirogov.de/icon/lastfm.svg">
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a rel="noopener noreferrer" target="_blank" class="nav-links no-hover-padding social" href=https:&#x2F;&#x2F;paypal.me&#x2F;antonpirogov>
+                                <img alt=PayPal title=PayPal src="https:&#x2F;&#x2F;pirogov.de/icon/paypal.svg">
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+        </nav>
+        <div class="credits">
+            <small>
+                Powered by <a href="https://www.getzola.org" target="_blank">Zola</a>,
+                Theme based on
+                <a href="https://github.com/welpo/tabi" target="_blank">tabi</a> &amp;
+                <a href="https://github.com/isunjn/serene" target="_blank">serene</a>,
+                Copyright © 2023 Anton Pirogov
+            </small>
+        </div>
+    </section>
+</footer>
+
+
+    <!-- <link rel="stylesheet" href="https://pirogov.de/katex_min.css"> -->
+        <!-- <script defer src="https://pirogov.de/js/katex_min.js"></script> -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError : false,
+                });
+            });
+        </script><script defer src="https://pirogov.de/js/copyCodeToClipboard_min.js"/></script></body>
+
+</html>

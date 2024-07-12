@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - tools</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://pirogov.de/tags/tools/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-14T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/tools/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Goodbye Hakyll &#x2F; Haskell, hello Zola &#x2F; Rust!</title>
+        <published>2023-07-14T00:00:00+00:00</published>
+        <updated>2023-07-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Anton Pirogov
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/"/>
+        <id>https://pirogov.de/blog/goodbye-hakyll-hello-zola/</id>
+        
+        <content type="html" xml:base="https://pirogov.de/blog/goodbye-hakyll-hello-zola/">&lt;p&gt;&lt;em&gt;It is this time of the year where I once again felt the urge to write something and revive
+this homepage of mine by infusing some new content, possibly write all those things down
+I’ve been planning to for a while. But the page initially was built using
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;jaspervdj.be&#x2F;hakyll&#x2F;&quot;&gt;Hakyll&lt;&#x2F;a&gt;, which is a very cool and very hackable static site
+generator (actually, a &lt;em&gt;library&lt;&#x2F;em&gt;) implemented in &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.haskell.org&#x2F;&quot;&gt;Haskell&lt;&#x2F;a&gt;. Here
+I reflect on my choice to migrate the page from Hakyll to
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;, which is happening in parallel to my slow shift away
+from Haskell towards Rust.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;from-haskell-to-rust&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#from-haskell-to-rust&quot; aria-label=&quot;Anchor link for: from-haskell-to-rust&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+From Haskell to Rust&lt;&#x2F;h2&gt;
+&lt;p&gt;While I have been a huge fan and enthusiast of Haskell and also used it for multiple hobby
+projects, and would have loved to use it at work (and actually still would, if it really
+is the right tool for a task), I have not used it in quite a while.
+And, truth be told, I’ve grown older, wiser, more lazy, and have less time.&lt;&#x2F;p&gt;
+&lt;p&gt;I learned so much about code, mathematics, structure and thinking from Haskell and its
+community. But over the years, and since having an actual job where I need to responsibly
+develop software, I learned to value many other things in programming languages going
+beyond the syntax and features of a language. And just like I had to accept that &lt;a href=&quot;&#x2F;blog&#x2F;my-phd-story&quot;&gt;it is
+not my destiny to be a researcher in TCS&lt;&#x2F;a&gt;, I more and more see and
+accept that I am simply not the person who is able to wield &lt;em&gt;“co-free affine comonad
+transformer lenses”&lt;&#x2F;em&gt;&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; to solve my coding problems, at least not in the way the very
+smart people who use Haskell seriously and blog about it seem to do so effortlessly.&lt;&#x2F;p&gt;
+&lt;p&gt;While I have been very much enjoying to learn bits and pieces of type theory, programming
+language theory and also category theory just for its own sake (where Haskell, Coq, Agda
+and Idris are &lt;em&gt;the&lt;&#x2F;em&gt; places to be), more recently I feel the need for a more pragmatic and
+immediately practical language to just quickly &lt;strong&gt;get stuff done&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;At work I use Python – because of the setting and the ecosystem. I can’t say that I really
+&lt;em&gt;like&lt;&#x2F;em&gt; Python, but with type hints, lots of tooling, and high-quality well-documented
+libraries, it is quite bearable (even though, sadly, the avearage code quality of what is
+out there is abysmal). And in fact I must admit - it is nice to spin up a Jupyter notebook
+with Python to quickly load some table and easily plot it. But it will never be a language
+I genuinely like and am excited about, for many many reasons.&lt;&#x2F;p&gt;
+&lt;p&gt;A language that I &lt;strong&gt;do&lt;&#x2F;strong&gt; like is &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;, and after some
+good initial flirting experience over 5 years ago, I had it on my to-learn list for a
+while. Finally, it is happening – I am working on a non-trivial hobby project using Rust
+(this will hopefully yield a bunch of posts here), and I am very much enjoying it. The
+people who created Rust took the 70-80% of what makes Haskell a &lt;strong&gt;good&lt;&#x2F;strong&gt; language
+(sacrificing some arcane type sorcery by necessity and&#x2F;or for good reasons), combined it
+with the crucial parts that make C and C++ &lt;strong&gt;successful&lt;&#x2F;strong&gt; languages, and even had the
+wisdom to prioritize building &lt;strong&gt;very good tooling&lt;&#x2F;strong&gt; (possibly learning from Java).&lt;&#x2F;p&gt;
+&lt;p&gt;Rust is both ambitious &lt;em&gt;and&lt;&#x2F;em&gt; pragmatic, in the sense of balancing doing the &lt;em&gt;right&lt;&#x2F;em&gt; thing
+and doing the &lt;em&gt;practical&lt;&#x2F;em&gt; thing, respectively in the right places. It feels like Rust
+could (or even &lt;em&gt;should&lt;&#x2F;em&gt;) become my new favorite language. I have been watching it grow for
+a few years, and now it feels like a good time to jump in. As more and more major
+companies adopt Rust and it even got blessed by Linus Torvalds himself, It also feels like
+learning Rust is also a good time investment from a professional point of view. Not to
+mention that having an actually &lt;em&gt;nice&lt;&#x2F;em&gt; language under your belt which is also &lt;em&gt;damn fast&lt;&#x2F;em&gt;
+is simply amazing.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;from-hakyll-to-zola&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#from-hakyll-to-zola&quot; aria-label=&quot;Anchor link for: from-hakyll-to-zola&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+From Hakyll to Zola&lt;&#x2F;h2&gt;
+&lt;p&gt;My site used an old version of Hakyll, I did not even understand my configuration code
+anymore, and to build it I needed to install the whole toolchain &lt;em&gt;and&lt;&#x2F;em&gt; libraries, which
+takes lots of both space and time. But all I wanted to do was to simply write a post.&lt;&#x2F;p&gt;
+&lt;p&gt;Annoyed by my old and rusty (&lt;em&gt;pun intended&lt;&#x2F;em&gt;) Hakyll-based website, I decided to switch the
+backend to something simpler to work with and maintain. Looking for a Rust-based generator
+I found &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;. In the end it does not actually matter that Zola
+is built with Rust, but in fact it &lt;em&gt;is&lt;&#x2F;em&gt; a nice static site generator. It can provide
+everything I want without much effort – either out of the box, or by using some good
+themes and useful code snippets. My requirements are very modest:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;pages and blog posts&lt;&#x2F;li&gt;
+&lt;li&gt;syntax highlighting&lt;&#x2F;li&gt;
+&lt;li&gt;math formatting&lt;&#x2F;li&gt;
+&lt;li&gt;Atom&#x2F;RSS feed&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Probably any static site generator would be fine, I happened to choose Zola and I am quite
+satisfied with the result. The templating language feels very similar to
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;palletsprojects.com&#x2F;p&#x2F;jinja&#x2F;&quot;&gt;Jinja2&lt;&#x2F;a&gt;, which I have some experience with from
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.cookiecutter.io&#x2F;&quot;&gt;cookiecutter&lt;&#x2F;a&gt; and Python backend development.&lt;&#x2F;p&gt;
+&lt;p&gt;Once I settled on a theme and tweaked it a bit, it was mostly smooth sailing and
+repetitive syntactic changes in the post metadata headers. Luckily there are not so many
+pages to migrate. The most annoying part was switching from
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.mathjax.org&#x2F;&quot;&gt;MathJax&lt;&#x2F;a&gt; to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;katex.org&#x2F;&quot;&gt;KaTeX&lt;&#x2F;a&gt; (which is faster, but
+less powerful), as I needed to fix many formulas in some of the posts, but this is not
+strictly a Zola-specific issue. Probably I’ll tweak and customize the theme some more in
+the future, as the need arises, but for now I think that the result is &lt;em&gt;at least&lt;&#x2F;em&gt; not
+worse than the old site.&lt;&#x2F;p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;Haskell word salad for dramatic effect.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - geometry</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://pirogov.de/tags/geometry/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-09-20T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/geometry/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Topology and Geometry of Biconnected Polyhexes</title>
+        <published>2020-09-20T00:00:00+00:00</published>
+        <updated>2020-09-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Anton Pirogov
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pirogov.de/blog/biconnected-holefree-polyhexes/"/>
+        <id>https://pirogov.de/blog/biconnected-holefree-polyhexes/</id>
+        
+        <content type="html" xml:base="https://pirogov.de/blog/biconnected-holefree-polyhexes/">&lt;p&gt;&lt;em&gt;The hexagonal tilesets for my first experiments in board game design,
+&lt;a href=&quot;&#x2F;projects&#x2F;advaya&#x2F;&quot;&gt;Advaya&lt;&#x2F;a&gt; and &lt;a href=&quot;&#x2F;projects&#x2F;atreya&#x2F;&quot;&gt;Atreya&lt;&#x2F;a&gt;,
+were developed by explorative programming and that process was explained
+&lt;a href=&quot;&#x2F;blog&#x2F;designing-advaya-and-atreya&quot;&gt;in a different article&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Here, I will discuss some theoretical aspects that are not
+really relevant for playing the games, but are interesting questions from a
+theoretical point of view and for implementation purposes. We will completely
+forget about the pieces drawn on the tiles and just consider the game arenas as
+abstract objects made from equivalent tiles, without edge-matching constraints
+imposed by the colors.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;From a mathematical point of view, the arenas of tabletop games like Hive,
+Advaya and Atreya are nothing but dynamically changing
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Polyhex_(mathematics)&quot;&gt;polyhexes&lt;&#x2F;a&gt;, and more
+specifically for the latter two,
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Biconnected_graph&quot;&gt;biconnected&lt;&#x2F;a&gt; holefree
+polyhexes. I would argue that this is an interesting combination of properties. While
+simple connectedness can be understood geometrically, biconnectedness is an inherently
+graph-theoretic property that is combined with otherwise geometric restrictions.&lt;&#x2F;p&gt;
+&lt;p&gt;Summarizing the relevant rules of Advaya and Atreya, an arena consisting of hexagonal game
+pieces is valid if its graph is biconnected and it has no holes (in the geometric sense).
+Furthermore, this validity is to be maintained throughout any tile movement. From Hive I
+have borrowed the additional restriction that tiles may only be moved from one position to
+another if, besides upholding arena validity, the movement can be performed without
+lifting the tile up, purely by sliding it on the table and without needing to move any
+other tiles (assuming perfect precision and tile placement).&lt;&#x2F;p&gt;
+&lt;p&gt;This combination of properties has some interesting non-obvious consequences and I have
+not found a paper looking at the interaction of these properties before, so here I want to
+present my not too difficult, but still interesting findings.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;preliminaries&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#preliminaries&quot; aria-label=&quot;Anchor link for: preliminaries&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Preliminaries&lt;&#x2F;h2&gt;
+&lt;p&gt;Some finite non-empty set $A \subseteq \mathcal{H}$ of &lt;strong&gt;cells&lt;&#x2F;strong&gt; (or positions)
+of an infinite regular hexagonal grid $\mathcal{H}$ is called a &lt;strong&gt;polyhex&lt;&#x2F;strong&gt;. By
+$\overline{A}$ we denote the set of cells $\mathcal{H}\setminus A$ that do not
+belong to $A$. We say that cells $c\not\in A$ are &lt;strong&gt;empty&lt;&#x2F;strong&gt;, whereas cells $c\in
+A$ are &lt;strong&gt;occupied&lt;&#x2F;strong&gt;. A &lt;strong&gt;tile&lt;&#x2F;strong&gt; is a cell-shaped position marker and it is implied that
+each occupied cell is covered by a tile. The &lt;strong&gt;connectivity graph&lt;&#x2F;strong&gt; of
+$G(\mathcal{H})$ is the 6-regular triangular grid graph with cells as vertices
+and shared cell boundaries as edges. The connectivity graph of the polyhex
+$G(A)$ is just the restriction of $G(\mathcal{H})$ to the polyhex cells, whereas
+the connectivity of empty space is captured by $G(\overline{A})$.&lt;&#x2F;p&gt;
+&lt;p&gt;A polyhex is &lt;strong&gt;biconnected&lt;&#x2F;strong&gt; if removing a cell from the set does not disconnect
+any pair of other cells and it is &lt;strong&gt;holefree&lt;&#x2F;strong&gt; if there is no empty area of
+cells fully surrounded by cells of the polyhex.
+A polyhex is &lt;strong&gt;valid&lt;&#x2F;strong&gt; if it is &lt;strong&gt;biconnected&lt;&#x2F;strong&gt; and &lt;strong&gt;holefree&lt;&#x2F;strong&gt;, which formally
+means that $G(A)$ is biconnected and $G(\overline{A})$ is connected. A &lt;strong&gt;hole&lt;&#x2F;strong&gt;
+is a finite connected component of $G(\overline{A})$ that is disconnected from
+the rest. An &lt;strong&gt;almost-hole&lt;&#x2F;strong&gt; is a maximal connected area of empty cells that
+becomes a hole by making one more tile occupied.&lt;&#x2F;p&gt;
+&lt;p&gt;We can also treat $A$ as a characteristic function $A : \mathcal{H} \to {0,1}$
+mapping cells of the polyhex to 1 and all others to 0. The 6 neighbor cells of $c$
+are denoted by the set $N(c)$. To describe the relative layout of the neighbors,
+start with any neighbor, traverse them in counter-clockwise order, and write
+down $A(c)$ for each of them. Next, take the lexicographically smallest out of
+the 6 cyclic shifts as the &lt;strong&gt;connectivity profile&lt;&#x2F;strong&gt; $P(c) \in {0,1}^6$ of $c$
+(illustrated e.g. &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.conwaylife.com&#x2F;wiki&#x2F;Hexagonal_neighbourhood&quot;&gt;here&lt;&#x2F;a&gt;).
+For example, if every other neighbor cell is occupied, then the profile is 010101.
+If $P(c) \in 0^{6-k}1^k$ for $k\in[1..6]$, we say that $P(c)$ is &lt;em&gt;$k$-simple&lt;&#x2F;em&gt; and
+also call it a &lt;em&gt;$k$-gap&lt;&#x2F;em&gt; if $c\not\in A$. The notation $[n..m]$-gap or
+$[n..m]$-simple denotes that a cell is a $k$-gap or $k$-simple with
+$k\in[n..m]$. Notice that $P(c) = 1^6$ means the cell is completely surrounded
+by polyhex cells, and dually, if $P(c) = 0^6$ means then it is completely
+surrounded by empty cells.&lt;&#x2F;p&gt;
+&lt;p&gt;We will mostly care about &lt;strong&gt;boundary cells&lt;&#x2F;strong&gt;, i.e.
+$$B = \{ c\in\mathcal{H} \mid \exists c’\in N(c): A(c) \neq A(c’) \}$$
+and distinguish boundary cells
+$B_A = B \cap A$ inside the polyhex and $B_{\overline{A}} = B \cap \overline{A}$
+outside the polyhex. Notice that there are 14 different profiles and one of the
+12 nontrivial ones can apply to a boundary cell.&lt;&#x2F;p&gt;
+&lt;p&gt;The profile of each cell describes the &lt;strong&gt;sides&lt;&#x2F;strong&gt; of the cell,
+which are the consecutive edges shared with neighbors along the profile with the
+same status (empty or occupied). The &lt;strong&gt;endpoints&lt;&#x2F;strong&gt; of sides are the two cell
+corners at the start and end of a side. Sides consisting of empty neighbors are
+called &lt;strong&gt;open&lt;&#x2F;strong&gt;. If there are more than one non-open sides, we call the side a
+&lt;strong&gt;tunnel&lt;&#x2F;strong&gt;, which can be narrow, if consisting of one edge, or wide otherwise. For
+example, the profile 001101 consists of four sides, and two of them are open,
+one is a narrow tunnel and one a wide tunnel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;efficient-validity-update-exploiting-restricted-cell-connectivity&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#efficient-validity-update-exploiting-restricted-cell-connectivity&quot; aria-label=&quot;Anchor link for: efficient-validity-update-exploiting-restricted-cell-connectivity&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Efficient validity update exploiting restricted cell connectivity&lt;&#x2F;h2&gt;
+&lt;p&gt;First we will see that the inside boundary of biconnected holefree polyhexes has
+very restricted connectivity options and use this to get efficient algorithms to
+check validity in a dynamic setting. We start by testing validity of an unknown
+polyhex, and then proceed with the case where a cell is added or removed.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proposition.&lt;&#x2F;strong&gt; &lt;em&gt;Deciding whether a connected polyhex is holefree is possible in linear time.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;
+Given a cell $c$ of a polyhex $A$, explore the polyhex starting from $c$ as
+follows. In addition to the BFS exploration queue, maintain a queue of open
+sides (e.g. as pair of cell coordinates and the side endpoints) for which the
+boundary cycle they belong to is not known (we call such sides &lt;em&gt;orphans&lt;&#x2F;em&gt;). The
+algorithm computes all boundary cycles and the open sides that belong to them
+and prioritizes &lt;em&gt;tracing&lt;&#x2F;em&gt; the boundary of orphans by closing a cycle they belong
+to over &lt;em&gt;exploring&lt;&#x2F;em&gt; of the graph. When tracing, there is an active &lt;em&gt;boundary id&lt;&#x2F;em&gt;
+to identify this cycle later.&lt;&#x2F;p&gt;
+&lt;p&gt;Whenever a cell is visited, proceed as follows.
+If there is an active boundary id, assign the id to the traced open side.
+If the cell is visited for the first time, add each newly discovered but
+unvisited neighbor to the exploration queue and mark them as discovered.
+Next, add each open side without assigned boundary id to the orphan queue and
+mark the cell as visited.
+If currently tracing a cycle (i.e., there exists an active boundary id), check
+the neighbor cell along the traced open side.
+If its traced open side has no id yet, proceed to this neighbor. Otherwise, the
+cycle is completed, hence unset the active boundary id and check the orphan
+queue.&lt;&#x2F;p&gt;
+&lt;p&gt;If it is empty and no unvisited neighbors exist, the algorithm terminates.
+Otherwise, explore the unvisited neighbors by BFS using the exploration queue.
+If the tracing queue is not empty,
+take an open side from the queue, and check that it is still has no boundary id.
+If it has an assigned id, just discard it and proceed to the next one, because
+its cycle has been already traced after adding it to the queue. Otherwise, set
+a fresh active boundary id and proceed by jumping to the cell with the orphan side
+(i.e., visit it again to trace the unknown boundary cycle).&lt;&#x2F;p&gt;
+&lt;p&gt;Notice that each cell of the polyhex is visited at least once due to the BFS
+exploration queue. As on the first visit the boundary segments are registered
+for exploration, so every boundary segment is eventually discovered and assigned to
+a cycle due to the tracing queue. As a cell can have at most 3 different open
+sides, each cell is visited at most three times (once for each cycle, if they
+are different). $\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Remark.&lt;&#x2F;em&gt; If you only want to know whether there are holes, you can abort the
+algorithm after finding two different boundary cycles. Also, this algorithm
+works with triangular and square grids (and also e.g. triangulated
+polygons) with the obvious required adaptations concerning neighbor
+connectivity. If you need to know which cycle is the outside boundary of
+the polyhex, just compute the bounding box of the polyhex and pick a boundary
+cell that touches the bounding box, its cycle must be outside.&lt;&#x2F;p&gt;
+&lt;p&gt;The following observation is the key for simple and efficient updates:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Lemma.&lt;&#x2F;strong&gt; &lt;em&gt;Let $A$ be a polyhex.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;$A$ is valid and $|A|\geq 3 \Rightarrow \forall c \in B_A,$ $P(c)$ is $[2..5]$-simple.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;$A$ is connected, holefree and ($|A| \leq 2$ or $\forall c \in B_A,$ $P(c)$ is $[2..5]$-simple) $\Rightarrow A$ is valid.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;
+(1.) The profiles $0^6, 1^6$ and $0^5 1$ are impossible for an inside boundary cell of a
+valid polyhex of size greater than 2. Specifically in the case of $0^5 1$,
+removing the single neighbor of a cell $c$ with $P(c)=0^5 1$ would separate $c$
+from the other polyhex cells, violating biconnectedness.&lt;&#x2F;p&gt;
+&lt;p&gt;Now assume that a cell $c\in B_A$ has two open sides, i.e., $P(c) \in 0^+ 1^+ 0^+ 1^+$.
+Let the two non-open sides (here meaning the corresponding neighbor cells, not
+the edges) be denoted by $l$ and $r$, the two open sides by $u$ and $d$. As $A$ has
+no holes, $u$ and $d$ must be both on the outside and hence be connected by a path
+using only empty cells. This implies that either $l$ or $r$ are completely
+enclosed by a cycle of cells where all cells except for $c$ are empty. It
+follows that removing $c$ from the polyhex disconnects polyhex cells in $l$ from
+polyhex in $r$, violating biconnectedness. The remaining case of $P(c) = 010101$
+is shown similarly.&lt;&#x2F;p&gt;
+&lt;p&gt;(2.) Connected polyhexes of size $\leq 2$ are trivially biconnected and
+holefree, and thus valid. Assume that $A$ is connected, holefree, $|A|\geq 3$, but
+not valid. This is only possible if $A$ is not biconnected. In this case, there
+must exist a $c\in A$ such that removing $c$ disconnects two neighbor cells
+$a,b$ of the polyhex, so the only path using polyhex cells from one side to the
+other use $c$. It is easy to see that in this case $c$ must have at least two
+open sides, because with only one open side it means that there is a path from
+$a$ to $b$ directly around $c$. Hence we conclude that $c\in B_A$ (because it
+has open and non-open sides) and $P(c)$ cannot be $k$-simple. $\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem.&lt;&#x2F;strong&gt;
+&lt;em&gt;Deciding whether a single cell update of a polyhex is valid can be done in $\mathcal{O}(1)$&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;
+We assume that the size $n$ of the polyhex is known, so it does not need to be
+calculated by exploration.
+We can only add or remove boundary cells of the polyhex, as otherwise the polyhex
+immediately either gets a hole or becomes disconnected, therefore $c\in B$ must
+hold, excluding the profiles $0^6$ and $1^6$. Any empty neighbor cell can be
+added to a singleton polyhex and any cell can be removed from an polyhex with
+size at most 3. Next we analyze the remaining cases. By assumption that the
+polyhex was valid before, we know that the polyhex can only become invalid
+&lt;em&gt;locally&lt;&#x2F;em&gt;, and changing the state of a single boundary cell can only change the
+profiles of its neighbors.&lt;&#x2F;p&gt;
+&lt;p&gt;First, consider adding a cell $c\in B_\overline{A}$ to an polyhex of size at least 2. When
+adding $c$ to the polyhex, the connectivity of neighbor cells only increases. So
+$c$ only can violate biconnectedness if it is an 1-gap, as removing its single
+neighbor would disconnect the polyhex. Also, adding a cell at a $k$-gap position can not
+introduce a hole, so the only way to create a hole by adding a single cell is by
+picking a cell that has (at least) two open sides, i.e. $P(c) \in 0^+ 1^+ 0^+
+1^+ + 010101$. By an argument like in the previous lemma, we have at least one
+path of occupied cells between the two non-open polyhex sides and this path does
+not use $c$. Hence the two open sides with empty cells must become disconnected
+by adding $c$, making one of the open sides part of hole. So a cell $c \in
+B_\overline{A}$ that can validly be added to $A$ must be a $[2..5]$-gap.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, consider removing an polyhex cell $c\in B_A$. By assumption the polyhex was
+biconnected before, so removing $c$ keeps it connected. Furthermore,
+removing $c$ clearly cannot increase the number of holes.
+By the previous lemma and the fact that only the neighbor profiles changed, we
+conclude that for determining whether the polyhex is
+still valid it suffices to check whether the profiles of all relevant neighbor
+cells in $B_{A\setminus {c}} \cap N(c)$ are $[2..5]$-simple or the arena size
+decreased below $3$. $\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Corollary.&lt;&#x2F;strong&gt; &lt;em&gt;Deciding whether a connected polyhex is valid is possible in linear time.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;
+Use the presented algorithm to find holes in the polyhex $A$ and compute its size.
+If there are no holes, by the lemma it suffices to check whether
+If the size is less than $3$ (then $A$ is trivially valid) or otherwise
+check whether all $c\in B_A$ have $[2..5]$-simple profiles.
+Alternatively, one could use a generic algorithm to compute
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Biconnected_component&quot;&gt;biconnected components&lt;&#x2F;a&gt;
+and check that the polyhex is a single component, which also is possible in
+linear time, but more involved.$\blacksquare$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;tile-dynamics-continuous-vs-discrete-sliding&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#tile-dynamics-continuous-vs-discrete-sliding&quot; aria-label=&quot;Anchor link for: tile-dynamics-continuous-vs-discrete-sliding&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Tile dynamics: continuous vs. discrete sliding&lt;&#x2F;h2&gt;
+&lt;p&gt;These are very useful results to be used as subroutines to determine whether
+a move is valid, i.e., not violating the validity of the arena. But until now,
+the tiles located at the cells can just appear and disappear, not taking the
+geometric restriction on the arena dynamics into account that allows only tile
+movements possible by &lt;em&gt;sliding&lt;&#x2F;em&gt; without interfering with other tiles. Thinking
+&lt;em&gt;discretely&lt;&#x2F;em&gt;, moving a tile means temporarily removing it from the arena and
+then adding it at some different place. But &lt;em&gt;sliding&lt;&#x2F;em&gt; is intuitively understood
+in a &lt;em&gt;continuous&lt;&#x2F;em&gt; way that refers to the smooth process of actually moving the
+tile.&lt;&#x2F;p&gt;
+&lt;p&gt;There are at least two problematic aspects with a continuous interpretation when
+combined with the validity invariance of the arena. While biconnectedness can
+hardly be understood in any other way than discretely, there are problems
+arising due to a continuous interpretation of a hole that become visible in the
+following situations:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;moving a tile out from a position that leaves a 4-gap, and&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;moving a tile through a position with profile 001001.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The first issue arises due to the fact that an &lt;em&gt;actual, geometric hole&lt;&#x2F;em&gt; in the
+arena appears as soon as you start sliding a tile out. &lt;!-- TODO: ILLUSTRATE --&gt;
+The hole will have at most the area of $\frac{2}{3}$ of a single cell at the
+point where the hexagon with radius $r$ smoothly slided a distance $r$ into the
+open direction, barely touching two of its previous neighbors in single points.
+Moving the tile further opens up this hole again, but a strict reading of
+the movement constraints would require us to disallow such a move under
+continuous interpretation. The same situation arises dually whenever we want to
+slide a tile into a 4-gap, introducing a temporary hole until the tile is in the
+final position. As this kind of hole is clearly not what is meant by the rules,
+this issue could be solved by saying that considered holes have at least the
+size of a full cell, but this would clutter the rules with more technicalities.&lt;&#x2F;p&gt;
+&lt;p&gt;The second issue &lt;!-- TODO: ILLUSTRATE --&gt; arises from the fact that the two tiles
+touching a 001001 position must be connected, so one open side of the cell necessarily is
+inside of some almost-hole that lacks a single tile at that position to become an actual
+hole. But this means, that sliding a tile through this position &lt;em&gt;does&lt;&#x2F;em&gt; create a temporary
+hole in the arena of possibly significant size.&lt;&#x2F;p&gt;
+&lt;p&gt;One could decide that this is perfectly fine and thus it is simply forbidden to
+cross such a position with a tile, but allowing to use 4-gaps by adding a
+specific clarification, because it &lt;em&gt;fits&lt;&#x2F;em&gt; there, and at the same time
+prohibiting to move a tile through such a position &lt;em&gt;even though&lt;&#x2F;em&gt; it fits is a
+questionable decision. So instead of accepting the continuous interpretation of
+moving a tile, a better solution is to allow both of those things and formalize
+a purely discrete and graph-theoretic definition of allowed movements that
+captures what is meant by the intuitive geometrical definition via &lt;em&gt;sliding&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;sliding-components-of-a-polyhex&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#sliding-components-of-a-polyhex&quot; aria-label=&quot;Anchor link for: sliding-components-of-a-polyhex&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Sliding components of a polyhex&lt;&#x2F;h2&gt;
+&lt;p&gt;For a tile to be able to slide in or out, it is obvious that we need two
+adjacent empty cells, as a tile cannot fit through a narrow tunnel consisting of just one
+boundary edge.
+When we consider the connectivity graph of empty cells $G(\overline{A})$, it
+is easy to see that we can slide a tile between any neighboring cells
+where both cells are part of a triangle of empty cells, and we cannot move a tile between
+empty cells connected just by a narrow tunnel. &lt;!-- TODO: ILLUSTRATION --&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Remark.&lt;&#x2F;em&gt; An important observation is that once you have a triangle of
+empty cells, you can rotate the tile into any orientation by first moving it to
+the center of that triangle, and then you can continue to slide it through or
+into any of those three cells. So &lt;em&gt;whenever a tile can be slided, it can also be
+rotated&lt;&#x2F;em&gt;. While this does not matter as long we ignore the tile textures, this
+is important to know for the application in the game. &lt;!-- TODO: ILLUSTRATE --&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Maximal empty regions where a tile can freely move by sliding are called
+&lt;strong&gt;sliding components&lt;&#x2F;strong&gt; of the polyhex that form a &lt;strong&gt;sliding component graph&lt;&#x2F;strong&gt;
+where sliding components are nodes and narrow tunnels are the edges.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proposition.&lt;&#x2F;strong&gt; &lt;em&gt;Given a boundary cell of a connected polyhex, its sliding
+component can be determined in time linear in the polyhex boundary length.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;
+For each cell $c\in B_A$ we can compute its sliding component using a BFS on
+$G(\overline{A}\cup {c})$, i.e. the empty cells, but starting from the
+non-empty boundary cell of the tile to be moved.
+For each visited $a$, only queue a unexplored neighbor cell $b\in N(a)$ for exploration
+if a common neighbor $c\in N(a)\cup N(b)$ is also empty, so that $a,b,c$ form a
+triangle. Notice that for each neighboring pair $a,b$ there are only two shared
+neighbors $c\neq c’$ that can form such a triangle. As we cannot place a tile
+away from the boundary and because the polyhex is connected, we do not need to
+explore empty cells that touch no polyhex cell, but those cells do count for the
+triangles. This way, the exploration will only proceed along the boundary.
+Intuitively, we do not require the whole open space, because we know that it is
+possible to slide tiles to any reachable position along the discovered boundary
+chain of triangles, even if it might be not the shortest path. $\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proposition.&lt;&#x2F;strong&gt; &lt;em&gt;The boundary of a connected polyhex can be decomposed into
+sliding components, each marked as hole, almost-hole or outside, in linear time.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;
+First, use the algorithm to compute all holes and find the outside boundary of
+the polyhex. For each boundary, pick a cell and apply the previous algorithm to
+find its sliding component, with a slight modification. Queue empty neighbors
+that are not reachable for sliding (due to narrow tunnels) for later exploration, and
+then successively explore the other sliding components in the queue. $\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;One can also show the following about the sliding component graph:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proposition.&lt;&#x2F;strong&gt; &lt;em&gt;Let $A$ be some polyhex. Then the
+sliding component graph is:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;a tree rooted at the outside component iff $A$ has no holes, or&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;a forest iff $A$ has holes and is either connected, or is
+disconnected without nesting, or&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;any planar graph otherwise.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;strong&gt;Proof&lt;&#x2F;strong&gt;.
+(1.) When holes are forbidden, there is no way
+for two sliding components to be disconnected, so all components are parts of
+and reachable by narrow gaps in the outside boundary.&lt;&#x2F;p&gt;
+&lt;!-- If disconnected, then the outside is defined as the union of the boundaries of --&gt;
+&lt;!-- the occupied cells and hence forms a single sliding component. Now observe that --&gt;
+&lt;!-- whenever there is nesting, it implies a cycle in the sliding component graph --&gt;
+&lt;p&gt;(2.) There cannot be any cycles in the sliding component graph if connectedness
+of the polyhex is required, because a cycle of such components implies that
+the dual unbounded polyhex $\overline{A}$ has a hole of polyhex cells in $A$ and
+must itself be surrounded by cells in $A$, because if it these sliding
+components were are not surrounded by arena cells, there would be no narrow
+tunnels to restrict the tile movement, which is a contradiction.&lt;&#x2F;p&gt;
+&lt;p&gt;If this happens inside a hole (holes are required to get disconnected graphs),
+then the non-empty area would be a nested shape, so having no nesting inside
+holes implies that the sliding component graphs inside of holes form trees.
+Hence, the sliding component graph must form a forest, each tree
+representing a set of connected sliding components inside a hole or the outside
+boundary.&lt;&#x2F;p&gt;
+&lt;p&gt;(3.) Planarity trivially follows from planarity of the grid.&lt;&#x2F;p&gt;
+&lt;p&gt;For the other direction, consider following procedure to map a
+finite planar graph $G$ and embed it on a hexagonal grid.  Map each vertex to a
+sliding component of a suffiently large polyhex and each each edge to a narrow tunnel.
+Any vertex $v$ of the graph $G$ can be
+taken to be the outside component in the grid, as we can project $G \setminus
+{v}$ into the polygon defined by the previous neighbors of $v$, so that the
+outside sliding component connects to reachable vertices by narrow tunnels that
+lead into an almost-hole, whereas each other connected component of G is mapped
+into an actual hole. Notice that nesting of just depth 2 (areas inside holes) of
+occupied areas is required. The same procedure can be used for forests and trees
+and it is easy to see that the resulting polyhex must have the claimed
+properties.
+$\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Remark.&lt;&#x2F;em&gt;
+In case of a valid polyhex, closing one of the narrow gaps
+would separate the empty space into two disconnected parts, because the sliding
+components form a tree. Hence, the non-triangle edges (i.e., narrow tunnels) of
+$G(\overline{A})$ are
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bridge_(graph_theory)&quot;&gt;bridges&lt;&#x2F;a&gt; and sliding
+components are in fact the biconnected components of the empty area. Also, one
+can apply the same approach to compute sliding components of the polyhex, if it
+is just required to be connected and we care about components on top of the
+tiles.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gaptheorem&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#gaptheorem&quot; aria-label=&quot;Anchor link for: gaptheorem&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Existence of outside 2- and 3-gaps&lt;&#x2F;h2&gt;
+&lt;p&gt;Now we know how to check arena validity efficiently, both from scratch and
+throughout single-tile movements, and we can also check for a tile whether a
+certain movement is permitted, using the grid-based charactization of sliding
+using sliding components. The only thing missing is to check the edge-matching
+constraints that we abstracted away at the beginning, which is trivial.&lt;&#x2F;p&gt;
+&lt;p&gt;One interesting question concerning tile movement remains—how likely is
+that a tile that we want to place or move will fit? There are multiple ways to
+make this question more concrete and the variant we will consider is: given an
+additional tile, how likely is that we can extend the arena with that tile?
+Clearly, this depends on the connectivity profile of the boundary positions and
+the possibilities and requirements imposed by the tile textures. In any case,
+the less edges to match, the more probable it is that a uniformly chosen
+random tile fits, so it would be good to know whether we can give any guarantees
+about the kind of boundary the arena always offers and which a tile should be
+able to match (here we only care about whether the tile fits &lt;em&gt;somewhere&lt;&#x2F;em&gt;
+validly).&lt;&#x2F;p&gt;
+&lt;p&gt;According to the game rules, we can not move the new tile into almost-holes
+separated from the outside by narrow tunnels, so we are specifically interested
+in finding a position on the outside. We already know that biconnected holefree
+polyhexes have a nice inner boundary consisting of [2..5]-simple profiles and
+now we look for good positions on the outside to add a tile. We cannot use
+1-gaps because this violates biconnectedness and we cannot use 5-gaps or any
+positions inside an almost-hole, because this violates the sliding rule, so
+we are interested in [2..4]-gaps in the outside sliding component of the
+outside boundary of the arena.&lt;&#x2F;p&gt;
+&lt;p&gt;One can easily see that there are polyhexes with no 3-gaps (take the triangle
+polyhex), and also ones without 2-gaps (build a flattened “snowflake” of 21
+cells). But in fact is impossible that there are neither 2-gaps nor 3-gaps
+somewhere on the outside:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem.&lt;&#x2F;strong&gt; &lt;em&gt;Every connected polyhex has a 2- or 3-gap in its outside sliding component.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Proof.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;!-- We can assume that there are no almost-holes in the arena without any effect --&gt;
+&lt;!-- on our placement possibilities by plugging all --&gt; 
+&lt;!-- narrow tunnels with a tile on the outside. This gives --&gt;
+&lt;!-- us a polyhex with almost the same outside sliding component, minus the positions --&gt;
+&lt;!-- at narrow tunnels that were invalid for placement anyway. The outside plug --&gt;
+&lt;p&gt;It is a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Internal_and_external_angles&quot;&gt;known fact&lt;&#x2F;a&gt;
+that the sum of directed exterior angles for all pairs of edges of a simple
+polygon is 360 degrees, and the outside boundary of a connected polyhex forms
+such a polygon. Instead of looking at the angles between edges directly, we can
+accumulate the change in angle in some direction (w.l.o.g. counterclockwise)
+along the polyhex boundary that each cell contributes, which means that we sum
+the angles between adjacent edges from the first boundary edge of the current
+cell to the first boundary of the next. One can easily see that $k$-gap cells
+contribute an exterior angle of $180-k\cdot 60$ degrees. We will
+first pretend that almost-holes are filled up with cells, to get an almost
+equivalent polyhex $A’$ without narrow tunnels and will take care of the
+possible problems later. This gives us the advantage that each $c\in
+B_\overline{A’}$ can only consist of $k$-gaps and the outside sliding component
+coincides with the actual outside boundary.&lt;&#x2F;p&gt;
+&lt;p&gt;Notice that 5-gaps are trivial almost-holes and not
+reachable by sliding, so there are no 5-gaps in $B_\overline{A’}$.
+Also, the only positive angle change is possible due to $1$-gaps on the
+boundary, because $2$-gaps are angle-neutral and $[3..4]$-gaps angle-negative,
+so clearly there must exist $1$-gaps along the outside boundary.
+Observe that those 1-gaps can come only alone or in pairs, because
+three successive 1-gaps imply that their common shared neighbor is $1$-simple,
+violating polyhex validity. But this means that the positions before and after
+these single or paired 1-gaps (we call them flanking positions) must be
+$k$-gaps with $k\geq 2$.&lt;&#x2F;p&gt;
+&lt;p&gt;Assume that for all $1$-gap sequences both the position before and after are
+$4$-gaps. Notice that a single $4$-gap neutralizes two
+$1$-gaps. But this contradicts the required positive angle sum obtained along
+the boundary, because the sum of angles of those leading and trailing positions,
+counted only once, would still be more negative that can be balanced out by
+summing all 1-gaps. Therefore, there must exist some 1-gap $c\in
+B_\overline{A’}$ where at most one flanking position is a $4$-gap and the other
+position is a $2$- or $3$-gap.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, we need to check that those positions are in fact usable and are not
+narrow tunnels in the original polyhex $A$. Notice that the outside position of
+a narrow tunnel cannot be a 1-gap or 2-gap of $A’$, because a narrow
+tunnel can only arise when there are two non-open sides with a single-edge open
+side between them. It also cannot be a 5-gap, as this would mean that the position
+itself is on the inside, but we consider only positions reachable on the
+outside. Hence, only $3$- or $4$-gap positions of $A’$ could have been narrow
+tunnels.&lt;&#x2F;p&gt;
+&lt;p&gt;Hence, if one flanking position of some 1-gap is a 2-gap, then we are done
+immedately, because the 2-gap is also existing and valid in $A$. So now we
+assume that there are no flanking 2-gaps. As at most two 1-gaps can follow each
+other, the only way for the angle sum to increase are paired 1-gaps, because
+they are always followed by a 3-gap or 4-gap, so the angle sum could not be
+positive if only single 1-gaps were present. Hence, there must be 3-1-1-3,
+3-1-1-4 and 4-1-1-3 gap sequences along the outside boundary. Now observe that
+if any of the flanking 3-gaps in these sequences is a narrow tunnel in $A$, it
+means that the polyhex tile neighboring the pair of 1-gaps is $1$-simple in $A$,
+violating the validity of the polyhex. We conclude that there must exist a
+3-gap in $B_A$ that can be used to add a cell if there does not exist a usable
+$2$-gap in $B_A$. $\blacksquare$&lt;&#x2F;p&gt;
+&lt;p&gt;Using this result, we can see that for estimating the probability that a tile
+can fit anywhere on the outside, it really suffices to check the 2-gap and 3-gap
+situation. This is an enormous restriction compared to checking all 12
+connectivity possibilities and another advantage of biconnected polyhexes.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;even-higher-connectivity&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#even-higher-connectivity&quot; aria-label=&quot;Anchor link for: even-higher-connectivity&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Even higher connectivity&lt;&#x2F;h2&gt;
+&lt;p&gt;We only looked at biconnected polyhexes, but one could consider even stronger
+connectivity constraints? A polyhex is &lt;strong&gt;$k$-connected&lt;&#x2F;strong&gt; if removing a tile keeps it
+$(k-1)$-connected. A natural question is what consequences $k$-connectedness for
+$k&amp;gt;2$ has on polyhexes.&lt;&#x2F;p&gt;
+&lt;p&gt;Consider polyhexes that have only 1-gaps and 2-gaps on the outside.
+Such polyhexes do not have a negative exterior angle, so we call them
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;polyform.fandom.com&#x2F;wiki&#x2F;Convex_Block&quot;&gt;&lt;strong&gt;convex&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;. Notice that the
+this convexity coincides with convexity in the usual sense if you smooth out the
+zig-zagging edges along the outside boundary of the polyhex or consider only
+central points. Notice that all convex polyhexes have outside boundary profile
+of the form $(12^*)^6$. Convex polyhexes require the addition of at least 2
+adjacent tiles to be 3-connected again, so in general this is not a useful
+restriction if we want to be able to uphold the property with every single tile
+movement.&lt;&#x2F;p&gt;
+&lt;p&gt;Furthermore, not every cell of a connected polyhex can be 4- or 5-connected,
+because we have seen that there are always 1-gaps on the outside which imply
+that the neighboring polyhex cell has at most 3 neighbors. Finally,
+$k$-connectedness with $k\geq 6$ is impossible on a hexagonal grid except for
+the trivial case of $|A|\leq 2$.&lt;&#x2F;p&gt;
+&lt;p&gt;One could also restrict the empty space by imposing stricter connectedness
+constraints, but if we restrict the empty space to be biconnected, then
+we prohibit placing tiles so that narrow tunnels are introduced and thereby
+immediately lose the whole concept of almost-holes and sliding components.
+From a game mechanics point of view, this means to lose an interesting
+mechanism while introducing a rather unintuitive restriction about the minimal size of
+gaps. So the slightly more asymmetric definition of validity offers more
+interesting possibilities, even though a symmetric constraint seems to be more
+elegant.&lt;&#x2F;p&gt;
+&lt;!--
+
+## Self-similar grid expansions
+
+Edge expansion of the hexagon grid
+Triangle expansion of the hexagon grid
+
+Moore expansion of the square grid (can yield 8 neighbors)
+Von-Neumann expansion of the square grid (can yield 4 neighbors)
+Diagonal Von-Neumann expansion of the square grid (can yield 4 neighbors)
+12-gon expansion of triangular grid (center + at most 12 surround cells)
+hexagonal expansion of triangular grid (inscribed hexagon)
+Triangular expansion of hexagon grid (triangles in inscribed hexagon + corners)
+
+Base for new tiles?
+
+Game with stacked hexagons?
+
+
+https:&#x2F;&#x2F;polyform.fandom.com&#x2F;wiki&#x2F;Convex_Block
+define transposed and direct derivative of grid
+transposed deriv = flat-&gt;pointy toggle, and add hex to center of triangles
+direct deriv = atreya-style
+
+Language of boundary chomsky?
+
+outer boundary hex edge profile:
+start: 1^6
+k 1 m -&gt; k+1 x1y m+1 (k&lt;=4, m&lt;=4) (a five would close a hole) where x=1 if k&lt;4, y=1 if m &lt; 4 and T otherwise
+k 2 m -&gt; k+1 xy m+1 (k&lt;=4, m&lt;=4) (a five would close a hole) where x=1 if k&lt;4, y=1 if m &lt; 4 and T otherwise 
+k 3 m -&gt; k+1 x m+1 (k&lt;=4, m&lt;=4) (a five would close a hole) where x=1 if k&lt;4 and m&lt;4 and T otherwise
+1 4 1 -&gt; 22
+2 4 2 -&gt; 33
+3 4 3 -&gt; 44
+
+no sequence of 6 threes or 3 fours without ones between
+no finite memory mechanism to check, 60 degree piece stack required, must close
+full circle in any direction at the end, not before (otherwise lasso shaped)
+
+
+boundary code inner vs outer
+o &lt;-&gt; i
+111111 &lt;-&gt; 6
+111   5
+11    4
+1     3
+2     2 
+3     1
+4     0?
+
+boundary derivative - remove outside layer
+boudary integral - add another layer
+
+--&gt;
+</content>
+        
+    </entry>
+</feed>

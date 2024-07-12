@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Simply Typed - computer science</title>
+    <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://pirogov.de/tags/computer-science/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://pirogov.de"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2014-10-07T00:00:00+00:00</updated>
+    <id>https://pirogov.de/tags/computer-science/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Introduction to the Lambda Calculus</title>
+        <published>2014-10-07T00:00:00+00:00</published>
+        <updated>2014-10-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Anton Pirogov
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://pirogov.de/blog/introduction-to-lambda-calculus/"/>
+        <id>https://pirogov.de/blog/introduction-to-lambda-calculus/</id>
+        
+        <content type="html" xml:base="https://pirogov.de/blog/introduction-to-lambda-calculus/">&lt;p&gt;&lt;em&gt;This post is basically my handout to a talk that I have to prepare for a
+bachelor’s seminar at my university, mostly digesting and summarizing some parts
+of the awesome introductionary book “&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.cis.upenn.edu&#x2F;~bcpierce&#x2F;tapl&#x2F;&quot;&gt;Types and programming
+languages&lt;&#x2F;a&gt;”.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;The writing style might be a bit too formal for a casual internet post, but
+here I could try out the LaTeX-to-Markdown conversion and MathJax support of
+Pandoc (which by the way works pretty well). I hope it is enjoyable or useful
+nonetheless.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Much more to-the-point and a bit less formal are the &lt;a href=&quot;https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;introduction-to-lambda-calculus&#x2F;LambdaCalcSlides.pdf&quot;&gt;slides&lt;&#x2F;a&gt;.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;introduction&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;You may ask yourself, why do you need a type system? It is possible to
+get work done without it just fine, the types are only in the way. There
+are many popular programming languages which do not require adding type
+information to variables all over the place and it still works, right?
+If this is what you think of when you hear “type system”, I assume that
+you have never used a powerful one.&lt;&#x2F;p&gt;
+&lt;p&gt;A sane, advanced type system, as mainly found in ML, Haskell or other
+functional languages is a very useful tool in the process of software
+development. It rejects code which is obviously broken, offers
+additional documentation for functions and needs only minimal hints, as
+there are algorithms which figure out the types of different expressions
+all by themselves, most of the time (a feature known as &lt;em&gt;type
+inference&lt;&#x2F;em&gt;). A strong, static type system also makes refactoring easier
+— if an API changes, the code will not pass the type checking in all the
+affected places. Being constrained by the bounds of a type system forces
+the developer to construct models which are, at the very least,
+self-consistent.&lt;&#x2F;p&gt;
+&lt;p&gt;But before we can dive into the simply typed lambda calculus as a
+fundamental example of a type system, we first need to understand its
+predcessor, the &lt;em&gt;untyped lambda calculus&lt;&#x2F;em&gt;, as introduced by Alonzo
+Church in 1936 and shown to be equivalent in expressiveness to
+Turing machines by Turing in 1937. Language features like
+partial application, currying and the whole notion of
+higher-order-functions, i.e. functions as values root directly from the
+lambda calculus, making it a worthy object of study for everyone
+interested in the development of programming languages.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;the-untyped-lambda-calculus&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-untyped-lambda-calculus&quot; aria-label=&quot;Anchor link for: the-untyped-lambda-calculus&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The Untyped Lambda Calculus&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;syntax-and-evaluation&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#syntax-and-evaluation&quot; aria-label=&quot;Anchor link for: syntax-and-evaluation&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Syntax and evaluation&lt;&#x2F;h2&gt;
+&lt;p&gt;The pure untyped lambda calculus has a very simple grammar.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Syntax of $\lambda$-calculus:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$\tt t ::= x \mid \lambda x.t \mid t\medspace t$&lt;&#x2F;p&gt;
+&lt;p&gt;Which means that a valid lambda term is either a &lt;em&gt;variable&lt;&#x2F;em&gt;, an
+&lt;em&gt;abstraction&lt;&#x2F;em&gt; or an &lt;em&gt;application&lt;&#x2F;em&gt;. The intuition shall be to see an
+abstraction as function definition and application as function
+application, where the right term is used as the argument for the left
+term. Note that for readability we will use parentheses around terms,
+although they are not a formally defined part of the calculus. If
+omitted, assume that an abstraction opens a pair of parentheses and
+extends to the end of the expression.&lt;&#x2F;p&gt;
+&lt;p&gt;A variable is &lt;em&gt;bound&lt;&#x2F;em&gt; in a term if its name is used in a lambda
+abstraction it is embedded in, otherwise the variable is &lt;em&gt;free&lt;&#x2F;em&gt;. In
+$\tt \lambda x.x\ y$ the $x$ is bound and $y$ is free.&lt;&#x2F;p&gt;
+&lt;p&gt;Also notice that in the pure lambda calculus there are no primitive data
+types like integers, booleans, etc. so the only possible value of a
+variable is unevitably another lambda term and the things we can
+possibly “compute” are just other lambda terms as well. Another
+interesting property is that the defined “function” syntax just allows
+one argument, what seems rather limiting on the surface, but is a
+restriction easy to circumvent.&lt;&#x2F;p&gt;
+&lt;p&gt;The only form of computation possible in the lambda calculus is &lt;em&gt;beta
+reduction&lt;&#x2F;em&gt; which in fact, is just function evaluation — substituting the
+variable of an abstraction with the argument on the right side. A
+reducible term, i.e. of the form $\tt (\lambda
+x.\ t_1)\ t_2$ is also called &lt;em&gt;redex&lt;&#x2F;em&gt; which is just a shorthand for
+&lt;em&gt;reducible expression&lt;&#x2F;em&gt;. For such a substitution we will write
+$\tt [x \mapsto t_2] t_1$, to be read as “substitute all occurences of x
+in term $t_1$ with term $t_2$”.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a number of different ways to define the rules and order of
+term evaluation, we will use the &lt;em&gt;call-by-value&lt;&#x2F;em&gt; strategy. It means,
+that we start on the outside, we will recursively evaluate the terms,
+left to right, until it is no longer possible and if the resulting
+expression forms a redex, we will substitute the variable in the
+abstraction on the left with the &lt;em&gt;value&lt;&#x2F;em&gt; on the right, removing the
+binder (keeping only the substituted body) and proceed with evaluation
+until we reach a term which is not a redex. In this context we call
+non-reducible terms just values, as we have no other kind of data and
+such a term is as “flat” and “primitive” as it can get in this setting.&lt;&#x2F;p&gt;
+&lt;p&gt;If not careful, when substituting terms which contain the same variable
+names in different contexts, we can accidently change the meaning of the
+expression:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\tt [x\mapsto z](\lambda z.x) = (\lambda z.[x\mapsto z]x) = (\lambda z.z)$$&lt;&#x2F;p&gt;
+&lt;p&gt;Here we changed the meaning from a constant function to an identity
+function, which should not be possible for obvious reasons. So a
+limiting rule for substitution is that we only allow it if the variable
+bound by the abstraction is not a free variable in the right-hand term.
+A different approach would be to rename conflicting bound variables in
+the abstraction prior to substitution, which is also called &lt;em&gt;alpha
+conversion&lt;&#x2F;em&gt;. Terms which are the same except of the choice of variable
+names, i.e. with identical structure, are called &lt;em&gt;alpha equivalent&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;working-with-the-lambda-calculus&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#working-with-the-lambda-calculus&quot; aria-label=&quot;Anchor link for: working-with-the-lambda-calculus&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Working with the Lambda Calculus&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;currying&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#currying&quot; aria-label=&quot;Anchor link for: currying&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Currying&lt;&#x2F;h3&gt;
+&lt;p&gt;As mentioned, our abstractions in the lambda calculus can take only one
+argument. But we can easily define a function which takes an argument
+and returns a different function, with one variable already substituted.
+We just apply our arguments one at a time:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\tt (\lambda x.\lambda y.x\ y)\ a\ b \to (\lambda y.a\ y)\ b \to a\ b$$&lt;&#x2F;p&gt;
+&lt;p&gt;What we did is that we defined an abstraction that takes one argument,
+returning an abstraction that takes a different argument and returns the
+first argument applied to the second. Then we successively did the
+substitutions $\tt [x\mapsto a]$ and $\tt [y\mapsto b]$. This is
+effectively a function that takes another function and an argument and
+returns the supplied function applied to the argument.&lt;&#x2F;p&gt;
+&lt;p&gt;This technique is commonly called &lt;em&gt;currying&lt;&#x2F;em&gt;, attributed to Haskell
+Curry, but actually is thought to go back to the mathematician
+Moses Schönfinkel. In reverse, pre-applying a function with one
+or more arguments before passing it somewhere else is called &lt;em&gt;partial
+application&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;encoding-booleans&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#encoding-booleans&quot; aria-label=&quot;Anchor link for: encoding-booleans&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Encoding booleans&lt;&#x2F;h3&gt;
+&lt;p&gt;The only values in the pure $\lambda$-calculus are abstractions, but to
+actually give our computations some meaning outside of the abstract
+realm of the calculus, we somehow need at least to encode some kind of
+values we want to regard as true or false. Without extensions to the
+calculus we can do nothing else but just assign some specific terms a
+meaning and make sure that they behave the way we want. Fortunately
+Church also solved this problem:&lt;&#x2F;p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\tt tru &amp;amp;= \tt \lambda t.\ \lambda f.\ t \newline
+\tt fls &amp;amp;= \tt \lambda t.\ \lambda f.\ f
+\end{aligned}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;We simply interpret a function that takes two arguments and returns the
+first one as &lt;strong&gt;true&lt;&#x2F;strong&gt;, and a similar function which returns the second
+one as &lt;strong&gt;false&lt;&#x2F;strong&gt;. This is a wise choice, as now we can easily define
+logical operators exploiting this definition of our &lt;em&gt;Church booleans&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\tt not  &amp;amp;= \tt \lambda b.\ b\ fls\ tru \newline
+\tt and  &amp;amp;= \tt \lambda b.\ \lambda c.\ b\ c\ fls \newline
+\tt or   &amp;amp;= \tt \lambda b.\ \lambda c.\ b\ tru\ c \newline
+\tt test &amp;amp;= \tt \lambda l.\ \lambda m.\ \lambda n.\ l\ m\ n
+\end{aligned}
+$$&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;code&gt;not&lt;&#x2F;code&gt; function is straight forward, &lt;code&gt;and&lt;&#x2F;code&gt; takes two booleans and
+evaluates the first with the second and &lt;code&gt;fls&lt;&#x2F;code&gt; as argument. If &lt;code&gt;b&lt;&#x2F;code&gt; is
+true, it will return &lt;code&gt;c&lt;&#x2F;code&gt;, whose value corresponds to the value of
+&lt;code&gt;b&lt;&#x2F;code&gt; $\land$ &lt;code&gt;c&lt;&#x2F;code&gt;. If &lt;code&gt;b&lt;&#x2F;code&gt; is false, it will return its second argument &lt;code&gt;fls&lt;&#x2F;code&gt;,
+which is also correct. A similar logic is behind the definition of &lt;code&gt;or&lt;&#x2F;code&gt;.
+The &lt;code&gt;test&lt;&#x2F;code&gt; function simply applies the second and third arguments to the
+first, giving us a kind of if-condition, but with the inconvenience that
+both “branches” (arguments two and three) will be evaluated before it is
+decided which one will be returned, because of our call-by-value
+semantics. We can fix this by wrapping our arguments in dummy
+abstractions to prevent further evaluation before we want it and then
+apply the returned abstraction to anything, in order to unpack the
+wrapped expression.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;encoding-numbers&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#encoding-numbers&quot; aria-label=&quot;Anchor link for: encoding-numbers&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Encoding numbers&lt;&#x2F;h3&gt;
+&lt;p&gt;We can even represent natural numbers:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt c_0 &amp;amp;= \tt \lambda s.\ \lambda z.\ z \newline
+\tt c_1 &amp;amp;= \tt \lambda s.\ \lambda z.\ s\ z \newline
+\tt c_2 &amp;amp;= \tt \lambda s.\ \lambda z.\ s\ (s\ z) \newline …\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Here our natural number is a function which applies an arbitrary
+function to a denoted zero value, thus the number of applications of &lt;code&gt;s&lt;&#x2F;code&gt;
+corresponds to the number we mean. This representation is known as
+&lt;em&gt;Church numerals&lt;&#x2F;em&gt; and an interesting fact is that our definition of
+$c_0$ is alpha equivalent to the Church boolean &lt;code&gt;fls&lt;&#x2F;code&gt;, which can be
+useful for some applications. Now we need some functions to manipulate
+such numbers:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt scc  &amp;amp;= \tt \lambda n.\ \lambda s.\ \lambda z.\ s\ (n\ s\ z) \newline
+\tt plus &amp;amp;= \tt \lambda m.\ \lambda n.\ \lambda s.\ \lambda z.\ m\ s\ (n\ s\ z) \newline
+\tt times &amp;amp;= \tt \lambda m.\ \lambda n.\ m\ (plus\ n)\ c_0\newline
+\tt iszro &amp;amp;= \tt \lambda m.\ m\ (\lambda x.\ fls)\ tru\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;The function &lt;code&gt;scc&lt;&#x2F;code&gt; generates the successor (increments) a numeral,
+taking a numeral &lt;code&gt;n&lt;&#x2F;code&gt; and returning a new numeral, with &lt;code&gt;s&lt;&#x2F;code&gt; applied one
+more time than it is applied by &lt;code&gt;n&lt;&#x2F;code&gt; itself. &lt;code&gt;plus&lt;&#x2F;code&gt; works similarily,
+applying &lt;code&gt;s&lt;&#x2F;code&gt; first &lt;code&gt;n&lt;&#x2F;code&gt; and then &lt;code&gt;m&lt;&#x2F;code&gt; times to &lt;code&gt;z&lt;&#x2F;code&gt;, implementing addition.
+Multiplication can be defined as repeated addition, as demonstrated in
+the definition of &lt;code&gt;times&lt;&#x2F;code&gt; — we exploit the fact that we can use an
+arbitrary function to evaluate our numerals, so that after full
+evaluation we do get the result we want. We can test whether a value is
+zero by evaluating a numeral with the constant false function and true
+as our zero value — if it is zero, we just get true, as the function is
+not applied, and otherwise we get false, because the function will be
+applied to a value.&lt;&#x2F;p&gt;
+&lt;p&gt;Subtraction is also possible, but is quite a bit more complicated both
+in definition and evaluation, so we skip it here. With a test for zero
+and a predcessor function it is also possible to define a function
+testing two numerals for equality by verifying that subtraction in both
+directions returns zero.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;beyond-the-pure-calculus&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#beyond-the-pure-calculus&quot; aria-label=&quot;Anchor link for: beyond-the-pure-calculus&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Beyond the pure calculus&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;real-booleans-and-numbers&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#real-booleans-and-numbers&quot; aria-label=&quot;Anchor link for: real-booleans-and-numbers&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Real booleans and numbers&lt;&#x2F;h3&gt;
+&lt;p&gt;Instead of struggling with Church booleans, we can extend our calculus
+with real ones. So we define &lt;code&gt;true&lt;&#x2F;code&gt; and &lt;code&gt;false&lt;&#x2F;code&gt; to be valid, atomic
+values (in contrast to &lt;code&gt;tru&lt;&#x2F;code&gt; and &lt;code&gt;fls&lt;&#x2F;code&gt; above, which just stand for a
+lambda abstraction that itself can be evaluated). To put our booleans to
+use, we also introduce the if-expression of the form
+&lt;code&gt;if t then t else t&lt;&#x2F;code&gt;, where $t$ is any lambda term. Our evaluation rule
+for these forms is - first evaluate the condition. If it is &lt;code&gt;true&lt;&#x2F;code&gt;,
+replace the if-expression with the &lt;code&gt;then&lt;&#x2F;code&gt;-branch, if it is &lt;code&gt;false&lt;&#x2F;code&gt;,
+replace the expression with the &lt;code&gt;else&lt;&#x2F;code&gt;-branch.&lt;&#x2F;p&gt;
+&lt;p&gt;We can mix our real booleans with the Church booleans, as they are easy
+to convert:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt realbool &amp;amp;= \tt \lambda b.\ b\ true\ false \newline
+\tt churchbool &amp;amp;= \tt \lambda b.\ if\ b\ then\ tru\ else\ fls
+\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Real numbers can be also introduced rather easily – we add the new
+syntactic terms &lt;code&gt;0&lt;&#x2F;code&gt;, &lt;code&gt;succ t&lt;&#x2F;code&gt; and &lt;code&gt;pred t&lt;&#x2F;code&gt; and semantically we treat a
+chain of &lt;code&gt;succ&lt;&#x2F;code&gt; applications to &lt;code&gt;0&lt;&#x2F;code&gt; as the number represented. Whenever
+&lt;code&gt;succ&lt;&#x2F;code&gt; and &lt;code&gt;pred&lt;&#x2F;code&gt; meet, they form a redex which is removed in the
+evaluation step. Again, the difference to Church encoded numbers is that
+these tokens are not lambda abstractions, but are a distinct part of the
+language.&lt;&#x2F;p&gt;
+&lt;p&gt;A real programming language would never use Church encoded data types,
+because atomic primitive data types in a machine-friendly format can be
+processed much faster with hardware support. Still, the Church encodings
+are an interesting showcase to see what can be done even in the pure
+calculus.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;and-more&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#and-more&quot; aria-label=&quot;Anchor link for: and-more&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+…And more&lt;&#x2F;h3&gt;
+&lt;p&gt;There are many useful extensions one can add to the lambda calculus,
+e.g. more primitive base types, complex data types like tuples and lists
+and also different kinds of &lt;em&gt;syntactic sugar&lt;&#x2F;em&gt;, which is some convenient
+notation for a construction that can be expressed in the basic terms,
+but in a more verbose way. Also there are techniques to enable recursion
+(and thereby support looping) in the lambda calculus, but all these
+things are out of scope of this essay. The transition to a fully fledged
+functional language is rather fluent, but for us, as also in most
+formal, theoretical settings, we want to keep our object of study simple
+and, in our case, just focus on our topic of interest — types.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;adding-types&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#adding-types&quot; aria-label=&quot;Anchor link for: adding-types&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Adding Types&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#motivation&quot; aria-label=&quot;Anchor link for: motivation&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Motivation&lt;&#x2F;h2&gt;
+&lt;p&gt;Now what does prevent us from passing a boolean value instead of a
+number when calculating something? Nothing does. The evaluation will
+either stop, as we have no rule to handle such a situation, or,
+depending on the setting, it will continue and produce meaningless
+results, which is even worse. So we need a way to tell our compiler or
+interpreter what we expect to get, something that can be easily checked
+automatically and which will reliably reject invalid, &lt;em&gt;ill-typed&lt;&#x2F;em&gt; input.
+We want to accept &lt;em&gt;well-typed&lt;&#x2F;em&gt; expressions, ones which can be evaluated
+correctly and result in a meaningful value. So we need to expand our
+definition of $\lambda$-calculus.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-simply-typed-lambda-calculus&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#the-simply-typed-lambda-calculus&quot; aria-label=&quot;Anchor link for: the-simply-typed-lambda-calculus&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+The simply typed lambda calculus&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;syntax&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#syntax&quot; aria-label=&quot;Anchor link for: syntax&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Syntax&lt;&#x2F;h3&gt;
+&lt;p&gt;We want to assign to each function a type of the form $T_1 \to T_2$,
+which is to be read like: the function takes an argument of type $T_1$
+and evaluates to a value of the type $T_2$. So $\to$ acts as a &lt;em&gt;type
+constructor&lt;&#x2F;em&gt; giving us a new type from the &lt;em&gt;type variables&lt;&#x2F;em&gt; $T_1$ and
+$T_2$, which themselves can stand for any other constructed type of this
+form or a base type like &lt;code&gt;Bool&lt;&#x2F;code&gt;, that can not be decomposed any further.
+The $\to$ operator is right-associative, so $A\to B\to C$ is to be read
+as $A\to (B\to C)$. Now the syntax changes just a little:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Syntax of simply typed $\lambda$-calculus:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$\tt t ::= x \mid \lambda x\textbf{:T}.\medspace t \mid t\medspace t$&lt;&#x2F;p&gt;
+&lt;p&gt;We just annotate a type to every lambda abstraction. Note, that ‘simply
+typed’ just means that the only way to construct types is $\to$, whereas
+there exist extended systems that have additional operators which can
+not be expressed in terms of $\to$. The simply typed lambda calculus is
+abbreviated as $\lambda^\to$ and has been first developed by Church in
+1940.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;semantics&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#semantics&quot; aria-label=&quot;Anchor link for: semantics&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Semantics&lt;&#x2F;h3&gt;
+&lt;p&gt;Now we need to establish some rules about correct type assignment to
+terms. Let $\Gamma$ be the set of assumptions about the types of some
+terms like e.g. free variables (this is our &lt;em&gt;typing context&lt;&#x2F;em&gt;), then
+$\tt \Gamma \vdash t : T$ means ‘under given assumptions the term t has
+the type T’. The context can also be empty and can be omitted in this
+case. The notation with the horizontal line used below is a more
+readable form of implication ($\Rightarrow$) with the left side on top
+and the right on the bottom. This notation is used to specify &lt;em&gt;deduction
+rules&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The first rule is trivial and just formalizes the fact that a variable
+has the type we assume it to have in the typing context:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Typing of variables (T-Var):&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\frac{\tt x:T \in \Gamma}{\tt\Gamma \vdash x : T}$$&lt;&#x2F;p&gt;
+&lt;p&gt;The next rule is about abstractions and says that if under the
+assumption that $x$ has the type $T_1$ the term $t_2$ has the type
+$T_2$, we deduce that an abstraction taking $x$ as argument and having
+$t_2$ as its body has the type $T_1\to T_2$:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Typing of abstractions (T-Abs):&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\frac{\tt \Gamma,x : T_1 \vdash t_2 : T_2}{\tt \Gamma \vdash \lambda x : T_1. t_2 : T_1\to T_2}$$&lt;&#x2F;p&gt;
+&lt;p&gt;The third rule takes care of application, saying that if we have an
+abstraction and apply it on a term of the expected type, the result will
+have the type of the body of this abstraction:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Typing of applications (T-App):&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\frac{\tt \Gamma\vdash t_1 : T_{11} \to T_{12}\hspace{5mm} \Gamma\vdash t_2 : T_{11}}
+{\tt \Gamma \vdash t_1\medspace t_2 : T_{12}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Additionally we can assign our real booleans and numbers a type. Note,
+that the rule for &lt;code&gt;if&lt;&#x2F;code&gt; has to enforce that both branches of the
+condition have the same type.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;T-True, T-False, T-If:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\tt true : Bool \quad false : Bool \quad
+\frac{\tt\Gamma\vdash t_1 : Bool \quad \Gamma\vdash t_2 : T \quad \Gamma\vdash t_3 : T}
+{\tt \Gamma\vdash if\medspace t_1\medspace then\medspace t_2\medspace else\medspace t_3 : T}$$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;T-Zero, T-Succ, T-Pred, T-IsZero:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\tt 0 : Nat \quad
+\frac{\tt\Gamma\vdash  t_1 : Nat}{\tt\Gamma\vdash  succ\ t_1 : Nat} \quad
+\frac{\tt\Gamma\vdash  t_1 : Nat}{\tt\Gamma\vdash  pred\ t_1 : Nat} \quad
+\frac{\tt\Gamma\vdash  t_1 : Nat}{\tt\Gamma\vdash  iszero\ t_1 : Bool}$$&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;deduction-example&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#deduction-example&quot; aria-label=&quot;Anchor link for: deduction-example&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Deduction example&lt;&#x2F;h3&gt;
+&lt;p&gt;To see the rules in action, we can deduce&lt;&#x2F;p&gt;
+&lt;p&gt;$\tt f:Bool\to Bool \vdash \lambda x:Bool.\ f\ (if\ x\ then\ false\ else\ x) : Bool\to Bool$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Proof:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\frac{\frac{\frac{\tt f:Bool\to Bool \in f:Bool\to Bool}
+{\tt f:Bool\to Bool \vdash f:Bool\to Bool} {\tt T{-}Var}
+\quad \frac{\frac{\tt x:Bool\in x:Bool}{\tt x:Bool \vdash x:Bool} {\tt T{-}Var}
+\quad \frac{}{\tt false:Bool} {\tt T{-}False}
+}
+{\tt x:Bool\vdash if\ x\ then\ false\ else\ x:Bool} {\tt T{-}If}
+}
+{\tt f:Bool\to Bool,x:Bool\vdash f\ (if\ x\ then\ false\ else\ x) : Bool}{\tt T{-}App}}
+{\tt f:Bool\to Bool \vdash \lambda x:Bool.\ f\ (if\ x\ then\ false\ else\ x) : Bool\to Bool} {\tt T{-}Abs}
+$$&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;properties-of-typing&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#properties-of-typing&quot; aria-label=&quot;Anchor link for: properties-of-typing&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Properties of typing&lt;&#x2F;h2&gt;
+&lt;p&gt;From the rules given above we can get &lt;em&gt;type safety&lt;&#x2F;em&gt;, a guarantee that
+well-typed expressions are valid expressions which do not get stuck
+during evaluation. Safety of a type system is shown by two theorems, the
+&lt;em&gt;progress&lt;&#x2F;em&gt; and &lt;em&gt;preservation&lt;&#x2F;em&gt; theorems. The progress theorem makes sure
+that a well-typed term is either a value or can be evaluated one step
+further, so that a well-typed term is never in a stuck, undefined state.
+The preservation theorem says that if a well-typed term takes one step
+of evaluation, the term we get is also well-typed. Both theorems
+together ensure a clean evaluation chain, if we start out with a
+well-typed expression.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Progress:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Suppose &lt;code&gt;t&lt;&#x2F;code&gt; is a closed, well-typed term (that is,
+$\tt\vdash t : T$ for some &lt;code&gt;T&lt;&#x2F;code&gt;). Then either &lt;code&gt;t&lt;&#x2F;code&gt; is a value or else
+there is some &lt;code&gt;t’&lt;&#x2F;code&gt; with $\tt t\to t’$.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Preservation:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If $\tt \Gamma \vdash t : T$ and $\tt t\to t’$, then
+$\tt \Gamma \vdash t’ : T$.&lt;&#x2F;p&gt;
+&lt;p&gt;Both theorems can be basically shown using structural induction and some
+helping lemmas. The reasoning is not so difficult to follow, but is
+quite long. Because of this the proofs are omitted and can be found in
+the book by Pierce.&lt;&#x2F;p&gt;
+&lt;p&gt;Another property of typing is that we can remove all type annotations,
+thus converting a term from simply typed to the untyped calculus, and
+the evaluation behaviour stays the same. This fact is used in real-world
+programming languages in the way that the types can be checked before
+compilation and can be removed in the process, when it is verified that
+everything is ok. The reverse action to this &lt;em&gt;type erasure&lt;&#x2F;em&gt; is &lt;em&gt;type
+reconstruction&lt;&#x2F;em&gt;, which is the procedure of finding a possible type of a
+term which has incomplete typing information. If it is possible to find
+a type, then the given term is &lt;em&gt;typable&lt;&#x2F;em&gt;, if it is not, then the code is
+most likely broken (or the compiler has insufficient information and can
+not compute the type, which can happen in more expressive type systems).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;system-f&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#system-f&quot; aria-label=&quot;Anchor link for: system-f&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+System F&lt;&#x2F;h2&gt;
+&lt;p&gt;Now consider the following situation - we need to define a function
+which applies another numeric function twice. No problem:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\tt double = \tt \lambda f:Nat\to Nat.\ \lambda x:Nat.\ f\ (f\ x)$$&lt;&#x2F;p&gt;
+&lt;p&gt;Later we notice, that such a function would also be useful for booleans.
+Okay:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\tt doubleBool = \tt \lambda f:Bool\to Bool.\ \lambda x:Bool.\ f\ (f\ x)$$&lt;&#x2F;p&gt;
+&lt;p&gt;Now what if we want to define this function for any type? In the defined
+calculus there is no way to express this. We would have to define
+exactly the same function for every type we want to use it with! What we
+want is something like Generics in Java, or Templates in C++. The
+general name for this feature (’write once, use with any type’) is
+called &lt;em&gt;parametric polymorphism&lt;&#x2F;em&gt; and it helps solving this ugly code
+duplication problem in an elegant way. So we extend our calculus to the
+next level, which is called &lt;em&gt;System F&lt;&#x2F;em&gt;, first discovered by Jean-Yves
+Girard in 1972:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Syntax of System F:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$\tt t ::= x \mid \lambda x\textbf{:T}.\medspace t \mid t\medspace t \mid\medspace \lambda X.t\medspace \mid\medspace t\ [T]$&lt;&#x2F;p&gt;
+&lt;p&gt;The uppercase letters denote type variables while the lowercase mean
+terms. The newly introduced forms are called &lt;em&gt;type abstraction&lt;&#x2F;em&gt; and
+&lt;em&gt;type application&lt;&#x2F;em&gt;, which work similarily to the regular abstractions
+and applications, but on type variables (now type variables are part of
+our language, whereas before we could only use concrete types). Type
+abstraction and application also form a redex, substituting the type
+variable in the body of the abstraction with the type argument given in
+the brackets: $\tt (\lambda X.t_{12})\ [T_2] \to [X\mapsto T_2]t_{12}$&lt;&#x2F;p&gt;
+&lt;p&gt;Now we know how to evaluate these new forms, but we still need to
+provide new typing rules for this new kind of data. So we introduce
+&lt;em&gt;universal types&lt;&#x2F;em&gt;, which have the general form $\tt\forall
+X.T$ and are required to say that a function is polymorphic, i.e. works
+with any type we provide. Because we now have a new type constructor
+besides $\to$, this calculus is also called &lt;em&gt;second-order lambda
+calculus&lt;&#x2F;em&gt;. The missing typing rules are:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Typing of type abstractions (T-TAbs):&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\frac{\tt \Gamma,X \vdash t_2 : T_2}{\tt \Gamma \vdash \lambda X.\ t_2 : \forall X. T_2}$$&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Typing of type applications (T-TApp):&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\frac{\tt \Gamma \vdash t_1 : \forall X. T_{12}}{\tt \Gamma \vdash t_1\ [T_2] : [X\mapsto T_2] T_{12}}$$&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;examples&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#examples&quot; aria-label=&quot;Anchor link for: examples&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Examples&lt;&#x2F;h3&gt;
+&lt;p&gt;In System F we can again define things like Church encoded booleans and
+numerals, which would not be possible in the simply typed calculus, as
+they would be not general enough or just impossible to formulate
+well-typed. For example, the identity function can be formulated
+universally now and instantiated for any type:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt id &amp;amp;= \tt \lambda X.\ \lambda x:X.\ x &amp;amp;\rm type\ \forall X. X\to X \newline
+\tt idNat &amp;amp;= \tt id\ [Nat] = \lambda x:Nat.\ x &amp;amp;\rm type\ Nat\to Nat\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Likewise, we can define a polymorphic &lt;code&gt;double&lt;&#x2F;code&gt; function:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt double &amp;amp;= \tt \lambda X.\ \lambda f:X\to X.\ \lambda x:X.\ f\ (f\ x) &amp;amp;\rm type\ \forall X. (X\to X)\to X \to X\newline
+\tt dblBool &amp;amp;= \tt double\ [Bool] &amp;amp;\rm type\ (Bool\to Bool)\to Bool\to Bool \newline
+&amp;amp;= \tt \lambda f:Bool\to Bool.\ \lambda x:Bool.\ f\ (f\ x)\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;But we are not limited to instantiating polymorphic functions to
+concrete types, we can also substitute with yet another polymorphic type
+expression:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt quad &amp;amp;= \tt \lambda X.\ double\ [X\to X]\ (double\ [X]) &amp;amp;\rm type\ \forall X. (X\to X)\to X\to X\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;What did happen here? We just defined a polymorphic function which
+applies a given function four times, by applying our polymorphic
+&lt;code&gt;double&lt;&#x2F;code&gt; function twice! Does that really work? Let’s check the types –
+$\tt double\ [X\to X]$ expands to a function with the type
+$\tt \forall X. ((X\to
+X)\to X\to X)\to (X\to X)\to X\to X$, $\tt double\ [X]$ has the type
+$\tt \forall X. (X\to X)\to
+X\to X$. Now as we partially apply the latter &lt;code&gt;double&lt;&#x2F;code&gt; to the first, the
+remaining type is again $\tt \forall X. (X\to X)\to X\to X$. If you are
+still not convinced, look at the expansion of this function:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\begin{aligned}
+\tt quad &amp;amp;= \tt \lambda X.\ double\ [X\to X]\ (double\ [X]) \newline
+&amp;amp;= \tt \lambda X.\ (\lambda f:(X\to X)\to X\to X.\ \lambda a:X\to X.\ f\ (f\ a))\ (double\ [X]) \newline
+&amp;amp;= \tt \lambda X.\ \lambda a:X\to X.\ double\ [X]\ (double\ [X]\ a) \newline
+&amp;amp;= \tt \lambda X.\ \lambda a:X\to X.\ (\lambda g:X\to X.\ \lambda b:X.\ g\ (g\ b))\ (double\ [X]\ a) \newline
+&amp;amp;= \tt \lambda X.\ \lambda a:X\to X.\ \lambda b:X.\ double\ [X]\ a\ (double\ [X]\ a\ b)
+\newline
+&amp;amp;= \tt \lambda X.\ \lambda a:X\to X.\ \lambda b:X.\ a\ (a\ (a\ (a\ b)))
+\end{aligned}$$&lt;&#x2F;p&gt;
+&lt;p&gt;As you can see, parametric polymorphism is a quite powerful means of
+abstraction and one can express a lot in System F. So it is probably no
+big surprise that the Haskell programming language, when stripped of all
+syntactic sugar during compilation, is an extended form of System F.&lt;&#x2F;p&gt;
+&lt;p&gt;The preservation and progress theorems still hold for System F, giving
+us type safety, whereas type reconstruction is undecidable in many
+cases, so type annotations often can not be omitted. Programming
+languages based on System F often add restrictions to what terms and
+types are allowed, to keep a partial type reconstruction feasible.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;type-theory-and-oop&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#type-theory-and-oop&quot; aria-label=&quot;Anchor link for: type-theory-and-oop&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Type theory and OOP&lt;&#x2F;h2&gt;
+&lt;p&gt;One could get the impression that type theory is only practiced and
+relevant in the realm of functional programming. But an important branch
+of development of lambda calculi is calculi with &lt;em&gt;subtyping&lt;&#x2F;em&gt;, a concept
+first explored formally by Reynolds and Cardelli in
+the 1980’s. To every object oriented programmer the intuition and
+meaning of subtyping should be apparent – it means that if we have a
+function working on vehicles, we also expect it to work with a car, or a
+train, which are special types of a vehicle. This is deeply connected to
+the notion of &lt;em&gt;inheritance&lt;&#x2F;em&gt; in OOP – we want to be able to give our
+types (the object classes we defined) a hierachy and to be able to use
+functions on a whole category of inputs which are related in a way. The
+formalism for this is the &lt;em&gt;subtyping relation&lt;&#x2F;em&gt;, which comes with its own
+set of deduction rules specifying which types can be treated as more
+general types, by ignoring their specialization in the context of a
+given function. There also have been multiple efforts to prove type
+safety of Java, first by Drossopoulou, Eisenbach and Khurshid in
+1999, using calculi with subtyping which resemble different subsets
+of Java.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;type-theory-and-logic&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#type-theory-and-logic&quot; aria-label=&quot;Anchor link for: type-theory-and-logic&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Type theory and logic&lt;&#x2F;h2&gt;
+&lt;p&gt;Worth to mention is another fascinating property that can be seen in
+many type systems, which is called Curry-Howard-Correspondence, as it
+was first described by Haskell Curry in 1958 and William Alvin
+Howard in 1980. It is an observation, that types can be seen as
+propositions and terms having that type are a proof of these
+propositions. So a proposition can be proved by constructing a term with
+that type. This bridge between constructive mathematical logic and
+computer science is being researched and already has lead to the
+development of tools like &lt;em&gt;Coq&lt;&#x2F;em&gt;, which is a functional programming
+language with its primary purpose being an interactive theorem prover –
+it assists the user in the formulation of assertions, helps finding
+proofs in form of programs and automatically checks their correctness by
+type-checking the proof-program.&lt;&#x2F;p&gt;
+&lt;p&gt;The type systems used in this setting are mostly based on calculi with
+&lt;em&gt;dependent types&lt;&#x2F;em&gt;, which is an extension that allows types to be
+constructed bound to a &lt;em&gt;value&lt;&#x2F;em&gt;, e.g. functions with types like
+$\tt Array\ n\to Array\ (n+1)$ are possible and it is verified by the
+type system that this function will indeed return an array with exactly
+one element more for any input given.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;header-anchor no-hover-padding&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;&lt;span class=&quot;link-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+Conclusion&lt;&#x2F;h1&gt;
+&lt;p&gt;So what do we gain using a type system in the context of software verification?&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;We know that our program will compile and execute &lt;strong&gt;(catch syntax
+errors)&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;We know that our functions will take and return the intended data
+types &lt;strong&gt;(catch violations of our mental model&#x2F;the designed API)&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Using advanced type systems we can &lt;strong&gt;control&lt;&#x2F;strong&gt; which functions can
+do which &lt;strong&gt;effects&lt;&#x2F;strong&gt; and prevent specific values to be taken out of
+&lt;strong&gt;context&lt;&#x2F;strong&gt; (e.g. the Monad typeclass in Haskell)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Using dependent types it is even possible to construct types that
+prove &lt;strong&gt;almost arbitrary properties&lt;&#x2F;strong&gt;, e.g. to check for
+array-out-of-bound errors on compile time or even prove that a
+sorting algorithm does indeed return the data sorted&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Of course the more information the types shall carry, the more
+additional work and thought by the developer is required – unfortunately
+expressivity comes with a price. To profit from type systems one needs
+to have a clear model of the software being developed and one has to
+define types which suit the use-case – type annotations are also a form
+of formal specification. If every field of an address record is declared
+as &lt;code&gt;String&lt;&#x2F;code&gt;, nothing will stop us from using the first name as the
+telephone number. Introducing and using different types for distinct
+semantic entities, even when they are the same on a low level, can help
+to deal with such errors.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope you enjoyed this little introduction and that it might have
+sparked an interest in type systems, both in theory and practice. The
+lambda calculus family and related formal languages are for type
+theorists and programming language designers like the Drosophila fly for
+biologists - it is small enough to add modifications, study the
+resulting entity and prove different properties, but the findings can be
+translated and applied to bigger systems in the ‘real world’ and give
+software developers new tools to work with, regarding both expressivity
+and safety of their code.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
