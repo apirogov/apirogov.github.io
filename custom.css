@@ -1,0 +1,9 @@
+.float-right {
+  float: right;
+  margin: 20px;
+}
+figure {
+  display: block;
+  margin-left: auto;
+  text-align: center;
+}
