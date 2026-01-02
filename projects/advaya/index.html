@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Advaya</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="An abstract tile-based board game for 2 players" />
+        <meta property="og:description" content="An abstract tile-based board game for 2 players" />
+
+    
+
+    <meta property="og:title" content="Advaya" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;projects&#x2F;advaya&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Advaya
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/projects/advaya/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2020-08-27">27th Aug 2020</time></li><li title="2694 words"><span class='separator' aria-hidden='true'>•</span>14 min read</li>
+        </ul>
+            <p class="p-summary" hidden>An abstract tile-based board game for 2 players</p><section class="e-content body"><script>
+function changeFavicon(src) {
+ var link = document.createElement('link'),
+     oldLink = document.getElementById('dynamic-favicon');
+ link.id = 'dynamic-favicon';
+ link.rel = 'shortcut icon';
+ link.type = 'image/png';
+ link.href = src;
+ if (oldLink) {
+  document.head.removeChild(oldLink);
+ }
+ document.head.appendChild(link);
+}
+
+if(/\/projects\/advaya/.test(window.location.href)){
+  changeFavicon('/projects/advaya/advayaLogo.png')
+}
+</script>
+<img src="advayaLogo.png" class="float-right" width="200px" height="200px" />
+<p>Advaya is an abstract region-forming tile placement game with complete information
+for two players that is played with a set of
+<a href="https://pirogov.de/projects/advaya/AdvayaTiles.jpg">49 hexagonal tiles</a> <a href="https://pirogov.de/projects/advaya/AdvayaTilesA4.pdf">[PDF]</a>
+and is inspired by
+<a rel="noopener" target="_blank" href="https://boardgamegeek.com/boardgame/822/carcassonne">Carcassone</a> and
+<a rel="noopener" target="_blank" href="https://boardgamegeek.com/boardgame/2655/hive">Hive</a>.
+Like in Carcassone, you get points for closing regions. Like in Hive, the pieces
+are hexagonal and can be moved after placing them.</p>
+<p>The Advaya tile set was developed as fusion of both practicality and
+mathematical beauty. For people interested in such things, I sketch the
+development and the reasoning behind the tiles in a
+<a href="/blog/designing-advaya-and-atreya">separate article</a>.
+Advaya means “non-dualism” in Sanskrit and is a fitting name, because <em>light and
+dark create each other and are just two aspects of the same tile</em>…</p>
+<p><em>(For a version for up to three players with a larger, but more
+regular and less artistic tile set, check out Advaya’s sister game <a href="/projects/atreya">Atreya</a>!)</em></p>
+<hr />
+<h2 id="rules">Advaya Rules</h2>
+<div style="text-align: right; margin-top: -50px;">Version: 0.3</div>
+<div class="admonition warning">
+    <div class="admonition-icon admonition-icon-warning"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">WARNING</strong>
+        <p>The rules are preliminary, feel free to experiment with them!</p>
+
+    </div>
+</div>
+<p>First we need some simple terminology that is partially illustrated in this image:</p>
+<img src="AdvayaTerminology.jpg" alt="Advaya Terminology" />
+<p>A <strong>tile</strong> is one of the hexagonal cards, on which multiple <strong>pieces</strong> in black
+and white can be seen. Pieces of different color are separated by the
+<strong>boundary</strong> (the blue or red lines).</p>
+<p>From the <strong>pool</strong> of unplayed tiles a tile is played by validly placing it as a
+<strong>neighbor</strong> next to other tiles in the <strong>arena</strong>, which always must stay
+<strong>bi-connected</strong>, meaning that each tile in the arena can be reached by a sequence
+of neighbors and removing any tile does <strong>not</strong> make the arena fall apart.
+The arena has a <strong>hole</strong> if there is an area of missing tiles that is fully
+surrounded by tiles. The arena is <strong>valid</strong> if it is bi-connected and has no
+holes.</p>
+<p>A <strong>shape</strong> is a connected area of the same color that spans over multiple tiles
+and consists of multiple pieces. Notice that a shape can contain more than one
+piece from the same tile.
+A shape is <strong>closed</strong> if it is completely surrounded by the boundary of blue or
+red lines (possibly mixed).
+The <strong>value</strong> of a closed shape is the number of pieces with <em>blue</em> boundary.
+A shape with a value less than 4 is <strong>small</strong>, otherwise it is <strong>big</strong>.
+Shapes are <strong>neighbors</strong> if they share a boundary segment,
+whereas shapes that touch only in a single point are <strong>not</strong> neighbors.
+A shape <strong>dominates</strong> a neighboring shape if it has strictly larger value.</p>
+<p>A tile is <strong>pinned</strong> if at least one of its pieces is part of any closed shape.
+A tile is <strong>free</strong> if it can be moved to a different location or orientation by
+sliding it on the table without moving any other tiles, i.e., it needs to have
+two adjacent sides without a neighbor so it can fit through.
+All tiles in the pool are <strong>movable</strong>.
+A tile in the arena is <strong>movable</strong> if it is unpinned and free.</p>
+<h3 id="preparation">Preparation</h3>
+<p>Decide which player owns which color (black or white) and who will start.
+Place the <code>I</code> tile (half black, half white) as the starting tile of the arena.
+This is the seed from which the tapestry of shapes will grow.
+Place all the other tiles to the side, forming the pool of tiles for both players.</p>
+<h3 id="objective-of-the-game">Objective of the game</h3>
+<p>There are multiple variants of the game that can be played.</p>
+<p><strong>First Closed:</strong></p>
+<p>First player closing a big shape of their color wins.</p>
+<p><em>This yields a game somewhat similar to
+<a rel="noopener" target="_blank" href="https://www.boardgamegeek.com/image/451366/palago">Palago</a>,
+but with a different tile set and feeling to it.</em></p>
+<p><strong>Max Closed:</strong></p>
+<p>Each player tries to maximize the total value of all closed big shapes of
+their color (i.e., small shapes give no points).
+Every time a big shape is closed, its value is added
+to the score of the player of the shape’s color.</p>
+<p><em>This is a more Carcassonnesque variant that allows for some long-term planning.</em></p>
+<p><strong>Domination:</strong></p>
+<p>Like <strong>Max Closed</strong>, but when a big shape is closed by a player, then the
+player only gets points for the shape if it is <strong>not dominated</strong>. Additionally,
+the player gets <strong>bonus points</strong> for neighboring shapes (big or small)
+that were already closed and become dominated by player’s shape at the time it
+is closed.</p>
+<p><em>Example:</em> In the image above, if shape $W_1$ is closed after $B_1$, $B_2$, $B_3$ were
+closed, then player white gets $4+3+3+2 = 12$ points, because $B_1$, $B_2$, $B_3$ are
+dominated by $W_1$. On the other hand, if e.g. $B_1$ is closed at the same time or
+after $W_1$, then nobody gets points for the shape $B_1$.</p>
+<p><em>The new rules add an additional layer of strategy, as now closed shapes and
+their location still matter after the initial scoring and also the creation of
+larger shapes is incentivized.</em></p>
+<p><strong>First Capture:</strong></p>
+<p>First player closing a big shape of their color that uses a
+piece of the start tile wins.</p>
+<p><em>By requiring to capture the initial tile, all other shapes become auxiliary
+mechanisms that help to stabilize your target shape. A game is longer and feels
+less tight than First Closed.</em></p>
+<p><strong>Max Capture:</strong></p>
+<p>Player with higher-valued closed big shape that includes a piece of the start tile wins.</p>
+<p><em>This variant of capture makes the decision to close the capturing shape a
+strategic one, because afterwards the other player still can win by building a
+larger shape.</em></p>
+<h3 id="allowed-moves">Allowed moves</h3>
+<p>Place or move a <strong>movable</strong> tile to a new position in the arena, while ensuring that:</p>
+<ol>
+<li>
+<p>The <strong>colors of neighboring tiles must match</strong> on the shared borders.</p>
+</li>
+<li>
+<p>The <strong>arena must remain valid</strong> without the tile (during the move) and with
+the tile at the new location (after the move).</p>
+</li>
+<li>
+<p>You <strong>must not use the same tile</strong> that the other player used in the previous move.</p>
+</li>
+<li>
+<p>Your <strong>move must be possible by sliding</strong> the tile carefully from its
+initial to its new position or orientation, without requiring to move any other
+tiles in the arena<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup>.
+<br /> <em>(Practically, of course you may lift the tile up to do your move.)</em></p>
+</li>
+</ol>
+<!-- 1. The tile **must move to a different location**, so it can not be only rotated. -->
+<p>The tile <strong>may also be flipped around</strong> during the move. The red boundary
+is to be treated like the blue one for closing shapes, the color only matters
+for the value and for distinguishing front- and backsides.</p>
+<p><em>To avoid possible mistakes and have a better overview you can mark the
+capture target tile (if applicable), pinned tiles, and the last moved tile with
+different tokens.</em></p>
+<h3 id="game-end-and-determining-the-winner">Game end and determining the winner</h3>
+<p>In the <strong>First</strong> variants, the game ends regularly when the first winning shape
+is closed. If this happens for both players simultaneously, then the player
+with the higher valued shape wins. If both are equally valued, it is a draw.</p>
+<p>In all other variants the winner is determined by the larger score and the game
+ends regularly if no <strong>progress</strong> is possible anymore, where progress means that
+a tile from the pool is played or a new shape is closed<sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>.</p>
+<p><strong>The game may be ended prematurely, if the players agree to do so.</strong>
+In <strong>First</strong> variants this always results in a draw, while in the other variants
+the result is determined by the score based on the current arena state.</p>
+<p>The <strong>stagnation rule</strong> must be activated and states that, after activation, the
+game ends when no progress was made for more than 6 moves (3 by each player). In
+case of a game ending due to this rule the winner is determined in the same way
+as if both players agreed to end the game.</p>
+<p>A player can invoke the stagnation rule after 48 moves in total or at least 12
+moves without progress. When playing in a competitive sports setting, the
+stagnation rule is to be activated automatically if one of those conditions
+holds to ensure game termination. Both players together can agree to
+activate the rule at any time to accelerate the game (as an alternative to
+ending it immediately).</p>
+<p><em>To track progress, you can use a token with a piece of paper with <strong>Progress,
+1, 2, 3, 4, 5, 6, END</strong> fields. Move the token to the right on each move
+without progress and reset it to the start whenever progress was made. This way,
+you only need to remember to update the token on each move.</em></p>
+<hr />
+<h3 id="warming-up-single-player-exercises">Warming up: Single player exercises</h3>
+<ol>
+<li>To familiarize yourself with the tile set, play out the tiles according to the rules
+(without any scoring) until a final configuration is reached. Try to make sure that
+in the end every tile is pinned and the arena has a neat shape, like this:</li>
+</ol>
+<img src="FinalArenaExample.jpg" alt="Example of a completed game arena" width="600px" />
+<ol>
+<li>Try to connect all tiles into one white and one black closed shape, i.e. only
+tiles with pieces pinned to those shapes may stay in the arena. Here is one
+solution that is almost perfectly symmetric (as much as possible,
+treating <code>N</code>/<code>S</code> and <code>*</code>/<code>H</code> as partners).
+It is not bi-connected, but it shouldn’t be difficult to find a solution that is.</li>
+</ol>
+<img src="DuetSolution.jpg" alt="A white and a black closed shape using all tiles." width="600px" />
+<ol>
+<li>Now do the same, but with a single closed shape. The best I managed
+without using backsides was 42 (I did not try too hard), I conjecture that it
+is possible to use all tiles.</li>
+</ol>
+<img src="WhiteShape42Tiles.jpg" alt="A closed white shape that spans over 42 tiles" width="600px" />
+<p>Feel free to send me your best solutions, prettiest closed shapes and arenas,
+and I might present them here, or even create a little gallery.</p>
+<hr />
+<p>That is basically all that you really need to know, so if you are impatient,
+just <a href="https://pirogov.de/projects/advaya/AdvayaTilesA4.pdf">print out</a> the tiles, craft yourself a set^[
+Cut out the templates for the front and back sides along the dashed rectangle
+and glue them correctly onto both sides of a piece of cardboard of the same
+size. When done correctly, this makes the front and back sides of the tiles
+line up perfectly. Be careful when cutting, because scissors can “chew” the
+cardboard and introduce a little angle, which results in the backside being
+slightly off, despite flawless preparation.]
+and have fun exploring this game!</p>
+<p>If you have constructive feedback, strategic insights or improvement ideas,
+don’t hesitate to <a href="/contact">contact me</a> As the game is new and not very
+battle-tested, I am sure that some experienced players of this kind of games
+have something valuable to say.</p>
+<h2 id="some-first-observations">Some first observations</h2>
+<p><em>Stop reading if you care about trying to understand the game on your own.</em></p>
+<h3 id="shapes-small-useless">Shapes: <strong>small ≠ useless</strong></h3>
+<p>Even though small shapes neither give points, nor count for winning, they can be
+used in a very meaningful way to ultimately fix a tile in the arena by pinning
+it, so that they in a sense stabilize and even can determine the long-term shape
+of the arena.</p>
+<h3 id="tiles-opening-vs-closing">Tiles: opening vs. closing</h3>
+<p>Concerning the value of individual tiles, it is probably impossible to say that
+a tile is <em>in general</em> better than another tile, as of course it depends on for
+whom and in which situation. But another dimension that I believe is conceptually
+useful to think about is to realize whether a tile is rather a closing tile (for
+your color), i.e., can only be used to “seal off” a shape, or an opening tile,
+i.e. by placing it you have more arena boundary of your color to extend your
+shape, and of course there are tiles that are somewhere between those extremes.</p>
+<p>Consider the following picture that sorts the front side of the tiles roughly by
+their potential of being played in an opening way for white. Group A is clearly
+opening. Group B is also opening, as it uses up one open edge of a white shape,
+but adds two. Of course the opponent could do the reverse, but that is why it is
+sorted by opening <em>potential</em>. Group C is an interesting case, because it
+depends of the context the tiles are placed into. They can be played in an
+opening way if matched to tiles that allow the two white pieces to connect.
+Group D are clearly neutral “tunnel” tiles. Group E can be played in a
+zig-zagging way to also form a neutral tunnel, but often you need such a tile to
+close a boundary where you need two consecutive white connections. Finally,
+group F are the tiles for white which can not be used in any way to enlarge a
+shape and only can close it. Clearly the same applies to black, using a
+“color-flipped” picture.</p>
+<img src="WhiteOpenCloseChart.jpg" alt="Tiles sorted from opening to closing tiles for white" />
+<p>When doing the same classification including the tile backsides, many
+closing tiles would go to the left, as the corresponding backside has some
+opening potential, and the resulting classification is the same for both players:</p>
+<img src="BothOpenCloseChart.jpg" alt="Tiles sorted from opening to closing tiles for both, when backsides are allowed." />
+<h3 id="pool-order-in-the-chaos">Pool: order in the chaos</h3>
+<p>It is easy to lose track of the various tiles that are still freely available if
+the pool is just a soup of tiles. Overlooking a useful tile and lose because of
+a chaotic pool is annoying. So I think that the pool probably should be somewhat
+organized by typical tile function, in a way that both players can agree on. My proposal
+is to sort the tiles into the following four clusters, based on the
+classification above:</p>
+<img src="PoolOrganization.jpg" alt="Proposed tile clusters for the pool." />
+<h3 id="tactics-first-closed-capture">Tactics: First Closed/Capture</h3>
+<p>Some simple ideas for attacking your opponent and improving your own situation:</p>
+<ol>
+<li>
+<p>Close and thereby neutralize opponent shapes before they can grow big.</p>
+</li>
+<li>
+<p>With some luck you might break barely big enough shapes up into smaller ones,
+as long as the arena is still flexible.</p>
+</li>
+<li>
+<p>Remember that you can move parts of a dangerous shape away, if a tile is movable.</p>
+</li>
+<li>
+<p>Use opening tiles to create more boundary or forks that need to be closed.</p>
+</li>
+<li>
+<p>Use tunnel tiles (categories B and D) to move the open boundary to
+a position that your opponent can not immediately close, e.g. due to the
+bi-connectedness.</p>
+</li>
+<li>
+<p>Exploit the current arena situation and place tiles such that the opponent
+cannot close his shape, because the tile cannot slide in or a hole would appear.</p>
+</li>
+<li>
+<p>Try to pin critical positions of your shape(s). A few well-placed
+small shapes for pinning (let’s just call them <strong>pins</strong>) can go a long way in
+combination with the other rules to protect your target shape from vandalism.</p>
+</li>
+<li>
+<p>In <strong>First Closed</strong>, if you manage to build two shapes, each one tile away from
+victory, then you are done. Your opponent usually cannot stop you in two
+places at once (in some situations it is possible, though). Such situations
+also arise naturally whenever you leave a shape be for a while and build
+something else.</p>
+</li>
+</ol>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p>If you know Hive, then tiles basically move like ants, but
+with stronger restrictions on the arena connectivity (Hive
+allows holes and does not require bi-connectedness). <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p>It is possible for the pool to be non-empty at the end, but is very unlikely
+to happen naturally. It took me a while to construct
+<a href="https://pirogov.de/projects/advaya/AdvayaPoolStuck.jpg">a valid end situation</a> where this happens. I
+suppose finding an example where two tiles remain that can be placed, but not
+pinned by any sequence of moves is even more difficult, I did not succeed yet. <a href="#fr-2-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div></div>
+                <div><a href="https://pirogov.de/projects/atreya/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Atreya</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/projects/advaya/#rules">Advaya Rules</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#preparation">Preparation</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#objective-of-the-game">Objective of the game</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#allowed-moves">Allowed moves</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#game-end-and-determining-the-winner">Game end and determining the winner</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#warming-up-single-player-exercises">Warming up: Single player exercises</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/projects/advaya/#some-first-observations">Some first observations</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#shapes-small-useless">Shapes: small ≠ useless</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#tiles-opening-vs-closing">Tiles: opening vs. closing</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#pool-order-in-the-chaos">Pool: order in the chaos</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/projects/advaya/#tactics-first-closed-capture">Tactics: First Closed&#x2F;Capture</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Introduction to the Lambda Calculus</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Introduction to the Lambda Calculus" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;introduction-to-lambda-calculus&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Introduction to the Lambda Calculus
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/introduction-to-lambda-calculus/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2014-10-07">7th Oct 2014</time></li><li title="5072 words"><span class='separator' aria-hidden='true'>•</span>26 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/computer-science/">computer science</a></li>
+        </ul><section class="e-content body"><p><em>This post is basically my handout to a talk that I have to prepare for a
+bachelor’s seminar at my university, mostly digesting and summarizing some parts
+of the awesome introductionary book “<a rel="noopener" target="_blank" href="https://www.cis.upenn.edu/~bcpierce/tapl/">Types and programming
+languages</a>”.</em></p>
+<p><em>The writing style might be a bit too formal for a casual internet post, but
+here I could try out the LaTeX-to-Markdown conversion and MathJax support of
+Pandoc (which by the way works pretty well). I hope it is enjoyable or useful
+nonetheless.</em></p>
+<p><strong>Much more to-the-point and a bit less formal are the <a href="https://pirogov.de/blog/introduction-to-lambda-calculus/LambdaCalcSlides.pdf">slides</a>.</strong></p>
+<h1 id="introduction"><a class="header-anchor no-hover-padding" href="#introduction" aria-label="Anchor link for: introduction"><span class="link-icon" aria-hidden="true"></span></a>
+Introduction</h1>
+<p>You may ask yourself, why do you need a type system? It is possible to
+get work done without it just fine, the types are only in the way. There
+are many popular programming languages which do not require adding type
+information to variables all over the place and it still works, right?
+If this is what you think of when you hear “type system”, I assume that
+you have never used a powerful one.</p>
+<p>A sane, advanced type system, as mainly found in ML, Haskell or other
+functional languages is a very useful tool in the process of software
+development. It rejects code which is obviously broken, offers
+additional documentation for functions and needs only minimal hints, as
+there are algorithms which figure out the types of different expressions
+all by themselves, most of the time (a feature known as <em>type
+inference</em>). A strong, static type system also makes refactoring easier
+— if an API changes, the code will not pass the type checking in all the
+affected places. Being constrained by the bounds of a type system forces
+the developer to construct models which are, at the very least,
+self-consistent.</p>
+<p>But before we can dive into the simply typed lambda calculus as a
+fundamental example of a type system, we first need to understand its
+predcessor, the <em>untyped lambda calculus</em>, as introduced by Alonzo
+Church in 1936 and shown to be equivalent in expressiveness to
+Turing machines by Turing in 1937. Language features like
+partial application, currying and the whole notion of
+higher-order-functions, i.e. functions as values root directly from the
+lambda calculus, making it a worthy object of study for everyone
+interested in the development of programming languages.</p>
+<h1 id="the-untyped-lambda-calculus"><a class="header-anchor no-hover-padding" href="#the-untyped-lambda-calculus" aria-label="Anchor link for: the-untyped-lambda-calculus"><span class="link-icon" aria-hidden="true"></span></a>
+The Untyped Lambda Calculus</h1>
+<h2 id="syntax-and-evaluation"><a class="header-anchor no-hover-padding" href="#syntax-and-evaluation" aria-label="Anchor link for: syntax-and-evaluation"><span class="link-icon" aria-hidden="true"></span></a>
+Syntax and evaluation</h2>
+<p>The pure untyped lambda calculus has a very simple grammar.</p>
+<p><em>Syntax of $\lambda$-calculus:</em></p>
+<p>$\tt t ::= x \mid \lambda x.t \mid t\medspace t$</p>
+<p>Which means that a valid lambda term is either a <em>variable</em>, an
+<em>abstraction</em> or an <em>application</em>. The intuition shall be to see an
+abstraction as function definition and application as function
+application, where the right term is used as the argument for the left
+term. Note that for readability we will use parentheses around terms,
+although they are not a formally defined part of the calculus. If
+omitted, assume that an abstraction opens a pair of parentheses and
+extends to the end of the expression.</p>
+<p>A variable is <em>bound</em> in a term if its name is used in a lambda
+abstraction it is embedded in, otherwise the variable is <em>free</em>. In
+$\tt \lambda x.x\ y$ the $x$ is bound and $y$ is free.</p>
+<p>Also notice that in the pure lambda calculus there are no primitive data
+types like integers, booleans, etc. so the only possible value of a
+variable is unevitably another lambda term and the things we can
+possibly “compute” are just other lambda terms as well. Another
+interesting property is that the defined “function” syntax just allows
+one argument, what seems rather limiting on the surface, but is a
+restriction easy to circumvent.</p>
+<p>The only form of computation possible in the lambda calculus is <em>beta
+reduction</em> which in fact, is just function evaluation — substituting the
+variable of an abstraction with the argument on the right side. A
+reducible term, i.e. of the form $\tt (\lambda
+x.\ t_1)\ t_2$ is also called <em>redex</em> which is just a shorthand for
+<em>reducible expression</em>. For such a substitution we will write
+$\tt [x \mapsto t_2] t_1$, to be read as “substitute all occurences of x
+in term $t_1$ with term $t_2$”.</p>
+<p>There is a number of different ways to define the rules and order of
+term evaluation, we will use the <em>call-by-value</em> strategy. It means,
+that we start on the outside, we will recursively evaluate the terms,
+left to right, until it is no longer possible and if the resulting
+expression forms a redex, we will substitute the variable in the
+abstraction on the left with the <em>value</em> on the right, removing the
+binder (keeping only the substituted body) and proceed with evaluation
+until we reach a term which is not a redex. In this context we call
+non-reducible terms just values, as we have no other kind of data and
+such a term is as “flat” and “primitive” as it can get in this setting.</p>
+<p>If not careful, when substituting terms which contain the same variable
+names in different contexts, we can accidently change the meaning of the
+expression:</p>
+<p>$$\tt [x\mapsto z](\lambda z.x) = (\lambda z.[x\mapsto z]x) = (\lambda z.z)$$</p>
+<p>Here we changed the meaning from a constant function to an identity
+function, which should not be possible for obvious reasons. So a
+limiting rule for substitution is that we only allow it if the variable
+bound by the abstraction is not a free variable in the right-hand term.
+A different approach would be to rename conflicting bound variables in
+the abstraction prior to substitution, which is also called <em>alpha
+conversion</em>. Terms which are the same except of the choice of variable
+names, i.e. with identical structure, are called <em>alpha equivalent</em>.</p>
+<h2 id="working-with-the-lambda-calculus"><a class="header-anchor no-hover-padding" href="#working-with-the-lambda-calculus" aria-label="Anchor link for: working-with-the-lambda-calculus"><span class="link-icon" aria-hidden="true"></span></a>
+Working with the Lambda Calculus</h2>
+<h3 id="currying"><a class="header-anchor no-hover-padding" href="#currying" aria-label="Anchor link for: currying"><span class="link-icon" aria-hidden="true"></span></a>
+Currying</h3>
+<p>As mentioned, our abstractions in the lambda calculus can take only one
+argument. But we can easily define a function which takes an argument
+and returns a different function, with one variable already substituted.
+We just apply our arguments one at a time:</p>
+<p>$$\tt (\lambda x.\lambda y.x\ y)\ a\ b \to (\lambda y.a\ y)\ b \to a\ b$$</p>
+<p>What we did is that we defined an abstraction that takes one argument,
+returning an abstraction that takes a different argument and returns the
+first argument applied to the second. Then we successively did the
+substitutions $\tt [x\mapsto a]$ and $\tt [y\mapsto b]$. This is
+effectively a function that takes another function and an argument and
+returns the supplied function applied to the argument.</p>
+<p>This technique is commonly called <em>currying</em>, attributed to Haskell
+Curry, but actually is thought to go back to the mathematician
+Moses Schönfinkel. In reverse, pre-applying a function with one
+or more arguments before passing it somewhere else is called <em>partial
+application</em>.</p>
+<h3 id="encoding-booleans"><a class="header-anchor no-hover-padding" href="#encoding-booleans" aria-label="Anchor link for: encoding-booleans"><span class="link-icon" aria-hidden="true"></span></a>
+Encoding booleans</h3>
+<p>The only values in the pure $\lambda$-calculus are abstractions, but to
+actually give our computations some meaning outside of the abstract
+realm of the calculus, we somehow need at least to encode some kind of
+values we want to regard as true or false. Without extensions to the
+calculus we can do nothing else but just assign some specific terms a
+meaning and make sure that they behave the way we want. Fortunately
+Church also solved this problem:</p>
+<p>$$
+\begin{aligned}
+\tt tru &amp;= \tt \lambda t.\ \lambda f.\ t \newline
+\tt fls &amp;= \tt \lambda t.\ \lambda f.\ f
+\end{aligned}
+$$</p>
+<p>We simply interpret a function that takes two arguments and returns the
+first one as <strong>true</strong>, and a similar function which returns the second
+one as <strong>false</strong>. This is a wise choice, as now we can easily define
+logical operators exploiting this definition of our <em>Church booleans</em>:</p>
+<p>$$
+\begin{aligned}
+\tt not  &amp;= \tt \lambda b.\ b\ fls\ tru \newline
+\tt and  &amp;= \tt \lambda b.\ \lambda c.\ b\ c\ fls \newline
+\tt or   &amp;= \tt \lambda b.\ \lambda c.\ b\ tru\ c \newline
+\tt test &amp;= \tt \lambda l.\ \lambda m.\ \lambda n.\ l\ m\ n
+\end{aligned}
+$$</p>
+<p>The <code>not</code> function is straight forward, <code>and</code> takes two booleans and
+evaluates the first with the second and <code>fls</code> as argument. If <code>b</code> is
+true, it will return <code>c</code>, whose value corresponds to the value of
+<code>b</code> $\land$ <code>c</code>. If <code>b</code> is false, it will return its second argument <code>fls</code>,
+which is also correct. A similar logic is behind the definition of <code>or</code>.
+The <code>test</code> function simply applies the second and third arguments to the
+first, giving us a kind of if-condition, but with the inconvenience that
+both “branches” (arguments two and three) will be evaluated before it is
+decided which one will be returned, because of our call-by-value
+semantics. We can fix this by wrapping our arguments in dummy
+abstractions to prevent further evaluation before we want it and then
+apply the returned abstraction to anything, in order to unpack the
+wrapped expression.</p>
+<h3 id="encoding-numbers"><a class="header-anchor no-hover-padding" href="#encoding-numbers" aria-label="Anchor link for: encoding-numbers"><span class="link-icon" aria-hidden="true"></span></a>
+Encoding numbers</h3>
+<p>We can even represent natural numbers:</p>
+<p>$$\begin{aligned}
+\tt c_0 &amp;= \tt \lambda s.\ \lambda z.\ z \newline
+\tt c_1 &amp;= \tt \lambda s.\ \lambda z.\ s\ z \newline
+\tt c_2 &amp;= \tt \lambda s.\ \lambda z.\ s\ (s\ z) \newline …\end{aligned}$$</p>
+<p>Here our natural number is a function which applies an arbitrary
+function to a denoted zero value, thus the number of applications of <code>s</code>
+corresponds to the number we mean. This representation is known as
+<em>Church numerals</em> and an interesting fact is that our definition of
+$c_0$ is alpha equivalent to the Church boolean <code>fls</code>, which can be
+useful for some applications. Now we need some functions to manipulate
+such numbers:</p>
+<p>$$\begin{aligned}
+\tt scc  &amp;= \tt \lambda n.\ \lambda s.\ \lambda z.\ s\ (n\ s\ z) \newline
+\tt plus &amp;= \tt \lambda m.\ \lambda n.\ \lambda s.\ \lambda z.\ m\ s\ (n\ s\ z) \newline
+\tt times &amp;= \tt \lambda m.\ \lambda n.\ m\ (plus\ n)\ c_0\newline
+\tt iszro &amp;= \tt \lambda m.\ m\ (\lambda x.\ fls)\ tru\end{aligned}$$</p>
+<p>The function <code>scc</code> generates the successor (increments) a numeral,
+taking a numeral <code>n</code> and returning a new numeral, with <code>s</code> applied one
+more time than it is applied by <code>n</code> itself. <code>plus</code> works similarily,
+applying <code>s</code> first <code>n</code> and then <code>m</code> times to <code>z</code>, implementing addition.
+Multiplication can be defined as repeated addition, as demonstrated in
+the definition of <code>times</code> — we exploit the fact that we can use an
+arbitrary function to evaluate our numerals, so that after full
+evaluation we do get the result we want. We can test whether a value is
+zero by evaluating a numeral with the constant false function and true
+as our zero value — if it is zero, we just get true, as the function is
+not applied, and otherwise we get false, because the function will be
+applied to a value.</p>
+<p>Subtraction is also possible, but is quite a bit more complicated both
+in definition and evaluation, so we skip it here. With a test for zero
+and a predcessor function it is also possible to define a function
+testing two numerals for equality by verifying that subtraction in both
+directions returns zero.</p>
+<h2 id="beyond-the-pure-calculus"><a class="header-anchor no-hover-padding" href="#beyond-the-pure-calculus" aria-label="Anchor link for: beyond-the-pure-calculus"><span class="link-icon" aria-hidden="true"></span></a>
+Beyond the pure calculus</h2>
+<h3 id="real-booleans-and-numbers"><a class="header-anchor no-hover-padding" href="#real-booleans-and-numbers" aria-label="Anchor link for: real-booleans-and-numbers"><span class="link-icon" aria-hidden="true"></span></a>
+Real booleans and numbers</h3>
+<p>Instead of struggling with Church booleans, we can extend our calculus
+with real ones. So we define <code>true</code> and <code>false</code> to be valid, atomic
+values (in contrast to <code>tru</code> and <code>fls</code> above, which just stand for a
+lambda abstraction that itself can be evaluated). To put our booleans to
+use, we also introduce the if-expression of the form
+<code>if t then t else t</code>, where $t$ is any lambda term. Our evaluation rule
+for these forms is - first evaluate the condition. If it is <code>true</code>,
+replace the if-expression with the <code>then</code>-branch, if it is <code>false</code>,
+replace the expression with the <code>else</code>-branch.</p>
+<p>We can mix our real booleans with the Church booleans, as they are easy
+to convert:</p>
+<p>$$\begin{aligned}
+\tt realbool &amp;= \tt \lambda b.\ b\ true\ false \newline
+\tt churchbool &amp;= \tt \lambda b.\ if\ b\ then\ tru\ else\ fls
+\end{aligned}$$</p>
+<p>Real numbers can be also introduced rather easily – we add the new
+syntactic terms <code>0</code>, <code>succ t</code> and <code>pred t</code> and semantically we treat a
+chain of <code>succ</code> applications to <code>0</code> as the number represented. Whenever
+<code>succ</code> and <code>pred</code> meet, they form a redex which is removed in the
+evaluation step. Again, the difference to Church encoded numbers is that
+these tokens are not lambda abstractions, but are a distinct part of the
+language.</p>
+<p>A real programming language would never use Church encoded data types,
+because atomic primitive data types in a machine-friendly format can be
+processed much faster with hardware support. Still, the Church encodings
+are an interesting showcase to see what can be done even in the pure
+calculus.</p>
+<h3 id="and-more"><a class="header-anchor no-hover-padding" href="#and-more" aria-label="Anchor link for: and-more"><span class="link-icon" aria-hidden="true"></span></a>
+…And more</h3>
+<p>There are many useful extensions one can add to the lambda calculus,
+e.g. more primitive base types, complex data types like tuples and lists
+and also different kinds of <em>syntactic sugar</em>, which is some convenient
+notation for a construction that can be expressed in the basic terms,
+but in a more verbose way. Also there are techniques to enable recursion
+(and thereby support looping) in the lambda calculus, but all these
+things are out of scope of this essay. The transition to a fully fledged
+functional language is rather fluent, but for us, as also in most
+formal, theoretical settings, we want to keep our object of study simple
+and, in our case, just focus on our topic of interest — types.</p>
+<h1 id="adding-types"><a class="header-anchor no-hover-padding" href="#adding-types" aria-label="Anchor link for: adding-types"><span class="link-icon" aria-hidden="true"></span></a>
+Adding Types</h1>
+<h2 id="motivation"><a class="header-anchor no-hover-padding" href="#motivation" aria-label="Anchor link for: motivation"><span class="link-icon" aria-hidden="true"></span></a>
+Motivation</h2>
+<p>Now what does prevent us from passing a boolean value instead of a
+number when calculating something? Nothing does. The evaluation will
+either stop, as we have no rule to handle such a situation, or,
+depending on the setting, it will continue and produce meaningless
+results, which is even worse. So we need a way to tell our compiler or
+interpreter what we expect to get, something that can be easily checked
+automatically and which will reliably reject invalid, <em>ill-typed</em> input.
+We want to accept <em>well-typed</em> expressions, ones which can be evaluated
+correctly and result in a meaningful value. So we need to expand our
+definition of $\lambda$-calculus.</p>
+<h2 id="the-simply-typed-lambda-calculus"><a class="header-anchor no-hover-padding" href="#the-simply-typed-lambda-calculus" aria-label="Anchor link for: the-simply-typed-lambda-calculus"><span class="link-icon" aria-hidden="true"></span></a>
+The simply typed lambda calculus</h2>
+<h3 id="syntax"><a class="header-anchor no-hover-padding" href="#syntax" aria-label="Anchor link for: syntax"><span class="link-icon" aria-hidden="true"></span></a>
+Syntax</h3>
+<p>We want to assign to each function a type of the form $T_1 \to T_2$,
+which is to be read like: the function takes an argument of type $T_1$
+and evaluates to a value of the type $T_2$. So $\to$ acts as a <em>type
+constructor</em> giving us a new type from the <em>type variables</em> $T_1$ and
+$T_2$, which themselves can stand for any other constructed type of this
+form or a base type like <code>Bool</code>, that can not be decomposed any further.
+The $\to$ operator is right-associative, so $A\to B\to C$ is to be read
+as $A\to (B\to C)$. Now the syntax changes just a little:</p>
+<p><em>Syntax of simply typed $\lambda$-calculus:</em></p>
+<p>$\tt t ::= x \mid \lambda x\textbf{:T}.\medspace t \mid t\medspace t$</p>
+<p>We just annotate a type to every lambda abstraction. Note, that ‘simply
+typed’ just means that the only way to construct types is $\to$, whereas
+there exist extended systems that have additional operators which can
+not be expressed in terms of $\to$. The simply typed lambda calculus is
+abbreviated as $\lambda^\to$ and has been first developed by Church in
+1940.</p>
+<h3 id="semantics"><a class="header-anchor no-hover-padding" href="#semantics" aria-label="Anchor link for: semantics"><span class="link-icon" aria-hidden="true"></span></a>
+Semantics</h3>
+<p>Now we need to establish some rules about correct type assignment to
+terms. Let $\Gamma$ be the set of assumptions about the types of some
+terms like e.g. free variables (this is our <em>typing context</em>), then
+$\tt \Gamma \vdash t : T$ means ‘under given assumptions the term t has
+the type T’. The context can also be empty and can be omitted in this
+case. The notation with the horizontal line used below is a more
+readable form of implication ($\Rightarrow$) with the left side on top
+and the right on the bottom. This notation is used to specify <em>deduction
+rules</em>.</p>
+<p>The first rule is trivial and just formalizes the fact that a variable
+has the type we assume it to have in the typing context:</p>
+<p><em>Typing of variables (T-Var):</em></p>
+<p>$$\frac{\tt x:T \in \Gamma}{\tt\Gamma \vdash x : T}$$</p>
+<p>The next rule is about abstractions and says that if under the
+assumption that $x$ has the type $T_1$ the term $t_2$ has the type
+$T_2$, we deduce that an abstraction taking $x$ as argument and having
+$t_2$ as its body has the type $T_1\to T_2$:</p>
+<p><em>Typing of abstractions (T-Abs):</em></p>
+<p>$$\frac{\tt \Gamma,x : T_1 \vdash t_2 : T_2}{\tt \Gamma \vdash \lambda x : T_1. t_2 : T_1\to T_2}$$</p>
+<p>The third rule takes care of application, saying that if we have an
+abstraction and apply it on a term of the expected type, the result will
+have the type of the body of this abstraction:</p>
+<p><em>Typing of applications (T-App):</em></p>
+<p>$$\frac{\tt \Gamma\vdash t_1 : T_{11} \to T_{12}\hspace{5mm} \Gamma\vdash t_2 : T_{11}}
+{\tt \Gamma \vdash t_1\medspace t_2 : T_{12}}$$</p>
+<p>Additionally we can assign our real booleans and numbers a type. Note,
+that the rule for <code>if</code> has to enforce that both branches of the
+condition have the same type.</p>
+<p><em>T-True, T-False, T-If:</em></p>
+<p>$$\tt true : Bool \quad false : Bool \quad
+\frac{\tt\Gamma\vdash t_1 : Bool \quad \Gamma\vdash t_2 : T \quad \Gamma\vdash t_3 : T}
+{\tt \Gamma\vdash if\medspace t_1\medspace then\medspace t_2\medspace else\medspace t_3 : T}$$</p>
+<p><em>T-Zero, T-Succ, T-Pred, T-IsZero:</em></p>
+<p>$$\tt 0 : Nat \quad
+\frac{\tt\Gamma\vdash  t_1 : Nat}{\tt\Gamma\vdash  succ\ t_1 : Nat} \quad
+\frac{\tt\Gamma\vdash  t_1 : Nat}{\tt\Gamma\vdash  pred\ t_1 : Nat} \quad
+\frac{\tt\Gamma\vdash  t_1 : Nat}{\tt\Gamma\vdash  iszero\ t_1 : Bool}$$</p>
+<h3 id="deduction-example"><a class="header-anchor no-hover-padding" href="#deduction-example" aria-label="Anchor link for: deduction-example"><span class="link-icon" aria-hidden="true"></span></a>
+Deduction example</h3>
+<p>To see the rules in action, we can deduce</p>
+<p>$\tt f:Bool\to Bool \vdash \lambda x:Bool.\ f\ (if\ x\ then\ false\ else\ x) : Bool\to Bool$</p>
+<p><em>Proof:</em></p>
+<p>$$\frac{\frac{\frac{\tt f:Bool\to Bool \in f:Bool\to Bool}
+{\tt f:Bool\to Bool \vdash f:Bool\to Bool} {\tt T{-}Var}
+\quad \frac{\frac{\tt x:Bool\in x:Bool}{\tt x:Bool \vdash x:Bool} {\tt T{-}Var}
+\quad \frac{}{\tt false:Bool} {\tt T{-}False}
+}
+{\tt x:Bool\vdash if\ x\ then\ false\ else\ x:Bool} {\tt T{-}If}
+}
+{\tt f:Bool\to Bool,x:Bool\vdash f\ (if\ x\ then\ false\ else\ x) : Bool}{\tt T{-}App}}
+{\tt f:Bool\to Bool \vdash \lambda x:Bool.\ f\ (if\ x\ then\ false\ else\ x) : Bool\to Bool} {\tt T{-}Abs}
+$$</p>
+<h2 id="properties-of-typing"><a class="header-anchor no-hover-padding" href="#properties-of-typing" aria-label="Anchor link for: properties-of-typing"><span class="link-icon" aria-hidden="true"></span></a>
+Properties of typing</h2>
+<p>From the rules given above we can get <em>type safety</em>, a guarantee that
+well-typed expressions are valid expressions which do not get stuck
+during evaluation. Safety of a type system is shown by two theorems, the
+<em>progress</em> and <em>preservation</em> theorems. The progress theorem makes sure
+that a well-typed term is either a value or can be evaluated one step
+further, so that a well-typed term is never in a stuck, undefined state.
+The preservation theorem says that if a well-typed term takes one step
+of evaluation, the term we get is also well-typed. Both theorems
+together ensure a clean evaluation chain, if we start out with a
+well-typed expression.</p>
+<p><em>Progress:</em></p>
+<p>Suppose <code>t</code> is a closed, well-typed term (that is,
+$\tt\vdash t : T$ for some <code>T</code>). Then either <code>t</code> is a value or else
+there is some <code>t’</code> with $\tt t\to t’$.</p>
+<p><em>Preservation:</em></p>
+<p>If $\tt \Gamma \vdash t : T$ and $\tt t\to t’$, then
+$\tt \Gamma \vdash t’ : T$.</p>
+<p>Both theorems can be basically shown using structural induction and some
+helping lemmas. The reasoning is not so difficult to follow, but is
+quite long. Because of this the proofs are omitted and can be found in
+the book by Pierce.</p>
+<p>Another property of typing is that we can remove all type annotations,
+thus converting a term from simply typed to the untyped calculus, and
+the evaluation behaviour stays the same. This fact is used in real-world
+programming languages in the way that the types can be checked before
+compilation and can be removed in the process, when it is verified that
+everything is ok. The reverse action to this <em>type erasure</em> is <em>type
+reconstruction</em>, which is the procedure of finding a possible type of a
+term which has incomplete typing information. If it is possible to find
+a type, then the given term is <em>typable</em>, if it is not, then the code is
+most likely broken (or the compiler has insufficient information and can
+not compute the type, which can happen in more expressive type systems).</p>
+<h2 id="system-f"><a class="header-anchor no-hover-padding" href="#system-f" aria-label="Anchor link for: system-f"><span class="link-icon" aria-hidden="true"></span></a>
+System F</h2>
+<p>Now consider the following situation - we need to define a function
+which applies another numeric function twice. No problem:</p>
+<p>$$\tt double = \tt \lambda f:Nat\to Nat.\ \lambda x:Nat.\ f\ (f\ x)$$</p>
+<p>Later we notice, that such a function would also be useful for booleans.
+Okay:</p>
+<p>$$\tt doubleBool = \tt \lambda f:Bool\to Bool.\ \lambda x:Bool.\ f\ (f\ x)$$</p>
+<p>Now what if we want to define this function for any type? In the defined
+calculus there is no way to express this. We would have to define
+exactly the same function for every type we want to use it with! What we
+want is something like Generics in Java, or Templates in C++. The
+general name for this feature (’write once, use with any type’) is
+called <em>parametric polymorphism</em> and it helps solving this ugly code
+duplication problem in an elegant way. So we extend our calculus to the
+next level, which is called <em>System F</em>, first discovered by Jean-Yves
+Girard in 1972:</p>
+<p><em>Syntax of System F:</em></p>
+<p>$\tt t ::= x \mid \lambda x\textbf{:T}.\medspace t \mid t\medspace t \mid\medspace \lambda X.t\medspace \mid\medspace t\ [T]$</p>
+<p>The uppercase letters denote type variables while the lowercase mean
+terms. The newly introduced forms are called <em>type abstraction</em> and
+<em>type application</em>, which work similarily to the regular abstractions
+and applications, but on type variables (now type variables are part of
+our language, whereas before we could only use concrete types). Type
+abstraction and application also form a redex, substituting the type
+variable in the body of the abstraction with the type argument given in
+the brackets: $\tt (\lambda X.t_{12})\ [T_2] \to [X\mapsto T_2]t_{12}$</p>
+<p>Now we know how to evaluate these new forms, but we still need to
+provide new typing rules for this new kind of data. So we introduce
+<em>universal types</em>, which have the general form $\tt\forall
+X.T$ and are required to say that a function is polymorphic, i.e. works
+with any type we provide. Because we now have a new type constructor
+besides $\to$, this calculus is also called <em>second-order lambda
+calculus</em>. The missing typing rules are:</p>
+<p><em>Typing of type abstractions (T-TAbs):</em></p>
+<p>$$\frac{\tt \Gamma,X \vdash t_2 : T_2}{\tt \Gamma \vdash \lambda X.\ t_2 : \forall X. T_2}$$</p>
+<p><em>Typing of type applications (T-TApp):</em></p>
+<p>$$\frac{\tt \Gamma \vdash t_1 : \forall X. T_{12}}{\tt \Gamma \vdash t_1\ [T_2] : [X\mapsto T_2] T_{12}}$$</p>
+<h3 id="examples"><a class="header-anchor no-hover-padding" href="#examples" aria-label="Anchor link for: examples"><span class="link-icon" aria-hidden="true"></span></a>
+Examples</h3>
+<p>In System F we can again define things like Church encoded booleans and
+numerals, which would not be possible in the simply typed calculus, as
+they would be not general enough or just impossible to formulate
+well-typed. For example, the identity function can be formulated
+universally now and instantiated for any type:</p>
+<p>$$\begin{aligned}
+\tt id &amp;= \tt \lambda X.\ \lambda x:X.\ x &amp;\rm type\ \forall X. X\to X \newline
+\tt idNat &amp;= \tt id\ [Nat] = \lambda x:Nat.\ x &amp;\rm type\ Nat\to Nat\end{aligned}$$</p>
+<p>Likewise, we can define a polymorphic <code>double</code> function:</p>
+<p>$$\begin{aligned}
+\tt double &amp;= \tt \lambda X.\ \lambda f:X\to X.\ \lambda x:X.\ f\ (f\ x) &amp;\rm type\ \forall X. (X\to X)\to X \to X\newline
+\tt dblBool &amp;= \tt double\ [Bool] &amp;\rm type\ (Bool\to Bool)\to Bool\to Bool \newline
+&amp;= \tt \lambda f:Bool\to Bool.\ \lambda x:Bool.\ f\ (f\ x)\end{aligned}$$</p>
+<p>But we are not limited to instantiating polymorphic functions to
+concrete types, we can also substitute with yet another polymorphic type
+expression:</p>
+<p>$$\begin{aligned}
+\tt quad &amp;= \tt \lambda X.\ double\ [X\to X]\ (double\ [X]) &amp;\rm type\ \forall X. (X\to X)\to X\to X\end{aligned}$$</p>
+<p>What did happen here? We just defined a polymorphic function which
+applies a given function four times, by applying our polymorphic
+<code>double</code> function twice! Does that really work? Let’s check the types –
+$\tt double\ [X\to X]$ expands to a function with the type
+$\tt \forall X. ((X\to
+X)\to X\to X)\to (X\to X)\to X\to X$, $\tt double\ [X]$ has the type
+$\tt \forall X. (X\to X)\to
+X\to X$. Now as we partially apply the latter <code>double</code> to the first, the
+remaining type is again $\tt \forall X. (X\to X)\to X\to X$. If you are
+still not convinced, look at the expansion of this function:</p>
+<p>$$\begin{aligned}
+\tt quad &amp;= \tt \lambda X.\ double\ [X\to X]\ (double\ [X]) \newline
+&amp;= \tt \lambda X.\ (\lambda f:(X\to X)\to X\to X.\ \lambda a:X\to X.\ f\ (f\ a))\ (double\ [X]) \newline
+&amp;= \tt \lambda X.\ \lambda a:X\to X.\ double\ [X]\ (double\ [X]\ a) \newline
+&amp;= \tt \lambda X.\ \lambda a:X\to X.\ (\lambda g:X\to X.\ \lambda b:X.\ g\ (g\ b))\ (double\ [X]\ a) \newline
+&amp;= \tt \lambda X.\ \lambda a:X\to X.\ \lambda b:X.\ double\ [X]\ a\ (double\ [X]\ a\ b)
+\newline
+&amp;= \tt \lambda X.\ \lambda a:X\to X.\ \lambda b:X.\ a\ (a\ (a\ (a\ b)))
+\end{aligned}$$</p>
+<p>As you can see, parametric polymorphism is a quite powerful means of
+abstraction and one can express a lot in System F. So it is probably no
+big surprise that the Haskell programming language, when stripped of all
+syntactic sugar during compilation, is an extended form of System F.</p>
+<p>The preservation and progress theorems still hold for System F, giving
+us type safety, whereas type reconstruction is undecidable in many
+cases, so type annotations often can not be omitted. Programming
+languages based on System F often add restrictions to what terms and
+types are allowed, to keep a partial type reconstruction feasible.</p>
+<h2 id="type-theory-and-oop"><a class="header-anchor no-hover-padding" href="#type-theory-and-oop" aria-label="Anchor link for: type-theory-and-oop"><span class="link-icon" aria-hidden="true"></span></a>
+Type theory and OOP</h2>
+<p>One could get the impression that type theory is only practiced and
+relevant in the realm of functional programming. But an important branch
+of development of lambda calculi is calculi with <em>subtyping</em>, a concept
+first explored formally by Reynolds and Cardelli in
+the 1980’s. To every object oriented programmer the intuition and
+meaning of subtyping should be apparent – it means that if we have a
+function working on vehicles, we also expect it to work with a car, or a
+train, which are special types of a vehicle. This is deeply connected to
+the notion of <em>inheritance</em> in OOP – we want to be able to give our
+types (the object classes we defined) a hierachy and to be able to use
+functions on a whole category of inputs which are related in a way. The
+formalism for this is the <em>subtyping relation</em>, which comes with its own
+set of deduction rules specifying which types can be treated as more
+general types, by ignoring their specialization in the context of a
+given function. There also have been multiple efforts to prove type
+safety of Java, first by Drossopoulou, Eisenbach and Khurshid in
+1999, using calculi with subtyping which resemble different subsets
+of Java.</p>
+<h2 id="type-theory-and-logic"><a class="header-anchor no-hover-padding" href="#type-theory-and-logic" aria-label="Anchor link for: type-theory-and-logic"><span class="link-icon" aria-hidden="true"></span></a>
+Type theory and logic</h2>
+<p>Worth to mention is another fascinating property that can be seen in
+many type systems, which is called Curry-Howard-Correspondence, as it
+was first described by Haskell Curry in 1958 and William Alvin
+Howard in 1980. It is an observation, that types can be seen as
+propositions and terms having that type are a proof of these
+propositions. So a proposition can be proved by constructing a term with
+that type. This bridge between constructive mathematical logic and
+computer science is being researched and already has lead to the
+development of tools like <em>Coq</em>, which is a functional programming
+language with its primary purpose being an interactive theorem prover –
+it assists the user in the formulation of assertions, helps finding
+proofs in form of programs and automatically checks their correctness by
+type-checking the proof-program.</p>
+<p>The type systems used in this setting are mostly based on calculi with
+<em>dependent types</em>, which is an extension that allows types to be
+constructed bound to a <em>value</em>, e.g. functions with types like
+$\tt Array\ n\to Array\ (n+1)$ are possible and it is verified by the
+type system that this function will indeed return an array with exactly
+one element more for any input given.</p>
+<h1 id="conclusion"><a class="header-anchor no-hover-padding" href="#conclusion" aria-label="Anchor link for: conclusion"><span class="link-icon" aria-hidden="true"></span></a>
+Conclusion</h1>
+<p>So what do we gain using a type system in the context of software verification?</p>
+<ul>
+<li>
+<p>We know that our program will compile and execute <strong>(catch syntax
+errors)</strong></p>
+</li>
+<li>
+<p>We know that our functions will take and return the intended data
+types <strong>(catch violations of our mental model/the designed API)</strong></p>
+</li>
+<li>
+<p>Using advanced type systems we can <strong>control</strong> which functions can
+do which <strong>effects</strong> and prevent specific values to be taken out of
+<strong>context</strong> (e.g. the Monad typeclass in Haskell)</p>
+</li>
+<li>
+<p>Using dependent types it is even possible to construct types that
+prove <strong>almost arbitrary properties</strong>, e.g. to check for
+array-out-of-bound errors on compile time or even prove that a
+sorting algorithm does indeed return the data sorted</p>
+</li>
+</ul>
+<p>Of course the more information the types shall carry, the more
+additional work and thought by the developer is required – unfortunately
+expressivity comes with a price. To profit from type systems one needs
+to have a clear model of the software being developed and one has to
+define types which suit the use-case – type annotations are also a form
+of formal specification. If every field of an address record is declared
+as <code>String</code>, nothing will stop us from using the first name as the
+telephone number. Introducing and using different types for distinct
+semantic entities, even when they are the same on a low level, can help
+to deal with such errors.</p>
+<p>I hope you enjoyed this little introduction and that it might have
+sparked an interest in type systems, both in theory and practice. The
+lambda calculus family and related formal languages are for type
+theorists and programming language designers like the Drosophila fly for
+biologists - it is small enough to add modifications, study the
+resulting entity and prove different properties, but the findings can be
+translated and applied to bigger systems in the ‘real world’ and give
+software developers new tools to work with, regarding both expressivity
+and safety of their code.</p>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/lessons-i-learned-about-c/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Lessons I Learned About C</p></div>
+                <div><a href="https://pirogov.de/blog/workplace-ergonomics/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Workplace Ergonomics Matters</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#introduction">Introduction</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#the-untyped-lambda-calculus">The Untyped Lambda Calculus</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#syntax-and-evaluation">Syntax and evaluation</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#working-with-the-lambda-calculus">Working with the Lambda Calculus</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#currying">Currying</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#encoding-booleans">Encoding booleans</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#encoding-numbers">Encoding numbers</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#beyond-the-pure-calculus">Beyond the pure calculus</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#real-booleans-and-numbers">Real booleans and numbers</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#and-more">…And more</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#adding-types">Adding Types</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#motivation">Motivation</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#the-simply-typed-lambda-calculus">The simply typed lambda calculus</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#syntax">Syntax</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#semantics">Semantics</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#deduction-example">Deduction example</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#properties-of-typing">Properties of typing</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#system-f">System F</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#examples">Examples</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#type-theory-and-oop">Type theory and OOP</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#type-theory-and-logic">Type theory and logic</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/#conclusion">Conclusion</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

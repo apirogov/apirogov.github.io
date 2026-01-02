@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Goodbye Hakyll / Haskell, hello Zola / Rust!</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Goodbye Hakyll / Haskell, hello Zola / Rust!" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;goodbye-hakyll-hello-zola&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Goodbye Hakyll / Haskell, hello Zola / Rust!
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2023-07-14">14th Jul 2023</time></li><li title="1001 words"><span class='separator' aria-hidden='true'>•</span>6 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tools/">tools</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/programming/">programming</a></li>
+        </ul><section class="e-content body"><p><em>It is this time of the year where I once again felt the urge to write something and revive
+this homepage of mine by infusing some new content, possibly write all those things down
+I’ve been planning to for a while. But the page initially was built using
+<a rel="noopener" target="_blank" href="https://jaspervdj.be/hakyll/">Hakyll</a>, which is a very cool and very hackable static site
+generator (actually, a <em>library</em>) implemented in <a rel="noopener" target="_blank" href="https://www.haskell.org/">Haskell</a>. Here
+I reflect on my choice to migrate the page from Hakyll to
+<a rel="noopener" target="_blank" href="https://www.getzola.org/">Zola</a>, which is happening in parallel to my slow shift away
+from Haskell towards Rust.</em></p>
+<h2 id="from-haskell-to-rust"><a class="header-anchor no-hover-padding" href="#from-haskell-to-rust" aria-label="Anchor link for: from-haskell-to-rust"><span class="link-icon" aria-hidden="true"></span></a>
+From Haskell to Rust</h2>
+<p>While I have been a huge fan and enthusiast of Haskell and also used it for multiple hobby
+projects, and would have loved to use it at work (and actually still would, if it really
+is the right tool for a task), I have not used it in quite a while.
+And, truth be told, I’ve grown older, wiser, more lazy, and have less time.</p>
+<p>I learned so much about code, mathematics, structure and thinking from Haskell and its
+community. But over the years, and since having an actual job where I need to responsibly
+develop software, I learned to value many other things in programming languages going
+beyond the syntax and features of a language. And just like I had to accept that <a href="/blog/my-phd-story">it is
+not my destiny to be a researcher in TCS</a>, I more and more see and
+accept that I am simply not the person who is able to wield <em>“co-free affine comonad
+transformer lenses”</em><sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup> to solve my coding problems, at least not in the way the very
+smart people who use Haskell seriously and blog about it seem to do so effortlessly.</p>
+<p>While I have been very much enjoying to learn bits and pieces of type theory, programming
+language theory and also category theory just for its own sake (where Haskell, Coq, Agda
+and Idris are <em>the</em> places to be), more recently I feel the need for a more pragmatic and
+immediately practical language to just quickly <strong>get stuff done</strong>.</p>
+<p>At work I use Python – because of the setting and the ecosystem. I can’t say that I really
+<em>like</em> Python, but with type hints, lots of tooling, and high-quality well-documented
+libraries, it is quite bearable (even though, sadly, the avearage code quality of what is
+out there is abysmal). And in fact I must admit - it is nice to spin up a Jupyter notebook
+with Python to quickly load some table and easily plot it. But it will never be a language
+I genuinely like and am excited about, for many many reasons.</p>
+<p>A language that I <strong>do</strong> like is <a rel="noopener" target="_blank" href="https://www.rust-lang.org/">Rust</a>, and after some
+good initial flirting experience over 5 years ago, I had it on my to-learn list for a
+while. Finally, it is happening – I am working on a non-trivial hobby project using Rust
+(this will hopefully yield a bunch of posts here), and I am very much enjoying it. The
+people who created Rust took the 70-80% of what makes Haskell a <strong>good</strong> language
+(sacrificing some arcane type sorcery by necessity and/or for good reasons), combined it
+with the crucial parts that make C and C++ <strong>successful</strong> languages, and even had the
+wisdom to prioritize building <strong>very good tooling</strong> (possibly learning from Java).</p>
+<p>Rust is both ambitious <em>and</em> pragmatic, in the sense of balancing doing the <em>right</em> thing
+and doing the <em>practical</em> thing, respectively in the right places. It feels like Rust
+could (or even <em>should</em>) become my new favorite language. I have been watching it grow for
+a few years, and now it feels like a good time to jump in. As more and more major
+companies adopt Rust and it even got blessed by Linus Torvalds himself, It also feels like
+learning Rust is also a good time investment from a professional point of view. Not to
+mention that having an actually <em>nice</em> language under your belt which is also <em>damn fast</em>
+is simply amazing.</p>
+<h2 id="from-hakyll-to-zola"><a class="header-anchor no-hover-padding" href="#from-hakyll-to-zola" aria-label="Anchor link for: from-hakyll-to-zola"><span class="link-icon" aria-hidden="true"></span></a>
+From Hakyll to Zola</h2>
+<p>My site used an old version of Hakyll, I did not even understand my configuration code
+anymore, and to build it I needed to install the whole toolchain <em>and</em> libraries, which
+takes lots of both space and time. But all I wanted to do was to simply write a post.</p>
+<p>Annoyed by my old and rusty (<em>pun intended</em>) Hakyll-based website, I decided to switch the
+backend to something simpler to work with and maintain. Looking for a Rust-based generator
+I found <a rel="noopener" target="_blank" href="https://www.getzola.org/">Zola</a>. In the end it does not actually matter that Zola
+is built with Rust, but in fact it <em>is</em> a nice static site generator. It can provide
+everything I want without much effort – either out of the box, or by using some good
+themes and useful code snippets. My requirements are very modest:</p>
+<ul>
+<li>pages and blog posts</li>
+<li>syntax highlighting</li>
+<li>math formatting</li>
+<li>Atom/RSS feed</li>
+</ul>
+<p>Probably any static site generator would be fine, I happened to choose Zola and I am quite
+satisfied with the result. The templating language feels very similar to
+<a rel="noopener" target="_blank" href="https://palletsprojects.com/p/jinja/">Jinja2</a>, which I have some experience with from
+<a rel="noopener" target="_blank" href="https://www.cookiecutter.io/">cookiecutter</a> and Python backend development.</p>
+<p>Once I settled on a theme and tweaked it a bit, it was mostly smooth sailing and
+repetitive syntactic changes in the post metadata headers. Luckily there are not so many
+pages to migrate. The most annoying part was switching from
+<a rel="noopener" target="_blank" href="https://www.mathjax.org/">MathJax</a> to <a rel="noopener" target="_blank" href="https://katex.org/">KaTeX</a> (which is faster, but
+less powerful), as I needed to fix many formulas in some of the posts, but this is not
+strictly a Zola-specific issue. Probably I’ll tweak and customize the theme some more in
+the future, as the need arises, but for now I think that the result is <em>at least</em> not
+worse than the old site.</p>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p>Haskell word salad for dramatic effect. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/physical-exercise/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">How to Stop Being a Couch Potato</p></div>
+                <div><a href="https://pirogov.de/blog/self-dual-connected-hypergraphs/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/#from-haskell-to-rust">From Haskell to Rust</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/#from-hakyll-to-zola">From Hakyll to Zola</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

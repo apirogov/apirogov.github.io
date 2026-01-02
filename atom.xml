@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://pirogov.de/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;pirogov.de</tabi:base_url>
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>light</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>Simply Typed</tabi:current_section>
+    </tabi:metadata><title>Simply Typed</title>
+        <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link href="https://pirogov.de/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://pirogov.de" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2025-12-29T00:00:00+00:00</updated><id>https://pirogov.de/atom.xml</id><entry xml:lang="en">
+        <title>How to Make Quick and Easy Disinfectant from Water and Salt</title>
+        <published>2025-12-29T00:00:00+00:00</published>
+        <updated>2025-12-29T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/diy-hclo/" type="text/html"/>
+        <id>https://pirogov.de/blog/diy-hclo/</id>
+        </entry><entry xml:lang="en">
+        <title>Happier Plants with Passive Hydroponics</title>
+        <published>2025-12-03T00:00:00+00:00</published>
+        <updated>2025-12-05T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/passive-hydroponics/" type="text/html"/>
+        <id>https://pirogov.de/blog/passive-hydroponics/</id>
+        </entry><entry xml:lang="en">
+        <title>Twists and Turns: A Love Note To Knots</title>
+        <published>2025-11-07T00:00:00+00:00</published>
+        <updated>2025-11-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/twists-turns-knots/" type="text/html"/>
+        <id>https://pirogov.de/blog/twists-turns-knots/</id>
+        </entry><entry xml:lang="en">
+        <title>On Silenced Souls: The Unknown Siblings of the Philosophical Zombie</title>
+        <published>2025-05-25T00:00:00+00:00</published>
+        <updated>2025-05-25T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/silenced-souls-and-philosophical-zombies/" type="text/html"/>
+        <id>https://pirogov.de/blog/silenced-souls-and-philosophical-zombies/</id>
+        </entry><entry xml:lang="en">
+        <title>Connecting to Your Home Network Using Wireguard</title>
+        <published>2025-03-16T00:00:00+00:00</published>
+        <updated>2025-03-16T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/wireguard-home-vpn/" type="text/html"/>
+        <id>https://pirogov.de/blog/wireguard-home-vpn/</id>
+        </entry><entry xml:lang="en">
+        <title>First Contact Report: DeepSeek R1 is Pretty Impressive, And You Should Try It</title>
+        <published>2025-02-09T00:00:00+00:00</published>
+        <updated>2025-02-09T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/deepseek-r1-first-contact/" type="text/html"/>
+        <id>https://pirogov.de/blog/deepseek-r1-first-contact/</id>
+        </entry><entry xml:lang="en">
+        <title>Intersecting Line Segments In Cyclotomic Rings Without Tears</title>
+        <published>2025-01-16T00:00:00+00:00</published>
+        <updated>2025-01-16T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/intersecting-segments-without-tears/" type="text/html"/>
+        <id>https://pirogov.de/blog/intersecting-segments-without-tears/</id>
+        </entry><entry xml:lang="en">
+        <title>Doing Magic Using Permutations</title>
+        <published>2024-11-17T00:00:00+00:00</published>
+        <updated>2024-11-17T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/doing-magic-using-permutations/" type="text/html"/>
+        <id>https://pirogov.de/blog/doing-magic-using-permutations/</id>
+        </entry><entry xml:lang="en">
+        <title>How To Make Wang Tiles Rotatable</title>
+        <published>2024-10-20T00:00:00+00:00</published>
+        <updated>2024-10-20T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/rotatable-wang-tiles/" type="text/html"/>
+        <id>https://pirogov.de/blog/rotatable-wang-tiles/</id>
+        </entry><entry xml:lang="en">
+        <title>A Hobbyist Introduction to Julia and Mandelbrot Sets</title>
+        <published>2024-10-17T00:00:00+00:00</published>
+        <updated>2024-10-17T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/julia-mandel-intro/" type="text/html"/>
+        <id>https://pirogov.de/blog/julia-mandel-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Perfect-Precision 2D Geometry Using Complex Integer Rings</title>
+        <published>2024-08-24T00:00:00+00:00</published>
+        <updated>2025-01-12T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/perfect-precision-2d-geometry-complex-integers/" type="text/html"/>
+        <id>https://pirogov.de/blog/perfect-precision-2d-geometry-complex-integers/</id>
+        </entry><entry xml:lang="en">
+        <title>Abstraction Driven Design - The Essence Of Software Development</title>
+        <published>2024-06-29T00:00:00+00:00</published>
+        <updated>2024-06-29T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/abstraction-driven-design/" type="text/html"/>
+        <id>https://pirogov.de/blog/abstraction-driven-design/</id>
+        </entry><entry xml:lang="en">
+        <title>A Prime Way to Count Edge-Labeled Ordered Trees</title>
+        <published>2024-04-06T00:00:00+00:00</published>
+        <updated>2024-04-06T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/count-edge-labelled-trees/" type="text/html"/>
+        <id>https://pirogov.de/blog/count-edge-labelled-trees/</id>
+        </entry><entry xml:lang="en">
+        <title>Exploring Analog Synth Patching with the Minibrute 2</title>
+        <published>2024-03-27T00:00:00+00:00</published>
+        <updated>2024-03-27T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/" type="text/html"/>
+        <id>https://pirogov.de/blog/analog-synth-patch-minibrute-2/</id>
+        </entry><entry xml:lang="en">
+        <title>A Simple and Natural Uncomputable Function</title>
+        <published>2024-03-16T00:00:00+00:00</published>
+        <updated>2024-03-16T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/an-uncomputable-function/" type="text/html"/>
+        <id>https://pirogov.de/blog/an-uncomputable-function/</id>
+        </entry><entry xml:lang="en">
+        <title>The Tragedy Of Academia: Very Smart People Forced To Do Stupid Things</title>
+        <published>2024-02-24T00:00:00+00:00</published>
+        <updated>2024-02-24T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/tragedy-academia/" type="text/html"/>
+        <id>https://pirogov.de/blog/tragedy-academia/</id>
+        </entry><entry xml:lang="en">
+        <title>Generating Fractal-Like Sequences using Convolution Grammars</title>
+        <published>2023-09-09T00:00:00+00:00</published>
+        <updated>2023-09-09T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/aperiodic-sequences-convolution-grammars/" type="text/html"/>
+        <id>https://pirogov.de/blog/aperiodic-sequences-convolution-grammars/</id>
+        </entry><entry xml:lang="en">
+        <title>Generating Orthogonal Set Partitions</title>
+        <published>2023-07-28T00:00:00+00:00</published>
+        <updated>2023-07-28T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/generating-orthogonal-set-partitions/" type="text/html"/>
+        <id>https://pirogov.de/blog/generating-orthogonal-set-partitions/</id>
+        </entry><entry xml:lang="en">
+        <title>How to Stop Being a Couch Potato</title>
+        <published>2023-07-15T00:00:00+00:00</published>
+        <updated>2023-07-15T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/physical-exercise/" type="text/html"/>
+        <id>https://pirogov.de/blog/physical-exercise/</id>
+        </entry><entry xml:lang="en">
+        <title>Goodbye Hakyll &#x2F; Haskell, hello Zola &#x2F; Rust!</title>
+        <published>2023-07-14T00:00:00+00:00</published>
+        <updated>2023-07-14T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/" type="text/html"/>
+        <id>https://pirogov.de/blog/goodbye-hakyll-hello-zola/</id>
+        </entry><entry xml:lang="en">
+        <title>From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory</title>
+        <published>2021-12-07T00:00:00+00:00</published>
+        <updated>2021-12-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/self-dual-connected-hypergraphs/" type="text/html"/>
+        <id>https://pirogov.de/blog/self-dual-connected-hypergraphs/</id>
+        </entry><entry xml:lang="en">
+        <title>Experience Report: Doing a PhD in Theoretical Computer Science</title>
+        <published>2021-03-07T00:00:00+00:00</published>
+        <updated>2021-03-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/my-phd-story/" type="text/html"/>
+        <id>https://pirogov.de/blog/my-phd-story/</id>
+        </entry><entry xml:lang="en">
+        <title>Topology and Geometry of Biconnected Polyhexes</title>
+        <published>2020-09-20T00:00:00+00:00</published>
+        <updated>2020-09-20T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/biconnected-holefree-polyhexes/" type="text/html"/>
+        <id>https://pirogov.de/blog/biconnected-holefree-polyhexes/</id>
+        </entry><entry xml:lang="en">
+        <title>Designing the Advaya and Atreya Tile Sets</title>
+        <published>2020-09-13T00:00:00+00:00</published>
+        <updated>2020-09-13T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/designing-advaya-and-atreya/" type="text/html"/>
+        <id>https://pirogov.de/blog/designing-advaya-and-atreya/</id>
+        </entry><entry xml:lang="en">
+        <title>Atreya</title>
+        <published>2020-09-09T00:00:00+00:00</published>
+        <updated>2020-09-09T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/projects/atreya/" type="text/html"/>
+        <id>https://pirogov.de/projects/atreya/</id>
+        <summary type="html">An abstract tile-based board game for 2-3 players</summary>
+        </entry><entry xml:lang="en">
+        <title>Advaya</title>
+        <published>2020-08-27T00:00:00+00:00</published>
+        <updated>2020-08-27T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/projects/advaya/" type="text/html"/>
+        <id>https://pirogov.de/projects/advaya/</id>
+        <summary type="html">An abstract tile-based board game for 2 players</summary>
+        </entry><entry xml:lang="en">
+        <title>Lessons I Learned About C</title>
+        <published>2016-03-21T00:00:00+00:00</published>
+        <updated>2016-03-21T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/lessons-i-learned-about-c/" type="text/html"/>
+        <id>https://pirogov.de/blog/lessons-i-learned-about-c/</id>
+        </entry><entry xml:lang="en">
+        <title>Introduction to the Lambda Calculus</title>
+        <published>2014-10-07T00:00:00+00:00</published>
+        <updated>2014-10-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/introduction-to-lambda-calculus/" type="text/html"/>
+        <id>https://pirogov.de/blog/introduction-to-lambda-calculus/</id>
+        </entry><entry xml:lang="en">
+        <title>Workplace Ergonomics Matters</title>
+        <published>2014-08-07T00:00:00+00:00</published>
+        <updated>2019-10-11T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/workplace-ergonomics/" type="text/html"/>
+        <id>https://pirogov.de/blog/workplace-ergonomics/</id>
+        </entry>
+</feed>

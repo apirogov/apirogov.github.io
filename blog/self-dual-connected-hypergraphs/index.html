@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;self-dual-connected-hypergraphs&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/self-dual-connected-hypergraphs/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2021-12-07">7th Dec 2021</time></li><li title="2301 words"><span class='separator' aria-hidden='true'>•</span>12 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/graphs/">graphs</a></li>
+        </ul><section class="e-content body"><h2 id="a-metaphysical-prelude"><a class="header-anchor no-hover-padding" href="#a-metaphysical-prelude" aria-label="Anchor link for: a-metaphysical-prelude"><span class="link-icon" aria-hidden="true"></span></a>
+A metaphysical prelude</h2>
+<p>Lately, I  have been thinking (again) about foundational metaphysical issues and to me,
+<a rel="noopener" target="_blank" href="https://plato.stanford.edu/entries/structural-realism/#OntStrReaOSR">ontic structural
+realism</a> seems to be
+a compelling stance – maybe science is successful at describing the world, because the
+world is intrinsically “structure”? (I am also intrigued by the
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Mathematical_universe_hypothesis">mathematical universe
+hypothesis</a>, this would be
+the consequent further step, but it leaves many open questions) To me, structural realism
+seems more plausible than assuming that there are hidden intrinsic aspects of “how things
+are” that we have no chance to ever witness. As a bystander-fan of category theory it also
+seems natural to believe that structure, relationships between entities, etc. is
+everything (interesting) there is about the world. After all, one can develop category
+theory while avoiding any talk about any “objects”. The arrows, the connections are what
+matters, and knowing all arrows an object is source or target of we know everything about
+that object up to isomorphism - we cannot look inside the objects, so we cannot
+distinguish two objects which are in exactly the same kinds of relationships.</p>
+<p>There is some philosophical debate about not only what kind of structure the world is made
+of, “relations” being a hot candidate, but also whether relations need relata – can we
+really abandon the primary status of objects, if the relations, arrows, etc. must be
+defined in terms of something object-like, even if just to be denied and ignored in the
+next step? But to me this seems only to be a matter of convention and familiarity. We are
+used to start with point-like objects and building structure around them, being trained in
+classical set-theoretic ways of thinking.</p>
+<p>But <strong>do we <em>really</em> need objects that are <em>distinct</em> from the relations?</strong> I have been
+thinking about finding a kind of mathematical counter-example. The desired kind of object
+must be at the same time object-like and also relation-like. In math, the most natural way
+how this happens is due to some kind of duality. In a sense, what I want is to <strong>find a
+way to construct relations that relate (other) relations</strong>. Why shouldn’t this be
+possible?</p>
+<p>Furthermore, if this is actually mostly about having evidence in a metaphysical argument,
+I want to bring in another “prejudice” of mine, namely that the <strong>real, existing physical
+world is inherently concrete and no two things are really exactly the same</strong>. To me,
+equality is an abstract concept and each equality requires an underlying equivalence
+relation to make any sense (often it is just implicit or trivial in mathematical
+discourse), things must be <em>equated</em> to be equal. So I think that all things are to be
+considered different, unless grouped together (usually due to some similarity or shared
+property) and claimed to be equal.</p>
+<p>Even interpreting multiple uses of the same variable name in the same context as the same
+mathematical object is a kind of silently understood equality (“<em>this</em> $x$ is the same as
+<em>that</em> $x$”) that we learn during childhood. We all are educated to ignore the difference
+between a symbol and its meaning and learn various rules to understand which symbols mean
+the same “thing”, just as we learn the abstract concept of a tree, even though all trees
+are different (and the same is true of basically everything). All things that are concrete
+are distinct, our brain does the pattern-matching, abstracting and equating. But I
+disgress. In the context of my non-standard relational concept, I also want to find such
+entities where no two relation tuples/sets are equal.</p>
+<h2 id="a-treasure-hunt-self-dual-hypergraphs"><a class="header-anchor no-hover-padding" href="#a-treasure-hunt-self-dual-hypergraphs" aria-label="Anchor link for: a-treasure-hunt-self-dual-hypergraphs"><span class="link-icon" aria-hidden="true"></span></a>
+A treasure hunt: self-dual hypergraphs</h2>
+<p>I started by naively playing around with directed graphs, trying to come up with a way to
+have a meaningful and natural 1-to-1 mapping between nodes and edges. After some time
+something clicked in my mind and I remembered –
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Hypergraph">hypergraphs</a>! What makes hypergraphs a great
+candidate for my purposes is that there is no asymmetry between nodes and edges like there
+is with “normal” graphs. If you try to dualize a graph, the incidence set of a node
+cannot be an edge in general. But when dualizing a <em>hypergraph</em> by taking the hyperedges
+as nodes, and incidence sets of nodes as edges, you get another hypergraph!</p>
+<p>So now I am looking for <strong>hypergraphs with named nodes and named hyperedges, in order to
+identify nodes and hyperedges with the same name</strong> (metaphysically, this identification is
+to be understood as actually “real”, unlike the constructed equalities discussed above).
+For this, we need to require the very natural constraint of self-duality. If I can dualize
+a labelled hypergraph, and get the same hypergraph back, it means that I did the trick and
+turned nodes into exactly the hyperedges we had in the original hypergraph! Naturally,
+each hyperedge may appear only once in a hypergraph. This is true by default for
+hypergraphs, but another reason to have that property is that otherwise we would get
+indistinguishable hyperedges/nodes, and I want to avoid that. Also, it does not make sense
+to have empty hyperedges, so those also are also excluded.</p>
+<p>Self-dual hypergraphs have the following property: <strong>node $x$ is contained in the
+hyperedge $y$ if and only if hyperedge $x$ contains node $y$</strong>. So by dualizing nodes and
+edges we basically “flip around” containment, but due to self-duality get back the same
+result! I think this is both pretty and interesting. To get a feel for such objects, it
+would be great to enumerate and look at them. But how? I came up with the first
+ones by hand and then remembered about a powerful tool I learned to use during my
+masters thesis - <strong><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Satisfiability_modulo_theories#Solvers">SMT
+solvers</a></strong>! I just
+needed to come up with an encoding for these things and let the magic SMT oracle machine
+find them, thanks to years of engineering very smart people put into these solvers.</p>
+<p>While playing around with the small hypergraphs I quickly noticed that drawing them
+quickly becomes unwieldy. But by exploiting the properties of the self-dual hypergraphs we
+can get a more familiar representation, as plain and simple <strong>undirected graphs with
+self-loops</strong>. To understand the mapping, first notice that we can interpret a hyperedge
+called $x$ as a set of directed edges from $x$ to all the targets. To our convenience, our
+hypergraph already has nodes with the same names, so we can just use these and add the
+edges. Now the self-duality constraint basically ensures that for each directed edge from
+$x$ to $y$ we must also have an edge back (remember that the arrow indicates containment
+and by imposed self-duality it must go both ways). But when all edges are either
+bidirectional or self-loops, we can simply “merge them” to get undirected edges, et voila!</p>
+<p>Having now a mapping between self-dual hypergraphs and undirected graphs with loops we
+gain two things – a more familiar visualization, and maybe even more importantly, we can
+use all knowledge about undirected graphs we have, as well as their <strong>representation as an
+adjacency matrix</strong>. If we look at the adjacency matrix of such a graph, we can interpret
+each row as a hyperedge, which is equal to the “outgoing” part of the undirected edges.
+But because the graph is undirected, we know that the matrix is symmetric, so we basically
+just need a half of the values, e.g. just the lower <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Triangular_matrix">triangular
+matrix</a>. So we are almost there – to
+look for self-dual hypergraphs we can simply encode this as a constraint satisfaction
+problem for the matrix. More specifically, for a hypergraph of size $n$ we need variables
+for triangular matrix with “side length” $n$, such that:</p>
+<ul>
+<li>the rows of the induced symmetric matrix are all not the null-vector</li>
+<li>the rows of the induced symmetric matrix are all different</li>
+</ul>
+<p>There are two additional constraints that I deemed necessary – I only want solutions
+where the resulting graph is connected, as it is not interesting to find a solution that is
+just juxtaposing two smaller solutions.
+Another restriction that I added was considering only <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Asymmetric_graph">asymmetric
+graphs</a>, i.e. where the automorphism group
+is trivial and consists only of the identity mapping. I added this constraint, because
+having two hyperedges that are isomorphic and basically same up to renaming the nodes felt
+like violating the “aesthetics”. So:</p>
+<ul>
+<li>the resulting graph must be connected</li>
+<li>the resulting graph must be asymmetric</li>
+</ul>
+<p>So with this laid out, I took <a rel="noopener" target="_blank" href="https://pysmt.readthedocs.io/en/latest/">pysmt</a>, coded up
+the constraints in simple quantifier-free propositional logic and launched
+<a rel="noopener" target="_blank" href="https://mathsat.fbk.eu/">MathSAT</a> (<a rel="noopener" target="_blank" href="https://github.com/Z3Prover/z3">Z3</a> was much slower).
+For each solution it spit out, I computed all equivalent matrices (permutations applied to
+both rows and columns), which correspond to renaming of nodes, and then excluded all the
+solutions from further search. Furthermore I kept only solutions where the undirected
+graph is connected, and as I was computing all permutations anyway, for the asymmetry
+restriction I only needed to count the automorphisms, i.e. permutations yielding exactly
+the same matrix as before, and keeping those where the count is exactly 1.</p>
+<p>The solver is able to find all such (hyper)graphs up to size of 6 within less than an hour
+on my laptop, so the statistics are as follows:</p>
+<table><thead><tr><th># of nodes</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody>
+<tr><td>w/o asymmetry</td><td>1</td><td>2</td><td>6</td><td>31</td><td>230</td><td>2683</td></tr>
+<tr><td>with asymmetry</td><td>1</td><td>1</td><td>2</td><td>11</td><td>94</td><td>1409</td></tr>
+</tbody></table>
+<p>I’ve also looked in <a rel="noopener" target="_blank" href="https://oeis.org">OEIS</a> for both sequences, and to my surprise found
+nothing. Apparently nobody bothered to look for (asymmetric) undirected graphs with
+self-loops yet! This is not too surprising, as an inventory of “weird” graphs is probably
+nothing publishable, unless there is something interesting to prove or observe about them.
+And this is the next step - looking for patterns in these things.</p>
+<p>I have already tried to “compose” such graphs in the usual way - replacing a node with
+another graph and copying each edge that connected to the substituted node such that it
+points to each node of the inserted graph. For self-loops, this always turns the inserted
+graph into a clique, which introduces lots of symmetry into the result, which I want to
+avoid. So I consider nodes with self-loops to be “fixed”, they cannot be used for
+substitutions.</p>
+<p>When trying to insert asymmetric graphs into other asymmetric graphs (expanding
+non-self-looping nodes) in that way, you will notice that sometimes the result will be
+symmetric (and thus forbidden), and sometimes yield another asymmetric graph. This opens
+up some directions for curious minds:</p>
+<ul>
+<li>map out the connections between asymmetric graphs by “node expansion”,
+like <em>expanding node $a$ in $G$ into graph $G’$ yields another graph $G’’$</em></li>
+<li>What are the “prime” graphs that cannot be obtained by this substitution?</li>
+<li>Are there natural operations on these graphs that are “closed”, i.e. combining two
+asymmetric graphs will yield another asymmetric graph?</li>
+</ul>
+<h2 id="towards-non-well-founded-set-theory"><a class="header-anchor no-hover-padding" href="#towards-non-well-founded-set-theory" aria-label="Anchor link for: towards-non-well-founded-set-theory"><span class="link-icon" aria-hidden="true"></span></a>
+Towards non-well-founded set theory</h2>
+<p>While thinking about and doing all this, I noticed one problem – a hyperedge is not a
+relation, it is more like a relation tuple! So what I <em>actually</em> wanted was to have a
+mapping such that <strong>each node again can be interpreted as a complete hypergraph</strong>.
+But we are almost there – by having an identification between nodes and hyperedges, we
+can also do the following: take any hyperedge, and expand the nodes inside it to
+hyperedges as well! Now our hyperedge turned into a hypergraph by just using the same
+mapping that we already have. So here we are – each node can be interpreted as a
+hyperedge of nodes and also as a hypergraph based on those same hyperedges/nodes itself.</p>
+<p>Now take any self-dual hypergraph, e.g. the one with
+$$a := \{b\}, b := \{a,b,c\}, c := \{b,c\}$$</p>
+<p>Observe how, in a sense, it is a
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Quine_(computing)">Quine</a>, it “reproduces itself”! Start
+by drawing the undirected graph representing this hypergraph, i.e. a graph with the
+edges/loops $a - a, a - b, b - b, b - c, c - c$. Below it, “expand” each node by
+drawing the hyperedges corresponding to the symbol names (e.g. just draw the sets as
+circles around the corresponding letters). Now connect each symbol <em>inside</em> each hyperedge
+with the corresponding hyperedge (i.e. <em>outside</em> of it). The directed edges will basically
+“cross” the hyperedge boundary. Finally merge the bidirectional directed edges into
+undirected ones. You will see that you look at the same graph that you initially started
+with!</p>
+<p>Playing around with these ideas, it struck me again – a long while ago I superficially
+read about <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Non-well-founded_set_theory">non-well-founded set
+theory</a>, and this smelled like
+something similar. These kinds of set theories deny the principle of well-foundedness
+(roughly, that each “set inclusion chain” must eventually end) and instead adds some notion
+of principled non-well-foundedness, allowing for things like <em>sets that contain
+themselves</em> – very interesting territory! After noticing the connection, I <a rel="noopener" target="_blank" href="https://plato.stanford.edu/entries/nonwellfounded-set-theory/">read a
+bit</a> and quickly understood
+that I was already on the way of half-reinventing a variant of this myself. I even already
+came up with the canonical representation of these things as graphs (more specifically,
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rooted_graph#Set_theory">accessible pointed graphs</a>) and
+was thinking about defining equivalence of hyperedges/sets in terms of
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Bisimulation">bisimulations</a>, so I already was on the right
+track, but still doing it on a very intuitive level. Now I probably need to have a serious
+look into <a rel="noopener" target="_blank" href="http://irafs.org/courses/materials/aczel_set_theory.pdf">Aczel’s book</a> to pick
+up some tricks, ideas, results, if I want to learn to formalize such things more rigorously.</p>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/goodbye-hakyll-hello-zola/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Goodbye Hakyll / Haskell, hello Zola / Rust!</p></div>
+                <div><a href="https://pirogov.de/blog/my-phd-story/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Experience Report: Doing a PhD in Theoretical Computer Science</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/self-dual-connected-hypergraphs/#a-metaphysical-prelude">A metaphysical prelude</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/self-dual-connected-hypergraphs/#a-treasure-hunt-self-dual-hypergraphs">A treasure hunt: self-dual hypergraphs</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/self-dual-connected-hypergraphs/#towards-non-well-founded-set-theory">Towards non-well-founded set theory</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Connecting to Your Home Network Using Wireguard</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Connecting to Your Home Network Using Wireguard" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;wireguard-home-vpn&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Connecting to Your Home Network Using Wireguard
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/wireguard-home-vpn/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2025-03-16">16th Mar 2025</time></li><li title="1145 words"><span class='separator' aria-hidden='true'>•</span>6 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tech/">tech</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/linux/">linux</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/network/">network</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/wireguard/">wireguard</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/vpn/">vpn</a></li>
+        </ul><section class="e-content body"><p>In this short post I will show you how to make your home network accessible from the
+outside using WireGuard as VPN. WireGuard is a very versatile tool and I have not much
+experience with setting up networks, but in the end the whole process was pretty
+simple.</p>
+<p>In the end, you will be able to open your browser on the phone wherever you are and open
+some web service you have running at home at e.g. <code>192.168.1.23</code>, and it will just work as
+if you are currently in your home WiFi network.</p>
+<h2 id="preparations"><a class="header-anchor no-hover-padding" href="#preparations" aria-label="Anchor link for: preparations"><span class="link-icon" aria-hidden="true"></span></a>
+Preparations</h2>
+<h3 id="choose-a-suitable-gateway-device"><a class="header-anchor no-hover-padding" href="#choose-a-suitable-gateway-device" aria-label="Anchor link for: choose-a-suitable-gateway-device"><span class="link-icon" aria-hidden="true"></span></a>
+Choose a Suitable Gateway Device</h3>
+<p>If you happen to have a fancy internet router, you might be able to also set it up as the
+WireGuard gateway. But most routers will not allow to do that without flashing some custom
+firmware or using other tricks.</p>
+<p>So the common case is to have a distinct gateway device which is accessible from the
+outside and will route the traffic between the home network and the devices connected
+via VPN. Obviously, it should be low-power, running all the time and be physically
+connected to the router for reliability and speed. I have a Raspberry Pi 3B that I already
+use for various purposes in my home network, so it was a natural choice.</p>
+<h3 id="make-sure-the-gateway-is-accessible"><a class="header-anchor no-hover-padding" href="#make-sure-the-gateway-is-accessible" aria-label="Anchor link for: make-sure-the-gateway-is-accessible"><span class="link-icon" aria-hidden="true"></span></a>
+Make Sure the Gateway is Accessible</h3>
+<h4 id="persistent-ip-or-domain"><a class="header-anchor no-hover-padding" href="#persistent-ip-or-domain" aria-label="Anchor link for: persistent-ip-or-domain"><span class="link-icon" aria-hidden="true"></span></a>
+Persistent IP or Domain</h4>
+<p>If like most private ISP customers you do not have a <strong>persistent public IP address</strong>, you
+should use a <strong>DynDNS</strong> service to point to your currently assigned IP. I have a domain
+registrar that directly supports setting up a DynDNS subdomain which is updated
+automatically by my home internet router.</p>
+<h4 id="port-forwarding"><a class="header-anchor no-hover-padding" href="#port-forwarding" aria-label="Anchor link for: port-forwarding"><span class="link-icon" aria-hidden="true"></span></a>
+Port Forwarding</h4>
+<p>In any case, make sure to set up <strong>port forwarding for the Wireguard port (by default,
+51820) via UDP</strong> from your public IP or domain to your Wireguard gateway device. Make sure
+that no firewall (of the router and/or the gateway) is blocking this port. How this is
+done is out of scope of this post. Of course you can also choose and configure any other
+free port, I just decided to stick with the default.</p>
+<h3 id="install-wireguard-utilities"><a class="header-anchor no-hover-padding" href="#install-wireguard-utilities" aria-label="Anchor link for: install-wireguard-utilities"><span class="link-icon" aria-hidden="true"></span></a>
+Install WireGuard Utilities</h3>
+<p>Wireguard is running mainly in the Linux kernel, but for configuration you might need to
+install the tools <code>wg</code> and <code>wg-quick</code>. On Arch Linux they are part of the
+<a rel="noopener" target="_blank" href="https://archlinux.org/packages/extra/x86_64/wireguard-tools/"><code>wireguard-tools</code></a> package
+and technically this is all you need. To connect from an Android device, you can use the
+<a rel="noopener" target="_blank" href="https://play.google.com/store/apps/details?id=com.wireguard.android">WireGuard app</a>.</p>
+<h3 id="generate-key-pairs"><a class="header-anchor no-hover-padding" href="#generate-key-pairs" aria-label="Anchor link for: generate-key-pairs"><span class="link-icon" aria-hidden="true"></span></a>
+Generate key pairs</h3>
+<p>You need to generate the VPN encryption keys for the gateway as well as for each mobile
+device (smartphone, laptop, etc.) you want to connect to your home network from the
+outside.</p>
+<p>You can generate a pair of keys for some device <code>XYZ</code> with:</p>
+<pre class="z-code"><code><span class="z-text z-plain">wg genkey | tee XYZ_wg_private | wg pubkey &gt; XYZ_wg_public
+</span></code></pre>
+<p>The two generated text files will contain the respective Base64-encoded keys which you
+have to copy into WireGuard config files. After everything is done, you can delete them or
+store them in some safe (possibly encrypted) location.</p>
+<h2 id="configuring-the-gateway"><a class="header-anchor no-hover-padding" href="#configuring-the-gateway" aria-label="Anchor link for: configuring-the-gateway"><span class="link-icon" aria-hidden="true"></span></a>
+Configuring the Gateway</h2>
+<h3 id="prepare-the-wireguard-vpn"><a class="header-anchor no-hover-padding" href="#prepare-the-wireguard-vpn" aria-label="Anchor link for: prepare-the-wireguard-vpn"><span class="link-icon" aria-hidden="true"></span></a>
+Prepare the WireGuard VPN</h3>
+<p>On the gateway, create a WireGuard configuration file in <code>/etc/wireguard/</code>, e.g.
+<code>/etc/wireguard/wg-home.conf</code>. The file name will determine the name of the virtual
+network interface, so in my case, it will be called <code>wg-home</code>.</p>
+<pre class="z-code"><code><span class="z-text z-plain">[Interface]
+</span><span class="z-text z-plain">Address = 10.0.0.1/24
+</span><span class="z-text z-plain">PrivateKey = &lt;gateway private key&gt;
+</span><span class="z-text z-plain">ListenPort = 51820
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">[Peer]
+</span><span class="z-text z-plain">PublicKey = &lt;XYZ public key&gt;
+</span><span class="z-text z-plain">AllowedIPs = 10.0.0.2/32
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain"># add one section per client you want to be able to connect,
+</span><span class="z-text z-plain"># with their respective public keys and a unique assigned
+</span><span class="z-text z-plain"># static IP in the chosen subnet (10.0.0.1/24).
+</span></code></pre>
+<p>To make sure that the WireGuard VPN starts up automatically when your gateway reboots,
+you have to enable it as a service. On Arch Linux:</p>
+<pre class="z-code"><code><span class="z-text z-plain">systemctl enable wg-quick@wg-home
+</span></code></pre>
+<p>As usual, to bring it up or down manually (e.g. after updating the configuration), you can run:</p>
+<pre class="z-code"><code><span class="z-text z-plain">systemctl [start|stop|restart] wg-quick@wg-home
+</span></code></pre>
+<h3 id="enable-nat-for-the-gateway"><a class="header-anchor no-hover-padding" href="#enable-nat-for-the-gateway" aria-label="Anchor link for: enable-nat-for-the-gateway"><span class="link-icon" aria-hidden="true"></span></a>
+Enable NAT for the Gateway</h3>
+<p>We have to make sure that the kernel allows packet forwarding and configure the
+firewall to support <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Network_address_translation">NAT</a> and
+forward the traffic correctly.</p>
+<p>Add the following lines to the Wireguard config in the <code>[Interface]</code> section,
+replacing <code>eth0</code> with your actual network interface which is connecting your
+gateway to the local home network</p>
+<pre class="z-code"><code><span class="z-text z-plain">PreUp    = sysctl -w net.ipv4.ip_forward=1
+</span><span class="z-text z-plain">PostUp   = iptables -w -t nat -A POSTROUTING -o eth0 -j MASQUERADE; iptables -A FORWARD -i wg-home -o eth0 -j ACCEPT; iptables -A FORWARD -o wg-home -i eth0 -j ACCEPT -m state --state RELATED,ESTABLISHED
+</span><span class="z-text z-plain">PostDown = iptables -w -t nat -D POSTROUTING -o eth0 -j MASQUERADE; iptables -D FORWARD -i wg-home -o eth0 -j ACCEPT; iptables -D FORWARD -o wg-home -i eth0 -j ACCEPT -m state --state RELATED,ESTABLISHED
+</span></code></pre>
+<p>The first line enables packet forwarding in the kernel, the next lines set up required
+firewall rules when the WireGuard interfaces is brought up and removes them when it is
+brought down.</p>
+<p>After (re)starting the WireGuard interface, you can verify that the firewall configuration
+works by checking that <code>iptables -L</code> contains the lines</p>
+<pre class="z-code"><code><span class="z-text z-plain">ACCEPT     all  --  anywhere             anywhere
+</span><span class="z-text z-plain">ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+</span></code></pre>
+<p>in the <code>Chain FORWARD</code> section, and that <code>iptables -t nat -L</code> contains the line</p>
+<pre class="z-code"><code><span class="z-text z-plain">MASQUERADE  all  --  anywhere             anywhere
+</span></code></pre>
+<p>in the <code>Chain POSTROUTING</code> section. If you don’t see such entries, maybe you have to check
+permissions. For example, if you run <code>wg-quick</code> as a normal user, usually you cannot
+modify <code>iptables</code> rules. But if you run it as described using <code>systemctl</code>, it should just
+work.</p>
+<h2 id="configuring-the-clients"><a class="header-anchor no-hover-padding" href="#configuring-the-clients" aria-label="Anchor link for: configuring-the-clients"><span class="link-icon" aria-hidden="true"></span></a>
+Configuring the Clients</h2>
+<p>Configuring the gateway correctly was already the most difficult part. Now for the
+clients, you just have to create a matching configuration looking like this:</p>
+<pre class="z-code"><code><span class="z-text z-plain">[Interface]
+</span><span class="z-text z-plain">Address = 10.0.0.2/24
+</span><span class="z-text z-plain">PrivateKey = &lt;XYZ private Key&gt;
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">[Peer]
+</span><span class="z-text z-plain">PublicKey = &lt;gateway public Key&gt;
+</span><span class="z-text z-plain">Endpoint = &lt;gateway domain or IP&gt;:51820
+</span><span class="z-text z-plain">PersistentKeepalive = 25
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain"># to forward ALL traffic through the VPN:
+</span><span class="z-text z-plain"># AllowedIPs = 0.0.0.0/0
+</span><span class="z-text z-plain"># to forward only the VPN+home network:
+</span><span class="z-text z-plain">AllowedIPs = 10.0.0.0/24, 192.168.1.0/24
+</span></code></pre>
+<p>Adapt the subnet for your home network accordingly, if you happen to use something
+different than the common <code>192.168.1.0/24</code> range.</p>
+<h2 id="conclusion"><a class="header-anchor no-hover-padding" href="#conclusion" aria-label="Anchor link for: conclusion"><span class="link-icon" aria-hidden="true"></span></a>
+Conclusion</h2>
+<p>Now you should be able to connect to the VPN from a client and access other devices in the
+VPN and/or home network. Note that in this setup, VPN peers can talk to any home network
+devices, but home network devices that are <em>not</em> part of the VPN <em>cannot</em> talk to
+externally connected clients.</p>
+<p>Note that the most tricky part was in fact not WireGuard itself, but setting up the
+firewall to forward the traffic between the networks correctly. With that out of the way,
+you can now easily run dozens of self-host services at home and access them from anywhere
+without worrying too much about security, with just a single open port for establishing
+the VPN connection!</p>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/silenced-souls-and-philosophical-zombies/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">On Silenced Souls: The Unknown Siblings of the Philosophical Zombie</p></div>
+                <div><a href="https://pirogov.de/blog/deepseek-r1-first-contact/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">First Contact Report: DeepSeek R1 is Pretty Impressive, And You Should Try It</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#preparations">Preparations</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#choose-a-suitable-gateway-device">Choose a Suitable Gateway Device</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#make-sure-the-gateway-is-accessible">Make Sure the Gateway is Accessible</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#persistent-ip-or-domain">Persistent IP or Domain</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#port-forwarding">Port Forwarding</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#install-wireguard-utilities">Install WireGuard Utilities</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#generate-key-pairs">Generate key pairs</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#configuring-the-gateway">Configuring the Gateway</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#prepare-the-wireguard-vpn">Prepare the WireGuard VPN</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#enable-nat-for-the-gateway">Enable NAT for the Gateway</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#configuring-the-clients">Configuring the Clients</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/wireguard-home-vpn/#conclusion">Conclusion</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

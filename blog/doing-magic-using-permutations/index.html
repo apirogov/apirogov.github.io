@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Doing Magic Using Permutations</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Doing Magic Using Permutations" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;doing-magic-using-permutations&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Doing Magic Using Permutations
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/doing-magic-using-permutations/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2024-11-17">17th Nov 2024</time></li><li title="1926 words"><span class='separator' aria-hidden='true'>•</span>10 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/games/">games</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/combinatorics/">combinatorics</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/permutations/">permutations</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#the-magic-act">The Magic Act</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#how-does-it-work">How Does It Work?</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#preparation">Preparation</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#the-mixing-step">The “Mixing” Step</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#the-grand-finale">The Grand Finale</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#discussion">Discussion</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#variations">Variations</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#intermediate-using-a-different-deck-size">Intermediate: Using a different deck size</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#advanced-predicting-the-exact-card">Advanced: Predicting the exact card</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><p>I recently started reading an <a rel="noopener" target="_blank" href="https://www.amazon.de/gro%C3%9Fe-mathematische-Zauberstab-Brandneue-Kunstst%C3%BCcke/dp/3499014254">interesting little
+book</a>
+about doing “magic” using tricks that are based primarily on mathematics, instead of
+deception and dexterity. Inspired by some of the ideas, I have been playing around with a
+deck of cards and came up with a little trick of my own. I can imagine that this kind of
+trick could be already old news and described elsewhere, but as I do not have any sources
+for it, so I decided to write it down.</p>
+<h2 id="the-magic-act"><a class="header-anchor no-hover-padding" href="#the-magic-act" aria-label="Anchor link for: the-magic-act"><span class="link-icon" aria-hidden="true"></span></a>
+The Magic Act</h2>
+<p>The magician has a deck of 16 cards. They may be briefly shown to the observer.</p>
+<p>The following sequence of steps can be done arbitrarily many times:</p>
+<ol>
+<li>The cards are distributed clockwise into four stacks of four cards.</li>
+<li>The observer picks one of the four stacks.</li>
+<li>The stacks are collected, in counter-clockwise order, ensuring that the selected
+stack is now on top, the next is below it, etc.</li>
+</ol>
+<p>After doing this a few times (either a fixed number, like 3, or until the observer is
+satisfied), the magician starts putting cards from the deck to the side, one by one, and
+the observer may stop the magician at any time.</p>
+<p>Then the magic happens: the magician predicts the suit of the next card, and flips it over
+– confirming that the prediction is right. The observer is (hopefully) a bit impressed.</p>
+<h2 id="how-does-it-work"><a class="header-anchor no-hover-padding" href="#how-does-it-work" aria-label="Anchor link for: how-does-it-work"><span class="link-icon" aria-hidden="true"></span></a>
+How Does It Work?</h2>
+<h3 id="preparation"><a class="header-anchor no-hover-padding" href="#preparation" aria-label="Anchor link for: preparation"><span class="link-icon" aria-hidden="true"></span></a>
+Preparation</h3>
+<p>The key ingredient of the trick is that the deck is (of course) prepared, and the kind of
+“mixing” that is done lets us infer the suits of any card at all times. In the following
+you will see how this is done.</p>
+<p>First we need to identify card suits with numbers, I use ♦$\to$1, ♥$\to$2, ♠$\to$3 and ♣$\to$4.
+Next, pick a subset of 16 cards, 4 of each suit, from any standard deck of playing cards.
+Arrange them in such a way that the order of suits is as follows:</p>
+<p><em>top</em> $\rightarrow$ 4,1,2,3,3,4,1,2,2,3,4,1,1,2,3,4 $\leftarrow$ <em>bottom</em></p>
+<p>Note the special structure of that order:
+$(\mathbf{4},1,2,3),(\mathbf{3},4,1,2),(\mathbf{2},3,4,1),(\mathbf{1},2,3,4)$</p>
+<p>The order is highly symmetric – the last number of each group of four consecutive cards
+is the first number of the next group, the first numbers of the groups (in bold)
+cyclically count backwards, while each group is a shifted sequence counting upwards,
+modulo 4. Furthermore, one can consider the deck to be cyclic: we can put 4 cards from the
+top to the bottom (or vice versa) without breaking any property.</p>
+<h3 id="the-mixing-step"><a class="header-anchor no-hover-padding" href="#the-mixing-step" aria-label="Anchor link for: the-mixing-step"><span class="link-icon" aria-hidden="true"></span></a>
+The “Mixing” Step</h3>
+<p>Note that the suit of the top and bottom card of the deck are always the same, and that
+the last card of every group of 4 cards will be the top card of the respective 4 stacks.
+So starting from the initial configuration, after distributing the cards clockwise, the
+four stacks will look as follows:</p>
+<ul>
+<li>$S_1$: 1,2,3,4</li>
+<li>$S_2$: 2,3,4,1</li>
+<li>$S_3$: 3,4,1,2</li>
+<li>$S_4$: 4,1,2,3</li>
+</ul>
+<p>Due to the preparation in the beginning, we knew that $S_4$ must have 4 on top (or
+alternatively, you can remember that $S_1$ has $1 = (4+1) \mod 4$  on top).</p>
+<p>In general, the suit of the top card of the stack $S_i$ the observer picked in the <em>last</em>
+round of “mixing”, which then was the top card of the whole deck, ends up being the top
+card of the stack $S_4$ of the <em>current</em> round.</p>
+<p>As the suits of the top cards also follow the cyclic modulo 4 counting pattern, we
+therefore know the top cards of the other stacks (and in fact, of all cards – which we
+use in the final part of the trick).</p>
+<p>Now when the observer picks a stack (that next will be on top of the deck), you only need
+to remember which suit $n$ the top card of that stack has, and in the next round, the
+suits of the top cards of the stacks will be:</p>
+<ul>
+<li>$S_1$: $(n+1) \mod 4$</li>
+<li>$S_2$: $(n+2) \mod 4$</li>
+<li>$S_3$: $(n+3) \mod 4$</li>
+<li>$S_4$: $n$</li>
+</ul>
+<p>Hence, the only information you have to be aware of is a single number between 1 and 4
+from which you can “see” the suits of the top cards all the time.</p>
+<p>Just to make sure that it is clear how to correctly pick up the stacks – if the observer
+now picks stack $S_2$, which has suit <strong>2</strong> on top, then we pick up the stacks
+counter-clockwise, resulting in a new deck with the following order:</p>
+<p><em>top</em> $\rightarrow$ <strong>2</strong>,3,4,1,1,2,3,4,4,1,2,3,3,4,1,2 $\leftarrow$ <em>bottom</em></p>
+<p>So in the next round, we have the following stacks in front of us:</p>
+<ul>
+<li>$S_1$: 3,4,1,2</li>
+<li>$S_2$: 4,1,2,3</li>
+<li>$S_3$: 1,2,3,4</li>
+<li>$S_4$: <strong>2</strong>,3,4,1</li>
+</ul>
+<h3 id="the-grand-finale"><a class="header-anchor no-hover-padding" href="#the-grand-finale" aria-label="Anchor link for: the-grand-finale"><span class="link-icon" aria-hidden="true"></span></a>
+The Grand Finale</h3>
+<p>As we are at all times fully aware of the order of suits in the deck and the resulting
+new stacks, when we finally start  putting the cards to the side one by one, we can simply
+mentally count up (modulo 4) to keep track of the suits. It is just important to remember
+that after every 4 cards, one number is duplicated. Then just convert the number of the
+top card of the remaining deck (the one to be predicted) back into a suit.</p>
+<h2 id="discussion"><a class="header-anchor no-hover-padding" href="#discussion" aria-label="Anchor link for: discussion"><span class="link-icon" aria-hidden="true"></span></a>
+Discussion</h2>
+<p>A major weakness of this trick is that the order is pretty fragile. Any kind of
+(pseudo-)shuffle would need to be very controlled and ensure that only groups of four
+cards can wander from the top to the bottom of the deck, or vice versa, and we still know
+which group/suit is currently on top.</p>
+<p>Coming up with ideas how to convince the observer of the “randomness” of the cards here
+would make it much more interesting, but I don’t have a good idea how to pull it off or
+make clever use of a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Gilbreath_shuffle">Gilbreath-style</a>
+shuffle.</p>
+<h2 id="variations"><a class="header-anchor no-hover-padding" href="#variations" aria-label="Anchor link for: variations"><span class="link-icon" aria-hidden="true"></span></a>
+Variations</h2>
+<h3 id="intermediate-using-a-different-deck-size"><a class="header-anchor no-hover-padding" href="#intermediate-using-a-different-deck-size" aria-label="Anchor link for: intermediate-using-a-different-deck-size"><span class="link-icon" aria-hidden="true"></span></a>
+Intermediate: Using a different deck size</h3>
+<p>In theory, the trick works with any quadratic number of cards, so instead of $4\times 4$
+it could be any $n \times n$. Practically the versions with $n\in\{3,4,5,6\}$ seem to be
+the range of interesting parameters, but only the version with 16 cards and 4 different
+values (i.e., the suits) seems to match naturally with standard playing cards.</p>
+<p>Adapting the combinatorics to e.g. 25 cards and using a property with 5 distinct values is
+straight-forward (I leave it as an exercise for the reader), but maybe needs some creative
+custom card design.</p>
+<h3 id="advanced-predicting-the-exact-card"><a class="header-anchor no-hover-padding" href="#advanced-predicting-the-exact-card" aria-label="Anchor link for: advanced-predicting-the-exact-card"><span class="link-icon" aria-hidden="true"></span></a>
+Advanced: Predicting the exact card</h3>
+<p>What would be more spectacular than just predicting the suit? Of course – predicting the
+exact card. However, this comes at a huge cost of practicality. I came up with a version
+of this trick where you, in theory, <em>can</em> know the exact cards, but at the cost of making
+the mental arithmetics too impractical (at least for me), and requiring the deck to be
+even more symmetric. So if you would <em>really</em> consider pulling it off, in this version I
+suggest not revealing the deck in the beginning, even briefly.</p>
+<p>But mathematically, it can be done as follows. When selecting a subset of 16 cards, now
+<em>also</em> make sure to have 4 cards with 4 distinct values. For example, we can use only the
+7s, 8s, 9s, and 10s of a deck. Naturally, we will identify them with numbers from 1 to 4
+too, e.g. $7 \to 1, 8\to 2, 9\to 3, 10\to 4$.</p>
+<p>In the original version, we ignored the values completely. Now, we will see all the
+permutation action going on in the deck. We will write a card as $\binom{n}{m}$, where $n$
+is the number of the suit, and $m$ is the number corresponding to the value/type of the
+card.</p>
+<p>The important observation is that while the suits behave as before, the card values
+permutate is a slightly more complicated way – the stacks will alternate between a state
+where each stack contains</p>
+<ul>
+<li>the same card (of different suits), ascending in clockwise order of the stack</li>
+<li>all four distinct cards (of different suits), in the same order as the other stacks</li>
+</ul>
+<p>The start configuration now is:</p>
+<p>$$
+\footnotesize
+\binom{4}{1},\binom{1}{2},\binom{2}{3},\binom{3}{4},
+\binom{3}{1},\binom{4}{2},\binom{1}{3},\binom{2}{4},
+\binom{2}{1},\binom{3}{2},\binom{4}{3},\binom{1}{4},
+\binom{1}{1},\binom{2}{2},\binom{3}{3},\binom{4}{4}
+$$</p>
+<p>The first time we create the four stacks (from our start deck), we will get:</p>
+<ul>
+<li>$S_1 = \binom{1}{1},\binom{2}{1},\binom{3}{1},\binom{4}{1}$</li>
+<li>$S_2 = \binom{2}{2},\binom{3}{2},\binom{4}{2},\binom{1}{2}$</li>
+<li>$S_3 = \binom{3}{3},\binom{4}{3},\binom{1}{3},\binom{2}{3}$</li>
+<li>$S_4 = \binom{4}{4},\binom{1}{4},\binom{2}{4},\binom{3}{4}$</li>
+</ul>
+<p>Note that the stacks are in the <em>equal</em> phase (each stack has all cards of the same
+value). Now, assuming that (as in the previous example), the observer picks stack $2$,
+next time the stacks will be:</p>
+<ul>
+<li>$S_1 = \binom{3}{3},\binom{4}{4},\binom{1}{1},\binom{2}{2}$</li>
+<li>$S_2 = \binom{4}{3},\binom{1}{4},\binom{2}{1},\binom{3}{2}$</li>
+<li>$S_3 = \binom{1}{3},\binom{2}{4},\binom{3}{1},\binom{4}{2}$</li>
+<li>$S_4 = \binom{2}{3},\binom{3}{4},\binom{4}{1},\binom{1}{2}$</li>
+</ul>
+<p>So the stacks now are in the <em>ascending</em> phase. If we do it again, and pick e.g. $S_3$
+(which has suit 1 on top), we will get:</p>
+<ul>
+<li>$S_1 = \binom{2}{3},\binom{3}{3},\binom{4}{3},\binom{1}{3}$</li>
+<li>$S_2 = \binom{3}{4},\binom{4}{4},\binom{1}{4},\binom{2}{4}$</li>
+<li>$S_3 = \binom{4}{1},\binom{1}{1},\binom{2}{1},\binom{3}{1}$</li>
+<li>$S_4 = \binom{1}{2},\binom{2}{2},\binom{3}{2},\binom{4}{2}$</li>
+</ul>
+<p>So when going from ascending to equal phase, the “order” of the card values does not
+change – only the “phase” does, but the order does also change when going from equal
+to ascending.</p>
+<p>To succinctly write down the rule how the deck changes, we need a short notation for the
+current state of the deck (which is also the information we have to remember).
+Let us write $(n, m, p)$ with $n, m \in\{1,2,3,4\}, p\in\{=,\downarrow\}$, where $n$
+is the suit of the first stack, $m$ is the value of the first stack and $p$ is the equal
+or ascending phase.</p>
+<p>Then the start deck $D_1$ corresponds to the state $(1,1,=)$, the next deck $D_2$ (after
+choosing the stack with $2$ on top) is $(3,3,\downarrow)$, and the next deck $D_3$ (after
+choosing the stack with $1$ on top) is $(2,3,=)$.</p>
+<p>With this, I can present the rule how the state changes to the next, depending on the suit
+$i$ of the top card of the stack the observer chooses:</p>
+<ul>
+<li>$(n, m, \downarrow) \overset{i}{\rightarrow} ((i+1)\mod 4, m, =)$</li>
+<li>$(n, m, =) \overset{i}{\rightarrow} ((i+1)\mod 4,(m + i+1 - n)\mod 4, \downarrow)$</li>
+</ul>
+<p>So in this theoretical version of the trick, you can reconstruct the complete deck from
+your state information, and thus can “predict” any card the observer can choose in the end.</p>
+<p>If you think you can memorize this and actually do modular arithmetic on <em>two</em> numbers in
+a live setting, using <em>two</em> different rules that depend on an additional bit of
+information – then you have my admiration and I wish you the best of luck!</p>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/intersecting-segments-without-tears/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Intersecting Line Segments In Cyclotomic Rings Without Tears</p></div>
+                <div><a href="https://pirogov.de/blog/rotatable-wang-tiles/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">How To Make Wang Tiles Rotatable</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#the-magic-act">The Magic Act</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#how-does-it-work">How Does It Work?</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#preparation">Preparation</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#the-mixing-step">The “Mixing” Step</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#the-grand-finale">The Grand Finale</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#discussion">Discussion</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#variations">Variations</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#intermediate-using-a-different-deck-size">Intermediate: Using a different deck size</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/doing-magic-using-permutations/#advanced-predicting-the-exact-card">Advanced: Predicting the exact card</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>
