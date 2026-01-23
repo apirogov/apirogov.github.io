@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • How To Make Wang Tiles Rotatable</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="How To Make Wang Tiles Rotatable" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;rotatable-wang-tiles&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            How To Make Wang Tiles Rotatable
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/rotatable-wang-tiles/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2024-10-20">20th Oct 2024</time></li><li title="1332 words"><span class='separator' aria-hidden='true'>•</span>7 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/geometry/">geometry</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tilings/">tilings</a></li>
+        </ul><section class="e-content body"><p>Everyone who cares about aperiodic tilings knows
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Wang_tile">Wang tiles</a>, they are pretty neat.</p>
+<figure>
+<img width="40%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Wang_11_tiles.svg/500px-Wang_11_tiles.svg.png" />
+<figcaption>
+Smallest set of Wang tiles that can only be tiled aperiodically.
+</figcaption>
+</figure>
+<p>However, I seem to be a rare kind of person who is really annoyed by the fact that
+the tiles cannot be rotated. I found
+<a rel="noopener" target="_blank" href="https://link.springer.com/chapter/10.1007/978-3-642-60207-8_27">a paper</a>
+that presents a simple encoding of Wang tiles into rotatable hexagonal tiles. However, if
+all you want is making the rather abstract Wang tiles more geometric, i.e. make them
+rotatable, flippable and remove the need for colors – it is actually pretty easy to
+do, even though I have not seen the construction presented explicitly.</p>
+<p>It looks like the few needed tricks are folklore knowledge in the field that might be
+considered trivial and is not discussed too much when used in more involved constructions.
+So in this short post, I will explicitly present a simple way how to do it.</p>
+<h2 id="adding-more-colors"><a class="header-anchor no-hover-padding" href="#adding-more-colors" aria-label="Anchor link for: adding-more-colors"><span class="link-icon" aria-hidden="true"></span></a>
+Adding More Colors</h2>
+<p>First let us understand what it actually <em>means</em> that Wang tiles are “not rotatable” – it
+simply means that we assume that left sides always connect to right sides and top sides to
+bottom sides, given that their color matches. So we have to transform the tiles in such
+a way that rotating them cannot allow to accidentally match sides of two tiles that are
+not supposed to be matched. In the first step, we <strong>enforce the distinction between
+<em>horizontal</em> (E/W) and <em>vertical</em> (N/S) sides, by duplicating each
+color<sup class="footnote-reference" id="fr-duplicate_colors-1"><a href="#fn-duplicate_colors">[1]</a></sup></strong>, e.g. we need to distinguish between “vertical blue” and
+“horizontal blue” by recoloring the tile sides along one of the axes.</p>
+<p>The set of Wang tiles above uses red ($R$), green ($G$), blue ($B$) and white ($W$), so we
+can add magenta ($M$), yellow ($Y$), cyan ($C$) and black ($K$) and simply recolor the
+vertical sides to the respective assigned “twin color” using the mapping $R \to M$, $G
+\to Y$, $B \to C$, $W \to K$. This ensures that horizontal and vertical sides cannot be
+matched anymore.</p>
+<h2 id="adding-color-charge"><a class="header-anchor no-hover-padding" href="#adding-color-charge" aria-label="Anchor link for: adding-color-charge"><span class="link-icon" aria-hidden="true"></span></a>
+Adding Color Charge</h2>
+<p>In the next step, we need to ensure the remaining part of the constraint, e.g. we still
+need to prevent the matching of two top sides of a Wang tile. Therefore we need to
+somehow distinguish between the two opposing tile sides. To do that, we <strong>introduce a
+<em>charge</em> (+/-) to the colored sides</strong> and change the constraints from being symmetrical
+(i.e., two colors match if they are equal) to being complementary (i.e., two equal colors
+only match if they have <em>opposite</em> charge).</p>
+<p>In our example, we will charge N/E sides with $+$, and S/W sides with $-$, matching the
+typical orientation of axes in the 2D plane. The resulting Wang-tiles with charged color
+constraints then look as follows:</p>
+<figure>
+<img width="40%" src="charged_wang_tiles.png" />
+<figcaption>
+The tileset above, after separating vertical and horizontal colors and adding charge.
+</figcaption>
+</figure>
+<h2 id="from-charged-colors-to-geometric-constraints"><a class="header-anchor no-hover-padding" href="#from-charged-colors-to-geometric-constraints" aria-label="Anchor link for: from-charged-colors-to-geometric-constraints"><span class="link-icon" aria-hidden="true"></span></a>
+From Charged Colors To Geometric Constraints</h2>
+<p>We could stop here – the tiles in the new tileset, with the modified colors and
+matching rules, can now be freely rotated and the forbidden pairings are now excluded by
+the new constraints. However, while constraints such as edge colors can be really useful
+for designing tiles with desired properties, ultimately the most pure and elegant kind of
+tile is one that does not have any additional extra information attached to its edges. The
+shape of the tiles should already suffice to express matching rules, like in a jigsaw puzzle.</p>
+<p>For each distinct matching pair of charged colors $X_{\pm}$ we need to substitute the
+corresponding straight line segments by a unique curve or path of multiple line segments.
+One aspect to consider here is whether we want or need to prevent flipping of tiles, i.e.
+whether we want to make it impossible to match two tiles with opposite <em>chirality</em>.
+To make cross-chiral matchings impossible, it suffices to ensure that the curve or path is
+not palindromic in a geometric sense, i.e. the boundaries of flipped tiles must not be
+equal to any boundary of an unflipped tile.</p>
+<p>All of this is easily realized if we <strong>substitute each color pair $X_{\pm}$ by two
+paths that match like a lock and key</strong>. The key and lock correspond to $X_+$
+and $X_-$, respectively, and the paths are constructed from the original single straight
+line segments by adding <em>bumps</em> to the key and complementary <em>dents</em> to the lock.
+To ensure chirality, we can simply w.l.o.g. <strong>use only the second half of the key boundary
+to add bumps (i.e. equally, only first half of a lock boundary for the dents), leaving the
+respective other half of the boundary as-is, i.e. a straight line</strong>. If such a tile is
+flipped, the first and second halves of all boundary paths switch places, accidental
+matching of two opposite-handed tiles is prevented by design – you will not be able to
+tile the plane without gaps if you try matching any tiles with opposite chirality.<sup class="footnote-reference" id="fr-spectre-1"><a href="#fn-spectre">[2]</a></sup></p>
+<p>There are many ways to create a family of complementary paths satisfying the requirements
+above. Here we will use maybe not the most aesthetic, but conceptually simple and
+consistent approach – we simply <strong>identify each color with a number</strong>, i.e., we can assume
+that the used charged colors are all of the form $i_{\pm}$ with $1 \leq i \leq n$ for some
+$n \in \mathbb{N}$<sup class="footnote-reference" id="fr-zero-1"><a href="#fn-zero">[3]</a></sup>. Then we derive the complementary paths from the binary encoding
+of the respective number. We use a fixed number of bits that is enough to represent all
+numbers up to $n$, e.g. if $n=30$, then $13 = 01101_2$. <strong>The bits which are set to 1
+determine the location of bumps on the key path (for $+$) and dents on the matching lock
+path (for $-$)</strong>.</p>
+<p>Even though there are many little details that could be further discussed and formalized,
+I think this is a great example of a case where one picture is worth a thousand words and
+the following sketch makes the transformation clearer than anything I could write in
+addition to the provided high-level description:</p>
+<figure>
+<span style="display:flex; justify-content:space-between;">
+<img src="key_lock_construction.svg" width="40%" />
+<img src="wang_jigsaw_tile.svg" width="40%" />
+</span>
+<figcaption>
+Left side: a matched key-lock pair of complementary boundary paths which are used to substitute the
+pair of charged colors $5_+$ and $5_-$ that mark line segments of the original tiles (i.e.
+side of a square).<br />
+Right side: a resulting jigsaw Wang tile from  a tileset with 8 colors, i.e. requiring 4 bits.
+</figcaption>
+</figure>
+<p>As you can easily see, the resulting tileset still works the same way as before, but now
+it does not need any auxiliary edge labels or colors, and the same approach can also be
+used for other regular polygon tiles (i.e. triangular and hexagonal tiles).</p>
+<p>That’s it! I hope you also find this interesting, and maybe even useful. Now you should be
+able to easily design your own Wang tile jigsaw puzzle. Happy tiling!</p>
+<hr><ol class="footnotes-list">
+<li id="fn-duplicate_colors">
+<p>If a color is only used on only vertical/horizontal side and not
+both, we do not need to duplicate it, but to keep it simple, let us assume nothing
+about how colors are used in a given tile set, as we need to duplicate all of the
+colors in the worst case anyway. <a href="#fr-duplicate_colors-1">↩</a></p>
+</li>
+<li id="fn-spectre">
+<p>Of course, this kind of construction is not new, and there are many
+different ways to do it. One very general recipe of a similar kind is used to
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Einstein_problem#The_hat_and_the_spectre">derive the spectre tile from the hat tile</a>. <a href="#fr-spectre-1">↩</a></p>
+</li>
+<li id="fn-zero">
+<p>Note that we do not use the number 0 to encode a color, because, as you will see,
+in our encoding it would result in a path without any bumps or dents, which is
+problematic for multiple reasons related to the symmetries of the resulting tile. <a href="#fr-zero-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/doing-magic-using-permutations/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Doing Magic Using Permutations</p></div>
+                <div><a href="https://pirogov.de/blog/julia-mandel-intro/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">A Hobbyist Introduction to Julia and Mandelbrot Sets</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/rotatable-wang-tiles/#adding-more-colors">Adding More Colors</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/rotatable-wang-tiles/#adding-color-charge">Adding Color Charge</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/rotatable-wang-tiles/#from-charged-colors-to-geometric-constraints">From Charged Colors To Geometric Constraints</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

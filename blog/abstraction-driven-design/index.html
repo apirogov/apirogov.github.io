@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Abstraction Driven Design - The Essence Of Software Development</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Abstraction Driven Design - The Essence Of Software Development" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;abstraction-driven-design&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Abstraction Driven Design - The Essence Of Software Development
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/abstraction-driven-design/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2024-06-29">29th Jun 2024</time></li><li title="3874 words"><span class='separator' aria-hidden='true'>•</span>20 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/essay/">essay</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/software/">software</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/programming/">programming</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#paradigms-are-shadows-of-someone-s-experience">Paradigms are Shadows of Someone’s Experience</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#the-art-of-picking-the-right-tool-for-the-job">The Art of Picking the Right Tool for the Job</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#universality-of-structural-beauty">Universality of Structural Beauty</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#digression-an-ode-to-haskell">Digression: An Ode to Haskell</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#the-oop-vs-fp-war-is-over-and-everybody-won">The OOP vs. FP war is over, and everybody won</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#the-one-true-method-tm-aggressive-abstraction">The one true method(tm) - aggressive abstraction</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#how-i-usually-write-software-in-practice">How I usually write software in practice</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#programming-is-the-closest-substitute-for-magic">Programming is the closest substitute for Magic</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><p>Over time I have talked to multiple people who genuinely seem like following some
+ritualized approach to software development, such as TDD or Scrum, living by laws such as
+“Red, Green, Refactor”, doing “daily stand-ups” or following recipes from some design
+pattern bible, either being still in honey moon phase with that idea, or really
+believing they found some kind of silver bullet. Maybe it’s just me, but something inside
+me automatically revolts whenever some new religion comes up and it’s evangelists start
+proselytizing.</p>
+<p>Alongside reflections on my own stance concerning software development paradigms and
+practices, in the following I try to argue that mechanical usage of any development
+approach does not necessarily leads to good results, and that conversely, one can write
+perfectly fine software without the constraints of rigid ceremony – at least if you are
+the kind of person with enough passion for the craft and who is committed to to
+internalizing and following good practice in spirit, if not by letter.</p>
+<h2 id="paradigms-are-shadows-of-someone-s-experience"><a class="header-anchor no-hover-padding" href="#paradigms-are-shadows-of-someone-s-experience" aria-label="Anchor link for: paradigms-are-shadows-of-someone-s-experience"><span class="link-icon" aria-hidden="true"></span></a>
+Paradigms are Shadows of Someone’s Experience</h2>
+<p>It is well known that software development is both an art and a craft. The craft is, like
+any other, only learned by doing, and the art is learned through the experience gained by
+doing it for a long time. Nothing replaces having done innumerable stupid things,
+exploring many different approaches, and feeling all joy and frustration caused in the
+process. <strong>Experience cannot be taught or substituted.</strong></p>
+<p>All formalized methodology is an attempt of the creators, usually very senior developers,
+to capture the core intuitions and insights they gained and convey the lessons they
+learned to others - a mere shadow of someone else’s painfully earned experience, carefully
+crafted into a dogma for others to live by.</p>
+<p><strong>While you cannot truly teach experience, you can train behavior.</strong> So unlike in biology,
+where “form follows function”, here we have that  “function follows form”. The promise of
+any methodology or paradigm is: if you follow the steps as you are told, you will end up
+with a result that has certain desirable properties, by design.</p>
+<p>All these methodologies, paradigms and recipes are social, mental and technical tools,
+created to capture and disseminate some good practice or successful pattern - something
+that empirically and reproducibly results in high quality output in a suitable
+environment. <strong>Each paradigm is an abstraction of someone’s ineffable
+practical experience</strong>, their personal glimpse into the Tao of software development,
+earned by the daily fight with concrete problems they were solving.
+Sadly, these ideas, even if good, often turn into some kind of cult, but probably this is
+unavoidable.<sup class="footnote-reference" id="fr-unavoidable_cult-1"><a href="#fn-unavoidable_cult">[1]</a></sup></p>
+<h2 id="the-art-of-picking-the-right-tool-for-the-job"><a class="header-anchor no-hover-padding" href="#the-art-of-picking-the-right-tool-for-the-job" aria-label="Anchor link for: the-art-of-picking-the-right-tool-for-the-job"><span class="link-icon" aria-hidden="true"></span></a>
+The Art of Picking the Right Tool for the Job</h2>
+<p>One popular religion, Scrum, is about managing work, time and communication. TDD is about
+consistently creating well-designed, modular and loosely coupled interfaces while ensuring
+that they actually work. BDD is about focusing on actual requirements and usability to
+guide the design of the system. DDD is about extracting, isolating and shielding the core
+of your system from ever-changing requirements and environment parameters, and so on.</p>
+<p>People following a dogmatic system too zealously tend to be overjoyed by good experiences
+they have, if that system works for them, but miss out on the insights and valuable
+lessons of knowing other ways, of feeling the difference and understanding the reason
+behind each rule on an intuitive level. <strong>Each methodology has intrinsic costs and
+trade-offs</strong>, just like every software it helps us building. Given some problem we want to
+solve, the approach or design dictated by someone else’s dogmatic system is</p>
+<ul>
+<li>not necessarily the best</li>
+<li>not the only reasonable option</li>
+<li>sometimes not even feasible or useful</li>
+</ul>
+<p><strong>I strongly believe in eclecticism.</strong> Learning from everybody and everything, soaking it
+all up. Learning the trade-offs - the good, the bad and the ugly, of every architecture
+used for managing code or people, each programming paradigm. Trying not to fall for hypes,
+researching all the reasons why it might actually suck, identifying situations where it is
+not applicable or actively harmful. As it is often said - don’t use a saw when you need to
+put a nail in the wall. When learning some new approach, ask - what is it’s spirit, it’s
+essence? What does it try to teach me, what does it offer, is there any evidence? In which
+cases can this be useful, and when is it better to stay away? What is the history and
+context of it? Try to read the mind of those who came up with it and guess what they
+<em>actually</em> wanted to share with us.</p>
+<p>Some ideas have been historically and empirically proven to be horrible or naive, and
+software development is not only too fast-paced and young, but also much too diverse and
+fluid discipline to pin it all down to a few easy to follow rules that almost ensure a
+solid result. That is why it is still more of a performance art rather than true
+“engineering” discipline, compared to the standardization level and maturity of other
+fields.</p>
+<p>Yes, we might have “coding standards” and the like, but many conventions and rules we
+train ourselves to follow are just workarounds for limitations of often old programming
+languages we currently use, so these kind of rules do not count. Often we even
+disagree on the set of conventions to use – they vary widely across projects and
+programming languages. So what we do <em>not</em> have, are reasonably fail-proof higher order
+rules or recipes for building large complex systems that work well and remain maintainable
+over long periods of time. Software projects are always a moving target. The closest thing
+we have are rough architectural patterns, but even those need very careful consideration.</p>
+<p>Honestly, I don’t want it any other way. It makes programming an intrinsically
+explorative and creative occupation. If everything was already figured out and the work
+could be done by following some human-level algorithm, I would probably rather do other
+things with my life. However, I do think that amidst the noise and buzz of the current
+trends <strong>there is something timeless and universal to understand, learn and apply</strong>, you
+just need to see or intuit it.</p>
+<h2 id="universality-of-structural-beauty"><a class="header-anchor no-hover-padding" href="#universality-of-structural-beauty" aria-label="Anchor link for: universality-of-structural-beauty"><span class="link-icon" aria-hidden="true"></span></a>
+Universality of Structural Beauty</h2>
+<p>Learning to program is not difficult, like learning to speak and write, so
+<strong>people mostly tend to see the linguistic and communicative of code.</strong> That is why we now
+have a flood of bootcamp coders who think they became developers by learning some
+syntax, while at the same time skilled engineers are a scarce resource.</p>
+<p><strong>Software development is less about reading or writing, it is much more about thinking</strong>.
+Good prose does not depend on the language it is written in, or format used for printing.
+We value it for well-constructed deep thoughts (and feelings), expressed with a masterful,
+lucid and creative use of language, whichever the author chose to use. In fact, all other
+carrier mediums of art can be seen as just other languages for self-expression - be it
+music, paintings, or computer code. <strong>Beauty is in symmetry, beauty is in good structure,
+beauty is in balance, beauty is in depth.</strong></p>
+<p>I went to university not with the goal of getting a degree, but to learn about computer
+science beyond the fun and shiny linguistic interface that programming languages provide.
+If my academic education gave me anything of value at all, then it is the ability to
+think deeply and clearly, and acquiring a sense and taste for mathematical beauty.</p>
+<p>Code is sitting somewhere between natural language and mathematical equations, and I think
+we would be all better off approaching programming more akin to mathematicians who
+construct beautiful, elegant formalisms and theorems, and less like bad books with
+incoherent plots and too many convoluted, but empty words.</p>
+<p>There is a nice quote from <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Stefan_Banach">Banach</a> I
+stumbled on:</p>
+<blockquote>
+<p>A mathematician is a person who can find analogies between theorems; a better
+mathematician is one who can see analogies between proofs and the best mathematician can
+notice analogies between theories. One can imagine that the ultimate mathematician is one
+who can see analogies between analogies.</p>
+</blockquote>
+<p>I hope you can see the analogy to make this quote equally applicable to developers.</p>
+<h2 id="digression-an-ode-to-haskell"><a class="header-anchor no-hover-padding" href="#digression-an-ode-to-haskell" aria-label="Anchor link for: digression-an-ode-to-haskell"><span class="link-icon" aria-hidden="true"></span></a>
+Digression: An Ode to Haskell</h2>
+<p><strong>If there is something that had a strong influence on me as a developer except for getting
+an academic education and diving into theory, then it was picking up Haskell</strong>. Once you
+know a few programming languages, each next language feels easy, mostly like learning new
+words for the same things. That is what I thought before I tried to learn Haskell. Haskell
+was the first one that really taught me something genuinely, going way deeper than syntax.
+It’s like instead of going to a neighboring country, you suddenly find yourself 100 years
+into the future exploring a different planet.</p>
+<p>I spent a lot of time working and fighting with Haskell, and it really is the most
+enlightening and still practically usable programming language one can try to learn. I
+might be a mediocre Haskell programmer, but I believe it made me a vastly better
+programmer in any other language – by breaking my brain and reconfiguring it in new ways.</p>
+<p>There are many other languages doing some flavor of FP, but Haskell is so much more than
+that – due to its exceptionally powerful type system and the abstractions it enables. It
+is the only language I know that is actually suitable and used for real-world problems and
+at the same time can still feel like doing abstract math. <strong>It is beautiful, and still full
+of ideas that very slowly, over decades, leak into mainstream languages.</strong> Usually under
+some less scary names, in simplified more easily digestible form they are re-discovered or
+absorbed by the mainstream:</p>
+<ul>
+<li>addition of lambdas as primitives (for frictionless function composition)</li>
+<li>the rise of general higher order combinators, such as maps, folds, zips</li>
+<li>optional type, instead of using null values (the Maybe type)</li>
+<li>variant types, instead of cumbersome ad-hoc visitor patterns (the Either type)</li>
+<li>futures and promises as special common cases of abstract monadic computation</li>
+<li>powerful mechanisms for parametric polymorphism (“generics”, “templates”)</li>
+<li>preference of generic function and type composition over inheritance</li>
+<li>preference of immutable structures and isolation of mutable state</li>
+<li>preference of controlling side effects and separating them from pure functions</li>
+</ul>
+<p>Just to mention a few examples. Most concepts that get adopted have a good power-to-weight
+ratio, apparently sitting at some sweetspot between simplicity and near-universal
+applicability.</p>
+<p>Sure, Haskell has its downsides, difficulties, design flaws as well – try to insert a
+harmless print statement in a random place, or understanding memory consumption. It
+probably will never leave the niche it comfortably sits in, and it does not want
+to<sup class="footnote-reference" id="fr-success-1"><a href="#fn-success">[2]</a></sup>. <strong>Just like Jodorowsky’s Dune movie that was never made, Haskell is the most
+influential programming language that almost nobody ever used</strong>, but that already affected
+dozens of modern popular languages and enlightened generations of receptive developers.
+What could be a bigger success?</p>
+<h2 id="the-oop-vs-fp-war-is-over-and-everybody-won"><a class="header-anchor no-hover-padding" href="#the-oop-vs-fp-war-is-over-and-everybody-won" aria-label="Anchor link for: the-oop-vs-fp-war-is-over-and-everybody-won"><span class="link-icon" aria-hidden="true"></span></a>
+The OOP vs. FP war is over, and everybody won</h2>
+<p>I’ve seen some of the fruit and read enough stories of classical, deeply inheritance-based
+<strong>OOP</strong>, manifested in the most pure form in Java. <strong>It is a naive idea: taking the
+common-sense way of conceptualizing the world, and trying to mimic it in code.</strong> But the
+real world is a mess and hard to reason about, so that is exactly what we get: a messy
+entangled global state of interacting entities, the nightmare of our own making. It looks
+like the world agrees by now that this idea has failed miserably.</p>
+<p><strong>FP</strong>, on the other hand, is more mathematical in its very nature - you break the world
+down to atoms, simple building bricks of computation. Like physicists, who capture the
+essence and dynamics of the universe in a bunch of equations concerning some dozen of
+fields, by uncovering and exploiting the underlying symmetries and surprising homogenity
+and predictability underlying all the mess we see at the macro level, they have long
+figured out that <strong>the global dynamics emerges from a myriad of simple local interactions,
+each individually perfectly understood and transparent</strong> (or very close to that).</p>
+<p><strong>Modern OOP</strong>, as it is preached and practiced these days, has been mostly stripped of
+it’s naive assumptions and blunders, teaching to use composition over inheritance, keep
+entanglement between objects low, and thinking more about clear ownership of data. <strong>Either
+on purpose or by some accidental conceptual convergence, this tamed and revised form of
+OOP is actually pretty close to being FP, presented in object-shaped clothing.</strong> The main
+difference is the emphasis remaining on the data entities over the operations, whereas the
+FP perspective naturally does the opposite - usually emphasizing functions consuming
+abstract generic interfaces, instead of concrete data types.</p>
+<p>Both views have value, in fact - they are complementary. There is data, and there is code.
+Sometimes they are even one and the same and barely distinguishable (that lesson and it’s
+power best taught by Lisp), whereas sometimes we prefer to create more rigid boundaries
+(embodied by languages with strong and expressive type eystems). <strong>Both perspectives are
+equally important and must be balanced in order to achieve our <em>actual</em> goals.</strong>
+What we all want is to write less code that does more, code that has elusive qualities
+such as <em>“loose coupling, but high cohesion”</em>, which is just fancy OOP slang to express
+our desire for:</p>
+<ul>
+<li>simplicity (small and obvious pieces that are almost trivially correct)</li>
+<li>generality (you can use pieces in many contexts)</li>
+<li>modularity (you can use pieces in isolation)</li>
+<li>composability (you can build many different things with the pieces you have)</li>
+</ul>
+<p>In a system with these properties, functions and data structures are like razor-sharp
+tools of haiku-like beauty. I believe that code written like this is naturally closer to
+mathematics, closer to theoretical computer science.</p>
+<p><strong>The code best exemplifying all these ideals can often be found in standard libraries.</strong>
+What code is more atomic, generic and composable and modular than the vocabulary the
+language creators provide to the masses of developers building all the required systems
+for practical tasks? And which developers are more qualified and experienced than those
+creating programming languages and writing powerful libraries? If you want to know how to
+write well-designed software, good standard libraries are a place to start learning.</p>
+<h1 id="the-one-true-method-tm-aggressive-abstraction"><a class="header-anchor no-hover-padding" href="#the-one-true-method-tm-aggressive-abstraction" aria-label="Anchor link for: the-one-true-method-tm-aggressive-abstraction"><span class="link-icon" aria-hidden="true"></span></a>
+The one true method(tm) - aggressive abstraction</h1>
+<p>I find the cage of routine, dogma and ceremony to be repulsive, but I believe I do have a
+thing that is some kind of an intuitive methodology. When I approach a problem, I do the
+theoretician’s trick - <strong>try to generalize, solve the simpler general problem, then
+specialize to your concrete context and fill in missing details</strong>. It is just the
+recursive use of tasteful abstraction, which can be described interchangeably as:</p>
+<ul>
+<li>aggressively identifying recurring patterns and unifying them</li>
+<li>compressing information, while reducing or externalizing noise</li>
+<li>decreasing the “entropy” of the system, while increasing its “potential energy”</li>
+</ul>
+<p>I try to do this across all the levels and scopes of a project, manifesting this as:</p>
+<ul>
+<li>pretending to build a meta software for that kind of problem I have, instead of coming up with a one-off solution for a singular problem</li>
+<li>pretending to write code for a generic library or framework, even if the code will most likely never leave that project</li>
+<li>actually refactoring out a (possibly internal) library, if there is something of more general value that could be reused</li>
+<li>thinking in terms of generic, small, simple functions and data types with good properties (as discussed further above)</li>
+</ul>
+<p><strong>If you get used to thinking like this, you naturally gravitate toward code that is easy
+to test, understand, reuse, (de-)compose and extend.</strong> All of this boils down to
+performing the creative art of finding the maximal level of abstraction that is useful at
+any given level, but not more than that.</p>
+<p><strong>The process involves throwing away as many details as possible that obstruct the view of
+the big picture</strong>, clearly identifying invariants and symmetries and dependencies, and
+adding as many degrees of freedom as possible, reducing the number of needed assumptions
+and constants coming from practical requirements and externalizing them to parameters.
+Maybe this can be seen as a vast generalization of the SOLID principles, which are
+both consistent with and I believe quite naturally follow from this way of thinking.</p>
+<p>The art of abstraction is where pure mathematicians tend to excel at, but of course, <strong>there
+is also some risk of falling into the trap of over-abstraction</strong> - when your general
+solution has so many parameters and moving parts that it looks not simpler and more
+managable, but more convoluted and complicated. This means that you missed the right point
+to stop. Even abstraction, the most powerful cognitive tool humanity ever created and
+perfected, is still just a tool. It should not be fetishized, and requires some taste and
+experience. As usual, everything is only good in moderation, and only if approached with
+healthy pragmaticism.</p>
+<p>We are not abstracting just for the sake of it or for showing off, but with the goal of
+finding a clean, elegant, well designed and reasonable solution to a concrete problem we
+face. <strong>A true virtuoso must know when to indulge in some fancy wizardry, and when it is
+best to stick with something simple and straight-forward.</strong> Just like a good musician could
+solo all day, but will humbly play and stick to a basic melody or rhythm, if that is what
+the song or band needs.</p>
+<h1 id="how-i-usually-write-software-in-practice"><a class="header-anchor no-hover-padding" href="#how-i-usually-write-software-in-practice" aria-label="Anchor link for: how-i-usually-write-software-in-practice"><span class="link-icon" aria-hidden="true"></span></a>
+How I usually write software in practice</h1>
+<p>When I sit down to solve some fresh problem from scratch, after understanding the most
+important side constraints and true requirements, I try to break it down, come up with
+nice loosely coupled building blocks, starting from sketches of bigger components and
+subsystems, then decomposing those subsystems down to focused, small functions and data
+types. I might draw some conceptual sketches and type signatures on a whiteboard or paper.</p>
+<p>Then, piece by piece, I start writing out the functions and structures, more or less
+simultaneously encoding my intentions and assumptions about their behavior in unit tests.
+All of this is then semi-consciously mapped to idioms and constraints of a programming
+language that I have to or choose to use, balancing the style and patterns the language
+was designed for (as far as I am aware of them), and my own tastes and preferences.</p>
+<p>If I can, I extensively use a REPL to interact with pieces of code. It keeps the gap
+between mental model and concrete implementation as small as possible, the code becomes
+more tangible - almost like a physical object. If I do an experiment often enough to
+notice and be annoyed by a pattern, it’s time to pin it down as an automated test. If I
+have no REPL, I use a test framework as a poor person’s REPL, writing out and evaluating
+my exploratory interactions with the function I am writing in pseudo test cases, later
+shaping and refining them into proper tests that check all relevant edge cases and
+invariants.</p>
+<p>At no point of all this I use any trendy methodology, or follow any rigid disciplined
+approach or ritualized practice that has an established label. In fact, I feel that any
+rigid routine is very quickly not an aid, but a cage. Maybe a well-intentioned cage, but
+still a cage nonetheless. Fixed paradigms that someone else created are, to loosely quote
+Wittgenstein, the ladder that you need to use just once, in order to get to some elevated,
+difficult to reach place. The ladder becomes obsolete and can be thrown away once you
+attain the insights you can get from the new vantage point.</p>
+<p><strong>Once you internalize the essence of a concept, it becomes a part of your thinking, a
+part of your being.</strong> You learn to voluntarily stay within the constraints outlined by a
+useful conceptual framework, but stay open minded to recognize situations when breaking
+some rules or following other rules is the better option.</p>
+<p>Am I any good at all this? I don’t know, I think I’m doing fine and hope that I am getting
+better over time. What I think I <em>do</em> know for sure is where the light is, and I always
+try to reach towards it. Once you start believing you are already <em>there</em>, you stop
+learning and growing. All I can hope is that code I write next year is better than last
+year, and that I can gracefully look back at code from last year, forgive myself, and be
+thankful that I apparently have evolved. I guess, another implicit rule I follow is: <strong>try
+to write code that future-you will not be ashamed of or hate you for.</strong></p>
+<h1 id="programming-is-the-closest-substitute-for-magic"><a class="header-anchor no-hover-padding" href="#programming-is-the-closest-substitute-for-magic" aria-label="Anchor link for: programming-is-the-closest-substitute-for-magic"><span class="link-icon" aria-hidden="true"></span></a>
+Programming is the closest substitute for Magic</h1>
+<p>When I am absorbed in the process of creation, the only rule I follow is my gut feeling,
+intuition, and desire for crystalline mathematical beauty of well-crafted structure,
+reflected in the virtues of good code discussed above. It all just naturally flows - from
+the ephemeral platonic realm of perfect concepts and ideas, channelled and filtered by my
+imperfect thoughts, tainted by the mess and incidental complexity of real world problems
+and constraints, and finally projected out, pouring the spirit that came ex nihilo, right
+into the silicon flesh in our physical realm - executable code on a hard drive, created to
+do something useful.</p>
+<p>Probably it is the closest we can ever get to the fantasy of wielding supernatural powers
+and using powerful magic spells that can bring a golem to life. For me, tapping into the
+mathematical void, source of all abstraction and creation, channeling and shaping it to
+manifest something new in the world that unifies both beauty and value - this is all the
+joy and bliss of software development.</p>
+<p>Now the somewhat amusing punchline, and starting point for thinking about all this, was
+that the typical outcome of my intuitive “abstraction driven design” process is
+probably not too different, maybe even observationally indistinguishable, from results
+that others would achieve with TDD and other more formalized approaches. Which, I guess,
+confirms that these approaches, when used correctly, <em>are actually working pretty well!</em>
+I just prefer staying a liberal agnostic and really dislike any kind of orthodoxy, that is
+all.</p>
+<p>So closing on a less serious note - to not appear to others as a wild and uncivilized
+barbarian, I figured that when talking to other people, maybe I should say: <em>yes,
+in fact I also do some form of “TDD”!</em> Only without mentioning that the “T” in my personal
+“TDD” is not for “Testing”, but for “Tao” – because I intuitively follow the Tao of
+structural beauty and tasteful abstraction. If the results are decent enough, who will be
+able to tell the difference?</p>
+<hr><ol class="footnotes-list">
+<li id="fn-unavoidable_cult">
+<p>If it would not turn into a cult, it would mean most people already
+know better. As they don’t know better and thus become cult warriors, the original
+idea their cult is based on is apparently is not obvious or intuitive enough for them. <a href="#fr-unavoidable_cult-1">↩</a></p>
+</li>
+<li id="fn-success">
+<p>“Avoid success at all costs” is the motto of the language, correctly
+parsing the statement to get the intended meaning is left as an exercise for the reader. <a href="#fr-success-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/perfect-precision-2d-geometry-complex-integers/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Perfect-Precision 2D Geometry Using Complex Integer Rings</p></div>
+                <div><a href="https://pirogov.de/blog/count-edge-labelled-trees/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">A Prime Way to Count Edge-Labeled Ordered Trees</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#paradigms-are-shadows-of-someone-s-experience">Paradigms are Shadows of Someone’s Experience</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#the-art-of-picking-the-right-tool-for-the-job">The Art of Picking the Right Tool for the Job</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#universality-of-structural-beauty">Universality of Structural Beauty</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#digression-an-ode-to-haskell">Digression: An Ode to Haskell</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#the-oop-vs-fp-war-is-over-and-everybody-won">The OOP vs. FP war is over, and everybody won</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#the-one-true-method-tm-aggressive-abstraction">The one true method(tm) - aggressive abstraction</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#how-i-usually-write-software-in-practice">How I usually write software in practice</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/abstraction-driven-design/#programming-is-the-closest-substitute-for-magic">Programming is the closest substitute for Magic</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

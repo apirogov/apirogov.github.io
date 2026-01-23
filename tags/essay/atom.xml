@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://pirogov.de/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;pirogov.de</tabi:base_url>
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>light</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>essay</tabi:current_section>
+    </tabi:metadata><title>Simply Typed - essay</title>
+        <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link href="https://pirogov.de/tags/essay/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://pirogov.de/tags/essay/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2025-05-25T00:00:00+00:00</updated><id>https://pirogov.de/tags/essay/atom.xml</id><entry xml:lang="en">
+        <title>On Silenced Souls: The Unknown Siblings of the Philosophical Zombie</title>
+        <published>2025-05-25T00:00:00+00:00</published>
+        <updated>2025-05-25T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/silenced-souls-and-philosophical-zombies/" type="text/html"/>
+        <id>https://pirogov.de/blog/silenced-souls-and-philosophical-zombies/</id>
+        </entry><entry xml:lang="en">
+        <title>Abstraction Driven Design - The Essence Of Software Development</title>
+        <published>2024-06-29T00:00:00+00:00</published>
+        <updated>2024-06-29T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/abstraction-driven-design/" type="text/html"/>
+        <id>https://pirogov.de/blog/abstraction-driven-design/</id>
+        </entry><entry xml:lang="en">
+        <title>The Tragedy Of Academia: Very Smart People Forced To Do Stupid Things</title>
+        <published>2024-02-24T00:00:00+00:00</published>
+        <updated>2024-02-24T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/tragedy-academia/" type="text/html"/>
+        <id>https://pirogov.de/blog/tragedy-academia/</id>
+        </entry><entry xml:lang="en">
+        <title>Experience Report: Doing a PhD in Theoretical Computer Science</title>
+        <published>2021-03-07T00:00:00+00:00</published>
+        <updated>2021-03-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/my-phd-story/" type="text/html"/>
+        <id>https://pirogov.de/blog/my-phd-story/</id>
+        </entry>
+</feed>

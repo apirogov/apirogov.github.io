@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • A Hobbyist Introduction to Julia and Mandelbrot Sets</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="A Hobbyist Introduction to Julia and Mandelbrot Sets" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;julia-mandel-intro&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            A Hobbyist Introduction to Julia and Mandelbrot Sets
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/julia-mandel-intro/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2024-10-17">17th Oct 2024</time></li><li title="4334 words"><span class='separator' aria-hidden='true'>•</span>22 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/fractals/">fractals</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#introduction-boring-and-not-so-boring-fractals">Introduction: Boring and Not So Boring Fractals</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#from-dynamical-systems-to-multibrot-sets">From Dynamical Systems to Multibrot Sets</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#basic-classification-of-periodic-points">Basic Classification of Periodic Points</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#visualizing-julia-and-mandelbrot-sets">Visualizing Julia and Mandelbrot Sets</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#the-escape-time-algorithm">The Escape Time Algorithm</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#escape-times-and-lemniscates">Escape Times and Lemniscates</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#common-structures-in-the-mandelbrot-set">Common Structures in the Mandelbrot Set</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#further-resources">Further Resources</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#complex-analysis">Complex Analysis</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#complex-dynamical-systems">Complex Dynamical Systems</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#fractals">Fractals</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#mandelbrot-and-julia-sets">Mandelbrot and Julia Sets</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#external-rays-and-angles">External Rays and Angles</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#useful-software">Useful Software</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><p><em>A while ago I have been recreationally exploring <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Multibrot_set">Multibrot
+sets</a> and discovered a few very interesting
+things that I have not seen being observed or explained anywhere (at least, it seems not
+to be common knowledge). As usual, other things came in the way, but I am still planning
+to write a post or two to document and wrap up these observations.</em></p>
+<p><em>In this post, which I have been sitting on for almost a year, I just want to give a brief,
+incomplete and non-rigorous introduction to these very well-known and popular fractals. Of
+course there is a (frighteningly) large amount of material already, written from different
+perspectives and targeting different audiences. This is therefore mostly a personal
+summary from my attempt of navigating and understanding the key aspects of the topic. It
+is intended as an entry point, with links to other relevant pages and resources for
+further exploration.</em></p>
+<h2 id="introduction-boring-and-not-so-boring-fractals"><a class="header-anchor no-hover-padding" href="#introduction-boring-and-not-so-boring-fractals" aria-label="Anchor link for: introduction-boring-and-not-so-boring-fractals"><span class="link-icon" aria-hidden="true"></span></a>
+Introduction: Boring and Not So Boring Fractals</h2>
+<p>There seems to be no accepted rigorous definition of what a fractal actually <em>is</em>, except
+for some <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Fractal">very general properties</a> shared by
+different instances of fractal patterns – such as self-similarity and intricate structure
+at arbitrary scales. I won’t waste time illustrating the ubiquity of fractal-like
+structures in nature, as there are lots of books and articles written on this topic.</p>
+<p>There are many examples of constructed, mathematical fractals of varying complexity. A
+whole category of fractals I would call <em>“boring fractals”</em> consists of patterns
+generated by a simple recursive substitution rule, expressed in a suitable formalism (such
+as <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/L-system">L-systems</a>). What they have in common is that they
+look exactly the same at all scales – there are no surprises. One simple example are
+tree-like images called
+<a rel="noopener" target="_blank" href="https://users.math.yale.edu/~bbm3/web_pdfs/171canopyandshortest.pdf">fractal canopies</a>,
+illustrating the perfect self-similarity inherent in an infinite recursive process.</p>
+<p>Once understood and demystified, this kind of predictable <strong>fractal structure is
+in fact quite similar to a periodic pattern</strong>. Periodic patterns repeat along a spatial (or
+in rare cases, <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Time_crystal">temporal</a> direction), while
+simple fractals are constructed by repeatedly expanding a characteristic pattern “into
+itself” – thus the <em>self-similarity</em> – which is then visually reflected as similar
+details appearing on all scales<sup class="footnote-reference" id="fr-scale-dimension-1"><a href="#fn-scale-dimension">[1]</a></sup>. A non-graphical example of the same
+phenomenon are fractal sequences generated by e.g. <a href="/blog/aperiodic-sequences-convolution-grammars">Toeplitz words and morphic
+words</a>, and there is a
+<a rel="noopener" target="_blank" href="https://hal.science/hal-01886008/document">well-understood</a>
+<a rel="noopener" target="_blank" href="https://www.win.tue.nl/~hzantema/turtle.pdf">connection</a> between such discrete
+fractal-like infinite sequences and the intricate two dimensional fractal images many are
+familiar with. But however they are generated, I believe that in some way, ultimately
+<strong>all fractals are visual traces of some infinite recursion</strong>.</p>
+<p>The really <em>interesting</em> fractals all seem to have deep connections to
+<a rel="noopener" target="_blank" href="https://en.m.wikipedia.org/wiki/Chaos_theory">chaos</a>. The typical examples in this
+category arise from studying (often quite simple-looking) dynamical systems, and the
+uncovered fractal images seem to exhibit intricacy and patterns that are neither obviously
+derivable from the dynamical system, nor appear reducible to a simple recursive
+substitution rule. Maybe, even quite certainly, this just shows our persisting lack of
+understanding of such processes. But this serendipitous emergence of unexpected complex
+patterns is what makes investigating such phenomena so enticing and exciting.</p>
+<p>It is the realm of <em>chaotic dynamical systems</em> where we can discover a world of beautiful
+and organic-looking fractals that still harbor a lot of mysteries, while still being
+somewhat manageable and explainable using the tools of mathematical analysis. The most
+well-known fractal of this kind might be the
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>.</p>
+<h2 id="from-dynamical-systems-to-multibrot-sets"><a class="header-anchor no-hover-padding" href="#from-dynamical-systems-to-multibrot-sets" aria-label="Anchor link for: from-dynamical-systems-to-multibrot-sets"><span class="link-icon" aria-hidden="true"></span></a>
+From Dynamical Systems to Multibrot Sets</h2>
+<p>The Multibrot family of fractals is generated using a function $f_c: \mathbb{C} \to
+\mathbb{C}$ of the form</p>
+<p>$$f_c(z) = z^d + c$$</p>
+<p>where $c \in \mathbb{C}$ and $d \in \mathbb{Q}$. Fixing a value for $d$ defines a family
+of functions $f_c$. For each $c$ there exists a Julia set, and all the Julia sets are
+connected by a Multibrot set. At the end of this section it should be clear how they are
+defined and what their relation is.</p>
+<p>The most studied case is $d=2$, defining the original Mandelbrot set, based on
+the quadratic family of functions $z^2 + c$ that plays a central role in the study of
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Complex_quadratic_polynomial"><em>complex quadratic maps</em></a>.
+The somewhat more general case of $d\in \mathbb{N}$ is partially covered by the study of
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rational_function#Complex_rational_functions"><em>complex rational
+maps</em></a>. While,
+from a computational point of view, the fractional case (i.e. $d \in
+\mathbb{Q}\setminus\mathbb{N}$) is a natural and simple extension, note that the
+generalization to fractional powers is different from considering rational maps (i.e.,
+functions $f$ such that $f = \frac{p(z)}{q(z)}$ where $p$ and $q$ are polynomials), so
+many theoretical results might not be directly applicable.<sup class="footnote-reference" id="fr-fractional-confusion-1"><a href="#fn-fractional-confusion">[2]</a></sup></p>
+<p>Assume we fix some values for $d$ and $c$ and consider the function $f$ as a dynamical
+system of a single complex variable. For a given starting point $z_0$, what happens in the
+limit of infinite iteration, i.e. what can we say about the sequence of points
+$f^{(i)}(z_0)$ for $i \to \infty$, i.e. the <strong>orbit</strong> (or <strong>trajectory</strong>) of $z_0$ under
+repeated iteration of $f$? Some of the possible cases are:</p>
+<ul>
+<li>it converges to a fixed value <em>(fixed point)</em></li>
+<li>it converges to a cycle <em>(periodic point)</em></li>
+<li>it never converges, but stays in a bounded region <em>(limit set)</em></li>
+<li>it diverges to infinity <em>(i.e. the absolute value grows without bounds)</em></li>
+</ul>
+<p>If for some $i&gt;0$ we have a point $z$ with $f^{(i)}(z) = z$, then $z$ is called
+<strong>periodic</strong>, and if $i=1$ it is typically called a <strong>fixed point</strong>, because it is
+invariant under $f$. For $i&gt;1$, the sequence of the points repeatedly visited along an
+$i$-periodic orbit forms a <strong>cycle</strong>. So fixed points are not actually a separate
+case, but are merely the simplest case of periodic points.</p>
+<p>As another side note – sometimes functions are considered on the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Riemann_sphere">Riemann
+sphere</a> $\hat{\mathbb{C}} := \mathbb{C}
+\cup \{\infty\}$, which is the complex plane extended in a natural way by a single
+additional point $\infty$ to denote the point at infinite distance in every direction.
+From this perspective, the “divergence to $\infty$” in the complex plane is elegantly
+replaced by having $\infty$ as just another fixed point, because by definition of the
+operations we always have $f(\infty) = \infty$. This, of course, affects certain
+statements that can be found concerning the number of fixed points, depending on the
+respectively used domain.</p>
+<p>In certain cases, the orbit can asymptotically approach a limit set that is
+non-periodic, but still bounded (e.g. form a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Attractor#Limit_torus">limit torus or a strange
+attractor</a>), and the general case of
+a limit set also includes the <em>chaotic</em> case, i.e. points that have an “unpredictable”,
+aperiodic orbit, even if confined within some well-defined area.<sup class="footnote-reference" id="fr-strange-1"><a href="#fn-strange">[3]</a></sup></p>
+<p>Now let us briefly think about the bigger picture – if we slightly move away from
+$z_0$ by some $\varepsilon&gt;0$, how will this affect the orbit? If the orbits of $z_0$
+and $z_0+\varepsilon$ are very close and asymptotically converge to the same limit set
+of points, it means that $z_0$ lies in the <strong>basin of attraction</strong> of some limit set
+(that can be a fixed point, periodic cycle or something else), which then is an
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Attractor"><strong>attractor</strong></a> of the function. Conversely, if
+moving away from $z_0$ by a negligible amount drastically changes the resulting orbit, the
+limit set is <strong>repelling</strong>.</p>
+<p>The <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Julia_set"><strong>Julia set</strong></a> $J(f)$ of a function $f$
+can be defined as the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Closure_(topology)">closure</a> of
+the set of <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Periodic_points_of_complex_quadratic_mappings">repelling periodic
+points</a>,
+while the <strong>Fatou set</strong> $F(f)$ is the complement and consists of one or more <strong>Fatou
+components</strong>, which are distinct regions with similar behavior. Those components can
+further be <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Classification_of_Fatou_components">classified in 4
+types</a>.</p>
+<p>In general, the repelling periodic points are just countably many (and thus
+vanishingly few) of the uncountable number of points in a Julia set – there is an
+uncountable number of points yielding aperiodic, chaotic orbits (see also
+<a rel="noopener" target="_blank" href="https://math.stackexchange.com/a/142408/255483">here</a>). Yet ironically, for all
+practical purposes, periodic points (discussed further in the next section) are the most
+tangible and only effectively computable part of these intricate sets.</p>
+<p>For a fixed exponent $d$, the Multibrot set $\mathcal{M}_d$ is the set of values $c$
+such that $J(f_c)$ is <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Connected_space">connected</a>. To
+avoid discussing topology, for practical purposes it is sufficient to imagine that for
+these parameters of $c$, all the points in the corresponding Julia set form a
+connected area or curve in the complex plane, instead of being separated by points
+which are not in the set (like <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Cantor_set">Cantor dust</a>, in
+this case sometimes also called <em>Fatou dust</em>). For $d=2$, we get the famous Mandelbrot
+set. While this definition captures the most interesting property from a theoretical point
+of view, there are other provably equivalent definitions. One popular and very useful
+definition of a Multibrot set is</p>
+<p>$$
+\{c\in\mathbb{C} \mid |(f_c)^{(i)}(0)| \mathrm{\ for\ } i \in \mathbb{N} \mathrm{\ is\ bounded} \}
+$$</p>
+<p>It means that $c$ belongs to the Mandelbrot set if iterating $f_c$ from the
+distinguished starting point 0 does <em>not</em> eventually diverge to $\infty$. The reason
+this works is because 0 is a
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Critical_point_(mathematics)"><strong>critical point</strong></a>
+and in many cases the structure of a Julia set is
+<a rel="noopener" target="_blank" href="https://users.math.yale.edu/public_html/People/frame/Fractals/MandelSet/MandelDef/MandelCritPts/MandelCritPts.html">related</a>
+to the behavior of the underlying function on the critical points.<sup class="footnote-reference" id="fr-starting-point-1"><a href="#fn-starting-point">[4]</a></sup></p>
+<p>If we identify each point $c$ in the complex plane with the function $f_c$ with the
+corresponding parameter, the Mandelbrot set can be understood as a
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Mandelbrot_set#Relationship_with_Julia_sets"><em>map of Julia sets</em></a> –
+it characterizes how variation of $c$ affects the resulting Julia sets based on the
+dynamics of the critical point 0. So for a fixed exponent $d$, the practical relation
+between the corresponding Julia and Multibrot sets is that</p>
+<ul>
+<li>the Julia set is obtained by fixing the parameter $c$ <br>
+and considering orbits under $f_c$ for varying starting points $z_0$</li>
+<li>the Mandelbrot is obtained by fixing the starting point ($z_0 := 0$) <br>
+and considering orbits of $z_0$ under $f_c$ for varying parameters of $c$.</li>
+</ul>
+<h2 id="basic-classification-of-periodic-points"><a class="header-anchor no-hover-padding" href="#basic-classification-of-periodic-points" aria-label="Anchor link for: basic-classification-of-periodic-points"><span class="link-icon" aria-hidden="true"></span></a>
+Basic Classification of Periodic Points</h2>
+<!-- https://math.stackexchange.com/questions/142378/quadratic-julia-sets-and-periodic-cycles -->
+<p>In this section, let $f$ be a function where we fixed $d$ and $c$. The $k$-periodic points
+of $f$ are the solutions of the equation $f^{(k)}(z) = z$, which cannot be solved
+symbolically in the general case, but can be numerically approximated. While the $2^k$
+solutions (counted with multiplicity) can be computed, not every solution is guaranteed to
+be on the expected $k$-cycle, as for certain rare cases some periodic cycles are “missing”
+(these cases are summarized <a rel="noopener" target="_blank" href="https://math.stackexchange.com/a/142395/255483">here</a>, based
+on results from <a rel="noopener" target="_blank" href="https://doi.org/10.1112/jlms/s1-39.1.615">this</a> paper).</p>
+<p>Each $k$-cycle of points $p_1, …, p_k$ has a
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Periodic_points_of_complex_quadratic_mappings#Stability_of_periodic_points_(orbit)_-_multiplier"><strong>multiplier</strong></a>,
+$\lambda \in \mathbb{C}$ which is the same for all $p_i$ and is given by
+$(f^{(k)})^‘(p_i)$ for some point $p_i$, i.e. by evaluating the first derivative of the
+$k$-fold iterate of $f$ at point $p$. Using the chain rule, it can be shown that this is
+the same as the <strong>product of derivatives of $f$ along the cycle</strong>, i.e. $\prod_{i=1..k}
+f’(p_i)$. This massively simplifies the computation, because we only need to know and
+evaluate the first derivative in order to determine multipliers of any cycle.</p>
+<p>Periodic cycles can be classified based on the multiplier:</p>
+<ul>
+<li>$|\lambda|=0$: <strong>superattracting</strong> (also called <strong>critical</strong>)</li>
+<li>$0 &lt; |\lambda| &lt; 1$: <strong>attracting</strong></li>
+<li>$|\lambda| = 1$: <strong>indifferent</strong> (or <strong>neutral</strong>)</li>
+<li>$|\lambda| &gt; 1$: <strong>repelling</strong></li>
+</ul>
+<p>Indifferent points where we have $\lambda = e^{2\pi i\cdot \alpha}$ with $\alpha \in
+\mathbb{Q}$ are called <strong>rationally indifferent</strong> (or <strong>parabolic</strong>). By definition,
+attracting points in the Fatou set and repelling points are in the Julia set.
+Furthermore, it can be shown that rationally indifferent points are also in the Julia
+set. For the remaining indifferent cases there exists deeper theory and
+classifications.</p>
+<p>Note that for all functions of the shape $z^d + c$ (excluding $d=1$) we have one
+superattracting fixed point (i.e. critical point) at $0$ and another one at $\infty$.</p>
+<h2 id="visualizing-julia-and-mandelbrot-sets"><a class="header-anchor no-hover-padding" href="#visualizing-julia-and-mandelbrot-sets" aria-label="Anchor link for: visualizing-julia-and-mandelbrot-sets"><span class="link-icon" aria-hidden="true"></span></a>
+Visualizing Julia and Mandelbrot Sets</h2>
+<p>A useful and important result about the Mandelbrot set is that it is <strong>bounded by a circle
+of radius 2 around the origin</strong> (this is also true for the respective Julia sets and some
+other Multibrot sets, for a proof see e.g.
+<a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/3541410/explain-why-mandelbrot-set-escape-radius-is-2-to-a-dummy">here</a>
+or <a rel="noopener" target="_blank" href="https://www.mrob.com/pub/muency/escaperadius.html">here</a>). What this means is that for
+every starting point outside this circle, the orbit will <em>definitely</em> diverge to infinity
+(or in other words, the area outside the circle is in the basin of attraction of
+$\infty$).<sup class="footnote-reference" id="fr-escape-radius-1"><a href="#fn-escape-radius">[5]</a></sup></p>
+<h3 id="the-escape-time-algorithm"><a class="header-anchor no-hover-padding" href="#the-escape-time-algorithm" aria-label="Anchor link for: the-escape-time-algorithm"><span class="link-icon" aria-hidden="true"></span></a>
+The Escape Time Algorithm</h3>
+<p>This allows for a very simple (but not very efficient) way to obtain a rendering of the
+Mandelbrot set – simply sample points $c\in\mathbb{C}$ in a region of the complex plane
+and count how many iterations of $f_c$ are needed until the absolute value is larger than
+2, i.e. the orbit <em>escapes</em> the circle. As these orbits will diverge to infinity, we can
+abort the computation and conclude that these points are not in the set.</p>
+<p>The radius of the circle is called <strong>escape radius</strong> and the number of iterations from a
+starting point until it is outside the circle is called <strong>escape time</strong>. As we can only
+determine with absolute certainty that a certain point is <em>not</em> in the set, and the points
+<em>inside</em> the Mandelbrot set will orbit inside of the circle forever, we need to set a
+limit on the number of iterations. For most purposes a value between 50 and 5000 is
+sufficient.</p>
+<p>The basic form of the escape time algorithm can be summarized as follows.</p>
+<ol>
+<li>Pick an image size and a congruent rectangular region of $\mathbb{C}$ you want to depict.</li>
+</ol>
+<p>You will need to directly or indirectly define a mapping from image pixel coordinates
+$(x,y)\in \mathbb{N}^2$ sample points $a+bi \in \mathbb{C}$, probably to a simple grid of
+points covering the target region using the same offset between adjacent points along both
+the real and imaginary axis.</p>
+<ol start="2">
+<li>Compute the escape times by iterating the function $f_c$ on the sample points.</li>
+</ol>
+<p>You can use the sample points</p>
+<ul>
+<li>as the parameter $c$, to get the Multibrot set, or</li>
+<li>as the starting point $z_0$, to get the Julia set.</li>
+</ul>
+<ol start="3">
+<li>Define a color map assigning each escape time some color to produce an image.</li>
+</ol>
+<p>The image pixels are simply colored according to the color assigned to the escape time
+for the underlying sample point. Two simple coloring schemes are</p>
+<ul>
+<li>cycling through the colors (using the escape time, modulo number of colors), or</li>
+<li>linearly interpolating between two colors for the range of distinct escape values.</li>
+</ul>
+<p>The result will look like an onion with increasingly complex nested layers:</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Mandelbrot-histogram-100-iterations.png" alt="Mandelbrot set rendered using escape algorithm" /></p>
+<p>In the image of the Mandelbrot set above, computed with a maximum escape time of 100, the
+dark blue color (on the left) corresponds to escape time 0 (i.e., points outside the
+circle), the increasingly bright areas correspond to the nested areas of points with
+increasing escape time. The Mandelbrot set is surrounded by the “white halo”, whereas the
+black areas in the middle are the points where the algorithm exceeded the maximum number
+of iterations. The true Mandelbrot set consists of points that will never turn white for
+any maximum escape value we would pick.</p>
+<h3 id="escape-times-and-lemniscates"><a class="header-anchor no-hover-padding" href="#escape-times-and-lemniscates" aria-label="Anchor link for: escape-times-and-lemniscates"><span class="link-icon" aria-hidden="true"></span></a>
+Escape Times and Lemniscates</h3>
+<p>Each colored area depicts a <strong>level set</strong> containing all points with the same escape time,
+and the boundaries between such sets are called
+<a rel="noopener" target="_blank" href="https://en.m.wikipedia.org/wiki/Polynomial_lemniscate"><strong>lemniscates</strong></a>.
+<a rel="noopener" target="_blank" href="https://www.mrob.com/pub/muency/lemniscates.html">These specific lemniscates</a>
+are defined by polynomials derived from the equation $|f_c^{(i)}(z)| = 2$, i.e., asking
+for the points that land exactly on the escape boundary circle after exactly $i$ function
+iterations.</p>
+<p>For our purposes, the polynomials are of no practical interest,
+because the equations quickly become unwieldy and finding solutions for
+arbitrary degrees is possible only using numerical methods anyway. Approximating the
+lemniscates using an (optimized) sampling-based approach is the practical way to go. In a
+theoretical sense though, one can see the lemniscates as a sequence of increasingly good
+approximations which in the limit converge to the Mandelbrot set.
+Note that there is nothing special about exactly <em>these</em> lemniscates – if we pick a
+different escape radius, their locations will shift.</p>
+<p>However, some understanding of the lemniscates is useful for optimizing the escape time
+algorithm implementation. For example, one more efficient way of sampling points is to
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set#Border_tracing_/_edge_checking">trace the lemniscates</a>
+that bound a region with a fixed escape time, instead of sampling the whole area. Once we
+have determined the contours of two lemniscates, we know that all points in between have
+the same escape radius and can fill the complete area with the same color. This can
+drastically speed up computation in regions that are not “too close” to the complex
+boundary of the Mandelbrot set, but requires a more involved implementation for tracing a
+lemniscate curve and for filling the inside area with a color.</p>
+<p>Of course there are also various
+<a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/1131293/what-is-the-algorithm-hiding-beneath-the-complexity-in-this-paper">tricks</a>
+and
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set">other approaches</a> of
+different degrees of sophistication for rendering the Mandelbrot set which are more
+efficient or use different techniques, such as doing
+<a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/3484144/algorithm-for-rendering-non-filled-julia-sets?rq=1">inverse iteration</a>
+or using the
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/File:Lyapunov_exponents_of_the_Mandelbrot_set_(The_mini-Mandelbrot)_-_Matlab.png">Lyapunov Exponent</a>,
+which yields different or more aesthetic results.</p>
+<h2 id="common-structures-in-the-mandelbrot-set"><a class="header-anchor no-hover-padding" href="#common-structures-in-the-mandelbrot-set" aria-label="Anchor link for: common-structures-in-the-mandelbrot-set"><span class="link-icon" aria-hidden="true"></span></a>
+Common Structures in the Mandelbrot Set</h2>
+<p>The Mandelbrot set has a number of visible structural patterns as well as
+more subtle properties. We will not go into a deeper discussion here, but this section
+aims at giving a high-level overview of common patterns and terminology.
+Most concepts apply to general Multibrot sets in a similar way.</p>
+<p>The central black heart-shaped area of the Mandelbrot set is called the
+<a rel="noopener" target="_blank" href="https://www.marksmath.org/classes/Spring2019ComplexDynamics/text/subsection-main_cardioid.html"><strong>main cardioid</strong></a>,
+the approximately circular areas
+<a rel="noopener" target="_blank" href="https://mathoverflow.net/questions/165335/precise-location-of-the-mandelbrot-bulb-attachment-to-the-main-cardioid">attached</a>
+to it are called <strong>bulbs</strong> and the bolt-like lines going out from the bulbs are called
+<strong>antennae</strong>. Another prominent pattern are <strong>spirals</strong>, which emerge at certain
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Misiurewicz_point">Misiurewicz points</a> which play a special
+role in the set.</p>
+<p>Each cardioid or bulb corresponds to a region of parameters $c$ where the orbit (started
+at 0) will converge towards a cycle of some period and there are classifications of the
+bulb periods, see e.g. <a rel="noopener" target="_blank" href="https://doi.org/10.1080/00029890.1999.12005046">this</a> paper or
+<a rel="noopener" target="_blank" href="https://sites.math.washington.edu/~morrow/336_16/2016papers/emily.pdf">this</a> summary of
+it. The pattern of bulb periods can be derived from the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Farey
+tree</a>. The points where bulbs are
+connected are <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Bifurcation_locus"><strong>bifurcation loci</strong></a>,
+i.e. points at the boundary of different dynamic behaviors. These points are flanked by
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/External_ray"><strong>external rays</strong></a> that come from infinity
+along a curved path into these points and are often used for the analysis of the fractals.</p>
+<p>Apart from the omnipresence of bulbs, antennae and spirals at all scales, the Mandelbrot
+set in fact also exhibits a more direct form of self-similarity – it contains
+<a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/51726/mini-mandelbrots-are-they-exact-copies">distorted</a>
+<a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/2710/why-does-the-mandelbrot-set-contain-slightly-deformed-copies-of-itself">copies</a>,
+of itself, going by various names such as <em>baby</em> or <em>mini mandelbrots</em>.</p>
+<p>The Mandelbrot set in the neighborhood of a parameter $c$ is known to look similar to the
+corresponding Julia set, which is not very surprising when considering the explained
+relationship between them and the fact that Julia sets for similar parameter values $c$
+are also similar. <a rel="noopener" target="_blank" href="https://de.wikipedia.org/wiki/Datei:Logistic_Map_Bifurcations_Underneath_Mandelbrot_Set.gif">Less apparently</a>, the Mandelbrot set is also
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Mandelbrot_set#Basic_properties">connected</a> to the simpler
+real-valued <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Logistic_map">logistic map</a> – another
+well-studied chaotic dynamical system. More surprising connections exist to <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Mandelbrot_set#Geometry">$\pi$ and the
+fibonacci numbers</a>.</p>
+<h2 id="further-resources"><a class="header-anchor no-hover-padding" href="#further-resources" aria-label="Anchor link for: further-resources"><span class="link-icon" aria-hidden="true"></span></a>
+Further Resources</h2>
+<p>In addition to the links embedded in the text, I conclude this post with a list of
+various useful resources I stumbled on and have either already used or considered to be
+valuable to learn more about this rich and deep topic.</p>
+<h3 id="complex-analysis"><a class="header-anchor no-hover-padding" href="#complex-analysis" aria-label="Anchor link for: complex-analysis"><span class="link-icon" aria-hidden="true"></span></a>
+Complex Analysis</h3>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://complex-analysis.com/">Complex Analysis - A Visual and Interactive Introduction (Website)</a></li>
+<li><a rel="noopener" target="_blank" href="https://delta.cs.cinvestav.mx/~mcintosh/comun/complex/complex.html">Complex Analysis (H. McIntosh, Lecture Notes)</a></li>
+<li><a rel="noopener" target="_blank" href="https://observablehq.com/@rreusser/finding-roots-in-the-complex-plane">Finding Roots in the Complex Plane (a brilliant article)</a></li>
+<li><a rel="noopener" target="_blank" href="https://arxiv.org/abs/1703.05847">The iterated refinement Newton method (paper)</a></li>
+<li><a rel="noopener" target="_blank" href="https://go.helms-net.de/math/tetdocs/index.htm">Short Texts About Tetration (related to <em>fractional iteration</em>)</a></li>
+</ul>
+<h3 id="complex-dynamical-systems"><a class="header-anchor no-hover-padding" href="#complex-dynamical-systems" aria-label="Anchor link for: complex-dynamical-systems"><span class="link-icon" aria-hidden="true"></span></a>
+Complex Dynamical Systems</h3>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.biodyn.ro/course/literatura/Nonlinear_Dynamics_and_Chaos_2018_Steven_H._Strogatz.pdf">Nonlinear Dynamics and Chaos (Book)</a></li>
+<li><a rel="noopener" target="_blank" href="https://arxiv.org/abs/math/9201272">Dynamics in one complex variable: Introductory Lectures</a></li>
+<li><a rel="noopener" target="_blank" href="https://analysis.math.uni-kiel.de/bergweiler/papers/37.pdf">An Introduction to Complex Dynamics</a></li>
+<li><a rel="noopener" target="_blank" href="https://math.libretexts.org/Bookshelves/Scientific_Computing_Simulations_and_Modeling/Book%3A_Introduction_to_the_Modeling_and_Analysis_of_Complex_Systems_(Sayama)">Introduction to the Modeling and Analysis of Complex Systems</a></li>
+<li><a rel="noopener" target="_blank" href="https://booksite.elsevier.com/9780123846549/Chap_Chaos.pdf">Nonlinear Methods and Chaos (Book Chapter)</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.math.stonybrook.edu/~scott/Papers/India/Fatou-Julia.pdf">An Introduction to Julia and Fatou Sets</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Periodic_points_of_complex_quadratic_mappings">Periodic Points of Complex Quadratic Mappings (useful summary)</a></li>
+</ul>
+<h3 id="fractals"><a class="header-anchor no-hover-padding" href="#fractals" aria-label="Anchor link for: fractals"><span class="link-icon" aria-hidden="true"></span></a>
+Fractals</h3>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://link.springer.com/book/10.1007/978-1-84996-486-9">The Colors of Infinity (Pop-Sci Book)</a></li>
+<li><a rel="noopener" target="_blank" href="https://link.springer.com/book/10.1007/978-3-642-61717-1">The Beauty of Fractals</a></li>
+<li><a rel="noopener" target="_blank" href="https://users.math.yale.edu/public_html/People/frame/Fractals/">Fractal Geometry</a></li>
+<li><a rel="noopener" target="_blank" href="https://mathr.co.uk/blog/fractal.html">A Resourceful Blog on Fractals and Mandelbrot</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.m.wikipedia.org/wiki/List_of_fractals_by_Hausdorff_dimension">List of Fractals by Hausdorff Dimension</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.wikibooks.org/wiki/Fractals">Fractals Wikibook (chaotic but rich wiki information dump)</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/def_cqp">Fractal-related Terminology Definitions</a></li>
+</ul>
+<h3 id="mandelbrot-and-julia-sets"><a class="header-anchor no-hover-padding" href="#mandelbrot-and-julia-sets" aria-label="Anchor link for: mandelbrot-and-julia-sets"><span class="link-icon" aria-hidden="true"></span></a>
+Mandelbrot and Julia Sets</h3>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://linas.org/art-gallery/">Linas’ Art Gallery (homepage with lots of infos on fractals)</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.mrob.com/pub/muency.html">Mu-Ency: The Encyclopedia of the Mandelbrot Set</a></li>
+<li><a rel="noopener" target="_blank" href="https://rlbenedetto.people.amherst.edu/talks/mandeltalk19.pdf">A Beginners’ Introduction to the Mandelbrot Set (slides)</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.ibiblio.org/e-notes/MSet/Contents.htm">The Mandelbrot and Julia Sets Anatomy</a></li>
+<li><a rel="noopener" target="_blank" href="https://okke-academic.github.io/files/julia.pdf">Visual Explanation of the Complexity of the Julia Sets</a></li>
+<li><a rel="noopener" target="_blank" href="https://blbadger.github.io/logistic-boundary.html">The boundary of the logistic map</a></li>
+<li><a rel="noopener" target="_blank" href="https://mathoverflow.net/questions/32444/is-there-a-way-to-find-regions-of-depth-in-the-mandelbrot-set-other-than-simply?rq=1">Finding Regions of Depth in the Mandelbrot Set</a></li>
+<li><a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/1632517/continuous-path-inside-the-mandelbrot-set-connecting-i-to-zero">Continuous Paths in the Mandelbrot Set</a></li>
+<li><a rel="noopener" target="_blank" href="https://math.stackexchange.com/questions/244344/classification-of-points-in-the-mandelbrot-set">Classification of Points in the Mandelbrot Set</a></li>
+<li><a rel="noopener" target="_blank" href="https://mathoverflow.net/questions/248167/why-are-the-julia-sets-so-simple-quadratic-family?rq=1">Why Are Julia Sets So Simple?</a></li>
+<li><a rel="noopener" target="_blank" href="https://arxiv.org/abs/math/9207220">Local Connectivity of Julia Sets: Expository Lectures</a></li>
+<li><a rel="noopener" target="_blank" href="https://doi.org/10.5206/mt.v1i1.14037">Some Facts and Conjectures on Mandelbrot Polynomials (paper)</a></li>
+</ul>
+<h3 id="external-rays-and-angles"><a class="header-anchor no-hover-padding" href="#external-rays-and-angles" aria-label="Anchor link for: external-rays-and-angles"><span class="link-icon" aria-hidden="true"></span></a>
+External Rays and Angles</h3>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://arxiv.org/abs/math/9905169">Periodic Orbits, Externals Rays and the Mandelbrot Set: An Expository Account</a></li>
+<li><a rel="noopener" target="_blank" href="https://mathoverflow.net/questions/351452/algorithm-for-computing-external-angles-for-the-mandelbrot-set?noredirect=1&amp;lq=1">Algorithm for computing external angles for the Mandelbrot set</a></li>
+<li><a rel="noopener" target="_blank" href="https://mathr.co.uk/blog/2013-02-01_navigating_by_spokes_in_the_mandelbrot_set.html">Navigating by Spokes in the Mandelbrot set (blog post)</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.m.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/MandelbrotSetExterior/ParameterExternalRay">External Rays (wikibook)</a></li>
+<li><a rel="noopener" target="_blank" href="https://arxiv.org/abs/math/9411238">Internal addresses in the Mandelbrot set and Galois groups of polynomials (paper)</a></li>
+</ul>
+<h3 id="useful-software"><a class="header-anchor no-hover-padding" href="#useful-software" aria-label="Anchor link for: useful-software"><span class="link-icon" aria-hidden="true"></span></a>
+Useful Software</h3>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://mandel.gart.nz">Simultaneous Mandelbrot + Julia Set Explorer (online)</a></li>
+<li><a rel="noopener" target="_blank" href="https://mandelbrotandco.com/en.hub169.html">Fractal Explorer with Multibrot support (online)</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.mndynamics.com/indexp.html">Mandel (advanced desktop application)</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.wikibooks.org/wiki/Fractals/mandelbrot-numerics#m-describe">mandelbrot-numerics (CLI tool suite)</a></li>
+</ul>
+<hr><ol class="footnotes-list">
+<li id="fn-scale-dimension">
+<p>This intuitive similarity between scale and spatial dimension (which
+is also exploited for visualization, by mapping scale to e.g. depth) is actually an
+interesting topic of its own that I believe needs some deeper exploration. <a href="#fr-scale-dimension-1">↩</a></p>
+</li>
+<li id="fn-fractional-confusion">
+<p>This should be obvious, but I am pointing this out because I
+initially failed to notice this, due to the fact that fractions are <em>rational</em>
+numbers. Unless I miss something, it looks to me that there is not much work
+concerning specifically fractional <em>powers</em>, results about “rational maps” must be
+critically checked in order to see if they <em>might</em> apply. <a href="#fr-fractional-confusion-1">↩</a></p>
+</li>
+<li id="fn-strange">
+<p>Note that strange attractors (or repellers) are not necessarily chaotic –
+there is also research on and examples of <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Strange_nonchaotic_attractor">strange non-chaotic
+attractors</a>. <a href="#fr-strange-1">↩</a></p>
+</li>
+<li id="fn-starting-point">
+<p>One can, of course, still define and try to visualize sets analogous to
+Multibrot sets for starting points that are not 0, but will quickly find that the
+resulting sets will all look like distorted and somehow defective versions of the
+symmetrically looking set obtained the “proper” starting point 0.
+One natural special case is to consider picking $z_0 := c$. But this is effectively
+equivalent to starting with 0, as $f_c(0) = 0^d + c = c$ for any choice of $c$ and for
+$d\neq 0$. <a href="#fr-starting-point-1">↩</a></p>
+</li>
+<li id="fn-escape-radius">
+<p>I will write a separate post on a possibly new observation I made
+concerning the escape radius, but for now the standard radius of 2 is all we need. <a href="#fr-escape-radius-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/rotatable-wang-tiles/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">How To Make Wang Tiles Rotatable</p></div>
+                <div><a href="https://pirogov.de/blog/perfect-precision-2d-geometry-complex-integers/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Perfect-Precision 2D Geometry Using Complex Integer Rings</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#introduction-boring-and-not-so-boring-fractals">Introduction: Boring and Not So Boring Fractals</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#from-dynamical-systems-to-multibrot-sets">From Dynamical Systems to Multibrot Sets</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#basic-classification-of-periodic-points">Basic Classification of Periodic Points</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#visualizing-julia-and-mandelbrot-sets">Visualizing Julia and Mandelbrot Sets</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#the-escape-time-algorithm">The Escape Time Algorithm</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#escape-times-and-lemniscates">Escape Times and Lemniscates</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#common-structures-in-the-mandelbrot-set">Common Structures in the Mandelbrot Set</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/julia-mandel-intro/#further-resources">Further Resources</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#complex-analysis">Complex Analysis</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#complex-dynamical-systems">Complex Dynamical Systems</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#fractals">Fractals</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#mandelbrot-and-julia-sets">Mandelbrot and Julia Sets</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#external-rays-and-angles">External Rays and Angles</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/julia-mandel-intro/#useful-software">Useful Software</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

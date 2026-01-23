@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Intersecting Line Segments In Cyclotomic Rings Without Tears</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Intersecting Line Segments In Cyclotomic Rings Without Tears" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;intersecting-segments-without-tears&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Intersecting Line Segments In Cyclotomic Rings Without Tears
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/intersecting-segments-without-tears/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2025-01-16">16th Jan 2025</time></li><li title="2637 words"><span class='separator' aria-hidden='true'>•</span>14 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/geometry/">geometry</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/algebra/">algebra</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#line-segment-intersection-101">Line Segment Intersection 101</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#from-the-cartesian-plane-to-cyclotomic-rings">From the Cartesian Plane to Cyclotomic Rings</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#a-simple-instance-of-the-square-root-sum-problem">A Simple Instance Of The Square-Root Sum Problem</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#two-square-roots">Two Square Roots</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#four-square-roots-with-side-constraints">Four Square Roots (With Side Constraints)</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#summary">Summary</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><p>A while ago I wrote a post about how I re-discovered
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Cyclotomic_field">cyclotomic</a> <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Ring_of_integers">integer
+rings</a>, which was actually just in
+preparation for some more practical ideas that I wanted to develop. Now, as it often
+happens, It took a while to find enough time to pursue this further, but here comes the
+promised part 2 (you might want to (re-)read or skim <a href="/blog/perfect-precision-2d-geometry-complex-integers">part
+1</a> first, if you are unfamiliar with
+the topic), and there will definitely be a part 3.</p>
+<p>In the meantime, I have been working on an easy-to-use
+<a rel="noopener" target="_blank" href="https://github.com/apirogov/tilezz">Rust implementation</a> of all the ideas that I
+presented and sketched out. It was quite some effort<sup class="footnote-reference" id="fr-trait-hell-1"><a href="#fn-trait-hell">[1]</a></sup> for me to port the
+prototype Python code presented in the last post to Rust, but I think it was absolutely
+worth it. Now everything is working much faster, is properly tested, and documented. In
+fact, I am satisfied enough with the result that I decided to package it up into <strong>my
+first Rust crate, <a rel="noopener" target="_blank" href="https://crates.io/crates/tilezz">tilezz</a></strong>. While I still have the
+package not where I want it to be for a neat 0.1.0 release, I decided that another
+concepts post is long overdue.</p>
+<p>In the previous post you learned a bit about <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Cyclotomic_field">cyclotomic rings and
+fields</a>, and why you might consider using
+them as points in the context of 2D geometry. In this post, I want to discuss the next
+crucial building block in my larger project. Before we can talk about polygons, we should
+talk about <strong>line segments</strong>.</p>
+<h2 id="line-segment-intersection-101"><a class="header-anchor no-hover-padding" href="#line-segment-intersection-101" aria-label="Anchor link for: line-segment-intersection-101"><span class="link-icon" aria-hidden="true"></span></a>
+Line Segment Intersection 101</h2>
+<p>There are many almost-correct solutions all over the internet, here I want to show you one
+solution that is not only handling all edge-cases, but can even be generalized to work
+over cyclotomic rings.</p>
+<p>Let $(a, b)$ and $(c, d)$ be two non-degenerate line segments in the plane, i.e. $a \neq
+b, c\neq d$ and for now, you can assume that $a,b,c,d \in \mathbb{R}^2$. Let us first
+take a look at the different cases.</p>
+<ol>
+<li>parallel case – there are no intersection points</li>
+<li>colinear case
+<ol>
+<li>the segments do <em>not</em> overlap</li>
+<li>the segments <em>touch in a single endpoint</em> they have in common</li>
+<li>the segments <em>overlap in an interval</em> (which is itself a line segment)</li>
+</ol>
+</li>
+<li>normal case
+<ol>
+<li>the segments do <em>not</em> overlap (even though their extended lines do)</li>
+<li>the segments intersect in a point <em>inside both segments</em></li>
+<li>an endpoint of one segment intersects some inner point of the other</li>
+<li>the segments intersect in an <em>endpoint of both segments</em></li>
+</ol>
+</li>
+</ol>
+<p>The half-solution winning the prize for brevity and elegance is <a rel="noopener" target="_blank" href="https://stackoverflow.com/a/9997374">this
+one</a>. However, it does not handle case 2. and 3.4
+correctly. After looking at many other solutions and different implementations for various
+checks and operations, I mashed up my own variation of a solution to this common exercise.
+Without going into detail (because this is <em>definitely</em> not the interesting part of this
+post), here is a Python snippet that correctly handles all cases.<sup class="footnote-reference" id="fr-backport-1"><a href="#fn-backport">[2]</a></sup></p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-from z-python">from</span></span><span class="z-meta z-statement z-import z-python"><span class="z-meta z-import-source z-python"> <span class="z-meta z-import-path z-python"><span class="z-meta z-import-name z-python">dataclasses</span></span> <span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-python">import</span></span></span></span><span class="z-meta z-statement z-import z-python"></span><span class="z-meta z-statement z-import z-python"> <span class="z-meta z-generic-name z-python">dataclass</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-annotation z-python"><span class="z-punctuation z-definition z-annotation z-python">@</span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-annotation z-python"><span class="z-meta z-generic-name z-python">dataclass</span></span></span></span>
+</span><span class="z-source z-python"><span class="z-meta z-class z-python"><span class="z-storage z-type z-class z-python"><span class="z-keyword z-declaration z-class z-python">class</span></span> <span class="z-entity z-name z-class z-python"><span class="z-meta z-generic-name z-python">Point</span></span><span class="z-punctuation z-section z-class z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-annotation z-variable z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-separator z-annotation z-variable z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">wedge</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">a</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">b</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return wedge product of two vectors.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">dot</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">a</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">b</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return dot product of two vectors.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span> <span class="z-keyword z-operator z-arithmetic z-python">+</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">line_through</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">p</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">q</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">tuple</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return (a, b, c) for line ax + by + c = 0 though points P and Q.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">p</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">q</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">q</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">p</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">p</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">q</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">q</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">p</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">is_on_line</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">p</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">l</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">tuple</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">float</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">bool</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return whether point P is on the line given by the coefficients.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">l</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">p</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-arithmetic z-python">+</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">p</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span> <span class="z-keyword z-operator z-arithmetic z-python">+</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">is_between</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">a</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">b</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">c</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">bool</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return whether point B is strictly between A and C.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ba</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cb</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">wedge</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ba</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cb</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span> <span class="z-keyword z-operator z-logical z-python">and</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">dot</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ba</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cb</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-comparison z-python">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">is_ccw</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">a</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">b</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">c</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">bool</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return whether line segment AB is counter-clockwise from AC.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ab</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ac</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-keyword z-operator z-arithmetic z-python">-</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">wedge</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ab</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ac</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-comparison z-python">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">a</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">b</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">c</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-separator z-parameters z-python">,</span> <span class="z-variable z-parameter z-python">d</span></span><span class="z-meta z-function z-parameters z-annotation z-python"><span class="z-punctuation z-separator z-annotation z-parameter z-python">:</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"> </span><span class="z-meta z-function z-annotation z-return z-python"><span class="z-punctuation z-separator z-annotation z-return z-python">-&gt;</span> <span class="z-meta z-qualified-name z-python"><span class="z-support z-type z-python">bool</span></span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>Return true if line segments AB and CD intersect.<span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span> <span class="z-keyword z-operator z-logical z-python">or</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span> <span class="z-keyword z-operator z-logical z-python">or</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span> <span class="z-keyword z-operator z-logical z-python">or</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">        <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-constant z-language z-python">True</span>
+</span><span class="z-source z-python">    <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">l_ab</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">line_through</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_on_line</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">l_ab</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-logical z-python">and</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_on_line</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">l_ab</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">        <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_between</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-logical z-python">or</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_between</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">    <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_ccw</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-comparison z-python">!=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_ccw</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-logical z-python">and</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_ccw</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">c</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-comparison z-python">!=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">is_ccw</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">a</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">b</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">d</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> Some test cases using this point layout: E F
+</span></span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>                                          A B C D
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span>, <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>, <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>, <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">2</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>, <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">3</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>, <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>, <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">Point</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: False)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 1
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: False)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 2.1
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: True)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 2.2
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: True)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 2.3a
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: True)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 2.3b
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">D</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: False)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 3.1
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: True)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 3.2
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">C</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">F</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: True)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 3.3
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">print</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-storage z-type z-string z-python">f</span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-interpolated z-python"><span class="z-string z-quoted z-double z-python">intersect (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">) and (</span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">, </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python">): </span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-begin z-python">{</span><span class="z-source z-python z-embedded"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">intersect</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">E</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">A</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">B</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span></span><span class="z-meta z-interpolation z-python"><span class="z-punctuation z-section z-interpolation z-end z-python">}</span></span><span class="z-string z-quoted z-double z-python"> (exp: True)<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>  <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> case 3.4
+</span></span></code></pre>
+<p>Great, now we have this out of the way and can proceed to the interesting part.</p>
+<h2 id="from-the-cartesian-plane-to-cyclotomic-rings"><a class="header-anchor no-hover-padding" href="#from-the-cartesian-plane-to-cyclotomic-rings" aria-label="Anchor link for: from-the-cartesian-plane-to-cyclotomic-rings"><span class="link-icon" aria-hidden="true"></span></a>
+From the Cartesian Plane to Cyclotomic Rings</h2>
+<p><em>(NOTE: From here on I assume that you have read
+<a href="/blog/perfect-precision-2d-geometry-complex-integers">part 1</a>
+of this article series)</em></p>
+<p>Note that the code above only makes use of <strong>addition, multiplication, equality,
+and greater-than-zero</strong>. As you will see, it will allow us to use it in a more general
+setting than the normal 2D plane, such as suitable constructible cyclotomic rings.</p>
+<p>In the rest of the post the distinction between rings and fields does not matter – the
+only caveat is that you can <strong>detect</strong> an intersection in the ring, but only in the field
+you can actually always <strong>compute</strong> the intersection point. Regardless of the
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection">approach</a> you use, in
+general you will need division in some computation step. I don’t know whether this is
+formally proven somewhere, but I have a strong feeling that this should be the case
+(probably some textbook result in algebraic geometry), as I found not a single formula for
+the intersection point that can completely avoid using division.</p>
+<p>Can you guess where I spent most of the time on while figuring this out? It is the
+<em>greater-than-zero</em> operation! I explained in the last post how you can represent
+constructible cyclotomic fields as integer-valued coefficient vectors over certain square
+roots, which are used as linearly independent pseudo-dimensions. Addition and equality
+work component-wise and therefore are trivial, multiplication is a little bit cumbersome,
+but I already explained how it can be solved without using any general-purpose symbolic
+expression engine. So the one missing operation to make the code above work over
+cyclotomics is a <em>greater-than-zero</em> test.</p>
+<p>Wait, what? But cyclotomic numbers are complex-valued! How does this even make sense?
+Valid objection, but if we look more carefully, we see that <strong>we only need to check if a
+cyclotomic number lying on the real line is greater than zero</strong>. Note that there is a
+single $\geq 0$ check in the code above, and it is applied to the result of the dot
+product, which is always real-valued.</p>
+<p>If this is not clear, consider that we are using the real and imaginary dimensions of the
+complex plane for our X and Y coordinates, i.e. for a two numbers $a$ and $b$ in the same
+cyclotomic field, we compute the dot product as $\mathfrak{Re}(a)\mathfrak{Re}(b) +
+\mathfrak{Im}(a)\mathfrak{Im}(b)$. This means that imaginary parts either cancel out, or
+are multiplied by 0 and vanish, leaving us with a real-valued cyclotomic number as the
+result.</p>
+<p>As the dot product of a cyclotomic number with itself gives us the square of the absolute
+value, such a procedure is also of interest whenever we want to sort or compare numbers by
+their absolute value. Even though we cannot compute the absolute value, because cyclotomic
+fields are not <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Quadratically_closed_field">quadratically
+closed</a>, in many algorithms its
+square also can be used.</p>
+<p>Because we represent such numbers symbolically (i.e. not evaluating the square roots), we
+essentially do not perform the last step of the dot product, i.e. the sum over the terms.
+So unlike the scalar-valued norm in the classical setting, the result here is again a
+coefficient vector. But, as noted above, we know it will be real-valued – and such
+numbers <em>are</em> totally ordered, because $\mathbb{R}$ is. So to compute symbolically
+whether $||a||_2 &gt; ||b||_2$ we only need to check that $a\odot a - b \odot b &gt; 0$, where
+$\odot$ is the dot product, which in this setting happens to be the same as the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">Hadamard
+product</a>.</p>
+<h2 id="a-simple-instance-of-the-square-root-sum-problem"><a class="header-anchor no-hover-padding" href="#a-simple-instance-of-the-square-root-sum-problem" aria-label="Anchor link for: a-simple-instance-of-the-square-root-sum-problem"><span class="link-icon" aria-hidden="true"></span></a>
+A Simple Instance Of The Square-Root Sum Problem</h2>
+<p>Now as we are asking the question for real-valued constructible cyclotomic numbers, we
+have reduced the greater-than-zero check to the
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Square-root_sum_problem">square-root sum problem</a>.
+The good news is that this is a well-studied problem, but the bad news is that in general
+(i.e. without restrictions on the form or number of terms) this problem is pretty tricky
+and there are even still open questions concerning its algorithmic complexity! It is most
+definitely is <em>not</em> something you can quickly implement correctly. So what to do?</p>
+<p>Well, nobody actually said that we have to solve the general problem! For each fixed
+cyclotomic field we have a fixed integral basis. If the fields you work with have <strong>at most
+4 distinct square roots</strong>, such as $\mathbb{Z}[\zeta_{24}]$ (which only needs $\sqrt{1},
+\sqrt{2}, \sqrt{3}$ and $\sqrt{6}$ as the set of square roots forming a linearly
+independent integral base), you are in luck – then the sign of the number can be
+determined using nothing but high-school level algebra! We can set up inequalities and
+transform them until no square roots remain and we can simply evaluate the expression over
+good old integers or rationals.<sup class="footnote-reference" id="fr-limits-1"><a href="#fn-limits">[3]</a></sup></p>
+<h3 id="two-square-roots"><a class="header-anchor no-hover-padding" href="#two-square-roots" aria-label="Anchor link for: two-square-roots"><span class="link-icon" aria-hidden="true"></span></a>
+Two Square Roots</h3>
+<p>Now, skipping the completely trivial cases, we can take a look at the cases involving a
+sum of two terms involving distinct squarefree coprime roots. Let $a,b\in\mathbb{Z}, m&gt;1,
+n&gt;1$. If you want to know whether $a\sqrt{n} + b\sqrt{m} &gt; 0$, there are the following
+possibilities:</p>
+<ol>
+<li>$a = 0 \lor b = 0 \Rightarrow$ trivial (actually not really two terms)</li>
+<li>$\mathrm{sgn}(a) = \mathrm{sgn}(b) \Rightarrow$ trivial (just return the sign)</li>
+<li>$\mathrm{sgn}(a) \neq \mathrm{sgn}(b) \Rightarrow$ two symmetric cases (track the sign)
+<ol>
+<li>$a&gt;0$ and $b&lt;0$</li>
+<li>$a&lt;0$ and $b&gt;0$</li>
+</ol>
+</li>
+</ol>
+<p>Now for case 3.1 we have:</p>
+<p>$$a\sqrt{n} + b\sqrt{n} &gt; 0\Leftrightarrow na^2 &gt; mb^2 \Leftrightarrow na^2 - mb^2 &gt; 0$$</p>
+<p>and for case 3.2 symmetrically:</p>
+<p>$$a\sqrt{n} + b\sqrt{n} &gt; 0 \Leftrightarrow na^2 &lt; mb^2 \Leftrightarrow ma^2 - nb^2 &gt; 0$$</p>
+<p>in addition to that we also have the cases where $a\sqrt{n} + b\sqrt{n} &lt; 0$, which we can
+treat like $\leq 0$ (i.e. just invert the result of $&gt; 0$), assuming that cases 1. and
+2. are already excluded (specifically, the case $a = b = 0$).<sup class="footnote-reference" id="fr-assumption-1"><a href="#fn-assumption">[4]</a></sup></p>
+<p>After thinking through and looking at all these cases, we can condense the whole
+evaluation with the messy symmetric cases into a single nice expression that looks almost
+too obvious<sup class="footnote-reference" id="fr-obvious-1"><a href="#fn-obvious">[5]</a></sup> (but does not generalize naively):</p>
+<p>$$
+\mathrm{sgn}(a\sqrt{n} + b\sqrt{n}) = \mathrm{sgn}(\mathrm{sgn}(a)a^2 n + \mathrm{sgn}(b)b^2 m)
+$$</p>
+<p>Now this is not a kind of equation I have seen too often in math literature, but in
+practical implementations you will often want to provide a sign operation instead of using
+different combinations of $&lt;, =, &gt;$, etc.</p>
+<h3 id="four-square-roots-with-side-constraints"><a class="header-anchor no-hover-padding" href="#four-square-roots-with-side-constraints" aria-label="Anchor link for: four-square-roots-with-side-constraints"><span class="link-icon" aria-hidden="true"></span></a>
+Four Square Roots (With Side Constraints)</h3>
+<p>After this warm-up, I will skip the case of three roots (because no cyclotomic field has a
+base of exactly three roots) and move on directly to the case of four.</p>
+<p>Now our expression has coefficients $a,b,c,d\in\mathbb{Z}\setminus\{0\}$ and distinct
+coprime squarefree constants $k,m,n,l \in \mathbb{N}$. Furthermore, as this is intended
+for the usage with cyclotomic fields, we will also assume that $k=1$ and $l = mn$, and I
+leave the completely general solution as an exercise.</p>
+<p>First separate the roots into two expressions with two roots. This
+can be done in multiple ways symmetrically, I just picked one natural possibility:</p>
+<p>$$
+\begin{align*}
+a\sqrt{k} + b\sqrt{m} + c\sqrt{n} + d\sqrt{mn} &amp;&gt; 0 \\
+b\sqrt{m} + c\sqrt{n} &amp;&gt; -(a\sqrt{k} + d\sqrt{mn})
+\end{align*}
+$$</p>
+<p>Now use the solution above to check the sign of the left and right side independently. If
+we have that</p>
+<p>$$
+\mathrm{sgn}(b\sqrt{m} + c\sqrt{n}) = \mathrm{sgn}(a\sqrt{k} + d\sqrt{mn})
+$$</p>
+<p>then we are done and can just return the sign. Otherwise, we have the non-trivial case
+where the expressions contribute with opposed sign and we have to analyze further.
+Now w.l.o.g. we assume that the term on the left, i.e. $b\sqrt{m} + c\sqrt{n}$, is
+positive and the term on the right is negative.</p>
+<p>We will solve this similarly as above, by squring both sides, moving around terms and
+carefully watching the signs:</p>
+<p>$$
+\begin{align*}
+b\sqrt{m} + c\sqrt{n} &amp;&gt; -(a + d\sqrt{mn}) \\
+b^2 m + c^2 n + 2bc \sqrt{mn} &amp;&gt; a^2 + d^2 mn + 2ad \sqrt{mn} \\
+b^2 m + c^2 n - d^2 mn - a^2 &amp;&gt; 2(ad - bc) \sqrt{mn} \\
+\left(b^2 m + c^2 n - d^2 mn - a^2\right)^2 &amp;&gt; 4mn(ad - bc)^2 \\
+\end{align*}
+$$</p>
+<p>This is all we need – all roots are eliminated and we are left with an expression
+involving only integers (or rationals, if you are working in a field). So the result of
+the sign function is given by:</p>
+<p>$$
+\mathrm{sgn}(b\sqrt{m} + c\sqrt{n})\cdot\mathrm{sgn}(\left(b^2 m + c^2 n - d^2 mn - a^2\right)^2 - 4mn(ad - bc)^2 )
+$$</p>
+<p>This expression might not look as natural as the one for the simpler case, but it
+similarly condenses all the logic of case-splitting that we would normally have to do. The
+left term of the product accounts for the cases where the signs of the two subexpressions
+are flipped, and the right term is just what we derived in the inequalities above.</p>
+<h2 id="summary"><a class="header-anchor no-hover-padding" href="#summary" aria-label="Anchor link for: summary"><span class="link-icon" aria-hidden="true"></span></a>
+Summary</h2>
+<p>The operation of checking the sign of a number might look harmless on first sight, but can
+cause quite some headache when you work in more limited structures such as rings and
+fields, and the general square-root sum problem is surprisingly difficult.</p>
+<p>However, for sufficiently nice cyclotomic rings, we have seen how the problem actually can
+still be solved rather easily – the main difficulty here was managing the explosion of
+symmetric cases, which requires tracking of signs of our input coefficients and certain
+subexpressions. But once this is all done, we can finally do useful things such as
+comparing norms or testing for line intersections!</p>
+<p>In the next post of this series, I am going to <em>finally</em> talk about simple polygons.
+As already teased in the previous post, it will be not only about lifting
+concepts and algorithms from 2D geometry to cyclotomic rings, but it will also involve a
+non-standard representation of polygonal chains and polygons as sequences of discrete
+angles, which are interpreted like a minimalistic version of <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Turtle_graphics">turtle
+graphics</a>. This might look like a weird
+design choice, but has some interesting features and algorithmic advantages in the context
+of <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Tessellation">tiles and tilings</a>, for example to compute
+candidate match sites along the boundary of two tiles, or to glue them together
+efficiently.</p>
+<hr><ol class="footnotes-list">
+<li id="fn-trait-hell">
+<p>I got lost in trait and macro hell for a while, and probably the way I did
+it is not the most elegant or idiomatic. However, I feel like I learned not only a
+great deal about cyclotomics, but also about non-trivial Rust development.
+I am still not happy about many implementation details, but I think the user-facing
+API is getting pretty nice. <a href="#fr-trait-hell-1">↩</a></p>
+</li>
+<li id="fn-backport">
+<p>I ported this back from my Rust crate to make it more accessible.
+Unlike the Rust code, the Python snippet is not battle-tested. <a href="#fr-backport-1">↩</a></p>
+</li>
+<li id="fn-limits">
+<p>However, if you have 5 or more distinct square roots, this approach will not
+work. Sadly I could not find a reference for this (I remember seeing this in some paper
+or textbook), but you can try, and you will quickly see how using the same approach
+with more than 4 square roots will not reduce the number of roots in the expressions. <a href="#fr-limits-1">↩</a></p>
+</li>
+<li id="fn-assumption">
+<p>Here we siltently make another important non-trivial assumption – that
+this expression can not sum to zero for the non-degenerate case where both $a, b \neq
+0$. But luckily, there is a result saying that this is actually <a rel="noopener" target="_blank" href="https://qchu.wordpress.com/2009/07/02/square-roots-have-no-unexpected-linear-relationships/">always the
+case</a>
+in our setting. <a href="#fr-assumption-1">↩</a></p>
+</li>
+<li id="fn-obvious">
+<p>The funny story here is that initially, I was just messing around and just
+came up with the correct expression intuitively. To my big surprise, it seemed to
+actually do the job! But to confirm that this is not just working by accident in
+simple cases, I did the case analysis that you see here. <a href="#fr-obvious-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/deepseek-r1-first-contact/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">First Contact Report: DeepSeek R1 is Pretty Impressive, And You Should Try It</p></div>
+                <div><a href="https://pirogov.de/blog/doing-magic-using-permutations/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Doing Magic Using Permutations</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#line-segment-intersection-101">Line Segment Intersection 101</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#from-the-cartesian-plane-to-cyclotomic-rings">From the Cartesian Plane to Cyclotomic Rings</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#a-simple-instance-of-the-square-root-sum-problem">A Simple Instance Of The Square-Root Sum Problem</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#two-square-roots">Two Square Roots</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#four-square-roots-with-side-constraints">Four Square Roots (With Side Constraints)</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/intersecting-segments-without-tears/#summary">Summary</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

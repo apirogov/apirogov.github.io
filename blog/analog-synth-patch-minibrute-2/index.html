@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Exploring Analog Synth Patching with the Minibrute 2</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Exploring Analog Synth Patching with the Minibrute 2" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;analog-synth-patch-minibrute-2&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Exploring Analog Synth Patching with the Minibrute 2
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2024-03-27">27th Mar 2024</time></li><li title="1531 words"><span class='separator' aria-hidden='true'>•</span>8 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/music/">music</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/sound-design/">sound design</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/synth/">synth</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/patch/">patch</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/preset/">preset</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#intro-learning-to-synth">Intro: Learning to Synth</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#let-s-patch-the-minibrute-2">Let’s Patch the Minibrute 2</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#envelopes">Envelopes</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#green-areas">Green Areas</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#blue-areas">Blue Areas</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#yellow-areas">Yellow Areas</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#conclusion-personal-impressions">Conclusion: Personal Impressions</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><h2 id="intro-learning-to-synth"><a class="header-anchor no-hover-padding" href="#intro-learning-to-synth" aria-label="Anchor link for: intro-learning-to-synth"><span class="link-icon" aria-hidden="true"></span></a>
+Intro: Learning to Synth</h2>
+<p><em>NOTE: If you just want to see the MB2 patch, feel free to skip this section.</em></p>
+<p>In recent years I have been musically focusing on playing drums (mainly motivated by
+having a guitar-playing friend to jam and cover some songs with), but a few months ago I
+got the urge to play some keys again. Only now I wanted something <em>else</em> than classical
+piano (which I used to play for many years in my youth), something that allows me to play
+or write music that I also would <em>enjoy listening to</em>. So I came to the embarrassingly
+late realization that maybe I should check out synthesizers (and maybe learn some basics
+of jazz improv for fun).</p>
+<p>After first buying a <a rel="noopener" target="_blank" href="https://www.thomann.de/de/arturia_keystep_37.htm">Keystep 37</a> and
+playing around for a while with <a rel="noopener" target="_blank" href="https://tytel.org/helm/">Helm</a> and <a rel="noopener" target="_blank" href="https://surge-synthesizer.github.io/">Surge
+XT</a> in <a rel="noopener" target="_blank" href="https://www.reaper.fm/">Reaper</a> to learn the
+basics and get a feeling for synthesis, I felt that I need a hardware synth – some
+instrument as physical and immediate as my
+<a rel="noopener" target="_blank" href="https://www.roland.com/de/products/td-11kv/">TD-11KV</a> drum set<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup> and my
+<a rel="noopener" target="_blank" href="https://www.thomann.de/de/roland_fp_30x_bk.htm">FP-30X</a> piano. Tweaking knobs only using
+the mouse in the DAW is too limiting and unergonomic, while mapping them out to a MIDI
+controller sounds annoying and cumbersome. Also, after work I strongly prefer to get away
+from the computer screen, mouse and keyboard. Long story short – after lots of
+research<sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>, I have acquired a little synth collection:</p>
+<ul>
+<li>a <a rel="noopener" target="_blank" href="https://www.thomann.de/de/roland_s_1.htm">Roland AIRA S-1</a></li>
+<li>an <a rel="noopener" target="_blank" href="https://www.thomann.de/de/asm_hydrasynth_explorer.htm">ASM Hydrasynth Explorer</a></li>
+<li>an <a rel="noopener" target="_blank" href="https://www.thomann.de/de/arturia_minibrute_2_noir.htm">Arturia Minibrute 2</a></li>
+</ul>
+<p>I might not strictly need the S-1, but it was far too tempting – even if I end up only
+using it as an ultra-portable toy. The Hydrasynth, however, is certainly a <em>dream</em> of a
+synthesizer. I guess technically, there is no need for anything else<sup class="footnote-reference" id="fr-3-1"><a href="#fn-3">[3]</a></sup>, but just out of
+curiosity, I bought a used Minibrute 2 for a decent price, so I could also dip my feet
+into analog semi-modular synths.</p>
+<h2 id="let-s-patch-the-minibrute-2"><a class="header-anchor no-hover-padding" href="#let-s-patch-the-minibrute-2" aria-label="Anchor link for: let-s-patch-the-minibrute-2"><span class="link-icon" aria-hidden="true"></span></a>
+Let’s Patch the Minibrute 2</h2>
+<p>Without further ado, here’s a fun little patch I created with the Minibrute 2, probably
+the most complex one so far. Mainly, because I ran out of patch cables after wiring up all
+of the 8 cables that came with the Minibrute.</p>
+<p><img src="https://pirogov.de/blog/analog-synth-patch-minibrute-2/mb2_patch01.jpg" alt="The Minibrute 2 patch" />
+<audio style="width: 100%;" controls="1" controlslist="nodownload nofullscreen noremoteplayback" type="audio/mp3" src="mb2_patch01.mp3">Your browser does not support the audio tag.</audio></p>
+<p>I hope the actual patching should be clear enough based on the image, and in the following
+I will try to explain what is actually going on here.</p>
+<h3 id="envelopes"><a class="header-anchor no-hover-padding" href="#envelopes" aria-label="Anchor link for: envelopes"><span class="link-icon" aria-hidden="true"></span></a>
+Envelopes</h3>
+<p>By default, the <em>AD Envelope</em> modulates the volume, while the <em>ADSR envelope</em> modulates
+the filter cutoff of the synth. Here, the ADSR envelope is patched to modulate the volume
+instead, and is set to produce a rather pad-like sound. The now free <strong>AD envelope</strong> is
+repurposed to be a <strong>third LFO</strong> (by setting it into <em>Loop</em> mode). Its attack and decay
+are set to produce another sawtooth-like wave, and with the attack set to zero, the <strong>AD
+Decay</strong> effectively controls the LFO rate.</p>
+<h3 id="green-areas"><a class="header-anchor no-hover-padding" href="#green-areas" aria-label="Anchor link for: green-areas"><span class="link-icon" aria-hidden="true"></span></a>
+Green Areas</h3>
+<p>The third LFO (i.e. the AD envelope) is used to modulate the <strong>filter resonance</strong>. The
+<strong>Resonance</strong> and <strong>RM</strong> knobs are essentially defining the minimum and maximum
+resonance, i.e. the range in which the AD-based LFO can modulate it.
+This creates a <em>layer of clicky sounds</em> at a speed controlled by the <strong>AD Decay</strong>.</p>
+<h3 id="blue-areas"><a class="header-anchor no-hover-padding" href="#blue-areas" aria-label="Anchor link for: blue-areas"><span class="link-icon" aria-hidden="true"></span></a>
+Blue Areas</h3>
+<p><strong>LFO2</strong> is attenuated by <strong>Att 1</strong> and is responsible for a <em>slow filter sweep</em> (i.e.
+it controls the filter cutoff frequency). The <strong>LFO2 rate</strong> controls the modulation
+speed, the <strong>Att 1 knob</strong> controls the modulation strength (i.e. frequency interval around
+the center), while the <strong>cutoff knob</strong> defines the center of the modulation range.</p>
+<h3 id="yellow-areas"><a class="header-anchor no-hover-padding" href="#yellow-areas" aria-label="Anchor link for: yellow-areas"><span class="link-icon" aria-hidden="true"></span></a>
+Yellow Areas</h3>
+<p>The mod wheel is patched to control a <em>tremolo effect</em>, instead of the standard vibrato
+(i.e., to modulate volume instead of pitch). The output volume is modulated by <strong>LFO1</strong>,
+which is attenuated by <strong>Att 2</strong>. The <strong>LFO1 rate</strong> sets the tremolo frequency, the <strong>mod
+wheel</strong> can be used to control tremolo between none at all and the maximum strength, which
+is defined by the <strong>Att 2 knob</strong>.</p>
+<h2 id="conclusion-personal-impressions"><a class="header-anchor no-hover-padding" href="#conclusion-personal-impressions" aria-label="Anchor link for: conclusion-personal-impressions"><span class="link-icon" aria-hidden="true"></span></a>
+Conclusion: Personal Impressions</h2>
+<p>I do like the straight-forward ergonomics of the Minibrute 2 – the immediacy of a
+<em>knob-per-function</em> design does have some magical appeal. Also, it is the only compact
+synth I own with <em>full-sized keys</em> and it has really nice mod and pitch bend wheels. All
+my other devices at most have touch strips for modulation, and I can say that I really do
+enjoy and prefer the feeling of a <em>sturdy metal wheel</em>. The full-size keys are nice to
+have, but I already have a digital piano with MIDI output – no compact synth keybed can
+beat that anyway. The sequencer and arpeggiator look to me exactly like the ones provided
+by the Keystep, so no surprises here.</p>
+<p>The Arturia-specific <em>Brute factor</em> knob is neat, but I found no practical use for turning
+it up more than halfway, when it goes into heavy feedback mode that is hard to tame or
+control. Up until the midpoint though, I do like turning it up to add more warmth and
+fatness to the sound. I think that the Minibrute <em>sounds pretty good even without any
+external effects</em>, and that is (from what I’ve heard) not always a given for for synths in
+the entry-to-mid price range.</p>
+<p>I can appreciate the Minibrute 2 for what it is, but after playing around with it a bunch
+of evenings, I got the feeling (actually, a confirmation) that I am neither an
+analog nor modular synth kind of person. It is well known that analog synths are
+much more expensive than similarly sounding and equally feature-rich digital synths, while
+being more clunky and heavy at the same time. Having no irrational prejudice against
+digital synths, <em>the only advantage of an analog synth that I see is its suitability for a
+(semi-)modular setup</em>.</p>
+<p>Only that I noticed that I <em>really</em> dislike having to deal with cables (it is such a mess
+and PITA), and <em>really</em> miss the ability to save my work. I have let the Minibrute sit
+untouched and collect dust for <em>weeks</em> before writing this up, because I wanted to
+properly document this patch (mostly for the “tricks” I used and/or came up with) before
+moving on to the next experiment. And this patch is still not much at all, compared to what
+other people happily deal with in their modular setups, and even compared to what I can
+easily do with my Hydrasynth – <em>without</em> any limitations and inconveniences caused by
+cables, and <em>with</em> the ability to quickly save the result and restore it later. As I
+apparently tend to gravitate towards more complex patches and prefer powerful modulation
+capabilities, and at the same time despise the cable mess, analog and modular gear does
+not make much sense for me.</p>
+<p>I don’t regret buying the Minibrute at all, and it taught me a thing or two about
+old-school analog patching and my own synth preferences, but I am not sure whether I am
+going to keep it. Neither do I have the desk space, nor can I see a real need for it. My
+Hydrasynth is hands-down better as the ultimate sound design workstation, whereas the S-1,
+paired with the Keystep, already fill the simple, light-weight and super portable niche in
+my setup.<sup class="footnote-reference" id="fr-4-1"><a href="#fn-4">[4]</a></sup> In any case – it was quite some fun playing with you, Minibrute 2!</p>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p>I’ve been owning and using the TD-11KV for over 8 years now, and I have almost no
+complaints. The investment to have all drums as mesh-heads was absolutely worth it,
+giving me a close-to-natural drumming experience without neighbors you share a wall
+with starting to hate you (except, possibly, because of the bass pedal). <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p>If all you knew before were are classical instruments, the market and available
+options for synthesizers and related gear is absolutely overwhelming (even more so for
+software instruments / VST plugins). It’s quite some effort to cut through the
+noise and hype, to see what actually matters in general and also for me personally. <a href="#fr-2-1">↩</a></p>
+</li>
+<li id="fn-3">
+<p>Except maybe a <a rel="noopener" target="_blank" href="https://www.audiothingies.com/product/micromonsta2/">Micromonsta 2</a>,
+for the bi-timbrality. Sadly, it’s super difficult to get the hands on one (making
+me want it even more). I guess I’ve caught a mild case of
+<a rel="noopener" target="_blank" href="https://en.wiktionary.org/wiki/gear_acquisition_syndrome">GAS</a>. To keep it in check,
+my rule of thumb is to only buy new gear that is not redundant in my setup and fills
+some real gap or has a special strength or feature. <a href="#fr-3-1">↩</a></p>
+</li>
+<li id="fn-4">
+<p>I still consider (half jokingly) keeping it for no other reason than these nice mod
+and pitch wheels. In hindsight, maybe I just should have bought a Hydrasynth Deluxe.
+Then I could sell both my FP-30X and Minibrute 2 without second thoughts. <a href="#fr-4-1">↩</a></p>
+</li>
+</ol>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/count-edge-labelled-trees/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">A Prime Way to Count Edge-Labeled Ordered Trees</p></div>
+                <div><a href="https://pirogov.de/blog/an-uncomputable-function/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">A Simple and Natural Uncomputable Function</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#intro-learning-to-synth">Intro: Learning to Synth</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#let-s-patch-the-minibrute-2">Let’s Patch the Minibrute 2</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#envelopes">Envelopes</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#green-areas">Green Areas</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#blue-areas">Blue Areas</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#yellow-areas">Yellow Areas</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/analog-synth-patch-minibrute-2/#conclusion-personal-impressions">Conclusion: Personal Impressions</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

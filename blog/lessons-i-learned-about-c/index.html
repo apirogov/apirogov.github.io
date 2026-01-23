@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Lessons I Learned About C</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Lessons I Learned About C" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;lessons-i-learned-about-c&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Lessons I Learned About C
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/lessons-i-learned-about-c/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2016-03-21">21st Mar 2016</time></li><li title="1692 words"><span class='separator' aria-hidden='true'>•</span>9 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/programming/">programming</a></li>
+        </ul><section class="e-content body"><p>I recently worked on my
+<a rel="noopener" target="_blank" href="https://github.com/EvolBioInf/macle">first non-trivial C project</a> during my
+student job in bioinformatics research. I already knew enough C to hack things
+together, like my <a rel="noopener" target="_blank" href="https://github.com/apirogov/lold">LoL Shield daemon</a>, which
+still suffers from some bugs but works fine, but this time I tried to do
+everything right™.</p>
+<p>Now, in other languages you can get along just fine using just a REPL and some
+printf-debugging, but as I learned, when programming C, life is just a lot
+easier if you know how to use your tools. As it turns out, there is not much you
+need to know to get great benefits. So what follows are some of the lessons I’ve
+learned and my overall impressions of working with C.</p>
+<h2 id="use-valgrind"><a class="header-anchor no-hover-padding" href="#use-valgrind" aria-label="Anchor link for: use-valgrind"><span class="link-icon" aria-hidden="true"></span></a>
+Use valgrind</h2>
+<p>Valgrind is wonderful – just put <code>valgrind</code> in front of your program and
+arguments and wait for it to finish. Valgrind slows down execution considerably,
+so it might be a good idea to use not the biggest input available for such a
+test run. In the end valgrind spits out statistics about memory allocation and
+in case of (possible) memory leaks gives a backtrace to the line where the
+corresponding memory block was allocated. It helped me to find not only leaks,
+but also a lot of stupid double frees or index over-/underruns that I would
+probably not find ever otherwise, because valgrind tells you how many bytes away
+from an allowed memory block your invalid read or write went. And it is a great
+feeling to see the <em>“no leaks are possible”</em> message! A fact that you often take
+for granted in all those fancy garbage-collected languages we have at our
+disposal today.</p>
+<h2 id="use-gdb"><a class="header-anchor no-hover-padding" href="#use-gdb" aria-label="Anchor link for: use-gdb"><span class="link-icon" aria-hidden="true"></span></a>
+Use gdb</h2>
+<p>Well, this point is probably obvious to most. The thing is, I do not like
+debuggers. At least I thought so. This may be because of rather negative
+usability experiences I had with them when using IDEs. Well, now I see that
+probably the problem are bloated IDEs and not debuggers. I learned my basic
+gdb-ABC from <a rel="noopener" target="_blank" href="http://www.unknownroad.com/rtfm/gdbtut/">this</a> tutorial and some
+googling, which is enough to start being productive. Just don’t forget to
+disable optimization and add debugging information (<code>-O0 -g</code>). Overall, the
+experience was quite pleasent and the gdb CLI is very polished. At the very
+least, you can locate the place where your program crashes and often inspecting
+variables prior to the crash is enough to see the mistake. But in some cases I
+still find printf-debugging to be the less tedious solution. Especially if I
+want a trace of multiple variables in e.g. each run of some loop.
+I don’t know of a fast way to do the same with a debugger, but maybe I just have
+to use them more.</p>
+<h2 id="profiling"><a class="header-anchor no-hover-padding" href="#profiling" aria-label="Anchor link for: profiling"><span class="link-icon" aria-hidden="true"></span></a>
+Profiling</h2>
+<p>Add <code>-pg</code> to both compiler and linker options, and your program will be compiled
+in a way that it creates a <code>gmon.out</code> file which contains profiling information.
+Just run <code>gprof your_program gmon.out &gt;  result.txt</code> to extract a human-readable
+summary about the run. I used
+<a rel="noopener" target="_blank" href="http://www.thegeekstuff.com/2012/08/gprof-tutorial/">this</a> tutorial about basic
+gprof usage, but I must admit, I didn’t use it much. Still, it is useful to know
+how to find bottlenecks easily.</p>
+<h2 id="unit-testing-in-c"><a class="header-anchor no-hover-padding" href="#unit-testing-in-c" aria-label="Anchor link for: unit-testing-in-c"><span class="link-icon" aria-hidden="true"></span></a>
+Unit-testing in C</h2>
+<p>Setting up unit-testing in C is surprisingly simple. I settled on a variant of
+<em>minunit</em> – all it takes is one additional header file with some macros and
+adapting your Makefile. There are several variants of this micro-test-framework
+(if you can even call it this) floating around the web, e.g.
+<a rel="noopener" target="_blank" href="http://c.learncodethehardway.org/book/ex30.html">this one</a>. If you set it up in
+a similar way, each test suite will be compiled into a separate executable and a
+shell script will run them all and log the results. All the tests can be run
+through valgrind, so that correct memory usage is tested for free as well. I
+modified the macros so that success and failure of tests is shown in green and
+red, respectively, it is much more fun and cheerful with colors! ;)</p>
+<p>I have not enough discipline (yet?) to do <em>test-driven development</em>, but what I
+found to be very useful was what I’d call <strong>test-driven debugging</strong>. I had a
+few situations where I simply could not find the bug, I could hit my head
+against the wall. Then I had an enlightenment – when reasoning does not lead me
+anywhere, probably <em>my assumptions are wrong</em>! So I’ve added tests for all
+functions involved. And of course (as usual) the problem was in a completely
+different place. For me, finding a nasty bug is the biggest motivation to write
+tests, and sometimes it is the only solution. Hence, test-driven debugging.</p>
+<h2 id="my-testing-recipe"><a class="header-anchor no-hover-padding" href="#my-testing-recipe" aria-label="Anchor link for: my-testing-recipe"><span class="link-icon" aria-hidden="true"></span></a>
+My testing recipe</h2>
+<p>The problem with testing is that it only protects from mistakes you have thought
+of or already made (and added a test against it, afterwards). Coming from
+Haskell, I am a fan of randomized tests in the style of
+<a rel="noopener" target="_blank" href="https://hackage.haskell.org/package/QuickCheck">QuickCheck</a>. So for the more
+complex algorithms I added generators for big random inputs and sampled them for
+test cases, where the complex and efficient implementation is compared against a
+simple naive solution. The randomized tests are complementing some regular tests
+(especially edge cases) with known expected values and some exhaustive tests for
+rather small inputs. The combination of these kinds of tests:</p>
+<ul>
+<li>regular tests (hard-coded results)</li>
+<li>small exhaustive tests (against naive implementation)</li>
+<li>bigger randomized tests (against naive implementation)</li>
+<li>all above through valgrind</li>
+</ul>
+<p>gives me a warm fuzzy feeling about the correctness of my code, when all the
+test suites pass and everything is green.</p>
+<h2 id="clang"><a class="header-anchor no-hover-padding" href="#clang" aria-label="Anchor link for: clang"><span class="link-icon" aria-hidden="true"></span></a>
+Clang</h2>
+<p>Clang is awesome and probably all the good things you heard about it are true.
+The error and warning messages are among the best I’ve ever seen from a compiler
+(and even colorful!). So there is no excuse for not using clang at least for
+development. I would even use it if it was just for the helpful warning
+including a hint for the correct format string when using <code>printf</code>! As a
+bonus, clang includes a linting tool, <code>clang-format</code>, which is also easy to
+use. Unfortunately it lacks some customization options I would like, but that
+are just minor things.</p>
+<h2 id="minimize-global-state"><a class="header-anchor no-hover-padding" href="#minimize-global-state" aria-label="Anchor link for: minimize-global-state"><span class="link-icon" aria-hidden="true"></span></a>
+Minimize global state</h2>
+<p>Well, to be honest, this is a lesson I already knew before, but I applied it in
+C as well – I rather have some more parameters in a function, than introduce a
+global variable. In the end, the only globally accessible data I introduced were the
+program args, because they are coupled with a lot of stuff and I really don’t want to
+pass them to every function explicitly. This makes testing easier and the code
+is less spaghettified.</p>
+<h2 id="use-c99-to-the-full-potential"><a class="header-anchor no-hover-padding" href="#use-c99-to-the-full-potential" aria-label="Anchor link for: use-c99-to-the-full-potential"><span class="link-icon" aria-hidden="true"></span></a>
+Use C99 to the full potential</h2>
+<p>Previously, I basically just used C99 as standard to be able to declare
+variables everywhere (again, a feature taken for granted normally!). Now I
+know that the C standard library (this small and laughable collection of
+functions) does include some useful things – you get a bool type, a set of sane
+fixed-size integer types and some useful constants and macros associated with
+them. In fact, I made a master-header that includes about two-thirds of the C
+standard library, as you need it all the time anyway.</p>
+<h1 id="impressions"><a class="header-anchor no-hover-padding" href="#impressions" aria-label="Anchor link for: impressions"><span class="link-icon" aria-hidden="true"></span></a>
+Impressions</h1>
+<p>Well, in the end I may not have some unique perspective to offer, but I can
+confirm many of the good and bad aspects people often mention.</p>
+<h2 id="what-i-like-about-c"><a class="header-anchor no-hover-padding" href="#what-i-like-about-c" aria-label="Anchor link for: what-i-like-about-c"><span class="link-icon" aria-hidden="true"></span></a>
+What I like about C</h2>
+<h3 id="speed"><a class="header-anchor no-hover-padding" href="#speed" aria-label="Anchor link for: speed"><span class="link-icon" aria-hidden="true"></span></a>
+Speed</h3>
+<p>Damn, it is fast. It’s a nice feeling to run a blazing-fast binary
+that does in seconds what would take minutes in your fancy modern language of
+choice.</p>
+<h3 id="control"><a class="header-anchor no-hover-padding" href="#control" aria-label="Anchor link for: control"><span class="link-icon" aria-hidden="true"></span></a>
+Control</h3>
+<p>No garbage collector kicking in, no magic performed by the runtime. Even though
+it may be not really true, it really does feel like you have full control over
+the machine.</p>
+<h3 id="portability"><a class="header-anchor no-hover-padding" href="#portability" aria-label="Anchor link for: portability"><span class="link-icon" aria-hidden="true"></span></a>
+Portability</h3>
+<p>Well, not exactly a feature of C, but just a matter of fact. But probably this
+point is moot, if your target are just regular recent x86-family processors. But it is
+good to know that you can compile for, say, your MIPS wireless router.</p>
+<h2 id="what-i-hate-about-c"><a class="header-anchor no-hover-padding" href="#what-i-hate-about-c" aria-label="Anchor link for: what-i-hate-about-c"><span class="link-icon" aria-hidden="true"></span></a>
+What I hate about C</h2>
+<h3 id="makefiles"><a class="header-anchor no-hover-padding" href="#makefiles" aria-label="Anchor link for: makefiles"><span class="link-icon" aria-hidden="true"></span></a>
+Makefiles</h3>
+<p>Writing the Makefile for the project was like always a major PITA and more or
+less consisting of copy-pasting snippets from various tutorials and
+Stackoverflow questions, then poking around until it does what I want. I
+probably really need to RTFM some day, because writing Makefiles seems not to be
+a skill you just pick up on the fly. For me, it is just a necessary evil. Maybe
+I am just spoiled by other languages. Of course, this point does not apply to C
+itself, but Makefiles are the usually used with C or C++ projects and are the
+de-facto standard build system, so I think this is fair.</p>
+<h3 id="historical-madness"><a class="header-anchor no-hover-padding" href="#historical-madness" aria-label="Anchor link for: historical-madness"><span class="link-icon" aria-hidden="true"></span></a>
+Historical madness</h3>
+<p>Separation of .c and .h files, always needing to change function
+signatures in two different places, needing macro guards to prevent
+multiple includes of the same file, needing a prototype signature, if you use a
+function before the definition. The resulting amount of boilerplate code.
+Working with strings. These are just examples from a huge list of small
+annoyances. Not even asking for the accomplishments of PL theory and
+engineering of the last decades. I know that all of this is historical baggage we
+now can’t change. I just hope that someday <a rel="noopener" target="_blank" href="https://www.rust-lang.org/">Rust</a> or
+something similar will succeed and replace C. Probably won’t ever happen, but
+one can always dream!</p>
+<h2 id="my-conclusion"><a class="header-anchor no-hover-padding" href="#my-conclusion" aria-label="Anchor link for: my-conclusion"><span class="link-icon" aria-hidden="true"></span></a>
+My Conclusion</h2>
+<p>While you can get along without fancy tools in e.g. Haskell or Ruby most of the
+time, in C <em>appropriate tooling is indispensable</em>. It also makes programming in C
+is a lot more bearable and fun. You still probably need almost twice as much
+time to accomplish the same thing and have a lot more ways to make mistakes, but
+in the end it pays off. I am not afraid of SEGFAULTs and memory corruptions
+anymore, but I still rather wouldn’t use C without a very compelling reason to
+do so.</p>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/designing-advaya-and-atreya/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Designing the Advaya and Atreya Tile Sets</p></div>
+                <div><a href="https://pirogov.de/blog/introduction-to-lambda-calculus/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Introduction to the Lambda Calculus</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#use-valgrind">Use valgrind</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#use-gdb">Use gdb</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#profiling">Profiling</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#unit-testing-in-c">Unit-testing in C</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#my-testing-recipe">My testing recipe</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#clang">Clang</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#minimize-global-state">Minimize global state</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#use-c99-to-the-full-potential">Use C99 to the full potential</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#impressions">Impressions</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#what-i-like-about-c">What I like about C</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#speed">Speed</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#control">Control</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#portability">Portability</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#what-i-hate-about-c">What I hate about C</a>
+                                        
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#makefiles">Makefiles</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#historical-madness">Historical madness</a>
+                                                            
+                                                        </li>
+                                                    
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/lessons-i-learned-about-c/#my-conclusion">My Conclusion</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

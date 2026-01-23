@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://pirogov.de/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;pirogov.de</tabi:base_url>
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme>light</tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>theory</tabi:current_section>
+    </tabi:metadata><title>Simply Typed - theory</title>
+        <subtitle>Anton Pirogov&#x27;s personal homepage.</subtitle>
+    <link href="https://pirogov.de/tags/theory/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://pirogov.de/tags/theory/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator><updated>2025-01-16T00:00:00+00:00</updated><id>https://pirogov.de/tags/theory/atom.xml</id><entry xml:lang="en">
+        <title>Intersecting Line Segments In Cyclotomic Rings Without Tears</title>
+        <published>2025-01-16T00:00:00+00:00</published>
+        <updated>2025-01-16T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/intersecting-segments-without-tears/" type="text/html"/>
+        <id>https://pirogov.de/blog/intersecting-segments-without-tears/</id>
+        </entry><entry xml:lang="en">
+        <title>How To Make Wang Tiles Rotatable</title>
+        <published>2024-10-20T00:00:00+00:00</published>
+        <updated>2024-10-20T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/rotatable-wang-tiles/" type="text/html"/>
+        <id>https://pirogov.de/blog/rotatable-wang-tiles/</id>
+        </entry><entry xml:lang="en">
+        <title>A Hobbyist Introduction to Julia and Mandelbrot Sets</title>
+        <published>2024-10-17T00:00:00+00:00</published>
+        <updated>2024-10-17T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/julia-mandel-intro/" type="text/html"/>
+        <id>https://pirogov.de/blog/julia-mandel-intro/</id>
+        </entry><entry xml:lang="en">
+        <title>Perfect-Precision 2D Geometry Using Complex Integer Rings</title>
+        <published>2024-08-24T00:00:00+00:00</published>
+        <updated>2025-01-12T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/perfect-precision-2d-geometry-complex-integers/" type="text/html"/>
+        <id>https://pirogov.de/blog/perfect-precision-2d-geometry-complex-integers/</id>
+        </entry><entry xml:lang="en">
+        <title>A Prime Way to Count Edge-Labeled Ordered Trees</title>
+        <published>2024-04-06T00:00:00+00:00</published>
+        <updated>2024-04-06T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/count-edge-labelled-trees/" type="text/html"/>
+        <id>https://pirogov.de/blog/count-edge-labelled-trees/</id>
+        </entry><entry xml:lang="en">
+        <title>A Simple and Natural Uncomputable Function</title>
+        <published>2024-03-16T00:00:00+00:00</published>
+        <updated>2024-03-16T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/an-uncomputable-function/" type="text/html"/>
+        <id>https://pirogov.de/blog/an-uncomputable-function/</id>
+        </entry><entry xml:lang="en">
+        <title>Generating Fractal-Like Sequences using Convolution Grammars</title>
+        <published>2023-09-09T00:00:00+00:00</published>
+        <updated>2023-09-09T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/aperiodic-sequences-convolution-grammars/" type="text/html"/>
+        <id>https://pirogov.de/blog/aperiodic-sequences-convolution-grammars/</id>
+        </entry><entry xml:lang="en">
+        <title>Generating Orthogonal Set Partitions</title>
+        <published>2023-07-28T00:00:00+00:00</published>
+        <updated>2023-07-28T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/generating-orthogonal-set-partitions/" type="text/html"/>
+        <id>https://pirogov.de/blog/generating-orthogonal-set-partitions/</id>
+        </entry><entry xml:lang="en">
+        <title>From Metaphysics via Self-Dual Hypergraphs to Non-Well-Founded Set Theory</title>
+        <published>2021-12-07T00:00:00+00:00</published>
+        <updated>2021-12-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/self-dual-connected-hypergraphs/" type="text/html"/>
+        <id>https://pirogov.de/blog/self-dual-connected-hypergraphs/</id>
+        </entry><entry xml:lang="en">
+        <title>Topology and Geometry of Biconnected Polyhexes</title>
+        <published>2020-09-20T00:00:00+00:00</published>
+        <updated>2020-09-20T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/biconnected-holefree-polyhexes/" type="text/html"/>
+        <id>https://pirogov.de/blog/biconnected-holefree-polyhexes/</id>
+        </entry><entry xml:lang="en">
+        <title>Introduction to the Lambda Calculus</title>
+        <published>2014-10-07T00:00:00+00:00</published>
+        <updated>2014-10-07T00:00:00+00:00</updated>
+        <author>
+            <name>Anton Pirogov</name>
+        </author>
+        <link rel="alternate" href="https://pirogov.de/blog/introduction-to-lambda-calculus/" type="text/html"/>
+        <id>https://pirogov.de/blog/introduction-to-lambda-calculus/</id>
+        </entry>
+</feed>

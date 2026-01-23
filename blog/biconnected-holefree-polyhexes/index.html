@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Topology and Geometry of Biconnected Polyhexes</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Topology and Geometry of Biconnected Polyhexes" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;biconnected-holefree-polyhexes&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Topology and Geometry of Biconnected Polyhexes
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/biconnected-holefree-polyhexes/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2020-09-20">20th Sep 2020</time></li><li title="5714 words"><span class='separator' aria-hidden='true'>•</span>29 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/geometry/">geometry</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tilings/">tilings</a></li>
+        </ul><section class="e-content body"><p><em>The hexagonal tilesets for my first experiments in board game design,
+<a href="/projects/advaya/">Advaya</a> and <a href="/projects/atreya/">Atreya</a>,
+were developed by explorative programming and that process was explained
+<a href="/blog/designing-advaya-and-atreya">in a different article</a>.</em></p>
+<p><em>Here, I will discuss some theoretical aspects that are not
+really relevant for playing the games, but are interesting questions from a
+theoretical point of view and for implementation purposes. We will completely
+forget about the pieces drawn on the tiles and just consider the game arenas as
+abstract objects made from equivalent tiles, without edge-matching constraints
+imposed by the colors.</em></p>
+<p>From a mathematical point of view, the arenas of tabletop games like Hive,
+Advaya and Atreya are nothing but dynamically changing
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Polyhex_(mathematics)">polyhexes</a>, and more
+specifically for the latter two,
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Biconnected_graph">biconnected</a> holefree
+polyhexes. I would argue that this is an interesting combination of properties. While
+simple connectedness can be understood geometrically, biconnectedness is an inherently
+graph-theoretic property that is combined with otherwise geometric restrictions.</p>
+<p>Summarizing the relevant rules of Advaya and Atreya, an arena consisting of hexagonal game
+pieces is valid if its graph is biconnected and it has no holes (in the geometric sense).
+Furthermore, this validity is to be maintained throughout any tile movement. From Hive I
+have borrowed the additional restriction that tiles may only be moved from one position to
+another if, besides upholding arena validity, the movement can be performed without
+lifting the tile up, purely by sliding it on the table and without needing to move any
+other tiles (assuming perfect precision and tile placement).</p>
+<p>This combination of properties has some interesting non-obvious consequences and I have
+not found a paper looking at the interaction of these properties before, so here I want to
+present my not too difficult, but still interesting findings.</p>
+<h2 id="preliminaries"><a class="header-anchor no-hover-padding" href="#preliminaries" aria-label="Anchor link for: preliminaries"><span class="link-icon" aria-hidden="true"></span></a>
+Preliminaries</h2>
+<p>Some finite non-empty set $A \subseteq \mathcal{H}$ of <strong>cells</strong> (or positions)
+of an infinite regular hexagonal grid $\mathcal{H}$ is called a <strong>polyhex</strong>. By
+$\overline{A}$ we denote the set of cells $\mathcal{H}\setminus A$ that do not
+belong to $A$. We say that cells $c\not\in A$ are <strong>empty</strong>, whereas cells $c\in
+A$ are <strong>occupied</strong>. A <strong>tile</strong> is a cell-shaped position marker and it is implied that
+each occupied cell is covered by a tile. The <strong>connectivity graph</strong> of
+$G(\mathcal{H})$ is the 6-regular triangular grid graph with cells as vertices
+and shared cell boundaries as edges. The connectivity graph of the polyhex
+$G(A)$ is just the restriction of $G(\mathcal{H})$ to the polyhex cells, whereas
+the connectivity of empty space is captured by $G(\overline{A})$.</p>
+<p>A polyhex is <strong>biconnected</strong> if removing a cell from the set does not disconnect
+any pair of other cells and it is <strong>holefree</strong> if there is no empty area of
+cells fully surrounded by cells of the polyhex.
+A polyhex is <strong>valid</strong> if it is <strong>biconnected</strong> and <strong>holefree</strong>, which formally
+means that $G(A)$ is biconnected and $G(\overline{A})$ is connected. A <strong>hole</strong>
+is a finite connected component of $G(\overline{A})$ that is disconnected from
+the rest. An <strong>almost-hole</strong> is a maximal connected area of empty cells that
+becomes a hole by making one more tile occupied.</p>
+<p>We can also treat $A$ as a characteristic function $A : \mathcal{H} \to {0,1}$
+mapping cells of the polyhex to 1 and all others to 0. The 6 neighbor cells of $c$
+are denoted by the set $N(c)$. To describe the relative layout of the neighbors,
+start with any neighbor, traverse them in counter-clockwise order, and write
+down $A(c)$ for each of them. Next, take the lexicographically smallest out of
+the 6 cyclic shifts as the <strong>connectivity profile</strong> $P(c) \in {0,1}^6$ of $c$
+(illustrated e.g. <a rel="noopener" target="_blank" href="https://www.conwaylife.com/wiki/Hexagonal_neighbourhood">here</a>).
+For example, if every other neighbor cell is occupied, then the profile is 010101.
+If $P(c) \in 0^{6-k}1^k$ for $k\in[1..6]$, we say that $P(c)$ is <em>$k$-simple</em> and
+also call it a <em>$k$-gap</em> if $c\not\in A$. The notation $[n..m]$-gap or
+$[n..m]$-simple denotes that a cell is a $k$-gap or $k$-simple with
+$k\in[n..m]$. Notice that $P(c) = 1^6$ means the cell is completely surrounded
+by polyhex cells, and dually, if $P(c) = 0^6$ means then it is completely
+surrounded by empty cells.</p>
+<p>We will mostly care about <strong>boundary cells</strong>, i.e.
+$$B = \{ c\in\mathcal{H} \mid \exists c’\in N(c): A(c) \neq A(c’) \}$$
+and distinguish boundary cells
+$B_A = B \cap A$ inside the polyhex and $B_{\overline{A}} = B \cap \overline{A}$
+outside the polyhex. Notice that there are 14 different profiles and one of the
+12 nontrivial ones can apply to a boundary cell.</p>
+<p>The profile of each cell describes the <strong>sides</strong> of the cell,
+which are the consecutive edges shared with neighbors along the profile with the
+same status (empty or occupied). The <strong>endpoints</strong> of sides are the two cell
+corners at the start and end of a side. Sides consisting of empty neighbors are
+called <strong>open</strong>. If there are more than one non-open sides, we call the side a
+<strong>tunnel</strong>, which can be narrow, if consisting of one edge, or wide otherwise. For
+example, the profile 001101 consists of four sides, and two of them are open,
+one is a narrow tunnel and one a wide tunnel.</p>
+<h2 id="efficient-validity-update-exploiting-restricted-cell-connectivity"><a class="header-anchor no-hover-padding" href="#efficient-validity-update-exploiting-restricted-cell-connectivity" aria-label="Anchor link for: efficient-validity-update-exploiting-restricted-cell-connectivity"><span class="link-icon" aria-hidden="true"></span></a>
+Efficient validity update exploiting restricted cell connectivity</h2>
+<p>First we will see that the inside boundary of biconnected holefree polyhexes has
+very restricted connectivity options and use this to get efficient algorithms to
+check validity in a dynamic setting. We start by testing validity of an unknown
+polyhex, and then proceed with the case where a cell is added or removed.</p>
+<p><strong>Proposition.</strong> <em>Deciding whether a connected polyhex is holefree is possible in linear time.</em></p>
+<p><strong>Proof.</strong>
+Given a cell $c$ of a polyhex $A$, explore the polyhex starting from $c$ as
+follows. In addition to the BFS exploration queue, maintain a queue of open
+sides (e.g. as pair of cell coordinates and the side endpoints) for which the
+boundary cycle they belong to is not known (we call such sides <em>orphans</em>). The
+algorithm computes all boundary cycles and the open sides that belong to them
+and prioritizes <em>tracing</em> the boundary of orphans by closing a cycle they belong
+to over <em>exploring</em> of the graph. When tracing, there is an active <em>boundary id</em>
+to identify this cycle later.</p>
+<p>Whenever a cell is visited, proceed as follows.
+If there is an active boundary id, assign the id to the traced open side.
+If the cell is visited for the first time, add each newly discovered but
+unvisited neighbor to the exploration queue and mark them as discovered.
+Next, add each open side without assigned boundary id to the orphan queue and
+mark the cell as visited.
+If currently tracing a cycle (i.e., there exists an active boundary id), check
+the neighbor cell along the traced open side.
+If its traced open side has no id yet, proceed to this neighbor. Otherwise, the
+cycle is completed, hence unset the active boundary id and check the orphan
+queue.</p>
+<p>If it is empty and no unvisited neighbors exist, the algorithm terminates.
+Otherwise, explore the unvisited neighbors by BFS using the exploration queue.
+If the tracing queue is not empty,
+take an open side from the queue, and check that it is still has no boundary id.
+If it has an assigned id, just discard it and proceed to the next one, because
+its cycle has been already traced after adding it to the queue. Otherwise, set
+a fresh active boundary id and proceed by jumping to the cell with the orphan side
+(i.e., visit it again to trace the unknown boundary cycle).</p>
+<p>Notice that each cell of the polyhex is visited at least once due to the BFS
+exploration queue. As on the first visit the boundary segments are registered
+for exploration, so every boundary segment is eventually discovered and assigned to
+a cycle due to the tracing queue. As a cell can have at most 3 different open
+sides, each cell is visited at most three times (once for each cycle, if they
+are different). $\blacksquare$</p>
+<p><em>Remark.</em> If you only want to know whether there are holes, you can abort the
+algorithm after finding two different boundary cycles. Also, this algorithm
+works with triangular and square grids (and also e.g. triangulated
+polygons) with the obvious required adaptations concerning neighbor
+connectivity. If you need to know which cycle is the outside boundary of
+the polyhex, just compute the bounding box of the polyhex and pick a boundary
+cell that touches the bounding box, its cycle must be outside.</p>
+<p>The following observation is the key for simple and efficient updates:</p>
+<p><strong>Lemma.</strong> <em>Let $A$ be a polyhex.</em></p>
+<ol>
+<li>
+<p><em>$A$ is valid and $|A|\geq 3 \Rightarrow \forall c \in B_A,$ $P(c)$ is $[2..5]$-simple.</em></p>
+</li>
+<li>
+<p><em>$A$ is connected, holefree and ($|A| \leq 2$ or $\forall c \in B_A,$ $P(c)$ is $[2..5]$-simple) $\Rightarrow A$ is valid.</em></p>
+</li>
+</ol>
+<p><strong>Proof.</strong>
+(1.) The profiles $0^6, 1^6$ and $0^5 1$ are impossible for an inside boundary cell of a
+valid polyhex of size greater than 2. Specifically in the case of $0^5 1$,
+removing the single neighbor of a cell $c$ with $P(c)=0^5 1$ would separate $c$
+from the other polyhex cells, violating biconnectedness.</p>
+<p>Now assume that a cell $c\in B_A$ has two open sides, i.e., $P(c) \in 0^+ 1^+ 0^+ 1^+$.
+Let the two non-open sides (here meaning the corresponding neighbor cells, not
+the edges) be denoted by $l$ and $r$, the two open sides by $u$ and $d$. As $A$ has
+no holes, $u$ and $d$ must be both on the outside and hence be connected by a path
+using only empty cells. This implies that either $l$ or $r$ are completely
+enclosed by a cycle of cells where all cells except for $c$ are empty. It
+follows that removing $c$ from the polyhex disconnects polyhex cells in $l$ from
+polyhex in $r$, violating biconnectedness. The remaining case of $P(c) = 010101$
+is shown similarly.</p>
+<p>(2.) Connected polyhexes of size $\leq 2$ are trivially biconnected and
+holefree, and thus valid. Assume that $A$ is connected, holefree, $|A|\geq 3$, but
+not valid. This is only possible if $A$ is not biconnected. In this case, there
+must exist a $c\in A$ such that removing $c$ disconnects two neighbor cells
+$a,b$ of the polyhex, so the only path using polyhex cells from one side to the
+other use $c$. It is easy to see that in this case $c$ must have at least two
+open sides, because with only one open side it means that there is a path from
+$a$ to $b$ directly around $c$. Hence we conclude that $c\in B_A$ (because it
+has open and non-open sides) and $P(c)$ cannot be $k$-simple. $\blacksquare$</p>
+<p><strong>Theorem.</strong>
+<em>Deciding whether a single cell update of a polyhex is valid can be done in $\mathcal{O}(1)$</em>.</p>
+<p><strong>Proof.</strong>
+We assume that the size $n$ of the polyhex is known, so it does not need to be
+calculated by exploration.
+We can only add or remove boundary cells of the polyhex, as otherwise the polyhex
+immediately either gets a hole or becomes disconnected, therefore $c\in B$ must
+hold, excluding the profiles $0^6$ and $1^6$. Any empty neighbor cell can be
+added to a singleton polyhex and any cell can be removed from an polyhex with
+size at most 3. Next we analyze the remaining cases. By assumption that the
+polyhex was valid before, we know that the polyhex can only become invalid
+<em>locally</em>, and changing the state of a single boundary cell can only change the
+profiles of its neighbors.</p>
+<p>First, consider adding a cell $c\in B_\overline{A}$ to an polyhex of size at least 2. When
+adding $c$ to the polyhex, the connectivity of neighbor cells only increases. So
+$c$ only can violate biconnectedness if it is an 1-gap, as removing its single
+neighbor would disconnect the polyhex. Also, adding a cell at a $k$-gap position can not
+introduce a hole, so the only way to create a hole by adding a single cell is by
+picking a cell that has (at least) two open sides, i.e. $P(c) \in 0^+ 1^+ 0^+
+1^+ + 010101$. By an argument like in the previous lemma, we have at least one
+path of occupied cells between the two non-open polyhex sides and this path does
+not use $c$. Hence the two open sides with empty cells must become disconnected
+by adding $c$, making one of the open sides part of hole. So a cell $c \in
+B_\overline{A}$ that can validly be added to $A$ must be a $[2..5]$-gap.</p>
+<p>Next, consider removing an polyhex cell $c\in B_A$. By assumption the polyhex was
+biconnected before, so removing $c$ keeps it connected. Furthermore,
+removing $c$ clearly cannot increase the number of holes.
+By the previous lemma and the fact that only the neighbor profiles changed, we
+conclude that for determining whether the polyhex is
+still valid it suffices to check whether the profiles of all relevant neighbor
+cells in $B_{A\setminus {c}} \cap N(c)$ are $[2..5]$-simple or the arena size
+decreased below $3$. $\blacksquare$</p>
+<p><strong>Corollary.</strong> <em>Deciding whether a connected polyhex is valid is possible in linear time.</em></p>
+<p><strong>Proof.</strong>
+Use the presented algorithm to find holes in the polyhex $A$ and compute its size.
+If there are no holes, by the lemma it suffices to check whether
+If the size is less than $3$ (then $A$ is trivially valid) or otherwise
+check whether all $c\in B_A$ have $[2..5]$-simple profiles.
+Alternatively, one could use a generic algorithm to compute
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Biconnected_component">biconnected components</a>
+and check that the polyhex is a single component, which also is possible in
+linear time, but more involved.$\blacksquare$</p>
+<h2 id="tile-dynamics-continuous-vs-discrete-sliding"><a class="header-anchor no-hover-padding" href="#tile-dynamics-continuous-vs-discrete-sliding" aria-label="Anchor link for: tile-dynamics-continuous-vs-discrete-sliding"><span class="link-icon" aria-hidden="true"></span></a>
+Tile dynamics: continuous vs. discrete sliding</h2>
+<p>These are very useful results to be used as subroutines to determine whether
+a move is valid, i.e., not violating the validity of the arena. But until now,
+the tiles located at the cells can just appear and disappear, not taking the
+geometric restriction on the arena dynamics into account that allows only tile
+movements possible by <em>sliding</em> without interfering with other tiles. Thinking
+<em>discretely</em>, moving a tile means temporarily removing it from the arena and
+then adding it at some different place. But <em>sliding</em> is intuitively understood
+in a <em>continuous</em> way that refers to the smooth process of actually moving the
+tile.</p>
+<p>There are at least two problematic aspects with a continuous interpretation when
+combined with the validity invariance of the arena. While biconnectedness can
+hardly be understood in any other way than discretely, there are problems
+arising due to a continuous interpretation of a hole that become visible in the
+following situations:</p>
+<ol>
+<li>
+<p>moving a tile out from a position that leaves a 4-gap, and</p>
+</li>
+<li>
+<p>moving a tile through a position with profile 001001.</p>
+</li>
+</ol>
+<p>The first issue arises due to the fact that an <em>actual, geometric hole</em> in the
+arena appears as soon as you start sliding a tile out. <!-- TODO: ILLUSTRATE -->
+The hole will have at most the area of $\frac{2}{3}$ of a single cell at the
+point where the hexagon with radius $r$ smoothly slided a distance $r$ into the
+open direction, barely touching two of its previous neighbors in single points.
+Moving the tile further opens up this hole again, but a strict reading of
+the movement constraints would require us to disallow such a move under
+continuous interpretation. The same situation arises dually whenever we want to
+slide a tile into a 4-gap, introducing a temporary hole until the tile is in the
+final position. As this kind of hole is clearly not what is meant by the rules,
+this issue could be solved by saying that considered holes have at least the
+size of a full cell, but this would clutter the rules with more technicalities.</p>
+<p>The second issue <!-- TODO: ILLUSTRATE --> arises from the fact that the two tiles
+touching a 001001 position must be connected, so one open side of the cell necessarily is
+inside of some almost-hole that lacks a single tile at that position to become an actual
+hole. But this means, that sliding a tile through this position <em>does</em> create a temporary
+hole in the arena of possibly significant size.</p>
+<p>One could decide that this is perfectly fine and thus it is simply forbidden to
+cross such a position with a tile, but allowing to use 4-gaps by adding a
+specific clarification, because it <em>fits</em> there, and at the same time
+prohibiting to move a tile through such a position <em>even though</em> it fits is a
+questionable decision. So instead of accepting the continuous interpretation of
+moving a tile, a better solution is to allow both of those things and formalize
+a purely discrete and graph-theoretic definition of allowed movements that
+captures what is meant by the intuitive geometrical definition via <em>sliding</em>.</p>
+<h2 id="sliding-components-of-a-polyhex"><a class="header-anchor no-hover-padding" href="#sliding-components-of-a-polyhex" aria-label="Anchor link for: sliding-components-of-a-polyhex"><span class="link-icon" aria-hidden="true"></span></a>
+Sliding components of a polyhex</h2>
+<p>For a tile to be able to slide in or out, it is obvious that we need two
+adjacent empty cells, as a tile cannot fit through a narrow tunnel consisting of just one
+boundary edge.
+When we consider the connectivity graph of empty cells $G(\overline{A})$, it
+is easy to see that we can slide a tile between any neighboring cells
+where both cells are part of a triangle of empty cells, and we cannot move a tile between
+empty cells connected just by a narrow tunnel. <!-- TODO: ILLUSTRATION --></p>
+<p><em>Remark.</em> An important observation is that once you have a triangle of
+empty cells, you can rotate the tile into any orientation by first moving it to
+the center of that triangle, and then you can continue to slide it through or
+into any of those three cells. So <em>whenever a tile can be slided, it can also be
+rotated</em>. While this does not matter as long we ignore the tile textures, this
+is important to know for the application in the game. <!-- TODO: ILLUSTRATE --></p>
+<p>Maximal empty regions where a tile can freely move by sliding are called
+<strong>sliding components</strong> of the polyhex that form a <strong>sliding component graph</strong>
+where sliding components are nodes and narrow tunnels are the edges.</p>
+<p><strong>Proposition.</strong> <em>Given a boundary cell of a connected polyhex, its sliding
+component can be determined in time linear in the polyhex boundary length.</em></p>
+<p><strong>Proof.</strong>
+For each cell $c\in B_A$ we can compute its sliding component using a BFS on
+$G(\overline{A}\cup {c})$, i.e. the empty cells, but starting from the
+non-empty boundary cell of the tile to be moved.
+For each visited $a$, only queue a unexplored neighbor cell $b\in N(a)$ for exploration
+if a common neighbor $c\in N(a)\cup N(b)$ is also empty, so that $a,b,c$ form a
+triangle. Notice that for each neighboring pair $a,b$ there are only two shared
+neighbors $c\neq c’$ that can form such a triangle. As we cannot place a tile
+away from the boundary and because the polyhex is connected, we do not need to
+explore empty cells that touch no polyhex cell, but those cells do count for the
+triangles. This way, the exploration will only proceed along the boundary.
+Intuitively, we do not require the whole open space, because we know that it is
+possible to slide tiles to any reachable position along the discovered boundary
+chain of triangles, even if it might be not the shortest path. $\blacksquare$</p>
+<p><strong>Proposition.</strong> <em>The boundary of a connected polyhex can be decomposed into
+sliding components, each marked as hole, almost-hole or outside, in linear time.</em></p>
+<p><strong>Proof.</strong>
+First, use the algorithm to compute all holes and find the outside boundary of
+the polyhex. For each boundary, pick a cell and apply the previous algorithm to
+find its sliding component, with a slight modification. Queue empty neighbors
+that are not reachable for sliding (due to narrow tunnels) for later exploration, and
+then successively explore the other sliding components in the queue. $\blacksquare$</p>
+<p>One can also show the following about the sliding component graph:</p>
+<p><strong>Proposition.</strong> <em>Let $A$ be some polyhex. Then the
+sliding component graph is:</em></p>
+<ol>
+<li>
+<p><em>a tree rooted at the outside component iff $A$ has no holes, or</em></p>
+</li>
+<li>
+<p><em>a forest iff $A$ has holes and is either connected, or is
+disconnected without nesting, or</em></p>
+</li>
+<li>
+<p><em>any planar graph otherwise.</em></p>
+</li>
+</ol>
+<p><strong>Proof</strong>.
+(1.) When holes are forbidden, there is no way
+for two sliding components to be disconnected, so all components are parts of
+and reachable by narrow gaps in the outside boundary.</p>
+<!-- If disconnected, then the outside is defined as the union of the boundaries of -->
+<!-- the occupied cells and hence forms a single sliding component. Now observe that -->
+<!-- whenever there is nesting, it implies a cycle in the sliding component graph -->
+<p>(2.) There cannot be any cycles in the sliding component graph if connectedness
+of the polyhex is required, because a cycle of such components implies that
+the dual unbounded polyhex $\overline{A}$ has a hole of polyhex cells in $A$ and
+must itself be surrounded by cells in $A$, because if it these sliding
+components were are not surrounded by arena cells, there would be no narrow
+tunnels to restrict the tile movement, which is a contradiction.</p>
+<p>If this happens inside a hole (holes are required to get disconnected graphs),
+then the non-empty area would be a nested shape, so having no nesting inside
+holes implies that the sliding component graphs inside of holes form trees.
+Hence, the sliding component graph must form a forest, each tree
+representing a set of connected sliding components inside a hole or the outside
+boundary.</p>
+<p>(3.) Planarity trivially follows from planarity of the grid.</p>
+<p>For the other direction, consider following procedure to map a
+finite planar graph $G$ and embed it on a hexagonal grid.  Map each vertex to a
+sliding component of a suffiently large polyhex and each each edge to a narrow tunnel.
+Any vertex $v$ of the graph $G$ can be
+taken to be the outside component in the grid, as we can project $G \setminus
+{v}$ into the polygon defined by the previous neighbors of $v$, so that the
+outside sliding component connects to reachable vertices by narrow tunnels that
+lead into an almost-hole, whereas each other connected component of G is mapped
+into an actual hole. Notice that nesting of just depth 2 (areas inside holes) of
+occupied areas is required. The same procedure can be used for forests and trees
+and it is easy to see that the resulting polyhex must have the claimed
+properties.
+$\blacksquare$</p>
+<p><em>Remark.</em>
+In case of a valid polyhex, closing one of the narrow gaps
+would separate the empty space into two disconnected parts, because the sliding
+components form a tree. Hence, the non-triangle edges (i.e., narrow tunnels) of
+$G(\overline{A})$ are
+<a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Bridge_(graph_theory)">bridges</a> and sliding
+components are in fact the biconnected components of the empty area. Also, one
+can apply the same approach to compute sliding components of the polyhex, if it
+is just required to be connected and we care about components on top of the
+tiles.</p>
+<h2 id="gaptheorem"><a class="header-anchor no-hover-padding" href="#gaptheorem" aria-label="Anchor link for: gaptheorem"><span class="link-icon" aria-hidden="true"></span></a>
+Existence of outside 2- and 3-gaps</h2>
+<p>Now we know how to check arena validity efficiently, both from scratch and
+throughout single-tile movements, and we can also check for a tile whether a
+certain movement is permitted, using the grid-based charactization of sliding
+using sliding components. The only thing missing is to check the edge-matching
+constraints that we abstracted away at the beginning, which is trivial.</p>
+<p>One interesting question concerning tile movement remains—how likely is
+that a tile that we want to place or move will fit? There are multiple ways to
+make this question more concrete and the variant we will consider is: given an
+additional tile, how likely is that we can extend the arena with that tile?
+Clearly, this depends on the connectivity profile of the boundary positions and
+the possibilities and requirements imposed by the tile textures. In any case,
+the less edges to match, the more probable it is that a uniformly chosen
+random tile fits, so it would be good to know whether we can give any guarantees
+about the kind of boundary the arena always offers and which a tile should be
+able to match (here we only care about whether the tile fits <em>somewhere</em>
+validly).</p>
+<p>According to the game rules, we can not move the new tile into almost-holes
+separated from the outside by narrow tunnels, so we are specifically interested
+in finding a position on the outside. We already know that biconnected holefree
+polyhexes have a nice inner boundary consisting of [2..5]-simple profiles and
+now we look for good positions on the outside to add a tile. We cannot use
+1-gaps because this violates biconnectedness and we cannot use 5-gaps or any
+positions inside an almost-hole, because this violates the sliding rule, so
+we are interested in [2..4]-gaps in the outside sliding component of the
+outside boundary of the arena.</p>
+<p>One can easily see that there are polyhexes with no 3-gaps (take the triangle
+polyhex), and also ones without 2-gaps (build a flattened “snowflake” of 21
+cells). But in fact is impossible that there are neither 2-gaps nor 3-gaps
+somewhere on the outside:</p>
+<p><strong>Theorem.</strong> <em>Every connected polyhex has a 2- or 3-gap in its outside sliding component.</em></p>
+<p><strong>Proof.</strong></p>
+<!-- We can assume that there are no almost-holes in the arena without any effect -->
+<!-- on our placement possibilities by plugging all --> 
+<!-- narrow tunnels with a tile on the outside. This gives -->
+<!-- us a polyhex with almost the same outside sliding component, minus the positions -->
+<!-- at narrow tunnels that were invalid for placement anyway. The outside plug -->
+<p>It is a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Internal_and_external_angles">known fact</a>
+that the sum of directed exterior angles for all pairs of edges of a simple
+polygon is 360 degrees, and the outside boundary of a connected polyhex forms
+such a polygon. Instead of looking at the angles between edges directly, we can
+accumulate the change in angle in some direction (w.l.o.g. counterclockwise)
+along the polyhex boundary that each cell contributes, which means that we sum
+the angles between adjacent edges from the first boundary edge of the current
+cell to the first boundary of the next. One can easily see that $k$-gap cells
+contribute an exterior angle of $180-k\cdot 60$ degrees. We will
+first pretend that almost-holes are filled up with cells, to get an almost
+equivalent polyhex $A’$ without narrow tunnels and will take care of the
+possible problems later. This gives us the advantage that each $c\in
+B_\overline{A’}$ can only consist of $k$-gaps and the outside sliding component
+coincides with the actual outside boundary.</p>
+<p>Notice that 5-gaps are trivial almost-holes and not
+reachable by sliding, so there are no 5-gaps in $B_\overline{A’}$.
+Also, the only positive angle change is possible due to $1$-gaps on the
+boundary, because $2$-gaps are angle-neutral and $[3..4]$-gaps angle-negative,
+so clearly there must exist $1$-gaps along the outside boundary.
+Observe that those 1-gaps can come only alone or in pairs, because
+three successive 1-gaps imply that their common shared neighbor is $1$-simple,
+violating polyhex validity. But this means that the positions before and after
+these single or paired 1-gaps (we call them flanking positions) must be
+$k$-gaps with $k\geq 2$.</p>
+<p>Assume that for all $1$-gap sequences both the position before and after are
+$4$-gaps. Notice that a single $4$-gap neutralizes two
+$1$-gaps. But this contradicts the required positive angle sum obtained along
+the boundary, because the sum of angles of those leading and trailing positions,
+counted only once, would still be more negative that can be balanced out by
+summing all 1-gaps. Therefore, there must exist some 1-gap $c\in
+B_\overline{A’}$ where at most one flanking position is a $4$-gap and the other
+position is a $2$- or $3$-gap.</p>
+<p>Next, we need to check that those positions are in fact usable and are not
+narrow tunnels in the original polyhex $A$. Notice that the outside position of
+a narrow tunnel cannot be a 1-gap or 2-gap of $A’$, because a narrow
+tunnel can only arise when there are two non-open sides with a single-edge open
+side between them. It also cannot be a 5-gap, as this would mean that the position
+itself is on the inside, but we consider only positions reachable on the
+outside. Hence, only $3$- or $4$-gap positions of $A’$ could have been narrow
+tunnels.</p>
+<p>Hence, if one flanking position of some 1-gap is a 2-gap, then we are done
+immedately, because the 2-gap is also existing and valid in $A$. So now we
+assume that there are no flanking 2-gaps. As at most two 1-gaps can follow each
+other, the only way for the angle sum to increase are paired 1-gaps, because
+they are always followed by a 3-gap or 4-gap, so the angle sum could not be
+positive if only single 1-gaps were present. Hence, there must be 3-1-1-3,
+3-1-1-4 and 4-1-1-3 gap sequences along the outside boundary. Now observe that
+if any of the flanking 3-gaps in these sequences is a narrow tunnel in $A$, it
+means that the polyhex tile neighboring the pair of 1-gaps is $1$-simple in $A$,
+violating the validity of the polyhex. We conclude that there must exist a
+3-gap in $B_A$ that can be used to add a cell if there does not exist a usable
+$2$-gap in $B_A$. $\blacksquare$</p>
+<p>Using this result, we can see that for estimating the probability that a tile
+can fit anywhere on the outside, it really suffices to check the 2-gap and 3-gap
+situation. This is an enormous restriction compared to checking all 12
+connectivity possibilities and another advantage of biconnected polyhexes.</p>
+<h2 id="even-higher-connectivity"><a class="header-anchor no-hover-padding" href="#even-higher-connectivity" aria-label="Anchor link for: even-higher-connectivity"><span class="link-icon" aria-hidden="true"></span></a>
+Even higher connectivity</h2>
+<p>We only looked at biconnected polyhexes, but one could consider even stronger
+connectivity constraints? A polyhex is <strong>$k$-connected</strong> if removing a tile keeps it
+$(k-1)$-connected. A natural question is what consequences $k$-connectedness for
+$k&gt;2$ has on polyhexes.</p>
+<p>Consider polyhexes that have only 1-gaps and 2-gaps on the outside.
+Such polyhexes do not have a negative exterior angle, so we call them
+<a rel="noopener" target="_blank" href="https://polyform.fandom.com/wiki/Convex_Block"><strong>convex</strong></a>. Notice that the
+this convexity coincides with convexity in the usual sense if you smooth out the
+zig-zagging edges along the outside boundary of the polyhex or consider only
+central points. Notice that all convex polyhexes have outside boundary profile
+of the form $(12^*)^6$. Convex polyhexes require the addition of at least 2
+adjacent tiles to be 3-connected again, so in general this is not a useful
+restriction if we want to be able to uphold the property with every single tile
+movement.</p>
+<p>Furthermore, not every cell of a connected polyhex can be 4- or 5-connected,
+because we have seen that there are always 1-gaps on the outside which imply
+that the neighboring polyhex cell has at most 3 neighbors. Finally,
+$k$-connectedness with $k\geq 6$ is impossible on a hexagonal grid except for
+the trivial case of $|A|\leq 2$.</p>
+<p>One could also restrict the empty space by imposing stricter connectedness
+constraints, but if we restrict the empty space to be biconnected, then
+we prohibit placing tiles so that narrow tunnels are introduced and thereby
+immediately lose the whole concept of almost-holes and sliding components.
+From a game mechanics point of view, this means to lose an interesting
+mechanism while introducing a rather unintuitive restriction about the minimal size of
+gaps. So the slightly more asymmetric definition of validity offers more
+interesting possibilities, even though a symmetric constraint seems to be more
+elegant.</p>
+<!--
+
+## Self-similar grid expansions
+
+Edge expansion of the hexagon grid
+Triangle expansion of the hexagon grid
+
+Moore expansion of the square grid (can yield 8 neighbors)
+Von-Neumann expansion of the square grid (can yield 4 neighbors)
+Diagonal Von-Neumann expansion of the square grid (can yield 4 neighbors)
+12-gon expansion of triangular grid (center + at most 12 surround cells)
+hexagonal expansion of triangular grid (inscribed hexagon)
+Triangular expansion of hexagon grid (triangles in inscribed hexagon + corners)
+
+Base for new tiles?
+
+Game with stacked hexagons?
+
+
+https://polyform.fandom.com/wiki/Convex_Block
+define transposed and direct derivative of grid
+transposed deriv = flat->pointy toggle, and add hex to center of triangles
+direct deriv = atreya-style
+
+Language of boundary chomsky?
+
+outer boundary hex edge profile:
+start: 1^6
+k 1 m -> k+1 x1y m+1 (k<=4, m<=4) (a five would close a hole) where x=1 if k<4, y=1 if m < 4 and T otherwise
+k 2 m -> k+1 xy m+1 (k<=4, m<=4) (a five would close a hole) where x=1 if k<4, y=1 if m < 4 and T otherwise 
+k 3 m -> k+1 x m+1 (k<=4, m<=4) (a five would close a hole) where x=1 if k<4 and m<4 and T otherwise
+1 4 1 -> 22
+2 4 2 -> 33
+3 4 3 -> 44
+
+no sequence of 6 threes or 3 fours without ones between
+no finite memory mechanism to check, 60 degree piece stack required, must close
+full circle in any direction at the end, not before (otherwise lasso shaped)
+
+
+boundary code inner vs outer
+o <-> i
+111111 <-> 6
+111   5
+11    4
+1     3
+2     2 
+3     1
+4     0?
+
+boundary derivative - remove outside layer
+boudary integral - add another layer
+
+-->
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/my-phd-story/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Experience Report: Doing a PhD in Theoretical Computer Science</p></div>
+                <div><a href="https://pirogov.de/blog/designing-advaya-and-atreya/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Designing the Advaya and Atreya Tile Sets</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/biconnected-holefree-polyhexes/#preliminaries">Preliminaries</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/biconnected-holefree-polyhexes/#efficient-validity-update-exploiting-restricted-cell-connectivity">Efficient validity update exploiting restricted cell connectivity</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/biconnected-holefree-polyhexes/#tile-dynamics-continuous-vs-discrete-sliding">Tile dynamics: continuous vs. discrete sliding</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/biconnected-holefree-polyhexes/#sliding-components-of-a-polyhex">Sliding components of a polyhex</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/biconnected-holefree-polyhexes/#gaptheorem">Existence of outside 2- and 3-gaps</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/biconnected-holefree-polyhexes/#even-higher-connectivity">Even higher connectivity</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>
