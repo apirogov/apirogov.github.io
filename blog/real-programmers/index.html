@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Real Programmers Do Not Fear The Vibe</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=3716ab3457d2dd050b3c" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Real Programmers Do Not Fear The Vibe" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;real-programmers&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Real Programmers Do Not Fear The Vibe
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/real-programmers/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2026-03-27">27th Mar 2026</time></li><li title="3749 words"><span class='separator' aria-hidden='true'>•</span>19 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/essay/">essay</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tech/">tech</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tools/">tools</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/programming/">programming</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/vibe-coding/">vibe-coding</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#nostalgia-is-a-delusion">Nostalgia Is A Delusion</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#old-men-yelling-at-claude">Old Men Yelling At Claude</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#from-treasure-trove-to-garbage-dump">From Treasure Trove to Garbage Dump</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#pride-of-the-seasoned-software-engineer">Pride of the Seasoned Software Engineer</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#carefully-embracing-the-vibe">Carefully Embracing The Vibe</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#growing-stack-of-magic-machines">Growing Stack Of Magic Machines</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#from-coding-to-designing">From Coding To Designing</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#conclusion">Conclusion</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><p>In this essay I try to process my conflicting feelings in the face of the beginning era
+of agentic AI, and specifically so-called <em>vibe coding</em>. This is a very polarized topic,
+and I want to try building a bridge between the old-school techies and the new mindset
+driving the current paradigm shift towards heavy usage of agentic tools.</p>
+<p>I have nothing new to contribute to the very important discussion about the political and
+societal impact of the ongoing technological transformations, and I certainly will not
+open the can of worms that are all the negative side effects on our bio- and infosphere.</p>
+<p>Instead, I want to talk about feelings of proud software engineers.</p>
+<h2 id="nostalgia-is-a-delusion"><a class="header-anchor no-hover-padding" href="#nostalgia-is-a-delusion" aria-label="Anchor link for: nostalgia-is-a-delusion"><span class="link-icon" aria-hidden="true"></span></a>
+Nostalgia Is A Delusion</h2>
+<p><strong>I am a 90’s kid,</strong> and I already witnessed various phase transitions and so-called
+revolutions in technology and computing. In fact, so many that I already feel old, even
+though I am still in my 30s.<sup class="footnote-reference" id="fr-unusual-1"><a href="#fn-unusual">1</a></sup> From 3.5 inch floppy disks with 1.35 MB capacity
+right into the ephemeral S3 bucket cloud, from HTML 4.1 to WebAssembly, from Visual Basic
+6 and dozens other languages to Rust.<sup class="footnote-reference" id="fr-compilers-1"><a href="#fn-compilers">2</a></sup></p>
+<p><strong>History does not repeat itself, but it does rhyme, they say.</strong>
+As a teenager I spent way too much time reading old-school
+<a rel="noopener external" target="_blank" href="http://www.bofharchive.com/1995/bastard95-01.html">lore</a> and
+<a rel="noopener external" target="_blank" href="https://paulgraham.com/avg.html">essays</a>, picking my side in the old <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Editor_war">holy
+wars</a>, absorbing the spirit of the mythical
+<a rel="noopener external" target="_blank" href="https://www.catb.org/~esr/jargon/">hacker culture</a>.
+Even though software development is a relatively young discipline, there already existed a
+whole generation of younger developers who were thinking in new ways about how
+to write code, and criticizing the elder for being so stubborn in accepting change and
+progress.</p>
+<p>What is the core of programmer humor? Like a lot of humor, it is
+based on cultural differences and stereotypes. A bunch of younger eccentric techie
+personalities making fun of older eccentric techie personalities, the so-called <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Real_Programmers_Don%27t_Use_Pascal"><em>real
+programmers</em></a>, and
+conversely, a bunch of more senior developers making fun of the seemingly incompetent next
+generation. Like most humor and all good lies, it usually contains at least some grain of
+(usually exaggerated) truth.</p>
+<p>I am saying all that, because I want to tell all those who see what agentic AIs turn
+software development into, and maybe feel <em>cynical, angry and a bit sad</em>: <strong>I get it, I
+really do, because I can feel what you feel.</strong></p>
+<p>Yes, I am also worried about next generation of developers, who might not know how to
+code their way out of a box or solve any of their problems without mechanical assistance,
+that <strong>all of us will be drowned in an ocean of low-quality, barely working code generated
+by black-box systems nobody actually understands</strong>.<sup class="footnote-reference" id="fr-blackbox-1"><a href="#fn-blackbox">3</a></sup></p>
+<p>Yes, partially these fears can be considered to be very well justified, certainly things
+will change, and not necessarily for the better. <strong>But it is not the fault of
+technology.</strong> Technology is only as good or bad (in any sense of the word) as its user.
+Technology just <em>amplifies</em> your impact on the world, whatever you choose to do with it.</p>
+<p>So probably we should not judge the merit of a technology just based on the worst thing
+somebody could do with it. If we did, we probably we should turn off the internet - but
+more on this later.</p>
+<p>If you do <em>not</em> suffer from stockholm syndrome and are not prone to any delusional
+sentimentality about <em>“good old times”</em>, you maybe should take a sober look at what is
+happening. Right now, we have a new technological innovation and new debates it sparks.
+There is nothing unusual about that, and with that knowledge it is a bit easier to keep
+calm and just watch it unfold, even if at times it feels like an earthquake.</p>
+<h2 id="old-men-yelling-at-claude"><a class="header-anchor no-hover-padding" href="#old-men-yelling-at-claude" aria-label="Anchor link for: old-men-yelling-at-claude"><span class="link-icon" aria-hidden="true"></span></a>
+Old Men Yelling At Claude</h2>
+<p>Through the lens of comedic subculture debates from almost forgotten times we can see
+genuine past paradigm shifts unfolding. The <em>real programmer</em> trope was always calling out
+self-righteous gate-keeping by the “old-school”:</p>
+<ul>
+<li><em>real programmers</em> write assembly</li>
+<li><em>real programmers</em> do not need syntax highlighting</li>
+<li><em>real programmers</em> write compiled languages like C and C++</li>
+<li><em>real programmers</em> do not need fancy type systems</li>
+<li><em>real programmers</em> track lifetimes of objects in their mind</li>
+<li><em>real programmers</em> do not need an IDE with auto-complete</li>
+</ul>
+<p>Now the interesting thing is that none of the <em>old ways</em> of doing things is gone. Everyone
+is still free to program on bare metal by cranking out opcodes in hexadecimal, and in fact
+it is <em>important</em> that there are people who are <em>able to</em> work on all these levels. But
+the technology stack is growing higher and higher, we are collectively building larger and
+increasingly complex software, way beyond what people in the 70’s could probably ever
+imagine.</p>
+<p>New development tools and paradigms and their adoption are often a response to some need
+or pain point, and what most developers want and need, ever since the beginning of
+computing, are <em>tools that help writing new code that is correct, debugging code that is not,
+and doing both as efficiently as possible</em>. That is why people turned to languages like
+Java and then Python, and also why most people use an editor like VSCode instead of
+notepad.</p>
+<p>You can write both amazing and horrible software just with notepad using C, and you can
+write both amazing and horrible software in Python using an IDE. <strong>Tools are not
+responsible for what users do with them.</strong> Otherwise, all chainsaws probably should be
+outlawed, as somebody could get hurt.</p>
+<p>Before turning into this generation’s caricature saying things like “back in <em>my</em>
+day…” and “<em>real programmers</em> do not vibe-code!”, let us examine a preceding
+technological development, to see where some of the negative feelings might be coming
+from.</p>
+<h2 id="from-treasure-trove-to-garbage-dump"><a class="header-anchor no-hover-padding" href="#from-treasure-trove-to-garbage-dump" aria-label="Anchor link for: from-treasure-trove-to-garbage-dump"><span class="link-icon" aria-hidden="true"></span></a>
+From Treasure Trove to Garbage Dump</h2>
+<p>Once there was an exciting new technology with lot of potential for humanity: <strong>the
+internet</strong>! Did people who created it anticipate what privatized digital wasteland it
+would eventually become?<sup class="footnote-reference" id="fr-eternalseptember-1"><a href="#fn-eternalseptember">4</a></sup></p>
+<p>The internet was hijacked by massive corporations, pay-walled, monetized and now
+ultimately enshittified to squeeze out all attention and engagement for maximal
+shareholder value. Truth is, the internet was getting worse each day, long before ChatGPT
+or any of that stuff was a thing!</p>
+<p>I absolutely <em>hate</em> a lot of the developments that are collateral side effects of the new
+AI tech, which spreads like a cancer, because it is just too easy to (ab)use, exactly like
+the internet. Even more, at this point I want to clearly declare:</p>
+<p><em>For any prose written and published on my site, I have never, and will never use AI for
+anything beyond grammar corrections, spell checking and final polishing, This is my space,
+my voice, my words, as an authentic self-expression of a human being.</em><sup class="footnote-reference" id="fr-art-1"><a href="#fn-art">5</a></sup></p>
+<p>Even though the internet was created by idealists, it is now controlled by
+ruthless capitalists, and this is what determines its current character. Those same
+corporations pumped all value out of the open internet in questionable ways, to develop
+and train these insanely huge statistical models which, I hate saying it, <em>actually
+<strong>can</strong> do amazing things nobody believed a machine could do</em>!</p>
+<p>And is it rational to be an opponent of the concept of <em>wearing clothing</em>, only because a
+lot of it these days is plastic trash already the day it was made and is based on
+exploitation? The world is complex and entangled, <strong>there needs to be space for nuance
+when pondering the tools we choose to use or goods we consume</strong>.</p>
+<p>There is also a lot of criticism coming from another angle that <strong>strongly reminds me of
+the discussions about Wikipedia</strong>, back when it was new and quickly killed old-school
+encyclopedias. Did old encyclopedias not contain any mistakes? Do you <em>always</em> check the
+library for authoritative sources? Are those sources always correct? Do you never trust
+what you read on Wikipedia? Did you <em>never ever</em> copy-paste a snippet from StackOverflow
+to fix a problem without fully understanding why it works? At some point, you always end
+up trusting information somebody else provided. Working with AI tools is no different.
+You <em>must</em> be aware of all these limitations and issues, including
+<a rel="noopener external" target="_blank" href="https://xkcd.com/978/">citogenesis</a> and hallucinations, but do they make the tools
+worthless?</p>
+<h2 id="pride-of-the-seasoned-software-engineer"><a class="header-anchor no-hover-padding" href="#pride-of-the-seasoned-software-engineer" aria-label="Anchor link for: pride-of-the-seasoned-software-engineer"><span class="link-icon" aria-hidden="true"></span></a>
+Pride of the Seasoned Software Engineer</h2>
+<p>I am the kind of person with too many ideas and too little time (and willpower) to ever
+implement them all. <em>Dozens</em> of software experiments I would like to do, and probably
+would be doing, if I still was a student and had no responsibilities - probably enough to
+fill <em>years</em> of my time. But I am a professional software developer, and more recently,
+also a father. <strong>Free time is by far the most valuable resource I possess.</strong></p>
+<p>I used to <em>obsess</em> over every single line of code, every symbol has its right place.
+Programming, at its best, is engineering and art meeting in a beautiful union - a
+reflection of a human mind. At least that is how I always <em>felt</em> about code.
+When you spend a lot of time doing something, you become proud of it, you start deriving
+your some of your self-worth and feeling of purpose from it.</p>
+<p>Like many of you, I spent 20 years of my life honing my skills and learning the craft.
+Through pain, sweat, sleepless nights, lots of effort and time. I enjoyed most of it,
+because for people like me, <em>writing code is a fun activity</em>, not just something you have
+to do for a living! But what is it, that makes it <em>fun</em>?</p>
+<p>People have different motivations pulling them towards software development.
+For people like me, <a href="/blog/abstraction-driven-design/#programming-is-the-closest-substitute-for-magic"><strong>programming is
+empowerment</strong></a>.
+Code is an easily accessible and exceptionally powerful way to bring an idea into reality.
+Ultimately, programming is all about <em>creation</em>. You can and should take pride in doing it
+well, and you hopefully enjoy the process to some degree, but it is about the result,
+unlike disciplines such as pure math.</p>
+<p>Having <em>creation</em> as the main motivation, once you manage to squeeze your eyes just enough
+to not see all the problems AI tech comes with, it should be actually pretty easy to
+appreciate what it can bring to the table. <strong>Agentic models are a new kind of powerful
+technical artifact which can save time and increase productivity</strong>.</p>
+<p>Unlike other hypes, this is not just manufactured excitement pushed by marketing
+departments of tech companies. To convince yourself, all you have to do is give these new
+tools a fair try. Whether we like it or not - these things now do exist and will not go
+away. They are far from perfect<sup class="footnote-reference" id="fr-perfect-1"><a href="#fn-perfect">6</a></sup>, but they can do the most important thing a tool
+can do: <em>save time and reduce pain</em>.</p>
+<p>Of course, if you do not use them right, they will do the opposite, just like when hitting
+your fingers with a hammer. Furthermore, you do not have to use the most popular and
+powerful models offered by shady MegaCorp, there is a lot of competition right now and a
+lot of capable alternatives.</p>
+<h2 id="carefully-embracing-the-vibe"><a class="header-anchor no-hover-padding" href="#carefully-embracing-the-vibe" aria-label="Anchor link for: carefully-embracing-the-vibe"><span class="link-icon" aria-hidden="true"></span></a>
+Carefully Embracing The Vibe</h2>
+<p>Last weekend I started my first pure vibe-coding project, while holding a baby in one hand
+and a smartphone in the other. Chatting to an AI agent like to some motivated but often
+confused junior developer who just needs some proper guidance and occasional
+micro-management.</p>
+<p>This synthetic junior developer works for me in a self-hosted Docker container on a spare
+10 year old laptop I set up just for this purpose. Even if he messes up beyond what can be
+fixed by <code>git restore</code>, not much harm can be done.</p>
+<p>Under my supervision, that agent has incrementally built a Rust app based on
+<a rel="noopener external" target="_blank" href="https://www.egui.rs/">egui</a> which
+<a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Stereoscopy">stereoscopically</a> projects 3D slices of 4D
+space, controlled by a 6-axis 4D camera that is based on the <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Rotations_in_4-dimensional_Euclidean_space">dual-quaternion
+representation</a>
+of the 4D rotation space. The <a rel="noopener external" target="_blank" href="https://fourdeers.app.pirogov.de">resulting prototype app</a>
+compiles to WASM, perfectly runs in a browser tab on my phone in landscape mode, and does
+what I wanted it to do.</p>
+<p>Do I claim “authorship” for that code? Not more than what “authorship” a movie director can
+claim for the resulting movie. Was I able to obtain the result I wanted?
+<em>Absolutely.</em> Was it different from talking to a human developer? I actually do not think
+that it is much different from communicating with a cheap freelancer I could have hired.
+However, I doubt that a random freelancer would know the needed math.</p>
+<p><strong>It would have taken me <em>weeks</em> to do all of that.</strong> No, not writing out the code - I
+could have done that on a weekend, if I had that much free time. But I have no background
+in computer graphics, I have never implemented <em>anything</em> that even renders in 3D, I would
+have to work my way up learning how to build a custom renderer for what I wanted to do.
+Probably I just would have never done it. Now I have a <em>working app</em> that visualizes 4D in
+ways which I wanted to explore, lazily done on the side within a few days. Sure, it is a
+messy prototype, let’s not even start talking about code quality. But it is hard not to
+see the potential:</p>
+<ul>
+<li>I did not write a single line of code</li>
+<li>All I did was: explaining my ideas, prescribing architecture, and supervising</li>
+<li><em>I wished a Rust app with 2.5k SLOC into being, it is mind-blowing and surreal!</em><sup class="footnote-reference" id="fr-followup-1"><a href="#fn-followup">7</a></sup></li>
+</ul>
+<h2 id="growing-stack-of-magic-machines"><a class="header-anchor no-hover-padding" href="#growing-stack-of-magic-machines" aria-label="Anchor link for: growing-stack-of-magic-machines"><span class="link-icon" aria-hidden="true"></span></a>
+Growing Stack Of Magic Machines</h2>
+<p>The shift from manual development to vibe coding is like from manual computation with pen
+and paper to electronic computers, or from manual labor to the autonomous factory line.
+<strong>You can automate and scale up the tedious parts, but now you need to learn to drive that
+new and more complex machine.</strong></p>
+<p>There are and always will be people who want or need to know how <em>the magic machine</em>
+works. But many people do not know, and do not want or have to care. LLMs are just another
+new layer in the ever-growing technology stack of magic machines that keep the modern
+world running:</p>
+<ul>
+<li>I know how basic processors work <em>(in theory, from a lecture)</em></li>
+<li>I know how a basic operating system works <em>(in theory, from a lecture)</em></li>
+<li>I know how a database works <em>(in theory, from a lecture)</em></li>
+<li>I know how compilers work <em>(in theory, from a lecture)</em></li>
+<li>I know how the internet works <em>(in theory, from a lecture)</em></li>
+<li>I know how deep learning, convnets and LLMs work <em>(in theory, from a lecture)</em></li>
+</ul>
+<p>All these and many more highly complex systems evolved over time and are being
+continuously refined by <em>whole subdisciplines</em> of computer science and huge corporate
+research departments with <em>tens of thousands</em> engineers and billions of funding who do
+nothing but optimize these things.</p>
+<p><strong>No single person can ever fully understand all of that up to intimate detail, and all
+you actually <em>need</em> is a good-enough mental model</strong> for what you want to do. It is no
+different with our political and legal systems. At some point you just have to trust that
+the machine works as you understand it is supposed to.</p>
+<h2 id="from-coding-to-designing"><a class="header-anchor no-hover-padding" href="#from-coding-to-designing" aria-label="Anchor link for: from-coding-to-designing"><span class="link-icon" aria-hidden="true"></span></a>
+From Coding To Designing</h2>
+<p>The <em>emotional</em> dilemma around coding agents is basically this:</p>
+<ul>
+<li>For one, coding is a means to an end, for another a form of meditation.</li>
+<li>For one, coding is the automatable boring part, for another it is the fun part.</li>
+</ul>
+<p>I usually <em>care deeply</em> about the code I write and like to polish it. But these days,
+<em>I simply cannot afford to write all the code I would like to write myself</em>.</p>
+<ul>
+<li>In a company, depending on your position you can delegate work to others.</li>
+<li>Now with coding agents, <em>everybody</em> can delegate implementation work.</li>
+</ul>
+<p>So instead of doing the coding myself, I was doing the supervising and controlling. I
+basically got promoted from <em>development</em> to <em>technical management</em> in my own hobby
+software project! <strong><em>This</em> is what vibe coding is, not more and not less.</strong></p>
+<p>The experience of how far you can get with this made me question my previous obsession
+with code. In my hobby project I started to think like at work: <em>it does not have to be
+perfect, it needs to be good enough and be done in reasonable time.</em></p>
+<p>In recent years, I learned that I enjoy <em>designing systems</em> at least as much, if not more,
+than writing the actual code. And it looks like this is increasingly going to be the main
+part of the job. <strong>You can always dream of and design bigger systems than you could ever
+implement alone, because system design is on a different abstraction level.</strong></p>
+<p>I still am the architect of the solution, I still decide what is a good or bad solution.
+The fact that a machine could spit out code I would need much more time to write and debug
+does <em>not</em> take anything essential away from my earned experience as software developer.
+On the contrary, <strong>to make most out of these tools, you <em>must</em> to be able to do everything
+they do</strong>, and then they let you do it much <em>faster</em>.</p>
+<p>If these agents can produce reasonable results matching required standards and given
+specifications, then why not use them? For some tasks, an agent is <em>much</em> faster than
+doing it yourself, but for many tasks it might take the current generation of agents much
+more wall-clock time than doing it yourself. However, any of your time that is saved is
+time you can use doing <em>something else</em>.</p>
+<p>Learning to work with an agent in some sense is very much like learning to use an
+unfamiliar but powerful editor or IDE - the value you get out of it is proportional to
+your ability of using it well, and sometimes you need to have the wisdom to pick the right
+tool for a task. Choosing the language model and agentic coding tool is like
+choosing the most suitable colleague for a specific task.</p>
+<p>I believe that the key skill for vibe coding is simply <em>being a good senior engineer</em>,
+which involves various <em>soft</em> skills, such as:</p>
+<ul>
+<li>knowing how to break a big project into workable tasks</li>
+<li>knowing when to invest the time to do it yourself (critical parts, architecture)</li>
+<li>knowing when to delegate (low-risk, predictable work)</li>
+<li>knowing how to write out detailed requirements (e.g. formal specifications)</li>
+<li>knowing how to ensure that the requirements are fulfilled (e.g. tests, etc.)</li>
+<li>and so on</li>
+</ul>
+<p>There are engineers who are very good at the technical stuff, but might lack some of these
+other skills, and the opposite kind who are more than happy to move up and away of from
+the <em>“grunt work”</em>. The first kind might be too reluctant to try agents for various
+reasons and might miss out, the second kind will go ahead and produce a lot of very bad
+code. I hope for a future where it is recognized that such tools require a <em>capable</em> and
+<em>experienced</em> operator.</p>
+<h2 id="conclusion"><a class="header-anchor no-hover-padding" href="#conclusion" aria-label="Anchor link for: conclusion"><span class="link-icon" aria-hidden="true"></span></a>
+Conclusion</h2>
+<p>Like many, I also grew up on sci-fi with various robots and artificial intelligences as
+user interfaces to technology. Back in school, my first longer homework assignment was
+writing 10 pages about a technological topic of my choice, and I wrote a survey about AI.
+Back then, it looked like <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/AI_winter">AI winter</a> would last
+forever and all of that stuff could never really work.</p>
+<p>Fast forward to around a year ago, and I was already somewhat excited about reasoning
+capabilities of <a href="/blog/deepseek-r1-first-contact/">leading LLMs at the time</a>. The
+excitement back then was in anticipation to what was on the horizon. Just one year later,
+we <em>actually</em> get to create software using natural language! I really did not expect all
+of this to happen before my retirement, but here we are.</p>
+<p>Will this technology replace <em>good</em> engineers? Not in any future I can imagine.</p>
+<p>Could it replace <em>bad</em> engineers? I start to believe that very soon it might.</p>
+<p>What it can definitely already do <em>today</em> is: making both good <em>and</em> bad engineers more
+efficient at what they already do. Will it will be piles of slop and technical debt,
+or amazing and useful software? As always, it is up to <em>you</em>.</p>
+<hr />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-unusual">
+<p>Technological progress is accelerating at truly insane speeds, and I really
+doubt that this uncontrolled explosion is good for human beings and our existing
+societies. We are randomly walking in uncharted territory without
+any safety rails. I think this is frightening, but this is a completely different topic. <a href="#fr-unusual-1">↩</a></p>
+</li>
+<li id="fn-compilers">
+<p>I <em>really</em> enjoyed learning different programming languages, as a kid I
+always wanted to invent a new one and write a compiler for it. Never followed through,
+but in some way, I actually do something very adjacent for a living now. Sometimes
+you really know early what you want to do when you grow up. <a href="#fr-compilers-1">↩</a></p>
+</li>
+<li id="fn-blackbox">
+<p>Maybe the real question is: didn’t this already happen a long time ago, and
+we all just did not notice? <a href="#fr-blackbox-1">↩</a></p>
+</li>
+<li id="fn-eternalseptember">
+<p>What to the elder ones was the <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Eternal_September">Eternal
+September</a>, for me is probably the
+appearance of the smartphone.
+It is a pretty clear line that separates the Web 1.0, which
+was full of interesting content written by usually quirky, but usually intelligent and
+insightful people on authentic personal pages, to well… what it is today. <a href="#fr-eternalseptember-1">↩</a></p>
+</li>
+<li id="fn-art">
+<p>I believe AI cannot produce art, it produces only a mash-up of existing art. If
+you take out the human effort, intent and emotion out of art, it does not deserve the
+classification as <em>art</em>, it is merely <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Kitsch">kitsch</a>.
+To produce art, you need a soul and something you have the need to express. AI with no
+human in the loop can only produce <em>consumable commodities</em>. <a href="#fr-art-1">↩</a></p>
+</li>
+<li id="fn-perfect">
+<p>Which tool is ever perfect? I like using vim as an editor, I like coding in
+Rust, but nobody in their right mind would ever say that they are <em>flawless</em>! <a href="#fr-perfect-1">↩</a></p>
+</li>
+<li id="fn-followup">
+<p>I will document my whole AI tech setup, which grew over the last months, in
+another post. This was my first experience with autonomous coding agents, but I
+have been watching and playing with all these new toys for a while now. <a href="#fr-followup-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/radicale-shared-calendar/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Simple Shared Family Calendar and Notes with Radicale</p></div>
+                <div><a href="https://pirogov.de/blog/diy-hclo/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">How to Make Quick and Easy Disinfectant from Water and Salt</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#nostalgia-is-a-delusion">Nostalgia Is A Delusion</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#old-men-yelling-at-claude">Old Men Yelling At Claude</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#from-treasure-trove-to-garbage-dump">From Treasure Trove to Garbage Dump</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#pride-of-the-seasoned-software-engineer">Pride of the Seasoned Software Engineer</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#carefully-embracing-the-vibe">Carefully Embracing The Vibe</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#growing-stack-of-magic-machines">Growing Stack Of Magic Machines</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#from-coding-to-designing">From Coding To Designing</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/real-programmers/#conclusion">Conclusion</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://paypal.me/antonpirogov">
+                                    <img loading="lazy" alt="PayPal" title="PayPal" src="https://pirogov.de/social_icons/paypal.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener external" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>
