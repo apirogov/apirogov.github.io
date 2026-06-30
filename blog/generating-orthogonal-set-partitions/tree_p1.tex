@@ -1,0 +1,23 @@
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\begin{document}
+\begin{tikzpicture}
+  \node {$\bullet$}[sibling distance=35mm]
+    child {node {$\bullet$}[sibling distance=10mm]
+      child {node {0}}
+      child {node {3}}
+      child {node {6}}
+    }
+    child {node {$\bullet$}[sibling distance=10mm]
+      child {node {1}}
+      child {node {4}}
+      child {node {7}}
+    }
+    child {node {$\bullet$}[sibling distance=10mm]
+      child {node {2}}
+      child {node {5}}
+      child {node {8}}
+    }
+    ;
+\end{tikzpicture}
+\end{document}

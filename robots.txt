@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://pirogov.de/sitemap.xml
+
+User-agent: ia_archiver
+Disallow: /
