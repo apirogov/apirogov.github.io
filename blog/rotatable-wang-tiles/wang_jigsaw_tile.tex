@@ -1,0 +1,71 @@
+% compile with lualatex -shell-escape, then remove auxiliary files
+\documentclass[svgnames,tikz]{standalone}
+\usepackage{bm}
+\directlua{luatexbase.add_to_callback("wrapup_run", function() os.execute("pdf2svg \jobname.pdf \jobname.svg") print("Converted to SVG.") end, "final callback to convert pdf file")}
+\usetikzlibrary{calc,snakes}
+\begin{document}
+\begin{tikzpicture}[
+  point/.style = {draw, circle,  fill = black, inner sep = 1pt},
+  squigly/.style={color=gray, dashed, decorate, decoration={snake,amplitude=.5mm,segment length=5mm,post length=0mm,pre length=0mm}}
+  ]
+  \coordinate [] (C) at (0, 0);
+
+  \coordinate [] (N) at (0, 4);
+  \coordinate [] (E) at (4, 0);
+  \coordinate [] (S) at (0, -4);
+  \coordinate [] (W) at (-4, 0);
+
+  \coordinate [] (NE) at ($(N)+(E)$);
+  \coordinate [] (NW) at ($(N)+(W)$);
+  \coordinate [] (SE) at ($(S)+(E)$);
+  \coordinate [] (SW) at ($(S)+(W)$);
+
+  \path (SE) edge (E);
+  \path (NE) edge (N);
+  \path (SW) edge (W);
+  \path (SE) edge (S);
+
+  \draw (NW) edge[squigly] (SE);
+  \draw (NE) edge[squigly] (SW);
+
+  \draw (E)
+  -- ($(E)+(0.5,0.5)$)
+  -- ($(E)+(0,1)$)
+  -- ($(E)+(0,2)$)
+  -- ($(E)+(0,3)$)
+  -- (NE);
+
+  \draw (N)
+  -- ($(N)+(-0.5,0.5)$)
+  -- ($(N)+(-1,0)$)
+  -- ($(N)+(-1.5,0.5)$)
+  -- ($(N)+(-2,0)$)
+  -- (NW);
+
+  \draw (NW)
+  -- ($(NW)+(0,-2)$)
+  -- ($(NW)+(0.5,-2.5)$)
+  -- ($(NW)+(0,-3)$)
+  -- ($(NW)+(0.5,-3.5)$)
+  -- (W);
+
+  \draw (SW)
+  -- ($(SW)+(1,0)$)
+  -- ($(SW)+(1.5,0.5)$)
+  -- ($(SW)+(2,0)$)
+  -- ($(SW)+(2.5,0.5)$)
+  -- ($(SW)+(3,0)$)
+  -- ($(SW)+(3.5,0.5)$)
+  -- (S);
+
+  \node[point] (pt1) at (NE) {};
+  \node[point] (pt2) at (NW) {};
+  \node[point] (pt3) at (SE) {};
+  \node[point] (pt4) at (SW) {};
+
+  \node[scale=2,font=\boldmath] (l1) at ($(E)+(-1,0)$) {${\textcolor{red}1}_+$};
+  \node[scale=2,font=\boldmath] (l2) at ($(N)+(0,-1)$) {${\textcolor{green}3}_+$};
+  \node[scale=2,font=\boldmath] (l3) at ($(W)+(1,0)$) {${\textcolor{green}3}_-$};
+  \node[scale=2,font=\boldmath] (l4) at ($(S)+(0,1)$) {${\textcolor{blue}7}_-$};
+\end{tikzpicture}
+\end{document}
