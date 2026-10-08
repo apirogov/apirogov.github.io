@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none" role="img" aria-label="The same walk under the Galois relabelling zeta -> zeta^5: the {12/5} star">
+<title>The same walk under the Galois relabelling zeta -> zeta^5: the {12/5} star</title>
+<line x1="123.00" y1="106.16" x2="91.39" y2="87.91" stroke="#d32222" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="83.16,83.16 94.99,84.68 90.39,92.65" fill="#d32222"/>
+<line x1="83.16" y1="83.16" x2="101.41" y2="114.77" stroke="#d37a22" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="106.16,123.00 96.68,115.77 104.65,111.17" fill="#d37a22"/>
+<line x1="106.16" y1="123.00" x2="106.16" y2="86.50" stroke="#d3d322" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="106.16,77.00 110.76,88.00 101.56,88.00" fill="#d3d322"/>
+<line x1="106.16" y1="77.00" x2="87.91" y2="108.61" stroke="#7ad322" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="83.16,116.84 84.68,105.01 92.65,109.61" fill="#7ad322"/>
+<line x1="83.16" y1="116.84" x2="114.77" y2="98.59" stroke="#22d322" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="123.00,93.84 115.77,103.32 111.17,95.35" fill="#22d322"/>
+<line x1="123.00" y1="93.84" x2="86.50" y2="93.84" stroke="#22d37a" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="77.00,93.84 88.00,89.24 88.00,98.44" fill="#22d37a"/>
+<line x1="77.00" y1="93.84" x2="108.61" y2="112.09" stroke="#22d3d3" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="116.84,116.84 105.01,115.32 109.61,107.35" fill="#22d3d3"/>
+<line x1="116.84" y1="116.84" x2="98.59" y2="85.23" stroke="#227ad3" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="93.84,77.00 103.32,84.23 95.35,88.83" fill="#227ad3"/>
+<line x1="93.84" y1="77.00" x2="93.84" y2="113.50" stroke="#2222d3" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="93.84,123.00 89.24,112.00 98.44,112.00" fill="#2222d3"/>
+<line x1="93.84" y1="123.00" x2="112.09" y2="91.39" stroke="#7a22d3" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="116.84,83.16 115.32,94.99 107.35,90.39" fill="#7a22d3"/>
+<line x1="116.84" y1="83.16" x2="85.23" y2="101.41" stroke="#d322d3" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="77.00,106.16 84.23,96.68 88.83,104.65" fill="#d322d3"/>
+<line x1="77.00" y1="106.16" x2="113.50" y2="106.16" stroke="#d3227a" stroke-width="2.6" stroke-linecap="round"/>
+<polygon points="123.00,106.16 112.00,110.76 112.00,101.56" fill="#d3227a"/>
+<circle cx="83.16" cy="83.16" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="106.16" cy="123.00" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="106.16" cy="77.00" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="83.16" cy="116.84" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="123.00" cy="93.84" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="77.00" cy="93.84" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="116.84" cy="116.84" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="93.84" cy="77.00" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="93.84" cy="123.00" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="116.84" cy="83.16" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="77.00" cy="106.16" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="123.00" cy="106.16" r="1.9" fill="currentColor" opacity="0.55"/>
+<circle cx="123.00" cy="106.16" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+</svg>

@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src 'self' data:;img-src 'self' https://* data:;style-src 'self' 'unsafe-inline';frame-src https://www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self' 'unsafe-inline'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://pirogov.de">
+
+    
+    <title>
+Simply Typed • Contributing to OEIS using tilezz</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://pirogov.de/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="Simply Typed - Atom Feed" href="https://pirogov.de/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://pirogov.de/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://pirogov.de/main.css?h=be7f63312b6c5c196cba" />
+        <link rel="stylesheet" href="https://pirogov.de/custom.css?h=40c1025a16756a30eeb4" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Anton Pirogov&#x27;s personal homepage." />
+        <meta property="og:description" content="Anton Pirogov&#x27;s personal homepage." />
+
+    
+
+    <meta property="og:title" content="Contributing to OEIS using tilezz" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;pirogov.de&#x2F;blog&#x2F;tilezz-polygons-oeis&#x2F;" /><meta property="og:site_name" content="Simply Typed">
+        <noscript><link rel="stylesheet" href="https://pirogov.de/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://pirogov.de/js/initializeTheme.min.js"></script>
+        <script defer src="https://pirogov.de/js/themeSwitcher.min.js"></script>
+    
+</head>
+
+
+<body>
+    <a href="#main-content" id="skip-link">Skip to content</a>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://pirogov.de/">Simply Typed</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/cv/">cv
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/about/">personal
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/projects/">projects
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://pirogov.de/archive/">archive
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content" id="main-content">
+
+        
+        
+
+
+
+
+
+<main>
+    <article class="h-entry">
+        <h1 class="p-name article-title">
+            Contributing to OEIS using tilezz
+        </h1>
+        <a class="u-url u-uid" href="https://pirogov.de/blog/tilezz-polygons-oeis/"></a>
+
+        <ul class="meta"><span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;pirogov.de" class="u-url " title="Anton Pirogov">Anton Pirogov</a>
+</span>
+<li><time class="dt-published" datetime="2026-09-01">1st Sep 2026</time></li><li title="7192 words"><span class='separator' aria-hidden='true'>•</span>36 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/theory/">theory</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/math/">math</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/geometry/">geometry</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/algebra/">algebra</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tilings/">tilings</a>,&nbsp;</li><li class="tag"><a class="p-category" href="https://pirogov.de/tags/tilezz/">tilezz</a></li>
+        </ul>
+            
+
+<div class="toc-container">
+    
+        <h3>Table of Contents</h3>
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#introduction">Introduction</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#let-s-enumerate-rats">Let’s Enumerate Rats!</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#the-foundation-one-concrete-basis-per-field">The Foundation: One concrete basis per field</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#cutting-the-search-tree">Cutting the search tree</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#1-lexicographic-symmetry-reduction">1. Lexicographic symmetry reduction</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#2-reachability-at-every-place-of-the-field">2. Reachability, at every place of the field</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#3-beyond-places-a-catalogue-of-closable-suffixes">3. Beyond places: a catalogue of closable suffixes</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#4-geometry-as-a-finite-automaton">4. Geometry as a finite automaton</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#5-parallelization">5. Parallelization</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#what-it-adds-up-to">What it adds up to</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#from-the-search-to-a-dataset">From the search to a dataset</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#what-went-to-oeis">What went to OEIS</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#bonus-spectre-is-the-smallest-aperiodic-monotile-on-mathbb-z-zeta-12">Bonus: Spectre is the smallest aperiodic monotile on $\mathbb{Z}[\zeta_{12}]$</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#summary">Summary</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+        <section class="e-content body"><!-- ensure trailing slash URL (otherwise resource URLs are broken) -->
+<script>(function(){const{protocol:n,host:o,pathname:t,search:a,hash:h}=window.location;t.endsWith("/")||t.endsWith(".html")||window.location.replace(`${n}//${o}${t}/${a}${h}`)})()</script>
+<h2 id="introduction"><a class="header-anchor no-hover-padding" href="#introduction" aria-label="Anchor link for: introduction"><span class="link-icon" aria-hidden="true"></span></a>
+Introduction</h2>
+<p>In the <a href="/blog/turtles-snakes-rats">previous part</a> of this series I presented to you the
+key concepts of the framework I developed and implemented in my
+<a rel="noopener external" target="_blank" href="https://github.com/apirogov/tilezz">tilezz</a> project. You might still have doubts about the merit
+of the approach, given that it lives in an awkward space that could be characterized as
+too messy for theoreticians (combining number theory, geometry, and formal languages in
+unheard-of ways) and too theoretical for practically-minded tiling enthusiasts.</p>
+<p>Certainly the whole project is a speculative research direction that could have easily
+been an elegant but fruitless dead end, but now I can proudly report on a few milestones I
+have reached recently using all this machinery:</p>
+<ul>
+<li>seven sequences contributed to the OEIS (two of them corrections), and</li>
+<li>establishing that <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Einstein_problem">Spectre</a> is the smallest chiral aperiodic monotile on $\mathbb{Z}[\zeta_{12}]$.</li>
+</ul>
+<p>Arriving there required solving two algorithmically non-trivial problems <em>efficiently</em>:</p>
+<ul>
+<li>enumeration of all simple cyclotomic polygons up to a given size, and</li>
+<li>tileability analysis, orchestrated into a high-performance filter pipeline.</li>
+</ul>
+<p>This post explains in detail how the first problem was tackled. The second is only
+sketched, because it has more the character of plumbing together a lot of well-established
+techniques (each surely interesting in its own right, but none of them my innovation),
+whereas the enumeration side has the more interesting mathematical and conceptual ideas.</p>
+<p><strong>Disclaimer:</strong>
+This was a lot of work that would not have been possible without AI, so I also used it to
+help me summarize and explain it. Sections where AI played a major role in writing and I
+mostly did the editing are highlighted by a magenta line<sup class="footnote-reference" id="fr-images-1"><a href="#fn-images">1</a></sup>. It does not mean that
+this is low-effort content. I still carefully read, edit and revise everything until I
+find it acceptable to publish, and everything else would be an insult to a human reader.
+It might often be not exactly my choice of words, but apart from that, <strong>it is
+still my story-telling, exposition and content curation - because that is what I
+contributed</strong>. What to make of it is of course your decision. My perspective is explained
+in a <a href="/blog/ai-empowering-technology">separate post</a>, while this one focuses on the
+technical content.</p>
+<h2 id="let-s-enumerate-rats"><a class="header-anchor no-hover-padding" href="#let-s-enumerate-rats" aria-label="Anchor link for: let-s-enumerate-rats"><span class="link-icon" aria-hidden="true"></span></a>
+Let’s Enumerate Rats!</h2>
+<div style="position: relative; border-left: 3px solid #ff88ff; padding-left: 2rem; margin-left: -2rem;">
+<span title="AI-assisted" style="position: absolute; left: -8px; top: 0; width: 16px; height: 100%; cursor: help;"></span>
+<p>The concrete problem is this. Fix a cyclotomic ring $\mathbb{Z}[\zeta]$, where $\zeta$ is
+a primitive $n$-th root of unity – from here on $\zeta$ always means that fixed generator
+for statements that hold in general, and a subscript ($\mathbb{Z}[\zeta_{12}]$) names a
+specific ring.</p>
+<p>Now list <em>every</em> simple polygon whose edges all have unit length and whose vertices lie
+in that ring, up to a given perimeter. We will only count up to rotation and reflection,
+following the convention that many OEIS sequences call the <strong>free</strong> count. Recall from the
+<a href="/blog/turtles-snakes-rats">previous part</a> that such a polygon – a <em>rat</em> – is fully
+described by its cyclic sequence of turning angles (note that a rat in tilezz <em>does</em>
+distinguish reflected and rotated copies, unless explicitly canonicalized), so it is a
+word over an alphabet of $n$ discrete directions, and enumerating rats means walking a
+tree of words. A word still being extended – an open self-avoiding walk of unit steps on
+the ring – is a <em>snake</em>; the search grows snakes and harvests the ones that close.</p>
+<p>That reframing is what makes the problem approachable at all, but it does not make it
+small. The tree branches $n-1$ ways at every level (11 for $\mathbb{Z}[\zeta_{12}]$), so
+perimeter 16 over $\mathbb{Z}[\zeta_{12}]$ – the deepest enumeration I have published
+– is nominally $11^{16} \approx 5 \cdot 10^{16}$ walks, of which <a rel="noopener external" target="_blank" href="https://oeis.org/A316192">about $1.5 \cdot
+10^9$</a> are rats. Around seven orders of magnitude separate the tree
+from the answer, and the job is to spend as little as possible on the difference.</p>
+<h2 id="the-foundation-one-concrete-basis-per-field"><a class="header-anchor no-hover-padding" href="#the-foundation-one-concrete-basis-per-field" aria-label="Anchor link for: the-foundation-one-concrete-basis-per-field"><span class="link-icon" aria-hidden="true"></span></a>
+The Foundation: One concrete basis per field</h2>
+<p>Before any ambitious search can even start, the arithmetic in the inner loop has to be
+cheap, because every node of the search tree needs to compute distances or segment
+intersections, and the result is ultimately determined by the <strong>sign of an algebraic
+number</strong>. For example, in <a href="/blog/intersecting-segments-without-tears/">this post</a> I
+explained how you can intersect segments using only ring operations.</p>
+<p>The typical approach to compute in an arbitrary algebraic number field is using symbolic
+or arbitrary-precision arithmetic, which makes sense for things a mathematician does, but
+not for number crunching. So tilezz does the opposite: each of the supported rings gets a
+<strong>concrete integral basis fixed at compile time</strong>, and everything above it is plain
+machine-integer linear algebra.</p>
+<p>In the current implementation (unlike my first naive rational-number based prototype
+that was 30x slower), a ring element is an integer vector against the power basis
+$\lbrace 1, \zeta, \ldots, \zeta^{\varphi(n)-1} \rbrace$, where $\varphi$ is <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Euler%27s_totient_function">Euler’s
+totient</a>: $\varphi(n)$ counts
+the integers in $1, \ldots, n$ coprime to $n$, and is the degree of the <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Cyclotomic_polynomial">cyclotomic
+polynomial</a> $\Phi_n$. That is exact
+and unique because $\zeta$ is a root of $\Phi_n$, which has integer coefficients and is
+<a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Monic_polynomial">monic</a> – its leading coefficient is $1$
+– so $\zeta^{\varphi(n)}$ equals an <em>integer</em> combination of the lower powers, and every
+higher power folds back into the basis without ever introducing a denominator. And since
+$\Phi_n$ is $\zeta$’s <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Minimal_polynomial_(field_theory)">minimal
+polynomial</a>, no element
+has two such representations. For each ring element, the coefficients are stored as
+a fixed-size array of $\varphi(n)$ machine integers on the stack.</p>
+<p>In tilezz, by design <strong>no correctness-bearing code relies on a float</strong>. Cyclotomic
+number arithmetic <em>is</em> exact integer arithmetic, and as long as all coefficients stay
+within bounds of the numeric types (you’d need really big or extremely intricate
+polygons to reach these bounds, and such cases are detected and protected against), there
+are no numerical issues to worry about, even though conceptually we work in the 2D plane.</p>
+<p>All rings are generated from one generic macro plus a few per-ring constants, so they
+share a single code path, and an algorithm written generically over “some cyclotomic ring”
+compiles for every one of them.</p>
+<h2 id="cutting-the-search-tree"><a class="header-anchor no-hover-padding" href="#cutting-the-search-tree" aria-label="Anchor link for: cutting-the-search-tree"><span class="link-icon" aria-hidden="true"></span></a>
+Cutting the search tree</h2>
+<p>With cheap exact arithmetic in hand, the enumeration is a DFS that extends a turning-angle
+sequence in place and backtracks. The optimizations fall into five conceptually distinct
+groups.</p>
+<h3 id="1-lexicographic-symmetry-reduction"><a class="header-anchor no-hover-padding" href="#1-lexicographic-symmetry-reduction" aria-label="Anchor link for: 1-lexicographic-symmetry-reduction"><span class="link-icon" aria-hidden="true"></span></a>
+1. Lexicographic symmetry reduction</h3>
+<p>A rat of perimeter $k$ occurs as $k$ distinct words (one per starting vertex), doubled
+again by traversal direction and by mirroring; only the lexicographically minimal
+representative should be enumerated. The useful part is that this can often be decided
+from a prefix, long before the walk closes. Take rotations: compare the $d$ angles
+chosen so far with their own rotation by $j &gt; 0$. The two are both determined on the
+first $d - j$ positions, since beyond those the rotation would need angles the walk has
+not picked yet – but if the rotation is already strictly smaller within that overlap,
+no later turn can undo it, and the whole subtree is dead. The test runs before the
+geometry check, so a rejected direction costs a handful of integer comparisons. Mirrors
+give a second family of partial comparisons – the word read backwards from a chosen
+anchor, with the angles negated – worth much less than the rotations, but free to check
+at the same time.</p>
+<p>Concretely, for the rotation family over $\mathbb{Z}[\zeta_{12}]$, where a turn of $-4$
+is a third of a full turn to the right:</p>
+<table><thead><tr><th style="text-align: right">step</th><th>walk so far</th><th>rotation</th><th>its letters</th><th>vs the walk</th><th>verdict</th></tr></thead><tbody>
+<tr><td style="text-align: right">1</td><td><code>[-4]</code></td><td>–</td><td></td><td></td><td>nothing to compare yet</td></tr>
+<tr><td style="text-align: right">2</td><td><code>[-4,-4]</code></td><td>by 1</td><td><code>[-4]</code></td><td><code>[-4]</code></td><td><strong>equal – undecided, keep going</strong></td></tr>
+<tr><td style="text-align: right">3</td><td><code>[-4,-4,-5]</code></td><td>by 1</td><td><code>[-4,-5]</code></td><td><code>[-4,-4]</code></td><td><strong>strictly smaller – prune</strong></td></tr>
+</tbody></table>
+<p>At step 2 the overlap is a single position and it ties, which decides nothing: the walk
+stays alive. One angle later the same rotation reads $-5$ where the walk reads $-4$, and
+that is permanent – whatever angles follow, the word starting at the second vertex is
+already smaller than the word starting at the first, so no polygon this prefix could
+close into has its lex-minimum here. The entire subtree goes.</p>
+<p>There is a subtle issue here that an attentive reader of the previous part might already
+anticipate: while the snake is open, its first angle is not a turn at all. It is
+measured against <a href="/blog/turtles-snakes-rats/#how-ouroboros-turns-into-a-rat">an unspecified starting
+direction</a> and is overwritten
+with the real value only when the polygon closes. So every comparison above runs on a
+word whose first symbol is provisional. Why is it safe to prune on a slot that is going
+to change?</p>
+<p>The answer is that soundness never depended on that slot being right. Among all the words
+describing a given rat – one per starting vertex, in either traversal direction – one is
+lexicographically smallest; call it $C$. The prune is precisely a prefix test for “could
+this still be $C$”, so $C$ passes it trivially: a strict loss inside a determined window
+would exhibit a rotation or mirror of $C$ that is lex-smaller than $C$ itself. And $C$ is
+a closed word, so read as a walk it already begins with its true first angle – the
+provisional slot never enters the argument. Every rat keeps at least this one walk,
+and it is the only one that matters.</p>
+<p>But by the same logic we also preserve, as collateral, walks starting in some wrong
+direction – one that gets rewritten into the correct angle at closure, and that until
+then makes the sequence look lexicographically smaller than it will turn out to be.
+For example, the unit square from the previous part has $C = [-3,-3,-3,-3]$, its clockwise
+traversal; the counter-clockwise word $[3,3,3,3]$ dies at depth 0, where the mirror
+pruning rejects every positive first symbol. Meanwhile four further walks survive all the
+way to closure – $[-5,3,3,3]$, $[-4,3,3,3]$, $[-5,-3,-3,-3]$ and $[-4,-3,-3,-3]$ – each
+opening with a heading small enough to pass for the start of something better than $C$,
+and each having that heading overwritten the moment it closes. Five walks, one rat.
+The surviving words are canonicalized to their dihedral lex-minimum
+(<a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Lexicographically_minimal_string_rotation#Booth&#x27;s_algorithm">Booth’s algorithm</a>),
+and then deduplication takes care of it.</p>
+<h3 id="2-reachability-at-every-place-of-the-field"><a class="header-anchor no-hover-padding" href="#2-reachability-at-every-place-of-the-field" aria-label="Anchor link for: 2-reachability-at-every-place-of-the-field"><span class="link-icon" aria-hidden="true"></span></a>
+2. Reachability, at every place of the field</h3>
+<p>This is the prettiest group of prunes and the largest single win. Call the active end
+of the partial walk its <strong>head</strong>: the vertex the next step extends from, and the value
+$h$ the DFS updates step by step. A snake becomes a
+rat exactly when its head comes back to the origin, so the question at every node is
+whether this head still <em>can</em> come back within the steps that are left.</p>
+<p>Each remaining step is a unit vector, i.e. a root of unity, so a walk whose head sits at
+$h$ with $r$ steps left can close only if $-h = \zeta^{k_1} + \cdots + \zeta^{k_s}$ for some
+$s \le r$: the remaining steps have to add up to exactly the displacement that carries the
+head home. Any <em>necessary</em> condition on that equation is a legal prune, and number theory
+supplies one per <em>place</em> of the field.
+A <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Algebraic_number_theory#Places">place</a> is one
+self-consistent way of measuring how big a number is, and they come in two families.</p>
+<p>The <em>first</em> family arises because $\zeta$ is pinned down only up to relabelling: it is a
+root of a polynomial with $\varphi(n)$ roots, all algebraically indistinguishable, and
+nothing in the arithmetic records which one we chose to call $\zeta$. The picture on
+screen <em>is</em> one of those choices – the one sending $\zeta$ to $e^{2\pi i/n}$ – and
+sending it to $\zeta^g$ instead is just as consistent, for any $g$ coprime to $n$. Write
+$\sigma_g$ for that relabelling: the map that rewrites an element in terms of the new
+choice, sending $\zeta^k$ to $\zeta^{gk}$ and leaving the integers alone, so that
+$\sigma_1$ is the identity and $\sigma_g(h)$ is where $h$ sits in version $g$. Each
+$\sigma_g$ comes with its own notion of distance. You can draw that version of a walk
+perfectly well; it just comes out geometrically jumbled. I will call the $g = 1$ version
+– the tile as it actually sits in the plane – the <em>physical</em> picture, and each of the
+others a <em>shadow</em>: the same word, the same closure, faithfully drawn, but in a geometry
+the tiling does not live in.</p>
+<figure style="margin: 2rem 0;">
+<div style="display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+<img src="fig-dodecagon.svg" alt="A regular 12-gon: twelve unit-length edges, each step turning 30 degrees to the left, arrows showing the traversal direction." style="width: 38%; height: auto;">
+<img src="fig-dodecagon-shadow.svg" alt="The same twelve-step word under the relabelling zeta to zeta^5: a compact, self-crossing {12/5} star with the same unit edge length." style="width: 50%; height: auto;">
+</div>
+<figcaption style="text-align: center; font-size: 0.9em; margin-top: 0.75rem;">
+The same word, twice: twelve unit steps of $+30^\circ$, drawn under the physical embedding
+(left) and under the relabelling $\zeta \mapsto \zeta^5$ (right). The star is drawn
+magnified, since it is the harder of the two to read; in reality the edges are the same
+length in both and it packs them into a circumradius of $0.52$ against the $12$-gon's
+$1.93$. Matching colours mark corresponding edges; the ring marks the start.
+</figcaption>
+</figure>
+<p>The reason is that the relabelling is a symmetry of the <em>arithmetic</em>, not of the plane: it
+preserves the word and it preserves closure, but not distance, not self-avoidance, not
+shape. Take the regular 12-gon – twelve unit steps, each turning $30^\circ$ to the left.
+Relabel the directions by $\sigma_5$, so that direction $k$ points where direction
+$5k \bmod 12$ used to, and every turn becomes $150^\circ$: the same twelve instructions
+still close, but they close as the <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Dodecagram">$\lbrace 12/5 \rbrace$ star</a>,
+folded from circumradius 1.93 down to 0.52. The edges are the same length in both
+pictures, and nothing else survives.</p>
+<p>The <em>second</em> family measures divisibility instead, counting a number as small when it is
+divisible by a large power of a prime: the
+<a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/P-adic_number">$p$-adic</a> view, of which residues modulo $m$
+are a coarse version. Sizes of the first kind are the <em>archimedean</em> places, of the second
+the <em>finite</em> ones – and the closure equation holds at all of them at once, which makes
+every place a separate sieve:</p>
+<p><em>The physical place</em>, the relabelling $g = 1$ we drew with: $|h| \le r$. The obvious
+distance-to-origin bound: of the 9.1 billion candidate directions the perimeter-12 walk
+considers, 61.3% are thrown out right here, before any intersection test is paid for.</p>
+<p><em>The other archimedean places.</em> The very same bound, checked in each of the other versions
+of the picture: $|\sigma_g(h)| \le r$. The $\varphi(n)$ versions collapse to
+$\varphi(n)/2$ places, because $\sigma_g$ and $\sigma_{n-g}$ are complex conjugates and
+so measure the same length: $\mathbb{Z}[\zeta_{12}]$ has exactly one place besides the
+physical one – the 12-gon figure draws both – while $\mathbb{Z}[\zeta_{32}]$ has seven.
+It needs no precomputation at all.</p>
+<p>Why should one inequality hold in every version at once? Because each remaining step is a
+root of unity, and relabelling turns a root of unity into another root of unity:
+$|\sigma_g(\zeta^k)| = 1$, a unit step stays a unit step. So $r$ remaining steps can carry
+the head a distance of at most $r$ in <em>every</em> version of the picture simultaneously, and a
+head already too far from the origin in any single one of them can no longer get home in
+any of them.</p>
+<p>And why is that not merely the physical check repeated? Because $\mathbb{Z}[\zeta]$ is
+<a href="/blog/perfect-precision-2d-geometry-complex-integers/#there-are-far-more-cyclotomic-integers-than-you-d-expect">dense in the plane</a>:
+there are lattice points arbitrarily close to the origin, so “the head is nearly home”
+carries almost no effective information.</p>
+<p>We can multiply the head’s length across all $\varphi(n)$ versions of the picture; that
+product is the <em>field norm</em> $N(h)$, and for a ring element it is always a whole number –
+the versions of $h$ are precisely the roots of $h$’s <em>characteristic</em> polynomial, which
+is monic of degree $\varphi(n)$ with integer coefficients, so their product is its
+constant term, up to sign. A whole number that is not zero is at least one, so for every
+$h \ne 0$ we have</p>
+<p>$$|N(h)| = \prod_g |\sigma_g(h)| \ge 1$$</p>
+<p>Now read that backwards: the product cannot fall below $1$, so a factor that gets small
+forces the others to make up for it. On $\mathbb{Z}[\zeta_{12}]$ the four factors are the
+relabellings $g \in \lbrace 1, 5, 7, 11 \rbrace$, and they pair off under complex
+conjugation – $\sigma_{11}$ is the conjugate of $\sigma_1$, $\sigma_7$ of $\sigma_5$ –
+so each pair contributes the same length twice and only two distinct lengths are left:</p>
+<p>$$|h| \cdot |\sigma_5(h)| \ge 1 \quad\Longrightarrow\quad |\sigma_5(h)| \ge \frac{1}{|h|}$$</p>
+<p>The shadow is at least the <em>reciprocal</em> of the physical distance. A head a quarter of a unit
+from the origin has a shadow at least four units out – the four-step walk in directions
+(0,5,5,10), for instance, leaves its head $\approx 0.268$ from the origin while the shadow
+lands $\approx 3.732$ away, the two multiplying to exactly 1.</p>
+<figure style="margin: 2rem 0;">
+<div style="display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+<img src="fig-seesaw-physical.svg" alt="A four-step walk drawn physically: a compact zigzag whose final vertex sits very close to the starting point, joined to it by a short dashed line labelled 0.268." style="width: 36%; height: auto;">
+<img src="fig-seesaw-shadow.svg" alt="The same four steps under the relabelling zeta to zeta^5: a wide arc whose final vertex is far from the start, joined to it by a long dashed line labelled 3.732." style="width: 52%; height: auto;">
+</div>
+<figcaption style="text-align: center; font-size: 0.9em; margin-top: 0.75rem;">The seesaw in one example: the four steps $(0,5,5,10)$ drawn physically (left) and under $\zeta \mapsto \zeta^5$ (right), same scale, both centred on the origin (ring). The dashed line runs from the origin (ring) to the head (filled dot), labelled with its length; the two multiply to exactly $1$.</figcaption>
+</figure>
+<p>Combine that with the shadow’s own closure bound $|\sigma_5(h)| \le r$ and something
+pleasant drops out: a non-zero head that can still close must satisfy $|h| \ge 1/r$. The
+lattice is dense, but the <em>live</em> heads are not: with $r$ steps left they keep their distance
+from the origin.</p>
+<p><em>The finite places.</em> The same equation read modulo $m$, on the principle that if the
+remaining steps cannot cancel the head even when everything is tracked only modulo $m$, they
+certainly cannot cancel it exactly. So precompute, once per modulus, the sets</p>
+<p>$$R_{\le r} = \lbrace \zeta^{k_1} + \cdots + \zeta^{k_s} \bmod m \mid s \le r \rbrace$$</p>
+<p>for every budget $r$, by breadth-first search over the $m^{\varphi(n)}$ residues. A node
+with head $h$ and budget $r$ then dies unless $-h \bmod m \in R_{\le r}$. The $\le$ in
+the subscript is load-bearing: with $R_{=r}$ the prune would reject legal walks, since a
+walk may close before spending its whole budget. One hash lookup per modulus in the hot
+loop, and the tuning knob turned out to be the <em>number</em> of moduli (about four), not which
+ones.</p>
+<h3 id="3-beyond-places-a-catalogue-of-closable-suffixes"><a class="header-anchor no-hover-padding" href="#3-beyond-places-a-catalogue-of-closable-suffixes" aria-label="Anchor link for: 3-beyond-places-a-catalogue-of-closable-suffixes"><span class="link-icon" aria-hidden="true"></span></a>
+3. Beyond places: a catalogue of closable suffixes</h3>
+<p>The checks above all work with a projection of the head; this one keeps it exactly.
+Enumerate every simple path of at most $L$ steps out of the origin and record where it ends
+and which way it faces – run backwards, that is a catalogue of every way to <em>reach</em> the
+origin in $\le L$ steps. So with $r \le L$ steps left, rotate the suffix the walk needs into
+the origin frame, look it up, and a miss kills the branch. It is stronger than any
+projection above, seeing exact position and facing rather than a quotient of them – but
+a hit is
+still only a necessary condition, never a promise: the catalogue was built in an empty
+plane, so it certifies that <em>some</em> self-avoiding suffix reaches the origin from here, not
+that such a suffix avoids the edges this walk has already laid down. Exponential in $L$,
+so $L = 4$ and only the last few levels.</p>
+<h3 id="4-geometry-as-a-finite-automaton"><a class="header-anchor no-hover-padding" href="#4-geometry-as-a-finite-automaton" aria-label="Anchor link for: 4-geometry-as-a-finite-automaton"><span class="link-icon" aria-hidden="true"></span></a>
+4. Geometry as a finite automaton</h3>
+<p>Everything above answers <em>can this prefix still close?</em> What remains per surviving node is
+the separate question of whether the new edge crosses what is already drawn – the
+<a href="/blog/turtles-snakes-rats/#maintaining-valid-snakes">bucketed neighbourhood check</a> from the
+previous part.</p>
+<p>The deeper idea removes the arithmetic from the loop entirely. Lay a grid of identical
+parallelogram cells over the plane, each spanned by $1$ and the unit direction nearest a
+quarter turn – a unit square when $i$ lies in the ring, a rhombus otherwise. That
+choice is what keeps a unit step from ever skipping a cell. Every vertex then splits
+into two parts: <em>which</em> cell it sits in, and <em>where inside</em> that cell it sits. Call the
+second part the <strong>state</strong>. Shifting everything by a whole number of cells changes
+neither the state nor what a unit step does to it, so a step depends on the state and
+the direction alone: $(\text{state}, \text{direction}) \mapsto (\text{next state},
+\text{cell hop})$, the hop naming which of the nine cells – its own or a neighbour –
+the step lands in.</p>
+<figure style="margin: 2rem 0;">
+<div style="display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+<img src="fig-automaton-walk.svg" alt="A seven-step walk drawn over a grid of rhombic cells. Each vertex is a coloured dot and each cell it lands in is labelled with its integer coordinates; only three colours appear among the eight vertices." style="width: 60%; height: auto;">
+<img src="fig-automaton-cell.svg" alt="A single rhombic cell containing three coloured dots, the three distinct states of the walk." style="width: 26%; height: auto;">
+</div>
+<figcaption style="text-align: center; font-size: 0.9em; margin-top: 0.75rem;">
+<b>Left:</b> A walk over the cell grid of $\mathbb{Z}[\zeta_{10}]$, where the cell is a rhombus. Every
+vertex is a cell -- labelled with its integer coordinates - plus a <i>state</i>, its
+position inside that cell. These eight vertices sit in eight different cells but take only
+three states: two dots share a colour exactly when they sit at the same spot within their
+own cell. <b>Right:</b> those three states, drawn inside a single cell.
+</figcaption>
+</figure>
+<p>States and steps thus form a graph, and walking the lattice is walking that graph. It is
+infinite in general – the ring is dense, so the residuals keep subdividing the cell – but
+a rat of perimeter $k$ never strays more than $k/2$ steps from the origin, so <strong>we carve out
+the finite subgraph within that radius and tabulate it once</strong>. For $\mathbb{Z}[\zeta_{12}]$ at
+perimeter 16 that is 145 states; over the Eisenstein integers it is exactly one, because
+there the two cell vectors already generate the whole ring and every vertex folds to the
+cell origin.</p>
+<p>The self-avoidance test changes shape too: instead of running the exact intersection test
+on two segments, we look up a bit. A unit edge can cross at most one grid line in each of
+the grid’s two directions, so it lies in at most three cells, and the piece of it inside one
+cell is called a <em>fragment</em>. Which fragments an edge contributes is read off
+$(\text{state}, \text{direction})$, and each cell keeps the list of fragments already lying
+in it. Since two edges can only cross inside a cell they both pass through, the new edge is
+compared only against the lists of the cells it touches. So the exact test still decides
+every crossing – it just was precomputed, once per pair of fragment shapes, instead of
+per pair of segments at every node.</p>
+<p>That bookkeeping cannot go away: whether an edge crosses the drawing depends on the whole
+history of the walk, which no finite state can hold. But the cell coordinate the walk is
+already carrying <em>is</em> the index, so finding the right list costs nothing.</p>
+<h3 id="5-parallelization"><a class="header-anchor no-hover-padding" href="#5-parallelization" aria-label="Anchor link for: 5-parallelization"><span class="link-icon" aria-hidden="true"></span></a>
+5. Parallelization</h3>
+<p>The subtrees below a fixed depth are independent, so walking down to a <em>split depth</em>
+produces work units that parallelize with no communication at all. A seed is just an angle
+prefix, so the same list drives threads on one machine or processes on several, and a run
+can be split or resumed by passing prefixes around.</p>
+<p>The speedup stays well short of the core count, though. On 16 cores the same run is 2.9x
+faster at perimeter 11, 4.7x at perimeter 12 and 6.7x at perimeter 13. The main issue is
+that the seed subtrees have very unequal size (i.e., valid rats are unevenly distributed
+over possible prefixes), which leaves some workers idle while others are still busy.</p>
+<h3 id="what-it-adds-up-to"><a class="header-anchor no-hover-padding" href="#what-it-adds-up-to" aria-label="Anchor link for: what-it-adds-up-to"><span class="link-icon" aria-hidden="true"></span></a>
+What it adds up to</h3>
+<p>One machine, one build, one target: $\mathbb{Z}[\zeta_{12}]$ at perimeter 12, free,
+single-threaded, best of three runs (spread under 8%). Each optimization is switched on
+alone against the same baseline, and every configuration returns the same 703407
+rats. Note the baseline is already not a naive enumerator: the lex-min rotation prune and
+the physical-place (plain distance to the origin) bound - the conceptually simple
+common-sense optimizations - are always on.</p>
+<table><thead><tr><th>optimization</th><th style="text-align: right">tree searched</th><th style="text-align: right">wall clock</th></tr></thead><tbody>
+<tr><td>reachability prune (the shadow and finite places)</td><td style="text-align: right">10.6x smaller</td><td style="text-align: right">12.8x</td></tr>
+<tr><td>closable-suffix catalogue</td><td style="text-align: right">5.2x smaller</td><td style="text-align: right">5.2x</td></tr>
+<tr><td>automaton geometry</td><td style="text-align: right">unchanged</td><td style="text-align: right">1.9x</td></tr>
+<tr><td><strong>all three together</strong></td><td style="text-align: right"><strong>20.4x smaller</strong></td><td style="text-align: right"><strong>38.5x</strong></td></tr>
+<tr><td>the same, on 16 cores instead of 1</td><td style="text-align: right">unchanged</td><td style="text-align: right">4.7x further</td></tr>
+</tbody></table>
+<p>The factors do not multiply: individually they come to $12.8 \times 5.2 \times 1.9
+\approx 127$x, together they deliver 38.5x, because they compete for the same branches
+– whichever prune runs first takes the credit for a subtree the others would have
+killed too. The automaton is a different kind of optimization altogether: it leaves the
+tree <em>identical</em>, down to the last of the 9.1 billion direction attempts, and only makes
+each node cheaper, which is why its 1.9x shrinks to 1.34x once the prunes have already
+removed most of the geometry it was there to accelerate. End to end, the unoptimized
+single-threaded baseline needs 26 minutes on my laptop whereas the fully optimized
+16-core run needs 8.6 seconds: $38.5 \times 4.7$, a factor of 182.</p>
+<p>Those factors are also far smaller than the seven orders of magnitude this post opened
+with, so it is worth seeing where the rest goes. At perimeter 12 the nominal tree holds
+3.1 trillion words, but the baseline DFS only ever tries 9.1 billion directions: growing
+the walk one step at a time and rejecting on geometry and symmetry kills most branches before
+they exist. The three optimizations bring that down to 444 million – still 632
+candidate directions examined per rat found, most of them rejected before a step is
+taken at all. The gap gets narrowed, not closed.</p>
+<p>Every optimization measured above is opt-in and off by default, which is what makes the whole
+stack auditable. The test suite runs all eight on/off combinations of the three prunes – shadow
+places, finite places, closable-suffix catalogue – at several thread counts, and demands the <em>identical canonical set</em>
+as the unoptimized baseline, with published OEIS counts as an external anchor on top.</p>
+<p>Before any of this, perimeter 8 took two and a half hours and 10 was out of reach. Now
+perimeter 12 lands in 8.6 seconds, and the published dataset reaches perimeter 16 -
+$1{,}696{,}726{,}440$ rats of perimeter $\le 16$ altogether - in less than a day of
+compute on my laptop.</p>
+<h2 id="from-the-search-to-a-dataset"><a class="header-anchor no-hover-padding" href="#from-the-search-to-a-dataset" aria-label="Anchor link for: from-the-search-to-a-dataset"><span class="link-icon" aria-hidden="true"></span></a>
+From the search to a dataset</h2>
+<p>A rat is stored as what it is: its turning word, one signed byte per turn. The individual
+object is tiny – a perimeter-16 rat is sixteen bytes – but at the frontier there are
+1.7 billion of them, and that is the point where the <em>result</em>, not the search, becomes
+the limiting factor. An in-memory hash set of short byte strings costs 50-100x its raw
+payload once per-entry overhead, resize doubling and per-worker duplication are counted:
+long before the DFS runs out of time, the machine runs out of RAM.</p>
+<p>So the pipeline never holds the answer in memory. It runs as three stages over one output
+directory, ultimately producing a
+<a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton">DAFSA</a>:</p>
+<ol>
+<li><strong>Enumerate.</strong> Each worker takes its share of seeds and writes closures into a bounded
+sort buffer (~16 MB), flushing a sorted run to disk whenever it fills. Peak memory is
+workers times buffer, independent of how many rats there turn out to be.</li>
+<li><strong>Merge.</strong> A k-way merge folds those runs into a single sorted, deduplicated file,
+next to a certificate recording its
+<a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/BLAKE_(hash_function)">BLAKE3</a> hash, the headline counts
+and the exact flags that produced them.</li>
+<li><strong>Build.</strong> That file is streamed into the automaton builder without ever materialising
+the set.</li>
+</ol>
+<p>One small encoding decision makes the stages fit together with no re-sorting anywhere.
+Each record carries its length in the first byte, and every angle is stored shifted by
++128, so -5 becomes 123 and +5 becomes 133, and a negative turn no longer sorts above a
+positive one the way its raw signed byte would. With that, plain byte order already
+coincides with the (length, then lexicographic) order the final automaton wants, which
+is what lets the stages hand off directly: the merge can order records by comparing raw
+bytes instead of decoding each one, and the builder – which can only close off a state
+once it knows no later word shares that prefix, so it needs its input sorted – consumes
+the merged file as it streams.</p>
+<p>Here, the DAFSA is used as a practical string compression mechanism. It is the minimal
+deterministic automaton accepting exactly the enumerated words, so every shared prefix
+<em>and</em> every shared suffix is stored once; <strong>hanging a subtree count on each state</strong> turns
+it into an index as well, mapping each word to its rank and back, which is what <strong>makes
+the shipped set queryable rather than merely stored</strong> (otherwise one could have just use a
+off-the-shelf compression algorithm). For $\mathbb{Z}[\zeta_{12}]$ up to perimeter 16
+those 1.7 billion words – 26.9 GB of raw angle bytes – are represented by 7.4 million
+states and 39.0 million edges, and shipped as 131 MB in 103 content-addressed blocks.
+<strong>Under a bit per polygon.</strong></p>
+<h2 id="what-went-to-oeis"><a class="header-anchor no-hover-padding" href="#what-went-to-oeis" aria-label="Anchor link for: what-went-to-oeis"><span class="link-icon" aria-hidden="true"></span></a>
+What went to OEIS</h2>
+<p>One <em>free</em> enumeration per ring is really seven counting sequences at once: the base count
+of all rats, plus six filters over the very same set – one-sided, achiral,
+rotation-symmetric, symmetric, the even-turn sub-ring and the odd-turn coset. Each filter
+is a sequence in its own right, every dataset ships all seven, and the deeper the run, the
+more terms each of them gains.</p>
+<p>That is far more than I submitted. I only corrected a published value or pushed a sequence
+further. The rest I left alone – anyone can derive them from the published datasets in a
+few lines, so filing them would add bookkeeping rather than knowledge.</p>
+<ul>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A316200">A316200</a>, free rats on $\mathbb{Z}[\zeta_{10}]$ – <strong>corrected</strong>
+a(11) from $19405$ to $9883$, and extended a(12) to a(18).</li>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A284869">A284869</a>, free rats on $\mathbb{Z}[\zeta_6]$ – <strong>corrected</strong>
+a(22) from $374128188$ to $374128154$, and added a(23) and a(24).</li>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A316192">A316192</a>, free rats on $\mathbb{Z}[\zeta_{12}]$ – extended
+a(11) to a(16).</li>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A316198">A316198</a>, free rats on $\mathbb{Z}[\zeta_8]$ – extended a(7)
+to a(10).</li>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A316196">A316196</a>, symmetric rats on $\mathbb{Z}[\zeta_6]$ – extended
+a(16) to a(24).</li>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A316194">A316194</a>, symmetric rats on $\mathbb{Z}[\zeta_4]$ – extended
+a(9) to a(16).</li>
+<li><a rel="noopener external" target="_blank" href="https://oeis.org/A316195">A316195</a>, the odd-turn coset on $\mathbb{Z}[\zeta_{10}]$ –
+extended a(8) and a(9).</li>
+</ul>
+<p>(OEIS indexes some of these by perimeter $n$ and others by $2n$; the terms above follow
+each sequence’s own convention.)</p>
+<p>I wanted to be <em>very</em> confident before I would publicly state that I spotted wrong values
+in OEIS, so I was careful: A316200’s a(11) was re-derived by a fully independent
+implementation that is also using exact $\mathbb{Z}[\sqrt 5]$ arithmetic, and for
+A284869’s a(22) I contacted the author, who then spotted a bug in <em>his</em> code and asked me
+to submit my value as a correction. Every other published term I could reach was reproduced
+exactly before anything new was added on top.</p>
+<p>None of this ships as a table of numbers. I tried to implement the <a rel="noopener external" target="_blank" href="https://www.go-fair.org/fair-principles/">FAIR data
+principles</a> to the best of my abilities: the
+<a rel="noopener external" target="_blank" href="https://ratdb.app.pirogov.de/?ring=12">Rat Explorer</a> is hosted as a static website on
+GitHub Pages and the blocks are fetched on demand from a separate <a rel="noopener external" target="_blank" href="https://github.com/apirogov/tilezz-ratdb/">dataset
+repository</a>, so you can explore the whole set in
+a browser without ever downloading it in full. Every per-ring dataset is packaged as an
+<a rel="noopener external" target="_blank" href="https://www.researchobject.org/ro-crate/">RO-Crate</a> that pins the producing commit, the
+exact command line and a SHA256 per block, and ships a standalone verifier that re-derives
+the OEIS counts from the blocks – see for instance
+<a rel="noopener external" target="_blank" href="https://ratdb.app.pirogov.de/data/zz12_n16_free/ro-crate-metadata.json">the $\mathbb{Z}[\zeta_{12}]$ set to perimeter
+16</a>. That does not
+prove I did not miss a rat, but you can actually look at <em>every single one I found</em>.</p>
+</div>
+<p>I hope that this level of care for empirically or computationally obtained datasets
+backing scientific results becomes more common sense and common practice in the future.
+Taking data management seriously is a key remedy against the replicability crisis haunting
+many areas of science.</p>
+<h2 id="bonus-spectre-is-the-smallest-aperiodic-monotile-on-mathbb-z-zeta-12"><a class="header-anchor no-hover-padding" href="#bonus-spectre-is-the-smallest-aperiodic-monotile-on-mathbb-z-zeta-12" aria-label="Anchor link for: bonus-spectre-is-the-smallest-aperiodic-monotile-on-mathbb-z-zeta-12"><span class="link-icon" aria-hidden="true"></span></a>
+Bonus: Spectre is the smallest aperiodic monotile on $\mathbb{Z}[\zeta_{12}]$</h2>
+<p>One motivation for building tilezz was to find more, possibly even simpler aperiodic
+siblings of the Spectre tile. Even
+though there is no easy method to find aperiodic monotiles, there is extensive theory
+about determining whether a tile tiles the plane periodically. So <strong>I built a pipeline to
+sieve through rats living on $\mathbb{Z}[\zeta_{12}]$</strong>. It alternates between trying to
+disprove tileability and proving periodic tileability. Whatever survives this is worth
+looking at more closely.</p>
+<p>To disprove tileability, I essentially try to compute the <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Heesch%27s_problem">Heesch
+number</a> of the tile using a more or less
+brute force approach, with a pruning heuristic based on pre-computed uncloseable
+boundary features. The Heesch number says how many fully closed rings of tiles (called
+<em>coronas</em>) you can place around a single tile before you cannot proceed. A majority of
+tiles have Heesch number 0 or 1, i.e. you quickly get stuck and the exhaustive check
+terminates, certifying non-tileability. Sadly, there is no compact witness that the Heesch
+number I computed is an upper bound (it is a co-NP problem), but at least the lower bound
+is certified by a $k$-corona patch.</p>
+<figure style="margin: 2rem 0;">
+<div style="display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+<img src="fig-heesch3.svg" alt="A tile surrounded by three complete rings of copies of itself, coloured by ring; no fourth ring can be completed." style="width: 40%; height: auto;">
+<img src="fig-heesch2a.svg" alt="A seven-edge tile surrounded by two complete rings of copies." style="width: 26%; height: auto;">
+<img src="fig-heesch2b.svg" alt="A ten-edge tile surrounded by two complete rings of copies." style="width: 26%; height: auto;">
+</div>
+<figcaption style="text-align: center; font-size: 0.9em; margin-top: 0.75rem;">
+Maximal coronas, coloured by ring. Left: the only tile of Heesch number 3 in the whole
+perimeter-$\le 14$ set - three rings close, a fourth provably cannot. Middle and right:
+two of the 24 tiles that stop at 2.
+</figcaption> </figure>
+<p>For the other side of the attack, I throw various algorithms at the tile trying to certify
+a periodic tiling that falls into a known recognizable family:</p>
+<ul>
+<li>the <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Conway_criterion">Conway criterion</a>, on the boundary
+edge sequence,</li>
+<li>a search for <a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Isohedral_figure">isohedral</a> edge-gluings,
+covering the 3-, 4- and 6-fold rotation centres the Conway criterion misses,</li>
+<li><a rel="noopener external" target="_blank" href="https://en.wikipedia.org/wiki/Anisohedral_tiling">anisohedral</a> clusters, where $k$ copies
+of the tile can tile as a composite,</li>
+<li>a torus cover: fold the plane onto a torus and check that $k$ copies cover it exactly,
+which unfolds into a periodic tiling of the whole plane,</li>
+<li>a translation-only criterion for the brick-wall class the Conway criterion misses
+(<a rel="noopener external" target="_blank" href="https://doi.org/10.1007/BF02574705">Beauquier and Nivat</a>).</li>
+</ul>
+<div style="display: flex; gap: 1rem; justify-content: center; align-items: flex-end; flex-wrap: wrap; margin: 2rem 0;">
+<figure style="width: 30%; margin: 0;"><img src="fig-per-translation.svg" alt="A periodic tiling of translated copies only, all drawn in one colour." style="width: 100%; height: auto;"><figcaption style="text-align: center; font-size: 0.85em; margin-top: 0.3rem;">translation only</figcaption></figure>
+<figure style="width: 30%; margin: 0;"><img src="fig-per-conway.svg" alt="A periodic tiling grown from a Conway-criterion certificate, coloured by orientation." style="width: 100%; height: auto;"><figcaption style="text-align: center; font-size: 0.85em; margin-top: 0.3rem;">Conway criterion</figcaption></figure>
+<figure style="width: 30%; margin: 0;"><img src="fig-per-isohedral.svg" alt="A periodic tiling grown from an isohedral edge-gluing certificate, coloured by orientation." style="width: 100%; height: auto;"><figcaption style="text-align: center; font-size: 0.85em; margin-top: 0.3rem;">isohedral gluing</figcaption></figure>
+<figure style="width: 30%; margin: 0;"><img src="fig-per-anisohedral.svg" alt="A periodic tiling grown from a 2-anisohedral cluster certificate, coloured by orientation." style="width: 100%; height: auto;"><figcaption style="text-align: center; font-size: 0.85em; margin-top: 0.3rem;">$2$-anisohedral cluster</figcaption></figure>
+<figure style="width: 30%; margin: 0;"><img src="fig-per-torus.svg" alt="A periodic tiling grown from a torus-cover certificate with a ten-tile fundamental domain." style="width: 100%; height: auto;"><figcaption style="text-align: center; font-size: 0.85em; margin-top: 0.3rem;">torus cover, $10$-tile domain</figcaption></figure>
+<figure style="width: 30%; margin: 0;"><img src="fig-per-torus18.svg" alt="A periodic tiling grown from a torus-cover certificate whose fundamental domain is eighteen copies of the tile -- the largest domain found anywhere in the set." style="width: 100%; height: auto;"><figcaption style="text-align: center; font-size: 0.85em; margin-top: 0.3rem;">torus cover, $18$-tile domain</figcaption></figure>
+</div>
+<p>Each one yields a certifying recipe that lets you build an arbitrarily large patch. The
+criteria overlap heavily – most tiles are certified by several of them – so which one a
+tile ends up labelled with depends on the order they are tried in.</p>
+<p>Probably I could write another whole post about this other hunt, but the (for me) mildly
+disappointing result is: <strong>Spectre is the unique smallest chiral aperiodic monotile on the
+smallest cyclotomic ring that can represent it</strong>, $\mathbb{Z}[\zeta_{12}]$. I know because the
+sieve ran over all $33{,}279{,}563$ rats of perimeter at most 14 – the Spectre’s own perimeter
+– and every one of them except Spectre came out cleanly classified as either provably periodic
+or provably non-tiling. At least I wanted to have this stated. Maybe this is not of academic
+interest, but it still is a neat outcome. And at least I saw some very pretty images on the way
+there.</p>
+<p>I think this can be considered evidence that at least <em>small</em> aperiodic tiles are indeed
+rare, and if they exist, they probably need more expressive edge proportions than unit
+steps. However, any generalization in that direction would make the search space even
+larger. All in all this makes the Spectre even more special and a very lucky find.</p>
+<h2 id="summary"><a class="header-anchor no-hover-padding" href="#summary" aria-label="Anchor link for: summary"><span class="link-icon" aria-hidden="true"></span></a>
+Summary</h2>
+<p>My vision for tilezz has always been to build a Swiss Army knife for attacking various tiling
+questions computationally, in order to turn the arcane art of discovering interesting
+tiles into more of an engineering problem.</p>
+<p>While I have not reached the ambitious level I dream about, e.g. automatically</p>
+<ul>
+<li>identifying candidates for aperiodic monotiles, or</li>
+<li>revealing emergent macrotile structures,</li>
+</ul>
+<p>or similar frontier-adjacent goals, I believe that tilezz is already a pretty
+powerful framework to analyze tiles, tilesets and patches they can induce, and that it is
+far from having realized its full potential.</p>
+<p>The library already contains various plotting utilities, but there is no
+product-grade application. The <a rel="noopener external" target="_blank" href="https://ratdb.app.pirogov.de/?ring=12">Rat Explorer</a> only
+uses and demonstrates a tiny fraction of what the library can do.</p>
+<p>I must say that now I am a bit exhausted from this tiling saga. Even with help of AI, I
+have been working on this for multiple months on the side, whenever I had some spare
+time. But it is quite likely that I will eventually pick it up again, if not this year
+then another.</p>
+<p>There are many exciting follow-up ideas and projects I would like to explore. One of them
+would be a web-based graphical user interface, a kind of “tiling laboratory”, to make more
+tilezz functionality accessible for playful exploration or assistance in tiling research.</p>
+<hr />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-images">
+<p>And of course, all illustrations are AI-generated and rendered using the also
+AI-generated new renderer-agnostic visualization backend. Do you think I have time or
+motivation to write <em>plotting code</em>? I am not claiming to be a visual artist, so I
+won’t even bother AI-marking it. The old and horrible
+<a rel="noopener external" target="_blank" href="https://docs.rs/plotters/latest/plotters/">plotters</a> code I wrote by hand 2 years ago
+is gone, and rightly so - plotters turned out to be very buggy and also probably was
+not the right tool for my needs in the first place. <a href="#fr-images-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+        </section>
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="https://pirogov.de/blog/ai-empowering-technology/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">AI as an Empowering Technology</p></div>
+                <div><a href="https://pirogov.de/blog/grapheneos-fdroid/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Keep Your Phone Free and Secure With GrapheneOS</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#introduction">Introduction</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#let-s-enumerate-rats">Let’s Enumerate Rats!</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#the-foundation-one-concrete-basis-per-field">The Foundation: One concrete basis per field</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#cutting-the-search-tree">Cutting the search tree</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#1-lexicographic-symmetry-reduction">1. Lexicographic symmetry reduction</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#2-reachability-at-every-place-of-the-field">2. Reachability, at every place of the field</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#3-beyond-places-a-catalogue-of-closable-suffixes">3. Beyond places: a catalogue of closable suffixes</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#4-geometry-as-a-finite-automaton">4. Geometry as a finite automaton</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#5-parallelization">5. Parallelization</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#what-it-adds-up-to">What it adds up to</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#from-the-search-to-a-dataset">From the search to a dataset</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#what-went-to-oeis">What went to OEIS</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#bonus-spectre-is-the-smallest-aperiodic-monotile-on-mathbb-z-zeta-12">Bonus: Spectre is the smallest aperiodic monotile on $\mathbb{Z}[\zeta_{12}]$</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://pirogov.de/blog/tilezz-polygons-oeis/#summary">Summary</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<link rel="stylesheet" href="https://pirogov.de/katex.min.css">
+    <script defer src="https://pirogov.de/js/katex.min.js"></script>
+    <span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://pirogov.de/js/copyCodeToClipboard.min.js"></script>
+
+<script defer src="https://pirogov.de/js/codeBlockNameLinks.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="noopener" target=_blank
+
+ href="https://pirogov.de/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://pirogov.de/social_icons/rss.svg">
+                        </a>
+                    </li><li class="js"><a class="nav-links no-hover-padding social" href="#" data-encoded-email="YW50b25AcGlyb2dvdi5kZQ=="><img loading="lazy" alt="email" title="email" src="https://pirogov.de/social_icons/email.svg">
+                            </a>
+                        </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://orcid.org/0000-0002-5077-7497">
+                                    <img loading="lazy" alt="ORCID" title="ORCID" src="https://pirogov.de/social_icons/orcid.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://github.com/apirogov">
+                                    <img loading="lazy" alt="github" title="github" src="https://pirogov.de/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel="noopener me" target=_blank
+
+ href="https://www.last.fm/user/apirogov">
+                                    <img loading="lazy" alt="last.fm" title="last.fm" src="https://pirogov.de/social_icons/lastfm.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+    
+    
+    
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    <p><p>© 2026 Anton Pirogov • Unless otherwise noted, the content in this website is available under the <a rel="noopener external" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.</p>
+</p>
+
+                
+                Powered by
+                <a rel="noopener" target=_blank
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="noopener" target=_blank
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <script src="https://pirogov.de/js/decodeMail.min.js" async></script></footer>
+
+
+    
+    
+</body>
+
+</html>

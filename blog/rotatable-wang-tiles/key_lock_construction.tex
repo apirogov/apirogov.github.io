@@ -1,0 +1,42 @@
+% compile with lualatex -shell-escape, then remove auxiliary files
+% \documentclass[svgnames,tikz,convert={outfile=\jobname.svg}]{standalone}
+\documentclass[svgnames,tikz]{standalone}
+\directlua{luatexbase.add_to_callback("wrapup_run", function() os.execute("pdf2svg \jobname.pdf \jobname.svg") print("Converted to SVG.") end, "final callback to convert pdf file")}
+\usetikzlibrary{calc,snakes}
+\begin{document}
+\begin{tikzpicture}[
+  point/.style = {draw, circle,  fill = black, inner sep = 1pt},
+  squigly/.style={color=gray, dashed, decorate, decoration={snake,amplitude=.5mm,segment length=5mm,post length=0mm,pre length=0mm}}
+  ]
+  \coordinate [] (N) at (0, 4);
+
+  \coordinate [] (N3) at (0, 3);
+  \coordinate [] (B2) at (0.5, 2.5);
+  \coordinate [] (N2) at (0, 2);
+  \coordinate [] (N1) at (0, 1);
+  \coordinate [] (B1) at (0.5, 0.5);
+  \coordinate [] (C) at (0, 0);
+
+  \coordinate [] (E) at (4, 0);
+  \coordinate [] (S) at (0, -4);
+  \coordinate [] (W) at (-4, 0);
+
+  \draw ($(C)!0.5!(N1)+(-0.2, 0)$) node[color=blue] {1};
+  \draw ($(N1)!0.5!(N2)+(-0.2, 0)$) node[color=blue] {0};
+  \draw ($(N2)!0.5!(N3)+(-0.2, 0)$) node[color=blue] {1};
+  \draw ($(N3)!0.5!(N)+(-0.2, 0)$) node[color=blue] {0};
+
+  \draw (S) -- (C) -- (B1) -- (N1) -- (N2) -- (B2) -- (N3) -- (N);
+
+  \path (S) edge [squigly] (E);
+  \path (E) edge [squigly] (N);
+  \path (N) edge [squigly] (W);
+  \path (W) edge [squigly] (S);
+
+  \node[point] (pt1) at (N) {};
+  \node[point] (pt2) at (S) {};
+
+  \node[scale=2] (lbl1) at (-2, 0) {$5_+$};
+  \node[scale=2] (lbl2) at (2, 0) {$5_-$};
+\end{tikzpicture}
+\end{document}
